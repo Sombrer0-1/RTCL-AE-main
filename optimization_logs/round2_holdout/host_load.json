@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-09-22T19:40:11.104257",
+  "load_average_1_5_15min": [
+    31.48,
+    30.21,
+    19.95
+  ],
+  "logical_cpus": 24,
+  "note": "Concurrent host CPU workloads observed. This later phase is not pooled with round2 wall times; no other workloads were modified."
+}

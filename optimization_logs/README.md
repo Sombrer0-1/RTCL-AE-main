@@ -1,5 +1,7 @@
 # 调度算法改进实验
 
+第二轮结果见 [边界调度与有界缓存](round2/README.md)：同批量、模型哈希等价的新增对照。下文保留第一轮结论，不用新结果覆盖历史负结果。
+
 原始复现已独立归档：`origin/main` 提交 `2149f51`，标签 `repro-baseline-20260922`。本目录是后续探索，不能与仓库根目录的论文 AE 表混为一谈。
 
 ## 改进动机
@@ -50,7 +52,7 @@ QPS = 50,000 / 总进程墙钟时间，包含导入、初始化、训练、评�
 ## 运行
 
 ```bash
-/home/zhuzetong/.conda/envs/aocl/bin/python optimization_logs/run_comparison.py
+/home/zhuzetong/.conda/envs/aocl/bin/python optimization_logs/run_comparison.py --output optimization_logs/repeat64
 /home/zhuzetong/.conda/envs/aocl/bin/python optimization_logs/summarize.py
 /home/zhuzetong/.conda/envs/aocl/bin/python -m unittest discover -s tests
 ```

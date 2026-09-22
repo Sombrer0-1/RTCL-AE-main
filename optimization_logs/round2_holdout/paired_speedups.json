@@ -1,0 +1,17 @@
+[
+  {
+    "seed": "44",
+    "baseline": "freshness_cached",
+    "speedup": 1.7192214553911478
+  },
+  {
+    "seed": "55",
+    "baseline": "freshness_cached",
+    "speedup": 1.1796509655555454
+  },
+  {
+    "seed": "66",
+    "baseline": "freshness_cached",
+    "speedup": 1.0133724035951504
+  }
+]
