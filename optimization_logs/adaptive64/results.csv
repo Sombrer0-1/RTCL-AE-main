@@ -1,0 +1,4 @@
+mode,seed,wall_sec,qps,final_accuracy,eval_cycles,eval_samples,final_p99_ms,max_cycle_p99_ms,return_code,valid,log
+freshness_adaptive,11,33.876936953980476,1475.9303672560957,0.2684,6,60000,1.5409636497497556,5.607132911682129,0,True,freshness_adaptive_seed11.log
+freshness_adaptive,22,33.7609779429622,1480.9997531609708,0.2743,8,80000,1.8891072273254395,5.891022682189941,0,True,freshness_adaptive_seed22.log
+freshness_adaptive,33,35.76293840096332,1398.0954092590218,0.2385,7,70000,2.547783851623526,5.477197170257568,0,True,freshness_adaptive_seed33.log

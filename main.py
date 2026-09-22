@@ -226,7 +226,7 @@ def main():
     else:
         global_scheduler = GlobalTimelineScheduler(
             time_slice=args.timeslice, 
-            mode=args.global_scheduler_mode,
+            mode=("fully_parallel" if args.global_scheduler_mode in ("freshness", "freshness_adaptive") else args.global_scheduler_mode),
             adaptive_params=adaptive_params
         )
     

@@ -106,6 +106,8 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
     if getattr(args, "semseg", False):
         import avalanche.evaluation.metrics.accuracy as _acc_mod
         _acc_mod.is_semseg_acc = True  # spawned process: re-set per-pixel accuracy flag
+    from src.utils.reproducibility import seed_worker
+    seed_worker(getattr(args, "seed", None))
     # Register signal handler
     handler = lambda signum, frame: request_config_update_handler(signum, frame, shared_data)
     signal.signal(signal.SIGUSR1, handler)
@@ -190,13 +192,16 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
         last_eval_time = time.time()
         waiting_for_final_eval = False
         final_eval_done = False
+        from src.schedulers.freshness_scheduler import FreshnessPolicy, InferenceBatchPolicy
+        freshness = FreshnessPolicy(time.monotonic()) if args.global_scheduler_mode in ("freshness", "freshness_adaptive") else None
+        inference_batch = InferenceBatchPolicy(args.eval_bs, maximum=max(256, args.eval_bs)) if args.global_scheduler_mode == "freshness_adaptive" else None
 
         # Main evaluation loop. Do not test train_process_active in the
         # while-header: on a fast GPU training can flip that flag while this
         # process is stopped or sleeping, and the header check then exits
         # before the final post-training cycle (the branch below) can run.
         while not final_eval_done:
-            if TERMINATE_SIGNAL:
+            if TERMINATE_SIGNAL or shared_data.get("TERMINATE_SIGNAL", False):
                 log_info("[Eval] Termination requested. Stopping evaluation...")
                 break
 
@@ -206,7 +211,14 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                 log_info("[Eval] Training complete. Performing final evaluation...")
 
             current_time = time.time()
-            if ((not waiting_for_final_eval)
+            snapshot_version = shared_data.get("published_version", 0)
+            if freshness is not None:
+                if not train_active and snapshot_version <= freshness.last_version:
+                    break
+                if not freshness.ready(time.monotonic(), snapshot_version, train_active):
+                    time.sleep(POLL_INTERVAL_SECONDS)
+                    continue
+            if ((freshness is None) and (not waiting_for_final_eval)
                     and current_time - last_eval_time < EVAL_INTERVAL_SECONDS):
                 time.sleep(POLL_INTERVAL_SECONDS)
                 continue
@@ -229,6 +241,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                     with lock:
                         checkpoint = torch.load(model_path)
                         state_dict = checkpoint['model_state_dict']
+                        snapshot_version = checkpoint.get('model_version', snapshot_version)
                 model.load_state_dict(state_dict)
                 model.to(device)
             except Exception as e:
@@ -278,6 +291,27 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                 log_warning("[Eval] interruptible_eval returned None or empty result.")
         
             last_eval_time = time.time()
+            if eval_result_dict:
+                import json
+                log_info("[CycleMetrics] " + json.dumps({
+                    "cycle": current_eval_num, "version_lower_bound": snapshot_version,
+                    "final_at_load": not train_active,
+                    "final_snapshot": (not args.enable_double_buffer and
+                        snapshot_version == shared_data.get("total_experiences", -1) and
+                        shared_data.get("all_experiences_completed", False)),
+                    "accuracy": eval_result_dict['streaming_accuracy'],
+                    "samples": eval_result_dict['total_samples'],
+                    "eval_batch": cl_strategy.eval_mb_size,
+                    "duration": eval_latency,
+                    "batch_p95_ms": eval_result_dict.get('batch_p95_ms'),
+                    "batch_p99_ms": eval_result_dict.get('batch_p99_ms'),
+                }))
+                if freshness is not None:
+                    freshness.observe(time.monotonic(), snapshot_version, eval_latency)
+            if inference_batch is not None and eval_result_dict:
+                cl_strategy.eval_mb_size = inference_batch.observe(eval_result_dict['batch_p95_ms'])
+            if freshness is not None:
+                continue
             
             # Check if training is complete and we need one final evaluation
             if not shared_data.get("train_process_active", True):
@@ -317,6 +351,7 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
         all_targets = []
         semseg_overall_correct = 0
         semseg_overall_total = 0
+        batch_latencies = []
         experience_accuracies = {} # Stores accuracy for each experience in this eval cycle
         experience_details = {}    # Stores more details if needed
 
@@ -373,14 +408,16 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
                         exp_total += y.size(0)
 
                     batch_elapsed_time = time.time() - batch_start_time
+                    batch_latencies.append(batch_elapsed_time * 1000.0)
                     
                     # Update shared_data with latest batch-level accuracy and latency for this experience
                     # This provides fine-grained updates to the scheduler if needed
-                    if exp_total > 0:
-                        shared_data["latest_accuracy"] = exp_correct / exp_total 
-                    else:
-                        shared_data["latest_accuracy"] = 0.0
-                    shared_data["latest_latency"] = batch_elapsed_time
+                    if args.global_scheduler_mode != "freshness_adaptive":
+                        if exp_total > 0:
+                            shared_data["latest_accuracy"] = exp_correct / exp_total
+                        else:
+                            shared_data["latest_accuracy"] = 0.0
+                        shared_data["latest_latency"] = batch_elapsed_time
                     
                     if batch_idx % 10 == 0: # Log progress every 10 batches for this experience
                         log_info(f"[Eval][Exp {exp_id}][MiniBatch {batch_idx}] acc_so_far={(exp_correct/exp_total if exp_total > 0 else 0.0):.4f}, batch_lat={batch_elapsed_time:.3f}s")
@@ -477,6 +514,8 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
         log_info("="*50 + "\n")
         
         return {
+            'batch_p95_ms': float(np.percentile(batch_latencies, 95)),
+            'batch_p99_ms': float(np.percentile(batch_latencies, 99)),
             'streaming_accuracy': streaming_accuracy,
             'experience_accuracies': experience_accuracies, # Accuracies for experiences evaluated in this call
             'experience_details': experience_details,

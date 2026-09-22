@@ -50,6 +50,9 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
         import avalanche.evaluation.metrics.accuracy as _acc_mod
         _acc_mod.is_semseg_acc = True  # spawned process: re-set per-pixel accuracy flag
 
+    from src.utils.reproducibility import seed_worker
+    seed_worker(getattr(args, "seed", None))
+
     # Register signal handler within the process
     handler = lambda signum, frame: request_config_update_handler(signum, frame, shared_data)
     signal.signal(signal.SIGUSR1, handler)
@@ -85,7 +88,8 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
         # Set up training plugins
         training_plugins = create_training_plugins(args)
         # SharedDataLoggerPlugin 추가
-        training_plugins.append(SharedDataLoggerPlugin(shared_data))
+        if args.global_scheduler_mode != "freshness_adaptive":
+            training_plugins.append(SharedDataLoggerPlugin(shared_data))
         # Create continual learning strategy
         cl_strategy = create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, training_plugins, config_controller, shared_data)
         
@@ -167,8 +171,10 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                 with lock:
                     torch.save({
                         'model_state_dict': cl_strategy.model.state_dict(),
+                        'model_version': exp_id + 1,
                     }, model_path)
                     log_info(f"[Train] Model state_dict saved to {model_path}")
+            shared_data["published_version"] = exp_id + 1
             shared_data[f"experience_{exp_id}_completed"] = True
             exp_counter += 1
             if shared_data.get("TERMINATE_SIGNAL", False):

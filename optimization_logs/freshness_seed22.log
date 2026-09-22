@@ -1,0 +1,989 @@
+{"command": ["/home/zhuzetong/.conda/envs/aocl/bin/python", "/home/zhuzetong/research/CL/RTCL-AE-main/main.py", "--benchmark", "split_cifar10", "--algorithm", "replay", "--model", "resnet20", "--training_bs", "64", "--eval_bs", "16", "--global_scheduler_mode", "freshness", "--seed", "22", "--max_runtime", "240"], "seed": 22, "gpu": 1, "cpu_threads": 1}
+[2026-09-22 14:38:41][INFO] Using device: cuda:0
+[2026-09-22 14:38:44][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 64 from args.
+[2026-09-22 14:38:44][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-09-22 14:38:44][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-09-22 14:38:47][INFO] [TrainWorker] Registered SIGUSR1 handler.
+[2026-09-22 14:38:48][INFO] [Plugin] Adding ReplayPlugin for memory management.
+[2026-09-22 14:38:48][INFO] Training process started.
+[2026-09-22 14:38:48][INFO] -->> Starting training for Experience 0 <<--
+[2026-09-22 14:38:48][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:48][INFO] [Train] DataLoader recreated for Exp 0 (batch size 64)
+[2026-09-22 14:38:48][INFO] Training Experience 0 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 14:38:48][INFO] [Train][MiniBatch][Plugin] acc=0.0, latency=0.245
+  1%|▏         | 1/79 [00:00<00:23,  3.36it/s]  1%|▏         | 1/79 [00:00<00:23,  3.36it/s]  3%|▎         | 2/79 [00:00<00:22,  3.36it/s]  4%|▍         | 3/79 [00:00<00:22,  3.36it/s]  5%|▌         | 4/79 [00:00<00:22,  3.36it/s]  6%|▋         | 5/79 [00:00<00:22,  3.36it/s]  8%|▊         | 6/79 [00:00<00:21,  3.36it/s]  9%|▉         | 7/79 [00:00<00:21,  3.36it/s] 10%|█         | 8/79 [00:00<00:21,  3.36it/s] 11%|█▏        | 9/79 [00:00<00:20,  3.36it/s] 13%|█▎        | 10/79 [00:00<00:20,  3.36it/s][2026-09-22 14:38:48][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.003
+ 14%|█▍        | 11/79 [00:00<00:02, 33.65it/s] 14%|█▍        | 11/79 [00:00<00:02, 33.65it/s] 15%|█▌        | 12/79 [00:00<00:01, 33.65it/s] 16%|█▋        | 13/79 [00:00<00:01, 33.65it/s] 18%|█▊        | 14/79 [00:00<00:01, 33.65it/s][2026-09-22 14:38:48][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-09-22 14:38:48][INFO] [Eval] Model output layer: Linear(in_features=64, out_features=10, bias=True)
+[2026-09-22 14:38:48][INFO] [Eval] Output features: 10
+[2026-09-22 14:38:48][INFO] [Eval] Benchmark: split_cifar10
+[2026-09-22 14:38:48][INFO] [Eval] Test stream length: 10
+[2026-09-22 14:38:48][INFO] [Plugin] Adding ReplayPlugin for memory management.
+ 19%|█▉        | 15/79 [00:00<00:01, 33.65it/s] 20%|██        | 16/79 [00:00<00:01, 33.65it/s] 22%|██▏       | 17/79 [00:00<00:01, 33.65it/s] 23%|██▎       | 18/79 [00:00<00:01, 33.65it/s] 24%|██▍       | 19/79 [00:00<00:01, 33.65it/s] 25%|██▌       | 20/79 [00:00<00:01, 33.65it/s][2026-09-22 14:38:48][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.003
+ 27%|██▋       | 21/79 [00:00<00:01, 53.15it/s] 27%|██▋       | 21/79 [00:00<00:01, 53.15it/s] 28%|██▊       | 22/79 [00:00<00:01, 53.15it/s] 29%|██▉       | 23/79 [00:00<00:01, 53.15it/s] 30%|███       | 24/79 [00:00<00:01, 53.15it/s] 32%|███▏      | 25/79 [00:00<00:01, 53.15it/s] 33%|███▎      | 26/79 [00:00<00:00, 53.15it/s] 34%|███▍      | 27/79 [00:00<00:00, 53.15it/s] 35%|███▌      | 28/79 [00:00<00:00, 53.15it/s] 37%|███▋      | 29/79 [00:00<00:00, 53.15it/s] 38%|███▊      | 30/79 [00:00<00:00, 53.15it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 39%|███▉      | 31/79 [00:00<00:00, 66.00it/s] 39%|███▉      | 31/79 [00:00<00:00, 66.00it/s][2026-09-22 14:38:49][INFO] Starting evaluation process...
+ 41%|████      | 32/79 [00:00<00:00, 66.00it/s] 42%|████▏     | 33/79 [00:00<00:00, 66.00it/s] 43%|████▎     | 34/79 [00:00<00:00, 66.00it/s] 44%|████▍     | 35/79 [00:00<00:00, 66.00it/s] 46%|████▌     | 36/79 [00:00<00:00, 66.00it/s] 47%|████▋     | 37/79 [00:00<00:00, 66.00it/s] 48%|████▊     | 38/79 [00:00<00:00, 66.00it/s] 49%|████▉     | 39/79 [00:00<00:00, 66.00it/s] 51%|█████     | 40/79 [00:00<00:00, 66.00it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.003
+ 52%|█████▏    | 41/79 [00:00<00:00, 74.97it/s] 52%|█████▏    | 41/79 [00:00<00:00, 74.97it/s] 53%|█████▎    | 42/79 [00:00<00:00, 74.97it/s] 54%|█████▍    | 43/79 [00:00<00:00, 74.97it/s] 56%|█████▌    | 44/79 [00:00<00:00, 74.97it/s] 57%|█████▋    | 45/79 [00:00<00:00, 74.97it/s] 58%|█████▊    | 46/79 [00:00<00:00, 74.97it/s] 59%|█████▉    | 47/79 [00:00<00:00, 74.97it/s] 61%|██████    | 48/79 [00:00<00:00, 74.97it/s] 62%|██████▏   | 49/79 [00:00<00:00, 74.97it/s] 63%|██████▎   | 50/79 [00:00<00:00, 74.97it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.003
+ 65%|██████▍   | 51/79 [00:00<00:00, 80.81it/s] 65%|██████▍   | 51/79 [00:00<00:00, 80.81it/s] 66%|██████▌   | 52/79 [00:00<00:00, 80.81it/s] 67%|██████▋   | 53/79 [00:00<00:00, 80.81it/s] 68%|██████▊   | 54/79 [00:00<00:00, 80.81it/s] 70%|██████▉   | 55/79 [00:00<00:00, 80.81it/s] 71%|███████   | 56/79 [00:00<00:00, 80.81it/s] 72%|███████▏  | 57/79 [00:00<00:00, 80.81it/s] 73%|███████▎  | 58/79 [00:00<00:00, 80.81it/s] 75%|███████▍  | 59/79 [00:00<00:00, 80.81it/s] 76%|███████▌  | 60/79 [00:00<00:00, 80.81it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 77%|███████▋  | 61/79 [00:00<00:00, 85.23it/s] 77%|███████▋  | 61/79 [00:00<00:00, 85.23it/s] 78%|███████▊  | 62/79 [00:00<00:00, 85.23it/s] 80%|███████▉  | 63/79 [00:00<00:00, 85.23it/s] 81%|████████  | 64/79 [00:00<00:00, 85.23it/s] 82%|████████▏ | 65/79 [00:00<00:00, 85.23it/s] 84%|████████▎ | 66/79 [00:00<00:00, 85.23it/s] 85%|████████▍ | 67/79 [00:01<00:00, 85.23it/s] 86%|████████▌ | 68/79 [00:01<00:00, 85.23it/s] 87%|████████▋ | 69/79 [00:01<00:00, 85.23it/s] 89%|████████▊ | 70/79 [00:01<00:00, 85.23it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.003
+ 90%|████████▉ | 71/79 [00:01<00:00, 87.97it/s] 90%|████████▉ | 71/79 [00:01<00:00, 87.97it/s] 91%|█████████ | 72/79 [00:01<00:00, 87.97it/s] 92%|█████████▏| 73/79 [00:01<00:00, 87.97it/s] 94%|█████████▎| 74/79 [00:01<00:00, 87.97it/s] 95%|█████████▍| 75/79 [00:01<00:00, 87.97it/s] 96%|█████████▌| 76/79 [00:01<00:00, 87.97it/s] 97%|█████████▋| 77/79 [00:01<00:00, 87.97it/s] 99%|█████████▊| 78/79 [00:01<00:00, 87.97it/s]100%|██████████| 79/79 [00:01<00:00, 87.97it/s]100%|██████████| 79/79 [00:01<00:00, 69.85it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.3686
+	Loss_MB/train_phase/train_stream/Task000 = 0.0110
+	Time_Epoch/train_phase/train_stream/Task000 = 1.1311
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.9314
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 1.0000
+-- >> End of training phase << --
+[2026-09-22 14:38:49][INFO] Training Experience 0 completed
+[2026-09-22 14:38:49][INFO] [Train] shared_data update: acc=None, latency=1.146
+[2026-09-22 14:38:49][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:49][INFO] -->> Starting training for Experience 1 <<--
+[2026-09-22 14:38:49][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:49][INFO] [Train] DataLoader recreated for Exp 1 (batch size 64)
+[2026-09-22 14:38:49][INFO] Training Experience 1 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:10,  7.42it/s]  1%|▏         | 1/79 [00:00<00:10,  7.42it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=0.5, latency=0.004
+  3%|▎         | 2/79 [00:00<00:10,  7.42it/s]  4%|▍         | 3/79 [00:00<00:10,  7.42it/s]  5%|▌         | 4/79 [00:00<00:10,  7.42it/s]  6%|▋         | 5/79 [00:00<00:09,  7.42it/s]  8%|▊         | 6/79 [00:00<00:09,  7.42it/s]  9%|▉         | 7/79 [00:00<00:02, 33.05it/s]  9%|▉         | 7/79 [00:00<00:02, 33.05it/s] 10%|█         | 8/79 [00:00<00:02, 33.05it/s] 11%|█▏        | 9/79 [00:00<00:02, 33.05it/s] 13%|█▎        | 10/79 [00:00<00:02, 33.05it/s] 14%|█▍        | 11/79 [00:00<00:02, 33.05it/s][2026-09-22 14:38:49][INFO] [Train][MiniBatch][Plugin] acc=0.6640625, latency=0.004
+ 15%|█▌        | 12/79 [00:00<00:02, 33.05it/s] 16%|█▋        | 13/79 [00:00<00:01, 42.93it/s] 16%|█▋        | 13/79 [00:00<00:01, 42.93it/s] 18%|█▊        | 14/79 [00:00<00:01, 42.93it/s] 19%|█▉        | 15/79 [00:00<00:01, 42.93it/s] 20%|██        | 16/79 [00:00<00:01, 42.93it/s] 22%|██▏       | 17/79 [00:00<00:01, 42.93it/s] 23%|██▎       | 18/79 [00:00<00:01, 42.93it/s] 24%|██▍       | 19/79 [00:00<00:01, 47.88it/s] 24%|██▍       | 19/79 [00:00<00:01, 47.88it/s] 25%|██▌       | 20/79 [00:00<00:01, 47.88it/s] 27%|██▋       | 21/79 [00:00<00:01, 47.88it/s][2026-09-22 14:38:50][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:38:50][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:38:50][INFO] [Train][MiniBatch][Plugin] acc=0.78125, latency=0.004
+ 28%|██▊       | 22/79 [00:00<00:01, 47.88it/s] 29%|██▉       | 23/79 [00:00<00:01, 47.88it/s] 30%|███       | 24/79 [00:00<00:01, 47.88it/s] 32%|███▏      | 25/79 [00:00<00:01, 50.02it/s] 32%|███▏      | 25/79 [00:00<00:01, 50.02it/s] 33%|███▎      | 26/79 [00:00<00:01, 50.02it/s] 34%|███▍      | 27/79 [00:00<00:01, 50.02it/s] 35%|███▌      | 28/79 [00:00<00:01, 50.02it/s] 37%|███▋      | 29/79 [00:00<00:00, 50.02it/s] 38%|███▊      | 30/79 [00:00<00:00, 50.02it/s] 39%|███▉      | 31/79 [00:00<00:00, 51.39it/s] 39%|███▉      | 31/79 [00:00<00:00, 51.39it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.184s
+[2026-09-22 14:38:50][INFO] [Train][MiniBatch][Plugin] acc=0.828125, latency=0.004
+ 41%|████      | 32/79 [00:00<00:00, 51.39it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=1.0000, batch_lat=0.004s
+ 42%|████▏     | 33/79 [00:00<00:00, 51.39it/s] 43%|████▎     | 34/79 [00:00<00:00, 51.39it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=1.0000, batch_lat=0.001s
+ 44%|████▍     | 35/79 [00:00<00:00, 51.39it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=1.0000, batch_lat=0.001s
+ 46%|████▌     | 36/79 [00:00<00:00, 51.39it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=1.0000, batch_lat=0.001s
+ 47%|████▋     | 37/79 [00:00<00:00, 51.42it/s] 47%|████▋     | 37/79 [00:00<00:00, 51.42it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=1.0000, batch_lat=0.005s
+ 48%|████▊     | 38/79 [00:00<00:00, 51.42it/s] 49%|████▉     | 39/79 [00:00<00:00, 51.42it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=1.0000, batch_lat=0.001s
+[2026-09-22 14:38:50][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (1000/1000)
+[2026-09-22 14:38:50][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 51%|█████     | 40/79 [00:00<00:00, 51.42it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.004s
+ 52%|█████▏    | 41/79 [00:00<00:00, 51.42it/s][2026-09-22 14:38:50][INFO] [Train][MiniBatch][Plugin] acc=0.8828125, latency=0.004
+ 53%|█████▎    | 42/79 [00:00<00:00, 51.42it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 54%|█████▍    | 43/79 [00:00<00:00, 51.46it/s] 54%|█████▍    | 43/79 [00:00<00:00, 51.46it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 56%|█████▌    | 44/79 [00:00<00:00, 51.46it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 57%|█████▋    | 45/79 [00:00<00:00, 51.46it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 58%|█████▊    | 46/79 [00:00<00:00, 51.46it/s] 59%|█████▉    | 47/79 [00:00<00:00, 51.46it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:50][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:50][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 61%|██████    | 48/79 [00:01<00:00, 51.46it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.004s
+ 62%|██████▏   | 49/79 [00:01<00:00, 51.52it/s] 62%|██████▏   | 49/79 [00:01<00:00, 51.52it/s] 63%|██████▎   | 50/79 [00:01<00:00, 51.52it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 65%|██████▍   | 51/79 [00:01<00:00, 51.52it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:50][INFO] [Train][MiniBatch][Plugin] acc=0.84375, latency=0.004
+ 66%|██████▌   | 52/79 [00:01<00:00, 51.52it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 67%|██████▋   | 53/79 [00:01<00:00, 51.52it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.004s
+ 68%|██████▊   | 54/79 [00:01<00:00, 51.52it/s] 70%|██████▉   | 55/79 [00:01<00:00, 51.50it/s] 70%|██████▉   | 55/79 [00:01<00:00, 51.50it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:50][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:50][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 71%|███████   | 56/79 [00:01<00:00, 51.50it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 72%|███████▏  | 57/79 [00:01<00:00, 51.50it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 73%|███████▎  | 58/79 [00:01<00:00, 51.50it/s] 75%|███████▍  | 59/79 [00:01<00:00, 51.50it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 76%|███████▌  | 60/79 [00:01<00:00, 51.50it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 77%|███████▋  | 61/79 [00:01<00:00, 51.38it/s] 77%|███████▋  | 61/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:50][INFO] [Train][MiniBatch][Plugin] acc=0.84375, latency=0.004
+ 78%|███████▊  | 62/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+ 80%|███████▉  | 63/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:50][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:50][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 81%|████████  | 64/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 82%|████████▏ | 65/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.005s
+ 84%|████████▎ | 66/79 [00:01<00:00, 51.38it/s] 85%|████████▍ | 67/79 [00:01<00:00, 51.34it/s] 85%|████████▍ | 67/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 86%|████████▌ | 68/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 87%|████████▋ | 69/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:50][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 89%|████████▊ | 70/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.005s
+ 90%|████████▉ | 71/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:51][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Train][MiniBatch][Plugin] acc=0.8359375, latency=0.004
+ 91%|█████████ | 72/79 [00:01<00:00, 51.34it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 92%|█████████▏| 73/79 [00:01<00:00, 51.38it/s] 92%|█████████▏| 73/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 94%|█████████▎| 74/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 95%|█████████▍| 75/79 [00:01<00:00, 51.38it/s] 96%|█████████▌| 76/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 97%|█████████▋| 77/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 99%|█████████▊| 78/79 [00:01<00:00, 51.38it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+100%|██████████| 79/79 [00:01<00:00, 48.29it/s]100%|██████████| 79/79 [00:01<00:00, 48.29it/s]100%|██████████| 79/79 [00:01<00:00, 48.21it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.7138
+	Loss_MB/train_phase/train_stream/Task000 = 0.2261
+	Time_Epoch/train_phase/train_stream/Task000 = 1.6384
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.7722
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.9375
+-- >> End of training phase << --
+[2026-09-22 14:38:51][INFO] Training Experience 1 completed
+[2026-09-22 14:38:51][INFO] [Train] shared_data update: acc=None, latency=1.651
+[2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:51][INFO] -->> Starting training for Experience 2 <<--
+[2026-09-22 14:38:51][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:51][INFO] [Train] DataLoader recreated for Exp 2 (batch size 64)
+[2026-09-22 14:38:51][INFO] Training Experience 2 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.002s
+  1%|▏         | 1/79 [00:00<00:02, 26.26it/s]  3%|▎         | 2/79 [00:00<00:02, 34.68it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Train][MiniBatch][Plugin] acc=0.4453125, latency=0.004
+  4%|▍         | 3/79 [00:00<00:01, 38.95it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.005s
+  5%|▌         | 4/79 [00:00<00:01, 41.33it/s]  6%|▋         | 5/79 [00:00<00:01, 42.98it/s]  6%|▋         | 5/79 [00:00<00:01, 42.98it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+  8%|▊         | 6/79 [00:00<00:01, 42.98it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+  9%|▉         | 7/79 [00:00<00:01, 42.98it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 10%|█         | 8/79 [00:00<00:01, 42.98it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.004s
+ 11%|█▏        | 9/79 [00:00<00:01, 42.98it/s] 13%|█▎        | 10/79 [00:00<00:01, 42.98it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 14%|█▍        | 11/79 [00:00<00:01, 47.68it/s] 14%|█▍        | 11/79 [00:00<00:01, 47.68it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 15%|█▌        | 12/79 [00:00<00:01, 47.68it/s][2026-09-22 14:38:51][INFO] [Train][MiniBatch][Plugin] acc=0.5625, latency=0.004
+[2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.004s
+ 16%|█▋        | 13/79 [00:00<00:01, 47.68it/s] 18%|█▊        | 14/79 [00:00<00:01, 47.68it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 19%|█▉        | 15/79 [00:00<00:01, 47.68it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 20%|██        | 16/79 [00:00<00:01, 47.68it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 22%|██▏       | 17/79 [00:00<00:01, 49.29it/s] 22%|██▏       | 17/79 [00:00<00:01, 49.29it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 23%|██▎       | 18/79 [00:00<00:01, 49.29it/s] 24%|██▍       | 19/79 [00:00<00:01, 49.29it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 25%|██▌       | 20/79 [00:00<00:01, 49.29it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 27%|██▋       | 21/79 [00:00<00:01, 49.29it/s] 28%|██▊       | 22/79 [00:00<00:01, 49.29it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Train][MiniBatch][Plugin] acc=0.6875, latency=0.004
+ 29%|██▉       | 23/79 [00:00<00:01, 49.71it/s] 29%|██▉       | 23/79 [00:00<00:01, 49.71it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 30%|███       | 24/79 [00:00<00:01, 49.71it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 32%|███▏      | 25/79 [00:00<00:01, 49.71it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.005s
+ 33%|███▎      | 26/79 [00:00<00:01, 49.71it/s] 34%|███▍      | 27/79 [00:00<00:01, 49.71it/s][2026-09-22 14:38:51][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:51][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:51][INFO] [Eval] Overall shared_data update: acc=0.1000, latency=1.710s
+[2026-09-22 14:38:51][INFO] 
+==================================================
+[2026-09-22 14:38:51][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-09-22 14:38:51][INFO] ==================================================
+[2026-09-22 14:38:51][INFO] Overall Streaming Accuracy: 0.1000 (1000/10000)
+[2026-09-22 14:38:51][INFO] Overall Evaluation Latency: 1.71s
+[2026-09-22 14:38:51][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:38:51][INFO] --------------------------------------------------
+[2026-09-22 14:38:51][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:38:51][INFO]   - Experience 0: 1.0000
+[2026-09-22 14:38:51][INFO]   - Experience 1: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 2: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 3: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 4: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 5: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 6: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 7: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 8: 0.0000
+[2026-09-22 14:38:51][INFO]   - Experience 9: 0.0000
+[2026-09-22 14:38:51][INFO] ==================================================
+
+[2026-09-22 14:38:51][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "accuracy": 0.1, "samples": 10000, "duration": 1.711143970489502, "batch_p95_ms": 4.661309719085685, "batch_p99_ms": 5.262875556945801}
+ 35%|███▌      | 28/79 [00:00<00:01, 49.71it/s] 37%|███▋      | 29/79 [00:00<00:00, 50.64it/s] 37%|███▋      | 29/79 [00:00<00:00, 50.64it/s] 38%|███▊      | 30/79 [00:00<00:00, 50.64it/s] 39%|███▉      | 31/79 [00:00<00:00, 50.64it/s] 41%|████      | 32/79 [00:00<00:00, 50.64it/s][2026-09-22 14:38:51][INFO] [Train][MiniBatch][Plugin] acc=0.8203125, latency=0.004
+ 42%|████▏     | 33/79 [00:00<00:00, 50.64it/s] 43%|████▎     | 34/79 [00:00<00:00, 50.64it/s] 44%|████▍     | 35/79 [00:00<00:00, 51.89it/s] 44%|████▍     | 35/79 [00:00<00:00, 51.89it/s] 46%|████▌     | 36/79 [00:00<00:00, 51.89it/s] 47%|████▋     | 37/79 [00:00<00:00, 51.89it/s] 48%|████▊     | 38/79 [00:00<00:00, 51.89it/s] 49%|████▉     | 39/79 [00:00<00:00, 51.89it/s] 51%|█████     | 40/79 [00:00<00:00, 51.89it/s] 52%|█████▏    | 41/79 [00:00<00:00, 52.96it/s] 52%|█████▏    | 41/79 [00:00<00:00, 52.96it/s] 53%|█████▎    | 42/79 [00:00<00:00, 52.96it/s][2026-09-22 14:38:52][INFO] [Train][MiniBatch][Plugin] acc=0.7265625, latency=0.004
+ 54%|█████▍    | 43/79 [00:00<00:00, 52.96it/s] 56%|█████▌    | 44/79 [00:00<00:00, 52.96it/s] 57%|█████▋    | 45/79 [00:00<00:00, 52.96it/s] 58%|█████▊    | 46/79 [00:00<00:00, 52.96it/s] 59%|█████▉    | 47/79 [00:00<00:00, 53.79it/s] 59%|█████▉    | 47/79 [00:00<00:00, 53.79it/s] 61%|██████    | 48/79 [00:00<00:00, 53.79it/s] 62%|██████▏   | 49/79 [00:00<00:00, 53.79it/s] 63%|██████▎   | 50/79 [00:00<00:00, 53.79it/s] 65%|██████▍   | 51/79 [00:00<00:00, 53.79it/s] 66%|██████▌   | 52/79 [00:01<00:00, 53.79it/s][2026-09-22 14:38:52][INFO] [Train][MiniBatch][Plugin] acc=0.734375, latency=0.004
+ 67%|██████▋   | 53/79 [00:01<00:00, 54.43it/s] 67%|██████▋   | 53/79 [00:01<00:00, 54.43it/s] 68%|██████▊   | 54/79 [00:01<00:00, 54.43it/s] 70%|██████▉   | 55/79 [00:01<00:00, 54.43it/s] 71%|███████   | 56/79 [00:01<00:00, 54.43it/s] 72%|███████▏  | 57/79 [00:01<00:00, 54.43it/s] 73%|███████▎  | 58/79 [00:01<00:00, 54.43it/s] 75%|███████▍  | 59/79 [00:01<00:00, 54.59it/s] 75%|███████▍  | 59/79 [00:01<00:00, 54.59it/s] 76%|███████▌  | 60/79 [00:01<00:00, 54.59it/s] 77%|███████▋  | 61/79 [00:01<00:00, 54.59it/s] 78%|███████▊  | 62/79 [00:01<00:00, 54.59it/s][2026-09-22 14:38:52][INFO] [Train][MiniBatch][Plugin] acc=0.7421875, latency=0.004
+ 80%|███████▉  | 63/79 [00:01<00:00, 54.59it/s] 81%|████████  | 64/79 [00:01<00:00, 54.59it/s] 82%|████████▏ | 65/79 [00:01<00:00, 54.96it/s] 82%|████████▏ | 65/79 [00:01<00:00, 54.96it/s] 84%|████████▎ | 66/79 [00:01<00:00, 54.96it/s] 85%|████████▍ | 67/79 [00:01<00:00, 54.96it/s] 86%|████████▌ | 68/79 [00:01<00:00, 54.96it/s] 87%|████████▋ | 69/79 [00:01<00:00, 54.96it/s] 89%|████████▊ | 70/79 [00:01<00:00, 54.96it/s] 90%|████████▉ | 71/79 [00:01<00:00, 55.05it/s] 90%|████████▉ | 71/79 [00:01<00:00, 55.05it/s] 91%|█████████ | 72/79 [00:01<00:00, 55.05it/s][2026-09-22 14:38:52][INFO] [Scheduler] Starting with mode: fully_parallel, time_slice: 1.0s
+[2026-09-22 14:38:52][INFO] [Scheduler] Running both train & eval continuously
+[2026-09-22 14:38:52][INFO] [Train][MiniBatch][Plugin] acc=0.8515625, latency=0.004
+ 92%|█████████▏| 73/79 [00:01<00:00, 55.05it/s] 94%|█████████▎| 74/79 [00:01<00:00, 55.05it/s] 95%|█████████▍| 75/79 [00:01<00:00, 55.05it/s] 96%|█████████▌| 76/79 [00:01<00:00, 55.05it/s] 97%|█████████▋| 77/79 [00:01<00:00, 55.37it/s] 97%|█████████▋| 77/79 [00:01<00:00, 55.37it/s] 99%|█████████▊| 78/79 [00:01<00:00, 55.37it/s]100%|██████████| 79/79 [00:01<00:00, 55.37it/s]100%|██████████| 79/79 [00:01<00:00, 53.09it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.9237
+	Loss_MB/train_phase/train_stream/Task000 = 1.2576
+	Time_Epoch/train_phase/train_stream/Task000 = 1.4878
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.6996
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.5278
+-- >> End of training phase << --
+[2026-09-22 14:38:52][INFO] Training Experience 2 completed
+[2026-09-22 14:38:52][INFO] [Train] shared_data update: acc=None, latency=1.500
+[2026-09-22 14:38:52][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:52][INFO] -->> Starting training for Experience 3 <<--
+[2026-09-22 14:38:52][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:52][INFO] [Train] DataLoader recreated for Exp 3 (batch size 64)
+[2026-09-22 14:38:52][INFO] Training Experience 3 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 14:38:52][INFO] [Eval] Starting evaluation cycle #2. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:38:52][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.5000, batch_lat=0.001s
+[2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.6307, batch_lat=0.001s
+[2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.6071, batch_lat=0.001s
+[2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.6149, batch_lat=0.001s
+[2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.6082, batch_lat=0.002s
+  1%|▏         | 1/79 [00:00<00:11,  6.75it/s]  1%|▏         | 1/79 [00:00<00:11,  6.75it/s]  3%|▎         | 2/79 [00:00<00:11,  6.75it/s][2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.6091, batch_lat=0.001s
+  4%|▍         | 3/79 [00:00<00:11,  6.75it/s][2026-09-22 14:38:52][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.6322, batch_lat=0.001s
+[2026-09-22 14:38:52][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.6350 (635/1000)
+[2026-09-22 14:38:52][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:38:52][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.8750, batch_lat=0.005s
+[2026-09-22 14:38:52][INFO] [Train][MiniBatch][Plugin] acc=0.40625, latency=0.004
+  5%|▌         | 4/79 [00:00<00:11,  6.75it/s]  6%|▋         | 5/79 [00:00<00:10,  6.75it/s][2026-09-22 14:38:52][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.8807, batch_lat=0.001s
+  8%|▊         | 6/79 [00:00<00:10,  6.75it/s][2026-09-22 14:38:52][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.8869, batch_lat=0.001s
+  9%|▉         | 7/79 [00:00<00:02, 30.27it/s]  9%|▉         | 7/79 [00:00<00:02, 30.27it/s][2026-09-22 14:38:52][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.8871, batch_lat=0.001s
+ 10%|█         | 8/79 [00:00<00:02, 30.27it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.8887, batch_lat=0.005s
+ 11%|█▏        | 9/79 [00:00<00:02, 30.27it/s] 13%|█▎        | 10/79 [00:00<00:02, 30.27it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.8922, batch_lat=0.001s
+ 14%|█▍        | 11/79 [00:00<00:02, 30.27it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.8801, batch_lat=0.001s
+[2026-09-22 14:38:53][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.8780 (878/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.8750, batch_lat=0.001s
+ 15%|█▌        | 12/79 [00:00<00:02, 30.27it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.8636, batch_lat=0.001s
+ 16%|█▋        | 13/79 [00:00<00:01, 39.28it/s] 16%|█▋        | 13/79 [00:00<00:01, 39.28it/s][2026-09-22 14:38:53][INFO] [Train][MiniBatch][Plugin] acc=0.5703125, latency=0.004
+ 18%|█▊        | 14/79 [00:00<00:01, 39.28it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.8720, batch_lat=0.001s
+ 19%|█▉        | 15/79 [00:00<00:01, 39.28it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.8810, batch_lat=0.001s
+ 20%|██        | 16/79 [00:00<00:01, 39.28it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.8796, batch_lat=0.001s
+ 22%|██▏       | 17/79 [00:00<00:01, 39.28it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.8799, batch_lat=0.001s
+ 23%|██▎       | 18/79 [00:00<00:01, 42.52it/s] 23%|██▎       | 18/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.8822, batch_lat=0.005s
+ 24%|██▍       | 19/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.8790 (879/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 25%|██▌       | 20/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 27%|██▋       | 21/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 28%|██▊       | 22/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 29%|██▉       | 23/79 [00:00<00:01, 42.52it/s][2026-09-22 14:38:53][INFO] [Train][MiniBatch][Plugin] acc=0.6953125, latency=0.004
+ 30%|███       | 24/79 [00:00<00:01, 45.58it/s] 30%|███       | 24/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 32%|███▏      | 25/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 33%|███▎      | 26/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+ 34%|███▍      | 27/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 35%|███▌      | 28/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 37%|███▋      | 29/79 [00:00<00:01, 45.58it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 38%|███▊      | 30/79 [00:00<00:01, 47.52it/s] 38%|███▊      | 30/79 [00:00<00:01, 47.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.005s
+ 39%|███▉      | 31/79 [00:00<00:01, 47.52it/s] 41%|████      | 32/79 [00:00<00:00, 47.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 42%|████▏     | 33/79 [00:00<00:00, 47.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:53][INFO] [Train][MiniBatch][Plugin] acc=0.734375, latency=0.004
+ 43%|████▎     | 34/79 [00:00<00:00, 47.52it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:53][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.003s
+ 44%|████▍     | 35/79 [00:00<00:00, 47.52it/s] 46%|████▌     | 36/79 [00:00<00:00, 48.76it/s] 46%|████▌     | 36/79 [00:00<00:00, 48.76it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 47%|████▋     | 37/79 [00:00<00:00, 48.76it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 48%|████▊     | 38/79 [00:00<00:00, 48.76it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 49%|████▉     | 39/79 [00:00<00:00, 48.76it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 51%|█████     | 40/79 [00:00<00:00, 48.76it/s] 52%|█████▏    | 41/79 [00:00<00:00, 48.76it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 53%|█████▎    | 42/79 [00:00<00:00, 49.66it/s] 53%|█████▎    | 42/79 [00:00<00:00, 49.66it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+ 54%|█████▍    | 43/79 [00:00<00:00, 49.66it/s][2026-09-22 14:38:53][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:53][INFO] [Train][MiniBatch][Plugin] acc=0.734375, latency=0.004
+ 56%|█████▌    | 44/79 [00:00<00:00, 49.66it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 57%|█████▋    | 45/79 [00:01<00:00, 49.66it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 58%|█████▊    | 46/79 [00:01<00:00, 49.66it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.002s
+ 59%|█████▉    | 47/79 [00:01<00:00, 49.66it/s] 61%|██████    | 48/79 [00:01<00:00, 49.99it/s] 61%|██████    | 48/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 62%|██████▏   | 49/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 63%|██████▎   | 50/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+ 65%|██████▍   | 51/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 66%|██████▌   | 52/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 67%|██████▋   | 53/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:53][INFO] [Train][MiniBatch][Plugin] acc=0.7265625, latency=0.004
+ 68%|██████▊   | 54/79 [00:01<00:00, 50.40it/s] 68%|██████▊   | 54/79 [00:01<00:00, 50.40it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 70%|██████▉   | 55/79 [00:01<00:00, 50.40it/s] 71%|███████   | 56/79 [00:01<00:00, 50.40it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 72%|███████▏  | 57/79 [00:01<00:00, 50.40it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 73%|███████▎  | 58/79 [00:01<00:00, 50.40it/s][2026-09-22 14:38:53][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+ 75%|███████▍  | 59/79 [00:01<00:00, 50.40it/s][2026-09-22 14:38:53][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:53][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:38:53][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 76%|███████▌  | 60/79 [00:01<00:00, 50.70it/s] 76%|███████▌  | 60/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 77%|███████▋  | 61/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 78%|███████▊  | 62/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.005s
+ 80%|███████▉  | 63/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Train][MiniBatch][Plugin] acc=0.6640625, latency=0.004
+ 81%|████████  | 64/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 82%|████████▏ | 65/79 [00:01<00:00, 50.70it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 84%|████████▎ | 66/79 [00:01<00:00, 50.81it/s] 84%|████████▎ | 66/79 [00:01<00:00, 50.81it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:54][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:54][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.002s
+ 85%|████████▍ | 67/79 [00:01<00:00, 50.81it/s] 86%|████████▌ | 68/79 [00:01<00:00, 50.81it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 87%|████████▋ | 69/79 [00:01<00:00, 50.81it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 89%|████████▊ | 70/79 [00:01<00:00, 50.81it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 90%|████████▉ | 71/79 [00:01<00:00, 50.81it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.003s
+ 91%|█████████ | 72/79 [00:01<00:00, 50.99it/s] 91%|█████████ | 72/79 [00:01<00:00, 50.99it/s] 92%|█████████▏| 73/79 [00:01<00:00, 50.99it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:54][INFO] [Train][MiniBatch][Plugin] acc=0.6796875, latency=0.004
+ 94%|█████████▎| 74/79 [00:01<00:00, 50.99it/s][2026-09-22 14:38:54][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:54][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:54][INFO] [Eval] Overall shared_data update: acc=0.2392, latency=1.527s
+[2026-09-22 14:38:54][INFO] 
+==================================================
+[2026-09-22 14:38:54][INFO]            BENCHMARK PROGRESS REPORT (Cycle #2)           
+[2026-09-22 14:38:54][INFO] ==================================================
+[2026-09-22 14:38:54][INFO] Overall Streaming Accuracy: 0.2392 (2392/10000)
+[2026-09-22 14:38:54][INFO] Overall Evaluation Latency: 1.53s
+[2026-09-22 14:38:54][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:38:54][INFO] --------------------------------------------------
+[2026-09-22 14:38:54][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:38:54][INFO]   - Experience 0: 0.6350
+[2026-09-22 14:38:54][INFO]   - Experience 1: 0.8780
+[2026-09-22 14:38:54][INFO]   - Experience 2: 0.8790
+[2026-09-22 14:38:54][INFO]   - Experience 3: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 4: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 5: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 6: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 7: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 8: 0.0000
+[2026-09-22 14:38:54][INFO]   - Experience 9: 0.0000
+[2026-09-22 14:38:54][INFO] ==================================================
+
+[2026-09-22 14:38:54][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 3, "final_at_load": false, "accuracy": 0.2392, "samples": 10000, "duration": 1.5285108089447021, "batch_p95_ms": 4.895603656768799, "batch_p99_ms": 5.228407382965088}
+ 95%|█████████▍| 75/79 [00:01<00:00, 50.99it/s] 96%|█████████▌| 76/79 [00:01<00:00, 50.99it/s] 97%|█████████▋| 77/79 [00:01<00:00, 50.99it/s] 99%|█████████▊| 78/79 [00:01<00:00, 52.05it/s] 99%|█████████▊| 78/79 [00:01<00:00, 52.05it/s]100%|██████████| 79/79 [00:01<00:00, 52.05it/s]100%|██████████| 79/79 [00:01<00:00, 47.53it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.0859
+	Loss_MB/train_phase/train_stream/Task000 = 1.2631
+	Time_Epoch/train_phase/train_stream/Task000 = 1.6618
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.6473
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.3750
+-- >> End of training phase << --
+[2026-09-22 14:38:54][INFO] Training Experience 3 completed
+[2026-09-22 14:38:54][INFO] [Train] shared_data update: acc=None, latency=1.674
+[2026-09-22 14:38:54][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:54][INFO] -->> Starting training for Experience 4 <<--
+[2026-09-22 14:38:54][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:54][INFO] [Train] DataLoader recreated for Exp 4 (batch size 64)
+[2026-09-22 14:38:54][INFO] Training Experience 4 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:03, 20.81it/s]  3%|▎         | 2/79 [00:00<00:02, 30.07it/s]  4%|▍         | 3/79 [00:00<00:02, 35.47it/s]  5%|▌         | 4/79 [00:00<00:01, 39.05it/s]  5%|▌         | 4/79 [00:00<00:01, 39.05it/s][2026-09-22 14:38:54][INFO] [Train][MiniBatch][Plugin] acc=0.28125, latency=0.004
+  6%|▋         | 5/79 [00:00<00:01, 39.05it/s]  8%|▊         | 6/79 [00:00<00:01, 39.05it/s]  9%|▉         | 7/79 [00:00<00:01, 39.05it/s] 10%|█         | 8/79 [00:00<00:01, 39.05it/s] 11%|█▏        | 9/79 [00:00<00:01, 39.05it/s] 13%|█▎        | 10/79 [00:00<00:01, 49.03it/s] 13%|█▎        | 10/79 [00:00<00:01, 49.03it/s] 14%|█▍        | 11/79 [00:00<00:01, 49.03it/s] 15%|█▌        | 12/79 [00:00<00:01, 49.03it/s] 16%|█▋        | 13/79 [00:00<00:01, 49.03it/s] 18%|█▊        | 14/79 [00:00<00:01, 49.03it/s][2026-09-22 14:38:54][INFO] [Train][MiniBatch][Plugin] acc=0.3359375, latency=0.004
+ 19%|█▉        | 15/79 [00:00<00:01, 49.03it/s] 20%|██        | 16/79 [00:00<00:01, 52.18it/s] 20%|██        | 16/79 [00:00<00:01, 52.18it/s] 22%|██▏       | 17/79 [00:00<00:01, 52.18it/s] 23%|██▎       | 18/79 [00:00<00:01, 52.18it/s] 24%|██▍       | 19/79 [00:00<00:01, 52.18it/s] 25%|██▌       | 20/79 [00:00<00:01, 52.18it/s] 27%|██▋       | 21/79 [00:00<00:01, 52.18it/s] 28%|██▊       | 22/79 [00:00<00:01, 53.84it/s] 28%|██▊       | 22/79 [00:00<00:01, 53.84it/s] 29%|██▉       | 23/79 [00:00<00:01, 53.84it/s] 30%|███       | 24/79 [00:00<00:01, 53.84it/s][2026-09-22 14:38:54][INFO] [Train][MiniBatch][Plugin] acc=0.546875, latency=0.004
+ 32%|███▏      | 25/79 [00:00<00:01, 53.84it/s] 33%|███▎      | 26/79 [00:00<00:00, 53.84it/s] 34%|███▍      | 27/79 [00:00<00:00, 53.84it/s] 35%|███▌      | 28/79 [00:00<00:00, 54.42it/s] 35%|███▌      | 28/79 [00:00<00:00, 54.42it/s] 37%|███▋      | 29/79 [00:00<00:00, 54.42it/s] 38%|███▊      | 30/79 [00:00<00:00, 54.42it/s] 39%|███▉      | 31/79 [00:00<00:00, 54.42it/s] 41%|████      | 32/79 [00:00<00:00, 54.42it/s] 42%|████▏     | 33/79 [00:00<00:00, 54.42it/s] 43%|████▎     | 34/79 [00:00<00:00, 54.97it/s] 43%|████▎     | 34/79 [00:00<00:00, 54.97it/s][2026-09-22 14:38:55][INFO] [Train][MiniBatch][Plugin] acc=0.640625, latency=0.004
+ 44%|████▍     | 35/79 [00:00<00:00, 54.97it/s] 46%|████▌     | 36/79 [00:00<00:00, 54.97it/s] 47%|████▋     | 37/79 [00:00<00:00, 54.97it/s] 48%|████▊     | 38/79 [00:00<00:00, 54.97it/s] 49%|████▉     | 39/79 [00:00<00:00, 54.97it/s] 51%|█████     | 40/79 [00:00<00:00, 55.30it/s] 51%|█████     | 40/79 [00:00<00:00, 55.30it/s] 52%|█████▏    | 41/79 [00:00<00:00, 55.30it/s] 53%|█████▎    | 42/79 [00:00<00:00, 55.30it/s] 54%|█████▍    | 43/79 [00:00<00:00, 55.30it/s] 56%|█████▌    | 44/79 [00:00<00:00, 55.30it/s][2026-09-22 14:38:55][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.004
+ 57%|█████▋    | 45/79 [00:00<00:00, 55.30it/s] 58%|█████▊    | 46/79 [00:00<00:00, 55.50it/s] 58%|█████▊    | 46/79 [00:00<00:00, 55.50it/s] 59%|█████▉    | 47/79 [00:00<00:00, 55.50it/s] 61%|██████    | 48/79 [00:00<00:00, 55.50it/s] 62%|██████▏   | 49/79 [00:00<00:00, 55.50it/s] 63%|██████▎   | 50/79 [00:00<00:00, 55.50it/s] 65%|██████▍   | 51/79 [00:00<00:00, 55.50it/s] 66%|██████▌   | 52/79 [00:00<00:00, 55.68it/s] 66%|██████▌   | 52/79 [00:00<00:00, 55.68it/s] 67%|██████▋   | 53/79 [00:00<00:00, 55.68it/s] 68%|██████▊   | 54/79 [00:00<00:00, 55.68it/s][2026-09-22 14:38:55][INFO] [Train][MiniBatch][Plugin] acc=0.7109375, latency=0.004
+ 70%|██████▉   | 55/79 [00:01<00:00, 55.68it/s] 71%|███████   | 56/79 [00:01<00:00, 55.68it/s] 72%|███████▏  | 57/79 [00:01<00:00, 55.68it/s] 73%|███████▎  | 58/79 [00:01<00:00, 55.66it/s] 73%|███████▎  | 58/79 [00:01<00:00, 55.66it/s] 75%|███████▍  | 59/79 [00:01<00:00, 55.66it/s] 76%|███████▌  | 60/79 [00:01<00:00, 55.66it/s] 77%|███████▋  | 61/79 [00:01<00:00, 55.66it/s] 78%|███████▊  | 62/79 [00:01<00:00, 55.66it/s] 80%|███████▉  | 63/79 [00:01<00:00, 55.66it/s] 81%|████████  | 64/79 [00:01<00:00, 55.66it/s] 81%|████████  | 64/79 [00:01<00:00, 55.66it/s][2026-09-22 14:38:55][INFO] [Train][MiniBatch][Plugin] acc=0.640625, latency=0.004
+ 82%|████████▏ | 65/79 [00:01<00:00, 55.66it/s] 84%|████████▎ | 66/79 [00:01<00:00, 55.66it/s] 85%|████████▍ | 67/79 [00:01<00:00, 55.66it/s] 86%|████████▌ | 68/79 [00:01<00:00, 55.66it/s] 87%|████████▋ | 69/79 [00:01<00:00, 55.66it/s] 89%|████████▊ | 70/79 [00:01<00:00, 55.62it/s] 89%|████████▊ | 70/79 [00:01<00:00, 55.62it/s] 90%|████████▉ | 71/79 [00:01<00:00, 55.62it/s] 91%|█████████ | 72/79 [00:01<00:00, 55.62it/s] 92%|█████████▏| 73/79 [00:01<00:00, 55.62it/s] 94%|█████████▎| 74/79 [00:01<00:00, 55.62it/s][2026-09-22 14:38:55][INFO] [Train][MiniBatch][Plugin] acc=0.6171875, latency=0.004
+ 95%|█████████▍| 75/79 [00:01<00:00, 55.62it/s] 96%|█████████▌| 76/79 [00:01<00:00, 55.53it/s] 96%|█████████▌| 76/79 [00:01<00:00, 55.53it/s] 97%|█████████▋| 77/79 [00:01<00:00, 55.53it/s] 99%|█████████▊| 78/79 [00:01<00:00, 55.53it/s]100%|██████████| 79/79 [00:01<00:00, 55.53it/s]100%|██████████| 79/79 [00:01<00:00, 54.82it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.4032
+	Loss_MB/train_phase/train_stream/Task000 = 1.4589
+	Time_Epoch/train_phase/train_stream/Task000 = 1.4409
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.5621
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.4167
+-- >> End of training phase << --
+[2026-09-22 14:38:55][INFO] Training Experience 4 completed
+[2026-09-22 14:38:55][INFO] [Train] shared_data update: acc=None, latency=1.456
+[2026-09-22 14:38:55][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:55][INFO] -->> Starting training for Experience 5 <<--
+[2026-09-22 14:38:55][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:55][INFO] [Train] DataLoader recreated for Exp 5 (batch size 64)
+[2026-09-22 14:38:55][INFO] Training Experience 5 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:11,  6.55it/s]  1%|▏         | 1/79 [00:00<00:11,  6.55it/s]  3%|▎         | 2/79 [00:00<00:11,  6.55it/s]  4%|▍         | 3/79 [00:00<00:11,  6.55it/s]  5%|▌         | 4/79 [00:00<00:11,  6.55it/s]  6%|▋         | 5/79 [00:00<00:11,  6.55it/s][2026-09-22 14:38:56][INFO] [Train][MiniBatch][Plugin] acc=0.171875, latency=0.004
+  8%|▊         | 6/79 [00:00<00:11,  6.55it/s]  9%|▉         | 7/79 [00:00<00:02, 31.20it/s]  9%|▉         | 7/79 [00:00<00:02, 31.20it/s] 10%|█         | 8/79 [00:00<00:02, 31.20it/s] 11%|█▏        | 9/79 [00:00<00:02, 31.20it/s] 13%|█▎        | 10/79 [00:00<00:02, 31.20it/s] 14%|█▍        | 11/79 [00:00<00:02, 31.20it/s] 15%|█▌        | 12/79 [00:00<00:02, 31.20it/s] 16%|█▋        | 13/79 [00:00<00:01, 41.50it/s] 16%|█▋        | 13/79 [00:00<00:01, 41.50it/s] 18%|█▊        | 14/79 [00:00<00:01, 41.50it/s] 19%|█▉        | 15/79 [00:00<00:01, 41.50it/s][2026-09-22 14:38:56][INFO] [Train][MiniBatch][Plugin] acc=0.1640625, latency=0.004
+ 20%|██        | 16/79 [00:00<00:01, 41.50it/s] 22%|██▏       | 17/79 [00:00<00:01, 41.50it/s] 23%|██▎       | 18/79 [00:00<00:01, 41.50it/s][2026-09-22 14:38:56][INFO] [Eval] Starting evaluation cycle #3. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:38:56][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.6875, batch_lat=0.005s
+ 24%|██▍       | 19/79 [00:00<00:01, 46.59it/s] 24%|██▍       | 19/79 [00:00<00:01, 46.59it/s] 25%|██▌       | 20/79 [00:00<00:01, 46.59it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.7784, batch_lat=0.001s
+ 27%|██▋       | 21/79 [00:00<00:01, 46.59it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.7470, batch_lat=0.001s
+ 28%|██▊       | 22/79 [00:00<00:01, 46.59it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.7520, batch_lat=0.001s
+ 29%|██▉       | 23/79 [00:00<00:01, 46.59it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.7546, batch_lat=0.005s
+ 30%|███       | 24/79 [00:00<00:01, 46.59it/s] 32%|███▏      | 25/79 [00:00<00:01, 48.39it/s] 32%|███▏      | 25/79 [00:00<00:01, 48.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.7561, batch_lat=0.001s
+[2026-09-22 14:38:56][INFO] [Train][MiniBatch][Plugin] acc=0.578125, latency=0.004
+ 33%|███▎      | 26/79 [00:00<00:01, 48.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.7654, batch_lat=0.001s
+[2026-09-22 14:38:56][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.7670 (767/1000)
+[2026-09-22 14:38:56][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.7500, batch_lat=0.001s
+ 34%|███▍      | 27/79 [00:00<00:01, 48.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.7443, batch_lat=0.001s
+ 35%|███▌      | 28/79 [00:00<00:01, 48.39it/s] 37%|███▋      | 29/79 [00:00<00:01, 48.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.7619, batch_lat=0.001s
+ 38%|███▊      | 30/79 [00:00<00:01, 48.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.7621, batch_lat=0.001s
+ 39%|███▉      | 31/79 [00:00<00:00, 49.37it/s] 39%|███▉      | 31/79 [00:00<00:00, 49.37it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.7668, batch_lat=0.001s
+ 41%|████      | 32/79 [00:00<00:00, 49.37it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.7598, batch_lat=0.001s
+ 42%|████▏     | 33/79 [00:00<00:00, 49.37it/s] 43%|████▎     | 34/79 [00:00<00:00, 49.37it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.7490, batch_lat=0.001s
+[2026-09-22 14:38:56][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.7460 (746/1000)
+[2026-09-22 14:38:56][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 44%|████▍     | 35/79 [00:00<00:00, 49.37it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.0227, batch_lat=0.002s
+[2026-09-22 14:38:56][INFO] [Train][MiniBatch][Plugin] acc=0.65625, latency=0.006
+ 46%|████▌     | 36/79 [00:00<00:00, 49.37it/s] 47%|████▋     | 37/79 [00:00<00:00, 49.81it/s] 47%|████▋     | 37/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.0298, batch_lat=0.001s
+ 48%|████▊     | 38/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.0343, batch_lat=0.001s
+ 49%|████▉     | 39/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.0320, batch_lat=0.001s
+ 51%|█████     | 40/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.0294, batch_lat=0.001s
+ 52%|█████▏    | 41/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.0287, batch_lat=0.005s
+ 53%|█████▎    | 42/79 [00:00<00:00, 49.81it/s][2026-09-22 14:38:56][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.0280 (28/1000)
+[2026-09-22 14:38:56][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.1875, batch_lat=0.001s
+ 54%|█████▍    | 43/79 [00:00<00:00, 49.99it/s] 54%|█████▍    | 43/79 [00:00<00:00, 49.99it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.1250, batch_lat=0.001s
+ 56%|█████▌    | 44/79 [00:00<00:00, 49.99it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.1131, batch_lat=0.001s
+ 57%|█████▋    | 45/79 [00:00<00:00, 49.99it/s][2026-09-22 14:38:56][INFO] [Train][MiniBatch][Plugin] acc=0.6484375, latency=0.004
+[2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.1270, batch_lat=0.001s
+ 58%|█████▊    | 46/79 [00:01<00:00, 49.99it/s] 59%|█████▉    | 47/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.1174, batch_lat=0.001s
+ 61%|██████    | 48/79 [00:01<00:00, 49.99it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.1201, batch_lat=0.001s
+ 62%|██████▏   | 49/79 [00:01<00:00, 50.39it/s] 62%|██████▏   | 49/79 [00:01<00:00, 50.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.1127, batch_lat=0.001s
+ 63%|██████▎   | 50/79 [00:01<00:00, 50.39it/s][2026-09-22 14:38:56][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.1100 (110/1000)
+[2026-09-22 14:38:56][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:38:56][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.7500, batch_lat=0.001s
+ 65%|██████▍   | 51/79 [00:01<00:00, 50.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.8693, batch_lat=0.001s
+ 66%|██████▌   | 52/79 [00:01<00:00, 50.39it/s][2026-09-22 14:38:56][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.8839, batch_lat=0.001s
+ 67%|██████▋   | 53/79 [00:01<00:00, 50.39it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.8972, batch_lat=0.005s
+ 68%|██████▊   | 54/79 [00:01<00:00, 50.39it/s] 70%|██████▉   | 55/79 [00:01<00:00, 50.58it/s] 70%|██████▉   | 55/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.8979, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Train][MiniBatch][Plugin] acc=0.6015625, latency=0.004
+ 71%|███████   | 56/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.9007, batch_lat=0.001s
+ 72%|███████▏  | 57/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.8986, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.8990 (899/1000)
+[2026-09-22 14:38:57][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+ 73%|███████▎  | 58/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 75%|███████▍  | 59/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 76%|███████▌  | 60/79 [00:01<00:00, 50.58it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 77%|███████▋  | 61/79 [00:01<00:00, 51.03it/s] 77%|███████▋  | 61/79 [00:01<00:00, 51.03it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.005s
+ 78%|███████▊  | 62/79 [00:01<00:00, 51.03it/s] 80%|███████▉  | 63/79 [00:01<00:00, 51.03it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 81%|████████  | 64/79 [00:01<00:00, 51.03it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 82%|████████▏ | 65/79 [00:01<00:00, 51.03it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:57][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:38:57][INFO] [Train][MiniBatch][Plugin] acc=0.671875, latency=0.004
+[2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 84%|████████▎ | 66/79 [00:01<00:00, 51.03it/s] 85%|████████▍ | 67/79 [00:01<00:00, 51.06it/s] 85%|████████▍ | 67/79 [00:01<00:00, 51.06it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 86%|████████▌ | 68/79 [00:01<00:00, 51.06it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 87%|████████▋ | 69/79 [00:01<00:00, 51.06it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 89%|████████▊ | 70/79 [00:01<00:00, 51.06it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.002s
+ 90%|████████▉ | 71/79 [00:01<00:00, 51.06it/s] 91%|█████████ | 72/79 [00:01<00:00, 51.06it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 92%|█████████▏| 73/79 [00:01<00:00, 51.19it/s] 92%|█████████▏| 73/79 [00:01<00:00, 51.19it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:57][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.005s
+ 94%|█████████▎| 74/79 [00:01<00:00, 51.19it/s] 95%|█████████▍| 75/79 [00:01<00:00, 51.19it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Train][MiniBatch][Plugin] acc=0.6484375, latency=0.004
+ 96%|█████████▌| 76/79 [00:01<00:00, 51.19it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 97%|█████████▋| 77/79 [00:01<00:00, 51.19it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 99%|█████████▊| 78/79 [00:01<00:00, 51.19it/s]100%|██████████| 79/79 [00:01<00:00, 52.09it/s]100%|██████████| 79/79 [00:01<00:00, 52.09it/s]100%|██████████| 79/79 [00:01<00:00, 48.09it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.4906
+	Loss_MB/train_phase/train_stream/Task000 = 1.7234
+	Time_Epoch/train_phase/train_stream/Task000 = 1.6423
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.5219
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.3889
+-- >> End of training phase << --
+[2026-09-22 14:38:57][INFO] Training Experience 5 completed
+[2026-09-22 14:38:57][INFO] [Train] shared_data update: acc=None, latency=1.658
+[2026-09-22 14:38:57][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:57][INFO] -->> Starting training for Experience 6 <<--
+[2026-09-22 14:38:57][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:57][INFO] [Train] DataLoader recreated for Exp 6 (batch size 64)
+[2026-09-22 14:38:57][INFO] Training Experience 6 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:57][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:38:57][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+  1%|▏         | 1/79 [00:00<00:14,  5.27it/s]  1%|▏         | 1/79 [00:00<00:14,  5.27it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.003s
+  3%|▎         | 2/79 [00:00<00:14,  5.27it/s]  4%|▍         | 3/79 [00:00<00:14,  5.27it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+  5%|▌         | 4/79 [00:00<00:14,  5.27it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+  6%|▋         | 5/79 [00:00<00:14,  5.27it/s][2026-09-22 14:38:57][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:38:57][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+  8%|▊         | 6/79 [00:00<00:13,  5.27it/s][2026-09-22 14:38:57][INFO] [Eval] Overall shared_data update: acc=0.2550, latency=1.485s
+[2026-09-22 14:38:57][INFO] 
+==================================================
+[2026-09-22 14:38:57][INFO]            BENCHMARK PROGRESS REPORT (Cycle #3)           
+[2026-09-22 14:38:57][INFO] ==================================================
+[2026-09-22 14:38:57][INFO] Overall Streaming Accuracy: 0.2550 (2550/10000)
+[2026-09-22 14:38:57][INFO] Overall Evaluation Latency: 1.48s
+[2026-09-22 14:38:57][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:38:57][INFO] --------------------------------------------------
+[2026-09-22 14:38:57][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:38:57][INFO]   - Experience 0: 0.7670
+[2026-09-22 14:38:57][INFO]   - Experience 1: 0.7460
+[2026-09-22 14:38:57][INFO]   - Experience 2: 0.0280
+[2026-09-22 14:38:57][INFO]   - Experience 3: 0.1100
+[2026-09-22 14:38:57][INFO]   - Experience 4: 0.8990
+[2026-09-22 14:38:57][INFO]   - Experience 5: 0.0000
+[2026-09-22 14:38:57][INFO]   - Experience 6: 0.0000
+[2026-09-22 14:38:57][INFO]   - Experience 7: 0.0000
+[2026-09-22 14:38:57][INFO]   - Experience 8: 0.0000
+[2026-09-22 14:38:57][INFO]   - Experience 9: 0.0000
+[2026-09-22 14:38:57][INFO] ==================================================
+
+[2026-09-22 14:38:57][INFO] [CycleMetrics] {"cycle": 3, "version_lower_bound": 5, "final_at_load": false, "accuracy": 0.255, "samples": 10000, "duration": 1.4857735633850098, "batch_p95_ms": 5.034172534942627, "batch_p99_ms": 5.244917869567871}
+[2026-09-22 14:38:57][INFO] [Train][MiniBatch][Plugin] acc=0.2265625, latency=0.004
+  9%|▉         | 7/79 [00:00<00:02, 26.73it/s]  9%|▉         | 7/79 [00:00<00:02, 26.73it/s] 10%|█         | 8/79 [00:00<00:02, 26.73it/s] 11%|█▏        | 9/79 [00:00<00:02, 26.73it/s] 13%|█▎        | 10/79 [00:00<00:02, 26.73it/s] 14%|█▍        | 11/79 [00:00<00:02, 26.73it/s] 15%|█▌        | 12/79 [00:00<00:02, 26.73it/s] 16%|█▋        | 13/79 [00:00<00:01, 37.77it/s] 16%|█▋        | 13/79 [00:00<00:01, 37.77it/s] 18%|█▊        | 14/79 [00:00<00:01, 37.77it/s] 19%|█▉        | 15/79 [00:00<00:01, 37.77it/s] 20%|██        | 16/79 [00:00<00:01, 37.77it/s][2026-09-22 14:38:57][INFO] [Train][MiniBatch][Plugin] acc=0.1953125, latency=0.004
+ 22%|██▏       | 17/79 [00:00<00:01, 37.77it/s] 23%|██▎       | 18/79 [00:00<00:01, 37.77it/s] 24%|██▍       | 19/79 [00:00<00:01, 44.17it/s] 24%|██▍       | 19/79 [00:00<00:01, 44.17it/s] 25%|██▌       | 20/79 [00:00<00:01, 44.17it/s] 27%|██▋       | 21/79 [00:00<00:01, 44.17it/s] 28%|██▊       | 22/79 [00:00<00:01, 44.17it/s] 29%|██▉       | 23/79 [00:00<00:01, 44.17it/s] 30%|███       | 24/79 [00:00<00:01, 44.17it/s] 32%|███▏      | 25/79 [00:00<00:01, 48.13it/s] 32%|███▏      | 25/79 [00:00<00:01, 48.13it/s] 33%|███▎      | 26/79 [00:00<00:01, 48.13it/s][2026-09-22 14:38:58][INFO] [Train][MiniBatch][Plugin] acc=0.1875, latency=0.004
+ 34%|███▍      | 27/79 [00:00<00:01, 48.13it/s] 35%|███▌      | 28/79 [00:00<00:01, 48.13it/s] 37%|███▋      | 29/79 [00:00<00:01, 48.13it/s] 38%|███▊      | 30/79 [00:00<00:01, 48.13it/s] 39%|███▉      | 31/79 [00:00<00:00, 50.68it/s] 39%|███▉      | 31/79 [00:00<00:00, 50.68it/s] 41%|████      | 32/79 [00:00<00:00, 50.68it/s] 42%|████▏     | 33/79 [00:00<00:00, 50.68it/s] 43%|████▎     | 34/79 [00:00<00:00, 50.68it/s] 44%|████▍     | 35/79 [00:00<00:00, 50.68it/s] 46%|████▌     | 36/79 [00:00<00:00, 50.68it/s][2026-09-22 14:38:58][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.004
+ 47%|████▋     | 37/79 [00:00<00:00, 48.88it/s] 47%|████▋     | 37/79 [00:00<00:00, 48.88it/s] 48%|████▊     | 38/79 [00:00<00:00, 48.88it/s] 49%|████▉     | 39/79 [00:00<00:00, 48.88it/s] 51%|█████     | 40/79 [00:00<00:00, 48.88it/s] 52%|█████▏    | 41/79 [00:00<00:00, 48.88it/s] 53%|█████▎    | 42/79 [00:00<00:00, 48.88it/s] 54%|█████▍    | 43/79 [00:01<00:00, 47.25it/s] 54%|█████▍    | 43/79 [00:01<00:00, 47.25it/s] 56%|█████▌    | 44/79 [00:01<00:00, 47.25it/s] 57%|█████▋    | 45/79 [00:01<00:00, 47.25it/s] 58%|█████▊    | 46/79 [00:01<00:00, 47.25it/s][2026-09-22 14:38:58][INFO] [Train][MiniBatch][Plugin] acc=0.6015625, latency=0.004
+ 59%|█████▉    | 47/79 [00:01<00:00, 47.25it/s] 61%|██████    | 48/79 [00:01<00:00, 46.27it/s] 61%|██████    | 48/79 [00:01<00:00, 46.27it/s] 62%|██████▏   | 49/79 [00:01<00:00, 46.27it/s] 63%|██████▎   | 50/79 [00:01<00:00, 46.27it/s] 65%|██████▍   | 51/79 [00:01<00:00, 46.27it/s] 66%|██████▌   | 52/79 [00:01<00:00, 46.27it/s] 67%|██████▋   | 53/79 [00:01<00:00, 44.29it/s] 67%|██████▋   | 53/79 [00:01<00:00, 44.29it/s] 68%|██████▊   | 54/79 [00:01<00:00, 44.29it/s] 70%|██████▉   | 55/79 [00:01<00:00, 44.29it/s] 71%|███████   | 56/79 [00:01<00:00, 44.29it/s][2026-09-22 14:38:58][INFO] [Train][MiniBatch][Plugin] acc=0.59375, latency=0.005
+ 72%|███████▏  | 57/79 [00:01<00:00, 44.29it/s] 73%|███████▎  | 58/79 [00:01<00:00, 43.14it/s] 73%|███████▎  | 58/79 [00:01<00:00, 43.14it/s] 75%|███████▍  | 59/79 [00:01<00:00, 43.14it/s] 76%|███████▌  | 60/79 [00:01<00:00, 43.14it/s] 77%|███████▋  | 61/79 [00:01<00:00, 43.14it/s] 78%|███████▊  | 62/79 [00:01<00:00, 43.14it/s] 80%|███████▉  | 63/79 [00:01<00:00, 43.36it/s] 80%|███████▉  | 63/79 [00:01<00:00, 43.36it/s] 81%|████████  | 64/79 [00:01<00:00, 43.36it/s] 82%|████████▏ | 65/79 [00:01<00:00, 43.36it/s] 84%|████████▎ | 66/79 [00:01<00:00, 43.36it/s][2026-09-22 14:38:59][INFO] [Train][MiniBatch][Plugin] acc=0.640625, latency=0.004
+ 85%|████████▍ | 67/79 [00:01<00:00, 43.36it/s] 86%|████████▌ | 68/79 [00:01<00:00, 43.47it/s] 86%|████████▌ | 68/79 [00:01<00:00, 43.47it/s] 87%|████████▋ | 69/79 [00:01<00:00, 43.47it/s] 89%|████████▊ | 70/79 [00:01<00:00, 43.47it/s] 90%|████████▉ | 71/79 [00:01<00:00, 43.47it/s] 91%|█████████ | 72/79 [00:01<00:00, 43.47it/s] 92%|█████████▏| 73/79 [00:01<00:00, 43.39it/s] 92%|█████████▏| 73/79 [00:01<00:00, 43.39it/s] 94%|█████████▎| 74/79 [00:01<00:00, 43.39it/s] 95%|█████████▍| 75/79 [00:01<00:00, 43.39it/s] 96%|█████████▌| 76/79 [00:01<00:00, 43.39it/s][2026-09-22 14:38:59][INFO] [Train][MiniBatch][Plugin] acc=0.6328125, latency=0.004
+ 97%|█████████▋| 77/79 [00:01<00:00, 43.39it/s] 99%|█████████▊| 78/79 [00:01<00:00, 43.49it/s] 99%|█████████▊| 78/79 [00:01<00:00, 43.49it/s]100%|██████████| 79/79 [00:01<00:00, 43.49it/s]100%|██████████| 79/79 [00:01<00:00, 42.96it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.7746
+	Loss_MB/train_phase/train_stream/Task000 = 1.9399
+	Time_Epoch/train_phase/train_stream/Task000 = 1.8389
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4537
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.2500
+-- >> End of training phase << --
+[2026-09-22 14:38:59][INFO] Training Experience 6 completed
+[2026-09-22 14:38:59][INFO] [Train] shared_data update: acc=None, latency=1.856
+[2026-09-22 14:38:59][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:38:59][INFO] -->> Starting training for Experience 7 <<--
+[2026-09-22 14:38:59][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:38:59][INFO] [Train] DataLoader recreated for Exp 7 (batch size 64)
+[2026-09-22 14:38:59][INFO] Training Experience 7 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:06, 11.29it/s]  3%|▎         | 2/79 [00:00<00:04, 17.91it/s]  3%|▎         | 2/79 [00:00<00:04, 17.91it/s]  4%|▍         | 3/79 [00:00<00:04, 17.91it/s]  5%|▌         | 4/79 [00:00<00:04, 17.91it/s]  6%|▋         | 5/79 [00:00<00:04, 17.91it/s]  8%|▊         | 6/79 [00:00<00:04, 17.91it/s]  9%|▉         | 7/79 [00:00<00:02, 33.35it/s]  9%|▉         | 7/79 [00:00<00:02, 33.35it/s][2026-09-22 14:38:59][INFO] [Train][MiniBatch][Plugin] acc=0.1484375, latency=0.004
+ 10%|█         | 8/79 [00:00<00:02, 33.35it/s] 11%|█▏        | 9/79 [00:00<00:02, 33.35it/s] 13%|█▎        | 10/79 [00:00<00:02, 33.35it/s] 14%|█▍        | 11/79 [00:00<00:02, 33.35it/s] 15%|█▌        | 12/79 [00:00<00:01, 37.45it/s] 15%|█▌        | 12/79 [00:00<00:01, 37.45it/s] 16%|█▋        | 13/79 [00:00<00:01, 37.45it/s] 18%|█▊        | 14/79 [00:00<00:01, 37.45it/s] 19%|█▉        | 15/79 [00:00<00:01, 37.45it/s] 20%|██        | 16/79 [00:00<00:01, 37.45it/s][2026-09-22 14:38:59][INFO] [Eval] Starting evaluation cycle #4. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:38:59][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.6250, batch_lat=0.001s
+ 22%|██▏       | 17/79 [00:00<00:01, 39.75it/s] 22%|██▏       | 17/79 [00:00<00:01, 39.75it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.7216, batch_lat=0.001s
+[2026-09-22 14:38:59][INFO] [Train][MiniBatch][Plugin] acc=0.1015625, latency=0.004
+ 23%|██▎       | 18/79 [00:00<00:01, 39.75it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.6786, batch_lat=0.001s
+ 24%|██▍       | 19/79 [00:00<00:01, 39.75it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.6774, batch_lat=0.001s
+ 25%|██▌       | 20/79 [00:00<00:01, 39.75it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.6860, batch_lat=0.001s
+ 27%|██▋       | 21/79 [00:00<00:01, 39.75it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.6924, batch_lat=0.001s
+ 28%|██▊       | 22/79 [00:00<00:01, 40.13it/s] 28%|██▊       | 22/79 [00:00<00:01, 40.13it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.7018, batch_lat=0.001s
+[2026-09-22 14:38:59][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.7030 (703/1000)
+[2026-09-22 14:38:59][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:38:59][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.8750, batch_lat=0.001s
+ 29%|██▉       | 23/79 [00:00<00:01, 40.13it/s][2026-09-22 14:38:59][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.8068, batch_lat=0.001s
+ 30%|███       | 24/79 [00:00<00:01, 40.13it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.8393, batch_lat=0.001s
+ 32%|███▏      | 25/79 [00:00<00:01, 40.13it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.8407, batch_lat=0.001s
+ 33%|███▎      | 26/79 [00:00<00:01, 40.13it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.8399, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.8358, batch_lat=0.002s
+ 34%|███▍      | 27/79 [00:00<00:01, 40.75it/s] 34%|███▍      | 27/79 [00:00<00:01, 40.75it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.8248, batch_lat=0.004s
+[2026-09-22 14:39:00][INFO] [Train][MiniBatch][Plugin] acc=0.1953125, latency=0.005
+ 35%|███▌      | 28/79 [00:00<00:01, 40.75it/s][2026-09-22 14:39:00][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.8240 (824/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.1250, batch_lat=0.001s
+ 37%|███▋      | 29/79 [00:00<00:01, 40.75it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.0398, batch_lat=0.001s
+ 38%|███▊      | 30/79 [00:00<00:01, 40.75it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.0565, batch_lat=0.001s
+ 39%|███▉      | 31/79 [00:00<00:01, 40.75it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.0544, batch_lat=0.001s
+ 41%|████      | 32/79 [00:00<00:01, 41.16it/s] 41%|████      | 32/79 [00:00<00:01, 41.16it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.0564, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.0539, batch_lat=0.002s
+ 42%|████▏     | 33/79 [00:00<00:01, 41.16it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.0594, batch_lat=0.004s
+ 43%|████▎     | 34/79 [00:00<00:01, 41.16it/s][2026-09-22 14:39:00][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.0580 (58/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 44%|████▍     | 35/79 [00:00<00:01, 41.16it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0057, batch_lat=0.001s
+ 46%|████▌     | 36/79 [00:00<00:01, 41.16it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0030, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0020, batch_lat=0.004s
+ 47%|████▋     | 37/79 [00:00<00:01, 41.12it/s] 47%|████▋     | 37/79 [00:00<00:01, 41.12it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0015, batch_lat=0.004s
+[2026-09-22 14:39:00][INFO] [Train][MiniBatch][Plugin] acc=0.5703125, latency=0.005
+ 48%|████▊     | 38/79 [00:00<00:00, 41.12it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0012, batch_lat=0.002s
+ 49%|████▉     | 39/79 [00:00<00:00, 41.12it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0010, batch_lat=0.004s
+ 51%|█████     | 40/79 [00:01<00:00, 41.12it/s][2026-09-22 14:39:00][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0010 (1/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 52%|█████▏    | 41/79 [00:01<00:00, 41.12it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 53%|█████▎    | 42/79 [00:01<00:00, 41.51it/s] 53%|█████▎    | 42/79 [00:01<00:00, 41.51it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.002s
+ 54%|█████▍    | 43/79 [00:01<00:00, 41.51it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.005s
+ 56%|█████▌    | 44/79 [00:01<00:00, 41.51it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.005s
+ 57%|█████▋    | 45/79 [00:01<00:00, 41.51it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.002s
+ 58%|█████▊    | 46/79 [00:01<00:00, 41.51it/s][2026-09-22 14:39:00][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 59%|█████▉    | 47/79 [00:01<00:00, 41.65it/s] 59%|█████▉    | 47/79 [00:01<00:00, 41.65it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0227, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0208, batch_lat=0.003s
+[2026-09-22 14:39:00][INFO] [Train][MiniBatch][Plugin] acc=0.5859375, latency=0.005
+ 61%|██████    | 48/79 [00:01<00:00, 41.65it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0181, batch_lat=0.002s
+ 62%|██████▏   | 49/79 [00:01<00:00, 41.65it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0183, batch_lat=0.001s
+ 63%|██████▎   | 50/79 [00:01<00:00, 41.65it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0208, batch_lat=0.001s
+ 65%|██████▍   | 51/79 [00:01<00:00, 41.65it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0215, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0210 (21/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.001s
+ 66%|██████▌   | 52/79 [00:01<00:00, 41.30it/s] 66%|██████▌   | 52/79 [00:01<00:00, 41.30it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.9830, batch_lat=0.001s
+ 67%|██████▋   | 53/79 [00:01<00:00, 41.30it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.9821, batch_lat=0.001s
+ 68%|██████▊   | 54/79 [00:01<00:00, 41.30it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.9798, batch_lat=0.001s
+ 70%|██████▉   | 55/79 [00:01<00:00, 41.30it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.9802, batch_lat=0.001s
+ 71%|███████   | 56/79 [00:01<00:00, 41.30it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.9792, batch_lat=0.001s
+ 72%|███████▏  | 57/79 [00:01<00:00, 40.99it/s] 72%|███████▏  | 57/79 [00:01<00:00, 40.99it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.9754, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.9720 (972/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Train][MiniBatch][Plugin] acc=0.5390625, latency=0.005
+ 73%|███████▎  | 58/79 [00:01<00:00, 40.99it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 75%|███████▍  | 59/79 [00:01<00:00, 40.99it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 76%|███████▌  | 60/79 [00:01<00:00, 40.99it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 77%|███████▋  | 61/79 [00:01<00:00, 40.99it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 78%|███████▊  | 62/79 [00:01<00:00, 40.57it/s] 78%|███████▊  | 62/79 [00:01<00:00, 40.57it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:00][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+ 80%|███████▉  | 63/79 [00:01<00:00, 40.57it/s][2026-09-22 14:39:00][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:00][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:39:00][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 81%|████████  | 64/79 [00:01<00:00, 40.57it/s][2026-09-22 14:39:00][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 82%|████████▏ | 65/79 [00:01<00:00, 40.57it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:01][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.004s
+ 84%|████████▎ | 66/79 [00:01<00:00, 40.57it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.002s
+ 85%|████████▍ | 67/79 [00:01<00:00, 40.55it/s] 85%|████████▍ | 67/79 [00:01<00:00, 40.55it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:01][INFO] [Train][MiniBatch][Plugin] acc=0.5859375, latency=0.005
+ 86%|████████▌ | 68/79 [00:01<00:00, 40.55it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:01][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:01][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 87%|████████▋ | 69/79 [00:01<00:00, 40.55it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 89%|████████▊ | 70/79 [00:01<00:00, 40.55it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 90%|████████▉ | 71/79 [00:01<00:00, 40.55it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 91%|█████████ | 72/79 [00:01<00:00, 40.21it/s] 91%|█████████ | 72/79 [00:01<00:00, 40.21it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 92%|█████████▏| 73/79 [00:01<00:00, 40.21it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 94%|█████████▎| 74/79 [00:01<00:00, 40.21it/s][2026-09-22 14:39:01][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:01][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:01][INFO] [Eval] Overall shared_data update: acc=0.2579, latency=1.419s
+[2026-09-22 14:39:01][INFO] 
+==================================================
+[2026-09-22 14:39:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #4)           
+[2026-09-22 14:39:01][INFO] ==================================================
+[2026-09-22 14:39:01][INFO] Overall Streaming Accuracy: 0.2579 (2579/10000)
+[2026-09-22 14:39:01][INFO] Overall Evaluation Latency: 1.42s
+[2026-09-22 14:39:01][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:39:01][INFO] --------------------------------------------------
+[2026-09-22 14:39:01][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:39:01][INFO]   - Experience 0: 0.7030
+[2026-09-22 14:39:01][INFO]   - Experience 1: 0.8240
+[2026-09-22 14:39:01][INFO]   - Experience 2: 0.0580
+[2026-09-22 14:39:01][INFO]   - Experience 3: 0.0010
+[2026-09-22 14:39:01][INFO]   - Experience 4: 0.0000
+[2026-09-22 14:39:01][INFO]   - Experience 5: 0.0210
+[2026-09-22 14:39:01][INFO]   - Experience 6: 0.9720
+[2026-09-22 14:39:01][INFO]   - Experience 7: 0.0000
+[2026-09-22 14:39:01][INFO]   - Experience 8: 0.0000
+[2026-09-22 14:39:01][INFO]   - Experience 9: 0.0000
+[2026-09-22 14:39:01][INFO] ==================================================
+
+[2026-09-22 14:39:01][INFO] [CycleMetrics] {"cycle": 4, "version_lower_bound": 7, "final_at_load": false, "accuracy": 0.2579, "samples": 10000, "duration": 1.4203193187713623, "batch_p95_ms": 3.620910644531249, "batch_p99_ms": 4.159083366394043}
+ 95%|█████████▍| 75/79 [00:01<00:00, 40.21it/s] 96%|█████████▌| 76/79 [00:01<00:00, 40.21it/s] 97%|█████████▋| 77/79 [00:01<00:00, 40.31it/s] 97%|█████████▋| 77/79 [00:01<00:00, 40.31it/s][2026-09-22 14:39:01][INFO] [Train][MiniBatch][Plugin] acc=0.6171875, latency=0.005
+ 99%|█████████▊| 78/79 [00:01<00:00, 40.31it/s]100%|██████████| 79/79 [00:01<00:00, 40.31it/s]100%|██████████| 79/79 [00:01<00:00, 40.20it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.8892
+	Loss_MB/train_phase/train_stream/Task000 = 1.9077
+	Time_Epoch/train_phase/train_stream/Task000 = 1.9649
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4112
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.2639
+-- >> End of training phase << --
+[2026-09-22 14:39:01][INFO] Training Experience 7 completed
+[2026-09-22 14:39:01][INFO] [Train] shared_data update: acc=None, latency=1.985
+[2026-09-22 14:39:01][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:39:01][INFO] -->> Starting training for Experience 8 <<--
+[2026-09-22 14:39:01][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:39:01][INFO] [Train] DataLoader recreated for Exp 8 (batch size 64)
+[2026-09-22 14:39:01][INFO] Training Experience 8 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:16,  4.80it/s]  1%|▏         | 1/79 [00:00<00:16,  4.80it/s]  3%|▎         | 2/79 [00:00<00:16,  4.80it/s]  4%|▍         | 3/79 [00:00<00:15,  4.80it/s]  5%|▌         | 4/79 [00:00<00:15,  4.80it/s]  6%|▋         | 5/79 [00:00<00:15,  4.80it/s]  8%|▊         | 6/79 [00:00<00:03, 21.65it/s]  8%|▊         | 6/79 [00:00<00:03, 21.65it/s]  9%|▉         | 7/79 [00:00<00:03, 21.65it/s] 10%|█         | 8/79 [00:00<00:03, 21.65it/s][2026-09-22 14:39:01][INFO] [Train][MiniBatch][Plugin] acc=0.109375, latency=0.005
+ 11%|█▏        | 9/79 [00:00<00:03, 21.65it/s] 13%|█▎        | 10/79 [00:00<00:03, 21.65it/s] 14%|█▍        | 11/79 [00:00<00:02, 29.31it/s] 14%|█▍        | 11/79 [00:00<00:02, 29.31it/s] 15%|█▌        | 12/79 [00:00<00:02, 29.31it/s] 16%|█▋        | 13/79 [00:00<00:02, 29.31it/s] 18%|█▊        | 14/79 [00:00<00:02, 29.31it/s] 19%|█▉        | 15/79 [00:00<00:02, 29.31it/s] 20%|██        | 16/79 [00:00<00:01, 34.26it/s] 20%|██        | 16/79 [00:00<00:01, 34.26it/s] 22%|██▏       | 17/79 [00:00<00:01, 34.26it/s] 23%|██▎       | 18/79 [00:00<00:01, 34.26it/s][2026-09-22 14:39:02][INFO] [Train][MiniBatch][Plugin] acc=0.0625, latency=0.004
+ 24%|██▍       | 19/79 [00:00<00:01, 34.26it/s] 25%|██▌       | 20/79 [00:00<00:01, 34.26it/s] 27%|██▋       | 21/79 [00:00<00:01, 37.48it/s] 27%|██▋       | 21/79 [00:00<00:01, 37.48it/s] 28%|██▊       | 22/79 [00:00<00:01, 37.48it/s] 29%|██▉       | 23/79 [00:00<00:01, 37.48it/s] 30%|███       | 24/79 [00:00<00:01, 37.48it/s] 32%|███▏      | 25/79 [00:00<00:01, 37.48it/s] 33%|███▎      | 26/79 [00:00<00:01, 39.61it/s] 33%|███▎      | 26/79 [00:00<00:01, 39.61it/s] 34%|███▍      | 27/79 [00:00<00:01, 39.61it/s] 35%|███▌      | 28/79 [00:00<00:01, 39.61it/s][2026-09-22 14:39:02][INFO] [Train][MiniBatch][Plugin] acc=0.4765625, latency=0.004
+ 37%|███▋      | 29/79 [00:00<00:01, 39.61it/s] 38%|███▊      | 30/79 [00:00<00:01, 39.61it/s] 39%|███▉      | 31/79 [00:00<00:01, 41.02it/s] 39%|███▉      | 31/79 [00:00<00:01, 41.02it/s] 41%|████      | 32/79 [00:00<00:01, 41.02it/s] 42%|████▏     | 33/79 [00:00<00:01, 41.02it/s] 43%|████▎     | 34/79 [00:00<00:01, 41.02it/s] 44%|████▍     | 35/79 [00:00<00:01, 41.02it/s] 46%|████▌     | 36/79 [00:01<00:01, 42.04it/s] 46%|████▌     | 36/79 [00:01<00:01, 42.04it/s] 47%|████▋     | 37/79 [00:01<00:00, 42.04it/s] 48%|████▊     | 38/79 [00:01<00:00, 42.04it/s][2026-09-22 14:39:02][INFO] [Train][MiniBatch][Plugin] acc=0.53125, latency=0.004
+ 49%|████▉     | 39/79 [00:01<00:00, 42.04it/s] 51%|█████     | 40/79 [00:01<00:00, 42.04it/s] 52%|█████▏    | 41/79 [00:01<00:00, 42.73it/s] 52%|█████▏    | 41/79 [00:01<00:00, 42.73it/s] 53%|█████▎    | 42/79 [00:01<00:00, 42.73it/s] 54%|█████▍    | 43/79 [00:01<00:00, 42.73it/s] 56%|█████▌    | 44/79 [00:01<00:00, 42.73it/s] 57%|█████▋    | 45/79 [00:01<00:00, 42.73it/s] 58%|█████▊    | 46/79 [00:01<00:00, 43.02it/s] 58%|█████▊    | 46/79 [00:01<00:00, 43.02it/s] 59%|█████▉    | 47/79 [00:01<00:00, 43.02it/s] 61%|██████    | 48/79 [00:01<00:00, 43.02it/s][2026-09-22 14:39:02][INFO] [Train][MiniBatch][Plugin] acc=0.5625, latency=0.004
+ 62%|██████▏   | 49/79 [00:01<00:00, 43.02it/s] 63%|██████▎   | 50/79 [00:01<00:00, 43.02it/s] 65%|██████▍   | 51/79 [00:01<00:00, 43.40it/s] 65%|██████▍   | 51/79 [00:01<00:00, 43.40it/s] 66%|██████▌   | 52/79 [00:01<00:00, 43.40it/s] 67%|██████▋   | 53/79 [00:01<00:00, 43.40it/s] 68%|██████▊   | 54/79 [00:01<00:00, 43.40it/s] 70%|██████▉   | 55/79 [00:01<00:00, 43.40it/s] 71%|███████   | 56/79 [00:01<00:00, 43.14it/s] 71%|███████   | 56/79 [00:01<00:00, 43.14it/s] 72%|███████▏  | 57/79 [00:01<00:00, 43.14it/s] 73%|███████▎  | 58/79 [00:01<00:00, 43.14it/s][2026-09-22 14:39:02][INFO] [Train][MiniBatch][Plugin] acc=0.578125, latency=0.005
+ 75%|███████▍  | 59/79 [00:01<00:00, 43.14it/s] 76%|███████▌  | 60/79 [00:01<00:00, 43.14it/s] 77%|███████▋  | 61/79 [00:01<00:00, 42.95it/s] 77%|███████▋  | 61/79 [00:01<00:00, 42.95it/s] 78%|███████▊  | 62/79 [00:01<00:00, 42.95it/s] 80%|███████▉  | 63/79 [00:01<00:00, 42.95it/s] 81%|████████  | 64/79 [00:01<00:00, 42.95it/s] 82%|████████▏ | 65/79 [00:01<00:00, 42.95it/s] 84%|████████▎ | 66/79 [00:01<00:00, 42.90it/s] 84%|████████▎ | 66/79 [00:01<00:00, 42.90it/s] 85%|████████▍ | 67/79 [00:01<00:00, 42.90it/s] 86%|████████▌ | 68/79 [00:01<00:00, 42.90it/s][2026-09-22 14:39:03][INFO] [Train][MiniBatch][Plugin] acc=0.578125, latency=0.005
+ 87%|████████▋ | 69/79 [00:01<00:00, 42.90it/s] 89%|████████▊ | 70/79 [00:01<00:00, 42.90it/s] 90%|████████▉ | 71/79 [00:01<00:00, 41.19it/s] 90%|████████▉ | 71/79 [00:01<00:00, 41.19it/s] 91%|█████████ | 72/79 [00:01<00:00, 41.19it/s] 92%|█████████▏| 73/79 [00:01<00:00, 41.19it/s][2026-09-22 14:39:03][INFO] [Eval] Starting evaluation cycle #5. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.5625, batch_lat=0.001s
+ 94%|█████████▎| 74/79 [00:01<00:00, 41.19it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.6193, batch_lat=0.001s
+ 95%|█████████▍| 75/79 [00:01<00:00, 41.19it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.5893, batch_lat=0.001s
+ 96%|█████████▌| 76/79 [00:01<00:00, 41.18it/s] 96%|█████████▌| 76/79 [00:01<00:00, 41.18it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.5968, batch_lat=0.001s
+ 97%|█████████▋| 77/79 [00:01<00:00, 41.18it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.6021, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.6115, batch_lat=0.002s
+ 99%|█████████▊| 78/79 [00:02<00:00, 41.18it/s][2026-09-22 14:39:03][INFO] [Train][MiniBatch][Plugin] acc=0.16666666666666666, latency=0.005
+100%|██████████| 79/79 [00:02<00:00, 41.18it/s]100%|██████████| 79/79 [00:02<00:00, 38.97it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.6178, batch_lat=0.001s
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-09-22 14:39:03][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.6180 (618/1000)
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.4375, batch_lat=0.001s
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 2.0048
+	Loss_MB/train_phase/train_stream/Task000 = 2.3672
+	Time_Epoch/train_phase/train_stream/Task000 = 2.0271
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.3981
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.1667
+-- >> End of training phase << --
+[2026-09-22 14:39:03][INFO] Training Experience 8 completed
+[2026-09-22 14:39:03][INFO] [Train] shared_data update: acc=None, latency=2.048
+[2026-09-22 14:39:03][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:39:03][INFO] -->> Starting training for Experience 9 <<--
+[2026-09-22 14:39:03][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 14:39:03][INFO] [Train] DataLoader recreated for Exp 9 (batch size 64)
+[2026-09-22 14:39:03][INFO] Training Experience 9 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.4375, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.4702, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.4919, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.4878, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.4841, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.4846, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.4830 (483/1000)
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.0625, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.0682, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.0655, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.0746, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.0747, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.0772, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.0809, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.0810 (81/1000)
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+  1%|▏         | 1/79 [00:00<00:27,  2.86it/s]  1%|▏         | 1/79 [00:00<00:27,  2.86it/s][2026-09-22 14:39:03][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+  3%|▎         | 2/79 [00:00<00:26,  2.86it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.0455, batch_lat=0.001s
+  4%|▍         | 3/79 [00:00<00:26,  2.86it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.0506, batch_lat=0.001s
+  5%|▌         | 4/79 [00:00<00:26,  2.86it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.0524, batch_lat=0.001s
+  6%|▋         | 5/79 [00:00<00:25,  2.86it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.0457, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.0417, batch_lat=0.002s
+  8%|▊         | 6/79 [00:00<00:04, 15.51it/s]  8%|▊         | 6/79 [00:00<00:04, 15.51it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.0430, batch_lat=0.003s
+  9%|▉         | 7/79 [00:00<00:04, 15.51it/s][2026-09-22 14:39:03][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.0420 (42/1000)
+[2026-09-22 14:39:03][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 14:39:03][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 10%|█         | 8/79 [00:00<00:04, 15.51it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 11%|█▏        | 9/79 [00:00<00:04, 15.51it/s][2026-09-22 14:39:03][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:03][INFO] [Train][MiniBatch][Plugin] acc=0.109375, latency=0.005
+ 13%|█▎        | 10/79 [00:00<00:04, 15.51it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 14%|█▍        | 11/79 [00:00<00:02, 23.77it/s] 14%|█▍        | 11/79 [00:00<00:02, 23.77it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 15%|█▌        | 12/79 [00:00<00:02, 23.77it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.002s
+ 16%|█▋        | 13/79 [00:00<00:02, 23.77it/s][2026-09-22 14:39:04][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:04][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 18%|█▊        | 14/79 [00:00<00:02, 23.77it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 19%|█▉        | 15/79 [00:00<00:02, 23.77it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 20%|██        | 16/79 [00:00<00:02, 29.49it/s] 20%|██        | 16/79 [00:00<00:02, 29.49it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 22%|██▏       | 17/79 [00:00<00:02, 29.49it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+ 23%|██▎       | 18/79 [00:00<00:02, 29.49it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 24%|██▍       | 19/79 [00:00<00:02, 29.49it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:04][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Train][MiniBatch][Plugin] acc=0.203125, latency=0.004
+ 25%|██▌       | 20/79 [00:00<00:02, 29.49it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.9886, batch_lat=0.001s
+ 27%|██▋       | 21/79 [00:00<00:01, 33.47it/s] 27%|██▋       | 21/79 [00:00<00:01, 33.47it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.9881, batch_lat=0.001s
+ 28%|██▊       | 22/79 [00:00<00:01, 33.47it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.9819, batch_lat=0.001s
+ 29%|██▉       | 23/79 [00:00<00:01, 33.47it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.9832, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.9865, batch_lat=0.002s
+ 30%|███       | 24/79 [00:00<00:01, 33.47it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.9857, batch_lat=0.003s
+ 32%|███▏      | 25/79 [00:00<00:01, 33.47it/s][2026-09-22 14:39:04][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.9860 (986/1000)
+[2026-09-22 14:39:04][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 33%|███▎      | 26/79 [00:00<00:01, 36.05it/s] 33%|███▎      | 26/79 [00:00<00:01, 36.05it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 34%|███▍      | 27/79 [00:00<00:01, 36.05it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 35%|███▌      | 28/79 [00:00<00:01, 36.05it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 37%|███▋      | 29/79 [00:01<00:01, 36.05it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Train][MiniBatch][Plugin] acc=0.484375, latency=0.005
+ 38%|███▊      | 30/79 [00:01<00:01, 36.05it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+ 39%|███▉      | 31/79 [00:01<00:01, 37.86it/s] 39%|███▉      | 31/79 [00:01<00:01, 37.86it/s][2026-09-22 14:39:04][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:04][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 41%|████      | 32/79 [00:01<00:01, 37.86it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+ 42%|████▏     | 33/79 [00:01<00:01, 37.86it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 43%|████▎     | 34/79 [00:01<00:01, 37.86it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 44%|████▍     | 35/79 [00:01<00:01, 37.86it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.002s
+ 46%|████▌     | 36/79 [00:01<00:01, 39.16it/s] 46%|████▌     | 36/79 [00:01<00:01, 39.16it/s][2026-09-22 14:39:04][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.004s
+ 47%|████▋     | 37/79 [00:01<00:01, 39.16it/s][2026-09-22 14:39:04][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:04][INFO] [Eval] Overall shared_data update: acc=0.2210, latency=1.375s
+[2026-09-22 14:39:04][INFO] 
+==================================================
+[2026-09-22 14:39:04][INFO]            BENCHMARK PROGRESS REPORT (Cycle #5)           
+[2026-09-22 14:39:04][INFO] ==================================================
+[2026-09-22 14:39:04][INFO] Overall Streaming Accuracy: 0.2210 (2210/10000)
+[2026-09-22 14:39:04][INFO] Overall Evaluation Latency: 1.38s
+[2026-09-22 14:39:04][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:39:04][INFO] --------------------------------------------------
+[2026-09-22 14:39:04][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:39:04][INFO]   - Experience 0: 0.6180
+[2026-09-22 14:39:04][INFO]   - Experience 1: 0.4830
+[2026-09-22 14:39:04][INFO]   - Experience 2: 0.0810
+[2026-09-22 14:39:04][INFO]   - Experience 3: 0.0000
+[2026-09-22 14:39:04][INFO]   - Experience 4: 0.0420
+[2026-09-22 14:39:04][INFO]   - Experience 5: 0.0000
+[2026-09-22 14:39:04][INFO]   - Experience 6: 0.0000
+[2026-09-22 14:39:04][INFO]   - Experience 7: 0.9860
+[2026-09-22 14:39:04][INFO]   - Experience 8: 0.0000
+[2026-09-22 14:39:04][INFO]   - Experience 9: 0.0000
+[2026-09-22 14:39:04][INFO] ==================================================
+
+[2026-09-22 14:39:04][INFO] [CycleMetrics] {"cycle": 5, "version_lower_bound": 8, "final_at_load": false, "accuracy": 0.221, "samples": 10000, "duration": 1.3764350414276123, "batch_p95_ms": 3.210103511810302, "batch_p99_ms": 4.093770980834963}
+ 48%|████▊     | 38/79 [00:01<00:01, 39.16it/s] 49%|████▉     | 39/79 [00:01<00:01, 39.16it/s][2026-09-22 14:39:04][INFO] [Train][MiniBatch][Plugin] acc=0.5625, latency=0.004
+ 51%|█████     | 40/79 [00:01<00:00, 39.16it/s] 52%|█████▏    | 41/79 [00:01<00:00, 40.30it/s] 52%|█████▏    | 41/79 [00:01<00:00, 40.30it/s] 53%|█████▎    | 42/79 [00:01<00:00, 40.30it/s] 54%|█████▍    | 43/79 [00:01<00:00, 40.30it/s] 56%|█████▌    | 44/79 [00:01<00:00, 40.30it/s] 57%|█████▋    | 45/79 [00:01<00:00, 40.30it/s] 58%|█████▊    | 46/79 [00:01<00:00, 41.47it/s] 58%|█████▊    | 46/79 [00:01<00:00, 41.47it/s] 59%|█████▉    | 47/79 [00:01<00:00, 41.47it/s] 61%|██████    | 48/79 [00:01<00:00, 41.47it/s] 62%|██████▏   | 49/79 [00:01<00:00, 41.47it/s][2026-09-22 14:39:04][INFO] [Train][MiniBatch][Plugin] acc=0.53125, latency=0.005
+ 63%|██████▎   | 50/79 [00:01<00:00, 41.47it/s] 65%|██████▍   | 51/79 [00:01<00:00, 41.75it/s] 65%|██████▍   | 51/79 [00:01<00:00, 41.75it/s] 66%|██████▌   | 52/79 [00:01<00:00, 41.75it/s] 67%|██████▋   | 53/79 [00:01<00:00, 41.75it/s] 68%|██████▊   | 54/79 [00:01<00:00, 41.75it/s] 70%|██████▉   | 55/79 [00:01<00:00, 41.75it/s] 71%|███████   | 56/79 [00:01<00:00, 42.31it/s] 71%|███████   | 56/79 [00:01<00:00, 42.31it/s] 72%|███████▏  | 57/79 [00:01<00:00, 42.31it/s] 73%|███████▎  | 58/79 [00:01<00:00, 42.31it/s] 75%|███████▍  | 59/79 [00:01<00:00, 42.31it/s][2026-09-22 14:39:05][INFO] [Train][MiniBatch][Plugin] acc=0.5625, latency=0.004
+ 76%|███████▌  | 60/79 [00:01<00:00, 42.31it/s] 77%|███████▋  | 61/79 [00:01<00:00, 42.95it/s] 77%|███████▋  | 61/79 [00:01<00:00, 42.95it/s] 78%|███████▊  | 62/79 [00:01<00:00, 42.95it/s] 80%|███████▉  | 63/79 [00:01<00:00, 42.95it/s] 81%|████████  | 64/79 [00:01<00:00, 42.95it/s] 82%|████████▏ | 65/79 [00:01<00:00, 42.95it/s] 84%|████████▎ | 66/79 [00:01<00:00, 43.44it/s] 84%|████████▎ | 66/79 [00:01<00:00, 43.44it/s] 85%|████████▍ | 67/79 [00:01<00:00, 43.44it/s] 86%|████████▌ | 68/79 [00:01<00:00, 43.44it/s] 87%|████████▋ | 69/79 [00:01<00:00, 43.44it/s][2026-09-22 14:39:05][INFO] [Train][MiniBatch][Plugin] acc=0.5234375, latency=0.004
+ 89%|████████▊ | 70/79 [00:01<00:00, 43.44it/s] 90%|████████▉ | 71/79 [00:01<00:00, 43.79it/s] 90%|████████▉ | 71/79 [00:01<00:00, 43.79it/s] 91%|█████████ | 72/79 [00:02<00:00, 43.79it/s] 92%|█████████▏| 73/79 [00:02<00:00, 43.79it/s] 94%|█████████▎| 74/79 [00:02<00:00, 43.79it/s] 95%|█████████▍| 75/79 [00:02<00:00, 43.79it/s] 96%|█████████▌| 76/79 [00:02<00:00, 43.98it/s] 96%|█████████▌| 76/79 [00:02<00:00, 43.98it/s] 97%|█████████▋| 77/79 [00:02<00:00, 43.98it/s] 99%|█████████▊| 78/79 [00:02<00:00, 43.98it/s]100%|██████████| 79/79 [00:02<00:00, 43.98it/s]100%|██████████| 79/79 [00:02<00:00, 36.63it/s]/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.8527
+	Loss_MB/train_phase/train_stream/Task000 = 2.2427
+	Time_Epoch/train_phase/train_stream/Task000 = 2.1563
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4203
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.2083
+-- >> End of training phase << --
+[2026-09-22 14:39:05][INFO] Training Experience 9 completed
+[2026-09-22 14:39:05][INFO] [Train] shared_data update: acc=None, latency=2.178
+[2026-09-22 14:39:05][INFO] [Train] Model state_dict saved to shared_model_split_cifar10_resnet20_replay_20260922-143842.pth
+[2026-09-22 14:39:05][INFO] [Train] Training process completed or terminated.
+[2026-09-22 14:39:05][INFO] [Eval] Training complete. Performing final evaluation...
+[2026-09-22 14:39:05][INFO] [Eval] Starting evaluation cycle #6. Evaluating ALL experiences in the test stream.
+[2026-09-22 14:39:05][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0625, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.2273, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.2381, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.2258, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.2302, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.2353, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.2387, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.2390 (239/1000)
+[2026-09-22 14:39:05][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 14:39:05][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 14:39:05][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.0625, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.1023, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.1339, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.1109, batch_lat=0.001s
+[2026-09-22 14:39:05][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.1067, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.1066, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.1219, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.1210 (121/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0739, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0655, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0746, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0762, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0662, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0635, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0630 (63/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.1875, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.2727, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.2946, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.3165, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.3293, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.3346, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.3299, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.3320 (332/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.7500, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.5227, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.5179, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.5323, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.5351, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.5147, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.5133, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.5110 (511/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.5000, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.3580, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.3304, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.3347, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.3521, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.3713, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.3576, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.3590 (359/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0170, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0149, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0141, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0152, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0147, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0123, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0120 (12/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.1250, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.1420, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.1607, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.1552, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.1463, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.1446, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.1465, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.1470 (147/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.9375, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.9545, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.9435, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.9536, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.9573, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.9596, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.9590, batch_lat=0.001s
+[2026-09-22 14:39:06][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.9590 (959/1000)
+[2026-09-22 14:39:06][INFO] [Eval] Overall shared_data update: acc=0.2743, latency=1.193s
+[2026-09-22 14:39:06][INFO] 
+==================================================
+[2026-09-22 14:39:06][INFO]            BENCHMARK PROGRESS REPORT (Cycle #6)           
+[2026-09-22 14:39:06][INFO] ==================================================
+[2026-09-22 14:39:06][INFO] Overall Streaming Accuracy: 0.2743 (2743/10000)
+[2026-09-22 14:39:06][INFO] Overall Evaluation Latency: 1.19s
+[2026-09-22 14:39:06][INFO] Total Samples in this cycle: 10000
+[2026-09-22 14:39:06][INFO] --------------------------------------------------
+[2026-09-22 14:39:06][INFO] Experience Accuracies for this cycle:
+[2026-09-22 14:39:06][INFO]   - Experience 0: 0.2390
+[2026-09-22 14:39:06][INFO]   - Experience 1: 0.0000
+[2026-09-22 14:39:06][INFO]   - Experience 2: 0.1210
+[2026-09-22 14:39:06][INFO]   - Experience 3: 0.0630
+[2026-09-22 14:39:06][INFO]   - Experience 4: 0.3320
+[2026-09-22 14:39:06][INFO]   - Experience 5: 0.5110
+[2026-09-22 14:39:06][INFO]   - Experience 6: 0.3590
+[2026-09-22 14:39:06][INFO]   - Experience 7: 0.0120
+[2026-09-22 14:39:06][INFO]   - Experience 8: 0.1470
+[2026-09-22 14:39:06][INFO]   - Experience 9: 0.9590
+[2026-09-22 14:39:06][INFO] ==================================================
+
+[2026-09-22 14:39:06][INFO] [CycleMetrics] {"cycle": 6, "version_lower_bound": 10, "final_at_load": true, "accuracy": 0.2743, "samples": 10000, "duration": 1.1946301460266113, "batch_p95_ms": 0.7919192314147949, "batch_p99_ms": 0.8062243461608887}
+[2026-09-22 14:39:06][INFO] [Eval] Evaluation process completed.
+[SafeKill] PID 860873 not found.
+[2026-09-22 14:39:07][INFO] [Scheduler] Training process has terminated
+[SafeKill] PID 860874 not found.
+[2026-09-22 14:39:08][INFO] [Scheduler] Evaluation process has terminated
+[2026-09-22 14:39:08][INFO] [Scheduler] All processes completed
+[2026-09-22 14:39:09][INFO] All processes have completed. Program exiting.

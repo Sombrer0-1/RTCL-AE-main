@@ -1,3 +1,5 @@
+> 本地小规模复现及后续调度改进：原始成果见 [repro_logs](repro_logs/README.md)，新方案、配对实验和限制见 [optimization_logs](optimization_logs/README.md)。这些是算法可行性验证，不代表完整或同平台的论文复现。
+
 # AdaptOCL
 enabling concurrent on-device online continual learning inference and retraining using real-time streaming data
 

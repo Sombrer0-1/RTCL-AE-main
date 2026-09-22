@@ -84,7 +84,7 @@ def parse_arguments():
         "--global_scheduler_mode", 
         type=str, 
         default="default",
-        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "recl_sched"],
+        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "recl_sched"],
         help="Choose how train/eval processes are scheduled."
     )
     parser.add_argument(
@@ -282,6 +282,8 @@ def parse_arguments():
         default=0.9,
         help="RECL Scheduler: Minimum evaluation weight when in 'inference_focus' mode (0.0 to 1.0)."
     )
+
+    parser.add_argument("--seed", type=int, default=None)
 
     # Parse arguments
     args = parser.parse_args()

@@ -1,0 +1,2 @@
+mode,n,wall_sec_mean,wall_sec_sd,qps_mean,qps_sd,final_accuracy_mean,final_accuracy_sd,eval_samples_mean,eval_samples_sd,max_cycle_p99_ms_mean,max_cycle_p99_ms_sd,wall_cv_pct
+freshness_adaptive,3,34.466951099302,1.1238545001954794,1451.6751765586962,46.470617235825166,0.2604,0.019194009482127496,70000.0,10000.0,5.658450921376546,0.2116318552835794,3.2606728020635365
