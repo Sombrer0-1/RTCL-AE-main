@@ -169,3 +169,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Local dependencies and generated model files
+.deps/
+*.pth
+/train/
+/eval/
+/log-*/
+!repro_logs/*.log

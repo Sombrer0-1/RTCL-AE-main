@@ -1,0 +1,5 @@
+method,scheduler,wall_sec,train_samples,qps,speedup_vs_avalanche,streaming_accuracy,log
+Avalanche (sequential),-,215.95,50000,231.5,1.0,0.4446,repro_logs/avalanche_cifar10.log
+AOCL_basic,fully_parallel,44.73,50000,1117.8,4.83,0.4484,repro_logs/aocl_basic_cifar10.log
+AOCL,adaptocl,41.02,50000,1218.9,5.26,0.3487,repro_logs/aocl_cifar10_final.log
+AOCL (gamma=eta=0.1),adaptocl,42.12,50000,1187.1,5.13,0.3418,repro_logs/aocl_cifar10_gamma01.log

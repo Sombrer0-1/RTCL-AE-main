@@ -189,15 +189,25 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
         results = []
         last_eval_time = time.time()
         waiting_for_final_eval = False
+        final_eval_done = False
 
-        # Main evaluation loop
-        while shared_data.get("train_process_active", True) or waiting_for_final_eval:
+        # Main evaluation loop. Do not test train_process_active in the
+        # while-header: on a fast GPU training can flip that flag while this
+        # process is stopped or sleeping, and the header check then exits
+        # before the final post-training cycle (the branch below) can run.
+        while not final_eval_done:
             if TERMINATE_SIGNAL:
                 log_info("[Eval] Termination requested. Stopping evaluation...")
                 break
 
+            train_active = shared_data.get("train_process_active", True)
+            if not train_active and not waiting_for_final_eval:
+                waiting_for_final_eval = True
+                log_info("[Eval] Training complete. Performing final evaluation...")
+
             current_time = time.time()
-            if current_time - last_eval_time < EVAL_INTERVAL_SECONDS:
+            if ((not waiting_for_final_eval)
+                    and current_time - last_eval_time < EVAL_INTERVAL_SECONDS):
                 time.sleep(POLL_INTERVAL_SECONDS)
                 continue
 

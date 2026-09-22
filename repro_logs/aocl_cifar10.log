@@ -1,0 +1,534 @@
+[2026-09-22 00:32:15][INFO] Using device: cuda:0
+[2026-09-22 00:32:19][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 64 for AdaptOCL scheduler.
+[2026-09-22 00:32:19][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-09-22 00:32:19][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-09-22 00:32:21][INFO] [TrainWorker] Registered SIGUSR1 handler.
+[2026-09-22 00:32:23][INFO] [Plugin] Adding ReplayPlugin for memory management.
+[2026-09-22 00:32:23][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-09-22 00:32:23][INFO] [Eval] Model output layer: Linear(in_features=64, out_features=10, bias=True)
+[2026-09-22 00:32:23][INFO] [Eval] Output features: 10
+[2026-09-22 00:32:23][INFO] [Eval] Benchmark: split_cifar10
+[2026-09-22 00:32:23][INFO] [Eval] Test stream length: 10
+[2026-09-22 00:32:23][INFO] [Plugin] Adding ReplayPlugin for memory management.
+[2026-09-22 00:32:24][INFO] Training process started.
+[2026-09-22 00:32:24][INFO] -->> Starting training for Experience 0 <<--
+[2026-09-22 00:32:24][INFO] [Train] Dynamic batch size applied: 64
+[2026-09-22 00:32:24][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 00:32:24][INFO] [Train] DataLoader recreated for Exp 0 (batch size 64)
+[2026-09-22 00:32:24][INFO] Training Experience 0 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 00:32:24][INFO] Starting evaluation process...
+[2026-09-22 00:32:24][INFO] [Train][MiniBatch][Plugin] acc=0.0, latency=0.265
+  1%|▏         | 1/79 [00:00<00:25,  3.02it/s]  1%|▏         | 1/79 [00:00<00:25,  3.02it/s]  3%|▎         | 2/79 [00:00<00:25,  3.02it/s]  4%|▍         | 3/79 [00:00<00:25,  3.02it/s]  5%|▌         | 4/79 [00:00<00:24,  3.02it/s]  6%|▋         | 5/79 [00:00<00:05, 14.09it/s]  6%|▋         | 5/79 [00:00<00:05, 14.09it/s]  8%|▊         | 6/79 [00:00<00:05, 14.09it/s]  9%|▉         | 7/79 [00:00<00:05, 14.09it/s] 10%|█         | 8/79 [00:00<00:05, 14.09it/s] 11%|█▏        | 9/79 [00:00<00:04, 14.09it/s] 13%|█▎        | 10/79 [00:00<00:02, 24.60it/s] 13%|█▎        | 10/79 [00:00<00:02, 24.60it/s][2026-09-22 00:32:24][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 14%|█▍        | 11/79 [00:00<00:02, 24.60it/s] 15%|█▌        | 12/79 [00:00<00:02, 24.60it/s] 16%|█▋        | 13/79 [00:00<00:02, 24.60it/s] 18%|█▊        | 14/79 [00:00<00:02, 24.60it/s] 19%|█▉        | 15/79 [00:00<00:02, 31.86it/s] 19%|█▉        | 15/79 [00:00<00:02, 31.86it/s] 20%|██        | 16/79 [00:00<00:01, 31.86it/s] 22%|██▏       | 17/79 [00:00<00:01, 31.86it/s] 23%|██▎       | 18/79 [00:00<00:01, 31.86it/s] 24%|██▍       | 19/79 [00:00<00:01, 31.86it/s] 25%|██▌       | 20/79 [00:00<00:01, 31.86it/s][2026-09-22 00:32:24][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 27%|██▋       | 21/79 [00:00<00:01, 39.74it/s] 27%|██▋       | 21/79 [00:00<00:01, 39.74it/s] 28%|██▊       | 22/79 [00:00<00:01, 39.74it/s] 29%|██▉       | 23/79 [00:00<00:01, 39.74it/s] 30%|███       | 24/79 [00:00<00:01, 39.74it/s] 32%|███▏      | 25/79 [00:00<00:01, 39.74it/s] 33%|███▎      | 26/79 [00:00<00:01, 39.74it/s] 34%|███▍      | 27/79 [00:00<00:01, 44.81it/s] 34%|███▍      | 27/79 [00:00<00:01, 44.81it/s] 35%|███▌      | 28/79 [00:00<00:01, 44.81it/s] 37%|███▋      | 29/79 [00:00<00:01, 44.81it/s] 38%|███▊      | 30/79 [00:00<00:01, 44.81it/s][2026-09-22 00:32:25][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.005
+ 39%|███▉      | 31/79 [00:00<00:01, 44.81it/s] 41%|████      | 32/79 [00:00<00:01, 44.81it/s] 42%|████▏     | 33/79 [00:00<00:00, 48.28it/s] 42%|████▏     | 33/79 [00:00<00:00, 48.28it/s] 43%|████▎     | 34/79 [00:00<00:00, 48.28it/s] 44%|████▍     | 35/79 [00:01<00:00, 48.28it/s] 46%|████▌     | 36/79 [00:01<00:00, 48.28it/s] 47%|████▋     | 37/79 [00:01<00:00, 48.28it/s] 48%|████▊     | 38/79 [00:01<00:00, 48.28it/s] 49%|████▉     | 39/79 [00:01<00:00, 48.58it/s] 49%|████▉     | 39/79 [00:01<00:00, 48.58it/s] 51%|█████     | 40/79 [00:01<00:00, 48.58it/s][2026-09-22 00:32:25][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 52%|█████▏    | 41/79 [00:01<00:00, 48.58it/s] 53%|█████▎    | 42/79 [00:01<00:00, 48.58it/s] 54%|█████▍    | 43/79 [00:01<00:00, 48.58it/s] 56%|█████▌    | 44/79 [00:01<00:00, 48.58it/s] 57%|█████▋    | 45/79 [00:01<00:00, 49.08it/s] 57%|█████▋    | 45/79 [00:01<00:00, 49.08it/s] 58%|█████▊    | 46/79 [00:01<00:00, 49.08it/s] 59%|█████▉    | 47/79 [00:01<00:00, 49.08it/s] 61%|██████    | 48/79 [00:01<00:00, 49.08it/s] 62%|██████▏   | 49/79 [00:01<00:00, 49.08it/s] 63%|██████▎   | 50/79 [00:01<00:00, 49.08it/s][2026-09-22 00:32:25][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 65%|██████▍   | 51/79 [00:01<00:00, 47.23it/s] 65%|██████▍   | 51/79 [00:01<00:00, 47.23it/s] 66%|██████▌   | 52/79 [00:01<00:00, 47.23it/s] 67%|██████▋   | 53/79 [00:01<00:00, 47.23it/s] 68%|██████▊   | 54/79 [00:01<00:00, 47.23it/s] 70%|██████▉   | 55/79 [00:01<00:00, 47.23it/s] 71%|███████   | 56/79 [00:01<00:00, 47.23it/s] 72%|███████▏  | 57/79 [00:01<00:00, 48.43it/s] 72%|███████▏  | 57/79 [00:01<00:00, 48.43it/s] 73%|███████▎  | 58/79 [00:01<00:00, 48.43it/s] 75%|███████▍  | 59/79 [00:01<00:00, 48.43it/s] 76%|███████▌  | 60/79 [00:01<00:00, 48.43it/s][2026-09-22 00:32:25][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 77%|███████▋  | 61/79 [00:01<00:00, 48.43it/s] 78%|███████▊  | 62/79 [00:01<00:00, 48.43it/s] 80%|███████▉  | 63/79 [00:01<00:00, 49.13it/s] 80%|███████▉  | 63/79 [00:01<00:00, 49.13it/s] 81%|████████  | 64/79 [00:01<00:00, 49.13it/s] 82%|████████▏ | 65/79 [00:01<00:00, 49.13it/s] 84%|████████▎ | 66/79 [00:01<00:00, 49.13it/s] 85%|████████▍ | 67/79 [00:01<00:00, 49.13it/s] 86%|████████▌ | 68/79 [00:01<00:00, 49.13it/s] 87%|████████▋ | 69/79 [00:01<00:00, 50.11it/s] 87%|████████▋ | 69/79 [00:01<00:00, 50.11it/s] 89%|████████▊ | 70/79 [00:01<00:00, 50.11it/s][2026-09-22 00:32:25][INFO] [Train][MiniBatch][Plugin] acc=1.0, latency=0.004
+ 90%|████████▉ | 71/79 [00:01<00:00, 50.11it/s] 91%|█████████ | 72/79 [00:01<00:00, 50.11it/s] 92%|█████████▏| 73/79 [00:01<00:00, 50.11it/s] 94%|█████████▎| 74/79 [00:01<00:00, 50.11it/s] 95%|█████████▍| 75/79 [00:01<00:00, 49.84it/s] 95%|█████████▍| 75/79 [00:01<00:00, 49.84it/s] 96%|█████████▌| 76/79 [00:01<00:00, 49.84it/s] 97%|█████████▋| 77/79 [00:01<00:00, 49.84it/s] 99%|█████████▊| 78/79 [00:01<00:00, 49.84it/s]100%|██████████| 79/79 [00:01<00:00, 49.84it/s]100%|██████████| 79/79 [00:01<00:00, 41.61it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.3122
+	Loss_MB/train_phase/train_stream/Task000 = 0.0125
+	Time_Epoch/train_phase/train_stream/Task000 = 1.8988
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.9388
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 1.0000
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:26][INFO] Training Experience 0 completed
+[2026-09-22 00:32:26][INFO] [Train] shared_data update: acc=None, latency=1.918
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:26][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:26][INFO] -->> Starting training for Experience 1 <<--
+[2026-09-22 00:32:26][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 00:32:26][INFO] [Train] DataLoader recreated for Exp 1 (batch size 64)
+[2026-09-22 00:32:26][INFO] Training Experience 1 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:13,  5.98it/s]  1%|▏         | 1/79 [00:00<00:13,  5.98it/s][2026-09-22 00:32:26][INFO] [Train][MiniBatch][Plugin] acc=0.5, latency=0.005
+  3%|▎         | 2/79 [00:00<00:12,  5.98it/s]  4%|▍         | 3/79 [00:00<00:12,  5.98it/s]  5%|▌         | 4/79 [00:00<00:12,  5.98it/s]  6%|▋         | 5/79 [00:00<00:03, 21.54it/s]  6%|▋         | 5/79 [00:00<00:03, 21.54it/s]  8%|▊         | 6/79 [00:00<00:03, 21.54it/s]  9%|▉         | 7/79 [00:00<00:03, 21.54it/s] 10%|█         | 8/79 [00:00<00:03, 21.54it/s] 11%|█▏        | 9/79 [00:00<00:03, 21.54it/s] 13%|█▎        | 10/79 [00:00<00:02, 30.31it/s] 13%|█▎        | 10/79 [00:00<00:02, 30.31it/s] 14%|█▍        | 11/79 [00:00<00:02, 30.31it/s][2026-09-22 00:32:27][INFO] [Train][MiniBatch][Plugin] acc=0.5, latency=0.005
+ 15%|█▌        | 12/79 [00:00<00:02, 30.31it/s] 16%|█▋        | 13/79 [00:00<00:02, 30.31it/s] 18%|█▊        | 14/79 [00:00<00:02, 30.31it/s] 19%|█▉        | 15/79 [00:00<00:01, 34.82it/s] 19%|█▉        | 15/79 [00:00<00:01, 34.82it/s][2026-09-22 00:32:27][INFO] [AdaptOCL] Start: ω=0.5, γ=0.5, η=0.5, ε=0.005
+[2026-09-22 00:32:27][INFO] [AdaptOCL] Initial config: batch_size=64, time_slice=1.0
+[2026-09-22 00:32:27][INFO] [AdaptOCL] Using dynamic latency budget: 5.0
+[2026-09-22 00:32:27][INFO] [AdaptOCL] New experience detected: 1
+[2026-09-22 00:32:27][INFO] [AdaptOCL] Metrics: acc=0.602, lat=0.005, norm_lat=0.001, B=64, T_slice=1.00
+[2026-09-22 00:32:27][INFO] [AdaptOCL] UAM=0.300, ΔUAM=0.000 (eff_ΔUAM=0.000), exp=1/10, internal_mode=adaptive_accuracy, pend_cfg={'batch': None, 'tslice': None}, ack_batch=64
+[2026-09-22 00:32:27][INFO] [AdaptOCL] AA Priority: Training. Eval stopped. Next check in 2.1s
+ 20%|██        | 16/79 [00:00<00:01, 34.82it/s] 22%|██▏       | 17/79 [00:00<00:01, 34.82it/s] 23%|██▎       | 18/79 [00:00<00:01, 34.82it/s] 24%|██▍       | 19/79 [00:00<00:01, 34.82it/s] 25%|██▌       | 20/79 [00:00<00:01, 37.40it/s] 25%|██▌       | 20/79 [00:00<00:01, 37.40it/s] 27%|██▋       | 21/79 [00:00<00:01, 37.40it/s][2026-09-22 00:32:27][INFO] [Train][MiniBatch][Plugin] acc=0.7421875, latency=0.005
+ 28%|██▊       | 22/79 [00:00<00:01, 37.40it/s] 29%|██▉       | 23/79 [00:00<00:01, 37.40it/s] 30%|███       | 24/79 [00:00<00:01, 37.40it/s] 32%|███▏      | 25/79 [00:00<00:01, 39.05it/s] 32%|███▏      | 25/79 [00:00<00:01, 39.05it/s] 33%|███▎      | 26/79 [00:00<00:01, 39.05it/s] 34%|███▍      | 27/79 [00:00<00:01, 39.05it/s] 35%|███▌      | 28/79 [00:00<00:01, 39.05it/s] 37%|███▋      | 29/79 [00:00<00:01, 39.05it/s] 38%|███▊      | 30/79 [00:00<00:01, 40.04it/s] 38%|███▊      | 30/79 [00:00<00:01, 40.04it/s] 39%|███▉      | 31/79 [00:00<00:01, 40.04it/s][2026-09-22 00:32:27][INFO] [Train][MiniBatch][Plugin] acc=0.796875, latency=0.004
+ 41%|████      | 32/79 [00:00<00:01, 40.04it/s] 42%|████▏     | 33/79 [00:00<00:01, 40.04it/s] 43%|████▎     | 34/79 [00:00<00:01, 40.04it/s] 44%|████▍     | 35/79 [00:00<00:01, 40.42it/s] 44%|████▍     | 35/79 [00:00<00:01, 40.42it/s] 46%|████▌     | 36/79 [00:01<00:01, 40.42it/s] 47%|████▋     | 37/79 [00:01<00:01, 40.42it/s] 48%|████▊     | 38/79 [00:01<00:01, 40.42it/s] 49%|████▉     | 39/79 [00:01<00:00, 40.42it/s] 51%|█████     | 40/79 [00:01<00:00, 40.78it/s] 51%|█████     | 40/79 [00:01<00:00, 40.78it/s] 52%|█████▏    | 41/79 [00:01<00:00, 40.78it/s][2026-09-22 00:32:27][INFO] [Train][MiniBatch][Plugin] acc=0.796875, latency=0.005
+ 53%|█████▎    | 42/79 [00:01<00:00, 40.78it/s] 54%|█████▍    | 43/79 [00:01<00:00, 40.78it/s] 56%|█████▌    | 44/79 [00:01<00:00, 40.78it/s] 57%|█████▋    | 45/79 [00:01<00:00, 41.16it/s] 57%|█████▋    | 45/79 [00:01<00:00, 41.16it/s] 58%|█████▊    | 46/79 [00:01<00:00, 41.16it/s] 59%|█████▉    | 47/79 [00:01<00:00, 41.16it/s] 61%|██████    | 48/79 [00:01<00:00, 41.16it/s] 62%|██████▏   | 49/79 [00:01<00:00, 41.16it/s] 63%|██████▎   | 50/79 [00:01<00:00, 41.46it/s] 63%|██████▎   | 50/79 [00:01<00:00, 41.46it/s] 65%|██████▍   | 51/79 [00:01<00:00, 41.46it/s][2026-09-22 00:32:27][INFO] [Train][MiniBatch][Plugin] acc=0.765625, latency=0.004
+ 66%|██████▌   | 52/79 [00:01<00:00, 41.46it/s] 67%|██████▋   | 53/79 [00:01<00:00, 41.46it/s] 68%|██████▊   | 54/79 [00:01<00:00, 41.46it/s] 70%|██████▉   | 55/79 [00:01<00:00, 41.66it/s] 70%|██████▉   | 55/79 [00:01<00:00, 41.66it/s] 71%|███████   | 56/79 [00:01<00:00, 41.66it/s] 72%|███████▏  | 57/79 [00:01<00:00, 41.66it/s][2026-09-22 00:32:28][INFO] [AdaptOCL] Pending batch size: 64->96
+[2026-09-22 00:32:28][INFO] [AdaptOCL] Pending time slice: 1.000->1.500
+[2026-09-22 00:32:28][INFO] [AdaptOCL] Switched internal mode from adaptive_accuracy to latency_aware (eff_ΔUAM=0.102)
+ 73%|███████▎  | 58/79 [00:01<00:00, 41.66it/s] 75%|███████▍  | 59/79 [00:01<00:00, 41.66it/s] 76%|███████▌  | 60/79 [00:01<00:00, 41.91it/s] 76%|███████▌  | 60/79 [00:01<00:00, 41.91it/s] 77%|███████▋  | 61/79 [00:01<00:00, 41.91it/s][2026-09-22 00:32:28][INFO] [Train][MiniBatch][Plugin] acc=0.8125, latency=0.004
+ 78%|███████▊  | 62/79 [00:01<00:00, 41.91it/s] 80%|███████▉  | 63/79 [00:01<00:00, 41.91it/s] 81%|████████  | 64/79 [00:01<00:00, 41.91it/s] 82%|████████▏ | 65/79 [00:01<00:00, 42.09it/s] 82%|████████▏ | 65/79 [00:01<00:00, 42.09it/s] 84%|████████▎ | 66/79 [00:01<00:00, 42.09it/s] 85%|████████▍ | 67/79 [00:01<00:00, 42.09it/s] 86%|████████▌ | 68/79 [00:01<00:00, 42.09it/s] 87%|████████▋ | 69/79 [00:01<00:00, 42.09it/s] 89%|████████▊ | 70/79 [00:01<00:00, 42.24it/s] 89%|████████▊ | 70/79 [00:01<00:00, 42.24it/s] 90%|████████▉ | 71/79 [00:01<00:00, 42.24it/s][2026-09-22 00:32:28][INFO] [Train][MiniBatch][Plugin] acc=0.8671875, latency=0.004
+ 91%|█████████ | 72/79 [00:01<00:00, 42.24it/s] 92%|█████████▏| 73/79 [00:01<00:00, 42.24it/s] 94%|█████████▎| 74/79 [00:01<00:00, 42.24it/s] 95%|█████████▍| 75/79 [00:01<00:00, 42.35it/s] 95%|█████████▍| 75/79 [00:01<00:00, 42.35it/s] 96%|█████████▌| 76/79 [00:01<00:00, 42.35it/s] 97%|█████████▋| 77/79 [00:01<00:00, 42.35it/s] 99%|█████████▊| 78/79 [00:02<00:00, 42.35it/s]100%|██████████| 79/79 [00:02<00:00, 42.35it/s]100%|██████████| 79/79 [00:02<00:00, 39.17it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.7782
+	Loss_MB/train_phase/train_stream/Task000 = 0.2495
+	Time_Epoch/train_phase/train_stream/Task000 = 2.0164
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.7403
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.8750
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:28][INFO] Training Experience 1 completed
+[2026-09-22 00:32:28][INFO] [Train] shared_data update: acc=None, latency=2.032
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:28][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:28][INFO] -->> Starting training for Experience 2 <<--
+[2026-09-22 00:32:28][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 00:32:28][INFO] [Train] DataLoader recreated for Exp 2 (batch size 64)
+[2026-09-22 00:32:28][INFO] Training Experience 2 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/79 [00:00<00:02, 27.02it/s]  3%|▎         | 2/79 [00:00<00:02, 33.20it/s][2026-09-22 00:32:29][INFO] [Train][MiniBatch][Plugin] acc=0.40625, latency=0.004
+  4%|▍         | 3/79 [00:00<00:02, 35.94it/s]  5%|▌         | 4/79 [00:00<00:02, 37.24it/s]  5%|▌         | 4/79 [00:00<00:02, 37.24it/s]  6%|▋         | 5/79 [00:00<00:01, 37.24it/s]  8%|▊         | 6/79 [00:00<00:01, 37.24it/s]  9%|▉         | 7/79 [00:00<00:01, 37.24it/s] 10%|█         | 8/79 [00:00<00:01, 37.24it/s][2026-09-22 00:32:29][INFO] [AdaptOCL] New experience detected: 2
+[2026-09-22 00:32:29][INFO] [AdaptOCL] Applied pending batch: 96 at exp 2
+[2026-09-22 00:32:29][INFO] [AdaptOCL] Applied pending tslice: 1.5 at exp 2
+[2026-09-22 00:32:29][INFO] [AdaptOCL] Pending batch size: 96->48
+[2026-09-22 00:32:29][INFO] [AdaptOCL] Pending time slice: 1.500->1.000
+[2026-09-22 00:32:29][INFO] [AdaptOCL] Switched internal mode from latency_aware to adaptive_accuracy (eff_ΔUAM=-0.211)
+ 11%|█▏        | 9/79 [00:00<00:01, 39.58it/s] 11%|█▏        | 9/79 [00:00<00:01, 39.58it/s] 13%|█▎        | 10/79 [00:00<00:01, 39.58it/s] 14%|█▍        | 11/79 [00:00<00:01, 39.58it/s] 15%|█▌        | 12/79 [00:00<00:01, 39.58it/s][2026-09-22 00:32:29][INFO] [Train][MiniBatch][Plugin] acc=0.6875, latency=0.004
+ 16%|█▋        | 13/79 [00:00<00:01, 39.58it/s] 18%|█▊        | 14/79 [00:00<00:01, 40.69it/s] 18%|█▊        | 14/79 [00:00<00:01, 40.69it/s] 19%|█▉        | 15/79 [00:00<00:01, 40.69it/s] 20%|██        | 16/79 [00:00<00:01, 40.69it/s] 22%|██▏       | 17/79 [00:00<00:01, 40.69it/s] 23%|██▎       | 18/79 [00:00<00:01, 40.69it/s] 24%|██▍       | 19/79 [00:00<00:01, 41.00it/s] 24%|██▍       | 19/79 [00:00<00:01, 41.00it/s] 25%|██▌       | 20/79 [00:00<00:01, 41.00it/s] 27%|██▋       | 21/79 [00:00<00:01, 41.00it/s] 28%|██▊       | 22/79 [00:00<00:01, 41.00it/s][2026-09-22 00:32:29][INFO] [Train][MiniBatch][Plugin] acc=0.6953125, latency=0.005
+ 29%|██▉       | 23/79 [00:00<00:01, 41.00it/s] 30%|███       | 24/79 [00:00<00:01, 40.96it/s] 30%|███       | 24/79 [00:00<00:01, 40.96it/s] 32%|███▏      | 25/79 [00:00<00:01, 40.96it/s] 33%|███▎      | 26/79 [00:00<00:01, 40.96it/s] 34%|███▍      | 27/79 [00:00<00:01, 40.96it/s] 35%|███▌      | 28/79 [00:00<00:01, 40.96it/s] 37%|███▋      | 29/79 [00:00<00:01, 40.84it/s] 37%|███▋      | 29/79 [00:00<00:01, 40.84it/s] 38%|███▊      | 30/79 [00:00<00:01, 40.84it/s] 39%|███▉      | 31/79 [00:00<00:01, 40.84it/s] 41%|████      | 32/79 [00:00<00:01, 40.84it/s][2026-09-22 00:32:29][INFO] [Train][MiniBatch][Plugin] acc=0.703125, latency=0.004
+ 42%|████▏     | 33/79 [00:00<00:01, 40.84it/s] 43%|████▎     | 34/79 [00:00<00:01, 40.85it/s] 43%|████▎     | 34/79 [00:00<00:01, 40.85it/s] 44%|████▍     | 35/79 [00:00<00:01, 40.85it/s] 46%|████▌     | 36/79 [00:00<00:01, 40.85it/s] 47%|████▋     | 37/79 [00:00<00:01, 40.85it/s] 48%|████▊     | 38/79 [00:00<00:01, 40.85it/s] 49%|████▉     | 39/79 [00:00<00:00, 41.26it/s] 49%|████▉     | 39/79 [00:00<00:00, 41.26it/s] 51%|█████     | 40/79 [00:00<00:00, 41.26it/s] 52%|█████▏    | 41/79 [00:01<00:00, 41.26it/s] 53%|█████▎    | 42/79 [00:01<00:00, 41.26it/s][2026-09-22 00:32:29][INFO] [Train][MiniBatch][Plugin] acc=0.7578125, latency=0.004
+ 54%|█████▍    | 43/79 [00:01<00:00, 41.26it/s] 56%|█████▌    | 44/79 [00:01<00:00, 41.71it/s] 56%|█████▌    | 44/79 [00:01<00:00, 41.71it/s] 57%|█████▋    | 45/79 [00:01<00:00, 41.71it/s] 58%|█████▊    | 46/79 [00:01<00:00, 41.71it/s] 59%|█████▉    | 47/79 [00:01<00:00, 41.71it/s] 61%|██████    | 48/79 [00:01<00:00, 41.71it/s] 62%|██████▏   | 49/79 [00:01<00:00, 41.81it/s] 62%|██████▏   | 49/79 [00:01<00:00, 41.81it/s] 63%|██████▎   | 50/79 [00:01<00:00, 41.81it/s] 65%|██████▍   | 51/79 [00:01<00:00, 41.81it/s] 66%|██████▌   | 52/79 [00:01<00:00, 41.81it/s][2026-09-22 00:32:30][INFO] [Train][MiniBatch][Plugin] acc=0.765625, latency=0.006
+ 67%|██████▋   | 53/79 [00:01<00:00, 41.81it/s] 68%|██████▊   | 54/79 [00:01<00:00, 42.03it/s] 68%|██████▊   | 54/79 [00:01<00:00, 42.03it/s] 70%|██████▉   | 55/79 [00:01<00:00, 42.03it/s] 71%|███████   | 56/79 [00:01<00:00, 42.03it/s] 72%|███████▏  | 57/79 [00:01<00:00, 42.03it/s] 73%|███████▎  | 58/79 [00:01<00:00, 42.03it/s] 75%|███████▍  | 59/79 [00:01<00:00, 42.07it/s] 75%|███████▍  | 59/79 [00:01<00:00, 42.07it/s] 76%|███████▌  | 60/79 [00:01<00:00, 42.07it/s] 77%|███████▋  | 61/79 [00:01<00:00, 42.07it/s] 78%|███████▊  | 62/79 [00:01<00:00, 42.07it/s][2026-09-22 00:32:30][INFO] [Train][MiniBatch][Plugin] acc=0.7890625, latency=0.004
+ 80%|███████▉  | 63/79 [00:01<00:00, 42.07it/s] 81%|████████  | 64/79 [00:01<00:00, 41.92it/s] 81%|████████  | 64/79 [00:01<00:00, 41.92it/s] 82%|████████▏ | 65/79 [00:01<00:00, 41.92it/s] 84%|████████▎ | 66/79 [00:01<00:00, 41.92it/s] 85%|████████▍ | 67/79 [00:01<00:00, 41.92it/s] 86%|████████▌ | 68/79 [00:01<00:00, 41.92it/s] 87%|████████▋ | 69/79 [00:01<00:00, 42.04it/s] 87%|████████▋ | 69/79 [00:01<00:00, 42.04it/s] 89%|████████▊ | 70/79 [00:01<00:00, 42.04it/s][2026-09-22 00:32:30][INFO] [AdaptOCL] Pending batch size: 96->144
+[2026-09-22 00:32:30][INFO] [AdaptOCL] Pending time slice: 1.500->2.250
+[2026-09-22 00:32:30][INFO] [AdaptOCL] Switched internal mode from adaptive_accuracy to latency_aware (eff_ΔUAM=0.211)
+ 90%|████████▉ | 71/79 [00:01<00:00, 42.04it/s] 91%|█████████ | 72/79 [00:01<00:00, 42.04it/s][2026-09-22 00:32:30][INFO] [Train][MiniBatch][Plugin] acc=0.828125, latency=0.005
+ 92%|█████████▏| 73/79 [00:01<00:00, 42.04it/s] 94%|█████████▎| 74/79 [00:01<00:00, 42.31it/s] 94%|█████████▎| 74/79 [00:01<00:00, 42.31it/s] 95%|█████████▍| 75/79 [00:01<00:00, 42.31it/s] 96%|█████████▌| 76/79 [00:01<00:00, 42.31it/s] 97%|█████████▋| 77/79 [00:01<00:00, 42.31it/s] 99%|█████████▊| 78/79 [00:01<00:00, 42.31it/s]100%|██████████| 79/79 [00:01<00:00, 42.65it/s]100%|██████████| 79/79 [00:01<00:00, 42.65it/s]100%|██████████| 79/79 [00:01<00:00, 41.63it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 0.8945
+	Loss_MB/train_phase/train_stream/Task000 = 1.0870
+	Time_Epoch/train_phase/train_stream/Task000 = 1.8974
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.7048
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.5556
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:30][INFO] Training Experience 2 completed
+[2026-09-22 00:32:30][INFO] [Train] shared_data update: acc=None, latency=1.912
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:30][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:31][INFO] -->> Starting training for Experience 3 <<--
+[2026-09-22 00:32:31][INFO] [Train] Dynamic batch size applied: 96
+[2026-09-22 00:32:31][INFO] [Train] AdaptOCL timeslice applied: 1.5
+[2026-09-22 00:32:31][INFO] [Train] DataLoader recreated for Exp 3 (batch size 96)
+[2026-09-22 00:32:31][INFO] Training Experience 3 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  2%|▏         | 1/53 [00:00<00:09,  5.44it/s]  2%|▏         | 1/53 [00:00<00:09,  5.44it/s]  4%|▍         | 2/53 [00:00<00:09,  5.44it/s]  6%|▌         | 3/53 [00:00<00:09,  5.44it/s][2026-09-22 00:32:31][INFO] [Train][MiniBatch][Plugin] acc=0.3541666666666667, latency=0.004
+  8%|▊         | 4/53 [00:00<00:09,  5.44it/s]  9%|▉         | 5/53 [00:00<00:02, 19.81it/s]  9%|▉         | 5/53 [00:00<00:02, 19.81it/s] 11%|█▏        | 6/53 [00:00<00:02, 19.81it/s] 13%|█▎        | 7/53 [00:00<00:02, 19.81it/s] 15%|█▌        | 8/53 [00:00<00:02, 19.81it/s] 17%|█▋        | 9/53 [00:00<00:01, 26.81it/s] 17%|█▋        | 9/53 [00:00<00:01, 26.81it/s] 19%|█▉        | 10/53 [00:00<00:01, 26.81it/s] 21%|██        | 11/53 [00:00<00:01, 26.81it/s] 23%|██▎       | 12/53 [00:00<00:01, 26.81it/s] 25%|██▍       | 13/53 [00:00<00:01, 31.00it/s] 25%|██▍       | 13/53 [00:00<00:01, 31.00it/s][2026-09-22 00:32:31][INFO] [Train][MiniBatch][Plugin] acc=0.3645833333333333, latency=0.003
+ 26%|██▋       | 14/53 [00:00<00:01, 31.00it/s] 28%|██▊       | 15/53 [00:00<00:01, 31.00it/s] 30%|███       | 16/53 [00:00<00:01, 31.00it/s] 32%|███▏      | 17/53 [00:00<00:01, 33.07it/s] 32%|███▏      | 17/53 [00:00<00:01, 33.07it/s] 34%|███▍      | 18/53 [00:00<00:01, 33.07it/s] 36%|███▌      | 19/53 [00:00<00:01, 33.07it/s] 38%|███▊      | 20/53 [00:00<00:00, 33.07it/s] 40%|███▉      | 21/53 [00:00<00:00, 34.30it/s] 40%|███▉      | 21/53 [00:00<00:00, 34.30it/s] 42%|████▏     | 22/53 [00:00<00:00, 34.30it/s] 43%|████▎     | 23/53 [00:00<00:00, 34.30it/s][2026-09-22 00:32:31][INFO] [Train][MiniBatch][Plugin] acc=0.6614583333333334, latency=0.004
+ 45%|████▌     | 24/53 [00:00<00:00, 34.30it/s] 47%|████▋     | 25/53 [00:00<00:00, 35.73it/s] 47%|████▋     | 25/53 [00:00<00:00, 35.73it/s] 49%|████▉     | 26/53 [00:00<00:00, 35.73it/s] 51%|█████     | 27/53 [00:00<00:00, 35.73it/s] 53%|█████▎    | 28/53 [00:00<00:00, 35.73it/s] 55%|█████▍    | 29/53 [00:00<00:00, 36.66it/s] 55%|█████▍    | 29/53 [00:00<00:00, 36.66it/s] 57%|█████▋    | 30/53 [00:00<00:00, 36.66it/s] 58%|█████▊    | 31/53 [00:00<00:00, 36.66it/s] 60%|██████    | 32/53 [00:00<00:00, 36.66it/s] 62%|██████▏   | 33/53 [00:01<00:00, 37.58it/s] 62%|██████▏   | 33/53 [00:01<00:00, 37.58it/s][2026-09-22 00:32:32][INFO] [AdaptOCL] New experience detected: 3
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Applied pending batch: 144 at exp 3
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Applied pending tslice: 2.25 at exp 3
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Metrics: acc=0.651, lat=0.004, norm_lat=0.001, B=144, T_slice=2.25
+[2026-09-22 00:32:32][INFO] [AdaptOCL] UAM=0.325, ΔUAM=-0.077 (eff_ΔUAM=-0.077), exp=3/10, internal_mode=latency_aware, pend_cfg={'batch': None, 'tslice': None}, ack_batch=144
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Pending batch size: 144->72
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Pending time slice: 2.250->1.125
+[2026-09-22 00:32:32][INFO] [AdaptOCL] Switched internal mode from latency_aware to adaptive_accuracy (eff_ΔUAM=-0.077)
+[2026-09-22 00:32:32][INFO] [AdaptOCL] AA Priority: Training. Eval stopped. Next check in 10.0s
+[2026-09-22 00:32:32][INFO] [Train][MiniBatch][Plugin] acc=0.65625, latency=0.004
+ 64%|██████▍   | 34/53 [00:01<00:00, 37.58it/s] 66%|██████▌   | 35/53 [00:01<00:00, 37.58it/s] 68%|██████▊   | 36/53 [00:01<00:00, 37.58it/s] 70%|██████▉   | 37/53 [00:01<00:00, 36.47it/s] 70%|██████▉   | 37/53 [00:01<00:00, 36.47it/s] 72%|███████▏  | 38/53 [00:01<00:00, 36.47it/s] 74%|███████▎  | 39/53 [00:01<00:00, 36.47it/s] 75%|███████▌  | 40/53 [00:01<00:00, 36.47it/s] 77%|███████▋  | 41/53 [00:01<00:00, 34.44it/s] 77%|███████▋  | 41/53 [00:01<00:00, 34.44it/s] 79%|███████▉  | 42/53 [00:01<00:00, 34.44it/s] 81%|████████  | 43/53 [00:01<00:00, 34.44it/s][2026-09-22 00:32:32][INFO] [Train][MiniBatch][Plugin] acc=0.6614583333333334, latency=0.005
+ 83%|████████▎ | 44/53 [00:01<00:00, 34.44it/s] 85%|████████▍ | 45/53 [00:01<00:00, 33.01it/s] 85%|████████▍ | 45/53 [00:01<00:00, 33.01it/s] 87%|████████▋ | 46/53 [00:01<00:00, 33.01it/s] 89%|████████▊ | 47/53 [00:01<00:00, 33.01it/s] 91%|█████████ | 48/53 [00:01<00:00, 33.01it/s] 92%|█████████▏| 49/53 [00:01<00:00, 32.00it/s] 92%|█████████▏| 49/53 [00:01<00:00, 32.00it/s] 94%|█████████▍| 50/53 [00:01<00:00, 32.00it/s] 96%|█████████▌| 51/53 [00:01<00:00, 32.00it/s] 98%|█████████▊| 52/53 [00:01<00:00, 32.00it/s]100%|██████████| 53/53 [00:01<00:00, 31.97it/s]100%|██████████| 53/53 [00:01<00:00, 31.97it/s]100%|██████████| 53/53 [00:01<00:00, 31.84it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.4309
+	Loss_MB/train_phase/train_stream/Task000 = 1.3568
+	Time_Epoch/train_phase/train_stream/Task000 = 1.6643
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.5618
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.3846
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:32][INFO] Training Experience 3 completed
+[2026-09-22 00:32:32][INFO] [Train] shared_data update: acc=None, latency=1.680
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:32][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:33][INFO] -->> Starting training for Experience 4 <<--
+[2026-09-22 00:32:33][INFO] [Train] Dynamic batch size applied: 144
+[2026-09-22 00:32:33][INFO] [Train] AdaptOCL timeslice applied: 2.25
+[2026-09-22 00:32:33][INFO] [Train] DataLoader recreated for Exp 4 (batch size 144)
+[2026-09-22 00:32:33][INFO] Training Experience 4 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 00:32:33][INFO] [Train][MiniBatch][Plugin] acc=0.2708333333333333, latency=0.023
+  3%|▎         | 1/35 [00:00<00:03,  9.76it/s]  3%|▎         | 1/35 [00:00<00:03,  9.76it/s]  6%|▌         | 2/35 [00:00<00:03,  9.76it/s]  9%|▊         | 3/35 [00:00<00:03,  9.76it/s] 11%|█▏        | 4/35 [00:00<00:01, 17.24it/s] 11%|█▏        | 4/35 [00:00<00:01, 17.24it/s] 14%|█▍        | 5/35 [00:00<00:01, 17.24it/s] 17%|█▋        | 6/35 [00:00<00:01, 17.24it/s] 20%|██        | 7/35 [00:00<00:01, 19.11it/s] 20%|██        | 7/35 [00:00<00:01, 19.11it/s] 23%|██▎       | 8/35 [00:00<00:01, 19.11it/s] 26%|██▌       | 9/35 [00:00<00:01, 19.11it/s] 29%|██▊       | 10/35 [00:00<00:01, 19.84it/s] 29%|██▊       | 10/35 [00:00<00:01, 19.84it/s][2026-09-22 00:32:33][INFO] [Train][MiniBatch][Plugin] acc=0.3020833333333333, latency=0.006
+ 31%|███▏      | 11/35 [00:00<00:01, 19.84it/s] 34%|███▍      | 12/35 [00:00<00:01, 19.84it/s] 37%|███▋      | 13/35 [00:00<00:01, 20.25it/s] 37%|███▋      | 13/35 [00:00<00:01, 20.25it/s] 40%|████      | 14/35 [00:00<00:01, 20.25it/s] 43%|████▎     | 15/35 [00:00<00:00, 20.25it/s] 46%|████▌     | 16/35 [00:00<00:00, 20.61it/s] 46%|████▌     | 16/35 [00:00<00:00, 20.61it/s] 49%|████▊     | 17/35 [00:00<00:00, 20.61it/s] 51%|█████▏    | 18/35 [00:00<00:00, 20.61it/s] 54%|█████▍    | 19/35 [00:00<00:00, 20.87it/s] 54%|█████▍    | 19/35 [00:00<00:00, 20.87it/s] 57%|█████▋    | 20/35 [00:01<00:00, 20.87it/s][2026-09-22 00:32:34][INFO] [Train][MiniBatch][Plugin] acc=0.4548611111111111, latency=0.007
+ 60%|██████    | 21/35 [00:01<00:00, 20.87it/s] 63%|██████▎   | 22/35 [00:01<00:00, 21.01it/s] 63%|██████▎   | 22/35 [00:01<00:00, 21.01it/s] 66%|██████▌   | 23/35 [00:01<00:00, 21.01it/s] 69%|██████▊   | 24/35 [00:01<00:00, 21.01it/s] 71%|███████▏  | 25/35 [00:01<00:00, 21.14it/s] 71%|███████▏  | 25/35 [00:01<00:00, 21.14it/s] 74%|███████▍  | 26/35 [00:01<00:00, 21.14it/s] 77%|███████▋  | 27/35 [00:01<00:00, 21.14it/s][2026-09-22 00:32:34][INFO] [AdaptOCL] New experience detected: 4
+[2026-09-22 00:32:34][INFO] [AdaptOCL] Applied pending batch: 72 at exp 4
+[2026-09-22 00:32:34][INFO] [AdaptOCL] Applied pending tslice: 1.125 at exp 4
+[2026-09-22 00:32:34][INFO] [AdaptOCL] Pending batch size: 72->36
+[2026-09-22 00:32:34][INFO] [AdaptOCL] Pending time slice: 1.125->1.000
+ 80%|████████  | 28/35 [00:01<00:00, 20.99it/s] 80%|████████  | 28/35 [00:01<00:00, 20.99it/s] 83%|████████▎ | 29/35 [00:01<00:00, 20.99it/s] 86%|████████▌ | 30/35 [00:01<00:00, 20.99it/s][2026-09-22 00:32:34][INFO] [Train][MiniBatch][Plugin] acc=0.6284722222222222, latency=0.006
+ 89%|████████▊ | 31/35 [00:01<00:00, 21.03it/s] 89%|████████▊ | 31/35 [00:01<00:00, 21.03it/s] 91%|█████████▏| 32/35 [00:01<00:00, 21.03it/s] 94%|█████████▍| 33/35 [00:01<00:00, 21.03it/s] 97%|█████████▋| 34/35 [00:01<00:00, 21.18it/s] 97%|█████████▋| 34/35 [00:01<00:00, 21.18it/s]100%|██████████| 35/35 [00:01<00:00, 21.18it/s]100%|██████████| 35/35 [00:01<00:00, 20.44it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.7843
+	Loss_MB/train_phase/train_stream/Task000 = 1.1517
+	Time_Epoch/train_phase/train_stream/Task000 = 1.7120
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4146
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.5685
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:34][INFO] Training Experience 4 completed
+[2026-09-22 00:32:34][INFO] [Train] shared_data update: acc=None, latency=1.730
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:34][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:35][INFO] -->> Starting training for Experience 5 <<--
+[2026-09-22 00:32:35][INFO] [Train] Dynamic batch size applied: 72
+[2026-09-22 00:32:35][INFO] [Train] AdaptOCL timeslice applied: 1.125
+[2026-09-22 00:32:35][INFO] [Train] DataLoader recreated for Exp 5 (batch size 72)
+[2026-09-22 00:32:35][INFO] Training Experience 5 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|▏         | 1/70 [00:00<00:13,  5.11it/s]  1%|▏         | 1/70 [00:00<00:13,  5.11it/s]  3%|▎         | 2/70 [00:00<00:13,  5.11it/s]  4%|▍         | 3/70 [00:00<00:13,  5.11it/s]  6%|▌         | 4/70 [00:00<00:12,  5.11it/s]  7%|▋         | 5/70 [00:00<00:03, 19.54it/s]  7%|▋         | 5/70 [00:00<00:03, 19.54it/s][2026-09-22 00:32:35][INFO] [Train][MiniBatch][Plugin] acc=0.16666666666666666, latency=0.005
+  9%|▊         | 6/70 [00:00<00:03, 19.54it/s] 10%|█         | 7/70 [00:00<00:03, 19.54it/s] 11%|█▏        | 8/70 [00:00<00:03, 19.54it/s] 13%|█▎        | 9/70 [00:00<00:02, 26.76it/s] 13%|█▎        | 9/70 [00:00<00:02, 26.76it/s] 14%|█▍        | 10/70 [00:00<00:02, 26.76it/s][2026-09-22 00:32:35][INFO] [AdaptOCL] New experience detected: 5
+[2026-09-22 00:32:35][INFO] [AdaptOCL] Applied pending batch: 36 at exp 5
+ 16%|█▌        | 11/70 [00:00<00:02, 26.76it/s][2026-09-22 00:32:35][INFO] [AdaptOCL] Applied pending tslice: 1.0 at exp 5
+[2026-09-22 00:32:35][INFO] [AdaptOCL] Pending batch size: 36->18
+ 17%|█▋        | 12/70 [00:00<00:02, 26.76it/s] 19%|█▊        | 13/70 [00:00<00:01, 30.82it/s] 19%|█▊        | 13/70 [00:00<00:01, 30.82it/s] 20%|██        | 14/70 [00:00<00:01, 30.82it/s] 21%|██▏       | 15/70 [00:00<00:01, 30.82it/s][2026-09-22 00:32:35][INFO] [Train][MiniBatch][Plugin] acc=0.20833333333333334, latency=0.005
+ 23%|██▎       | 16/70 [00:00<00:01, 30.82it/s] 24%|██▍       | 17/70 [00:00<00:01, 33.21it/s] 24%|██▍       | 17/70 [00:00<00:01, 33.21it/s] 26%|██▌       | 18/70 [00:00<00:01, 33.21it/s] 27%|██▋       | 19/70 [00:00<00:01, 33.21it/s] 29%|██▊       | 20/70 [00:00<00:01, 33.21it/s] 30%|███       | 21/70 [00:00<00:01, 34.81it/s] 30%|███       | 21/70 [00:00<00:01, 34.81it/s] 31%|███▏      | 22/70 [00:00<00:01, 34.81it/s] 33%|███▎      | 23/70 [00:00<00:01, 34.81it/s] 34%|███▍      | 24/70 [00:00<00:01, 34.81it/s] 36%|███▌      | 25/70 [00:00<00:01, 36.07it/s] 36%|███▌      | 25/70 [00:00<00:01, 36.07it/s][2026-09-22 00:32:35][INFO] [Train][MiniBatch][Plugin] acc=0.3472222222222222, latency=0.006
+ 37%|███▋      | 26/70 [00:00<00:01, 36.07it/s] 39%|███▊      | 27/70 [00:00<00:01, 36.07it/s] 40%|████      | 28/70 [00:00<00:01, 36.07it/s] 41%|████▏     | 29/70 [00:00<00:01, 36.86it/s] 41%|████▏     | 29/70 [00:00<00:01, 36.86it/s] 43%|████▎     | 30/70 [00:00<00:01, 36.86it/s] 44%|████▍     | 31/70 [00:00<00:01, 36.86it/s] 46%|████▌     | 32/70 [00:01<00:01, 36.86it/s] 47%|████▋     | 33/70 [00:01<00:00, 37.53it/s] 47%|████▋     | 33/70 [00:01<00:00, 37.53it/s] 49%|████▊     | 34/70 [00:01<00:00, 37.53it/s] 50%|█████     | 35/70 [00:01<00:00, 37.53it/s][2026-09-22 00:32:36][INFO] [Train][MiniBatch][Plugin] acc=0.6041666666666666, latency=0.005
+ 51%|█████▏    | 36/70 [00:01<00:00, 37.53it/s] 53%|█████▎    | 37/70 [00:01<00:00, 37.75it/s] 53%|█████▎    | 37/70 [00:01<00:00, 37.75it/s] 54%|█████▍    | 38/70 [00:01<00:00, 37.75it/s] 56%|█████▌    | 39/70 [00:01<00:00, 37.75it/s] 57%|█████▋    | 40/70 [00:01<00:00, 37.75it/s] 59%|█████▊    | 41/70 [00:01<00:00, 37.99it/s] 59%|█████▊    | 41/70 [00:01<00:00, 37.99it/s] 60%|██████    | 42/70 [00:01<00:00, 37.99it/s] 61%|██████▏   | 43/70 [00:01<00:00, 37.99it/s] 63%|██████▎   | 44/70 [00:01<00:00, 37.99it/s] 64%|██████▍   | 45/70 [00:01<00:00, 38.19it/s] 64%|██████▍   | 45/70 [00:01<00:00, 38.19it/s][2026-09-22 00:32:36][INFO] [Train][MiniBatch][Plugin] acc=0.6180555555555556, latency=0.005
+ 66%|██████▌   | 46/70 [00:01<00:00, 38.19it/s] 67%|██████▋   | 47/70 [00:01<00:00, 38.19it/s] 69%|██████▊   | 48/70 [00:01<00:00, 38.19it/s] 70%|███████   | 49/70 [00:01<00:00, 38.15it/s] 70%|███████   | 49/70 [00:01<00:00, 38.15it/s][2026-09-22 00:32:36][INFO] [AdaptOCL] Pending batch size: 36->54
+[2026-09-22 00:32:36][INFO] [AdaptOCL] Pending time slice: 1.000->1.500
+[2026-09-22 00:32:36][INFO] [AdaptOCL] Switched internal mode from adaptive_accuracy to latency_aware (eff_ΔUAM=0.208)
+[2026-09-22 00:32:36][INFO] [AdaptOCL] LA: Priority phase ended (Prog 0.50 or all exp completed). Switching to parallel.
+ 71%|███████▏  | 50/70 [00:01<00:00, 38.15it/s] 73%|███████▎  | 51/70 [00:01<00:00, 38.15it/s] 74%|███████▍  | 52/70 [00:01<00:00, 38.15it/s] 76%|███████▌  | 53/70 [00:01<00:00, 38.03it/s] 76%|███████▌  | 53/70 [00:01<00:00, 38.03it/s] 77%|███████▋  | 54/70 [00:01<00:00, 38.03it/s] 79%|███████▊  | 55/70 [00:01<00:00, 38.03it/s][2026-09-22 00:32:36][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.005
+ 80%|████████  | 56/70 [00:01<00:00, 38.03it/s] 81%|████████▏ | 57/70 [00:01<00:00, 37.93it/s] 81%|████████▏ | 57/70 [00:01<00:00, 37.93it/s] 83%|████████▎ | 58/70 [00:01<00:00, 37.93it/s] 84%|████████▍ | 59/70 [00:01<00:00, 37.93it/s] 86%|████████▌ | 60/70 [00:01<00:00, 37.93it/s] 87%|████████▋ | 61/70 [00:01<00:00, 38.09it/s] 87%|████████▋ | 61/70 [00:01<00:00, 38.09it/s] 89%|████████▊ | 62/70 [00:01<00:00, 38.09it/s] 90%|█████████ | 63/70 [00:01<00:00, 38.09it/s] 91%|█████████▏| 64/70 [00:01<00:00, 38.09it/s] 93%|█████████▎| 65/70 [00:01<00:00, 38.28it/s] 93%|█████████▎| 65/70 [00:01<00:00, 38.28it/s][2026-09-22 00:32:36][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.005
+ 94%|█████████▍| 66/70 [00:01<00:00, 38.28it/s] 96%|█████████▌| 67/70 [00:01<00:00, 38.28it/s] 97%|█████████▋| 68/70 [00:01<00:00, 38.28it/s] 99%|█████████▊| 69/70 [00:01<00:00, 38.37it/s] 99%|█████████▊| 69/70 [00:01<00:00, 38.37it/s]100%|██████████| 70/70 [00:01<00:00, 38.37it/s]100%|██████████| 70/70 [00:01<00:00, 35.22it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.6719
+	Loss_MB/train_phase/train_stream/Task000 = 1.4488
+	Time_Epoch/train_phase/train_stream/Task000 = 1.9873
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4504
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.4327
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:37][INFO] Training Experience 5 completed
+[2026-09-22 00:32:37][INFO] [Train] shared_data update: acc=None, latency=2.005
+[2026-09-22 00:32:37][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-09-22 00:32:37][INFO] [Eval] Processing Exp 0 from start (batch size 16)
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:37][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:37][INFO] -->> Starting training for Experience 6 <<--
+[2026-09-22 00:32:37][INFO] [Train] Dynamic batch size applied: 36
+[2026-09-22 00:32:37][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 00:32:37][INFO] [Train] DataLoader recreated for Exp 6 (batch size 36)
+[2026-09-22 00:32:37][INFO] Training Experience 6 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 00:32:37][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.5000, batch_lat=0.256s
+[2026-09-22 00:32:37][INFO] [Eval][Exp 0][MiniBatch 10] acc_so_far=0.5398, batch_lat=0.001s
+[2026-09-22 00:32:37][INFO] [Eval][Exp 0][MiniBatch 20] acc_so_far=0.5744, batch_lat=0.001s
+[2026-09-22 00:32:37][INFO] [AdaptOCL] New experience detected: 6
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Applied pending batch: 54 at exp 6
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Applied pending tslice: 1.5 at exp 6
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Metrics: acc=0.583, lat=0.001, norm_lat=0.000, B=54, T_slice=1.50
+[2026-09-22 00:32:37][INFO] [AdaptOCL] UAM=0.292, ΔUAM=-0.024 (eff_ΔUAM=-0.024), exp=6/10, internal_mode=latency_aware, pend_cfg={'batch': None, 'tslice': None}, ack_batch=54
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Pending batch size: 54->27
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Pending time slice: 1.500->1.000
+[2026-09-22 00:32:37][INFO] [AdaptOCL] Switched internal mode from latency_aware to adaptive_accuracy (eff_ΔUAM=-0.024)
+[2026-09-22 00:32:37][INFO] [AdaptOCL] AA Priority: Training. Eval stopped. Next check in 10.0s
+  1%|          | 1/139 [00:00<00:27,  5.06it/s]  1%|          | 1/139 [00:00<00:27,  5.06it/s]  1%|▏         | 2/139 [00:00<00:27,  5.06it/s]  2%|▏         | 3/139 [00:00<00:26,  5.06it/s]  3%|▎         | 4/139 [00:00<00:26,  5.06it/s]  4%|▎         | 5/139 [00:00<00:26,  5.06it/s][2026-09-22 00:32:37][INFO] [Train][MiniBatch][Plugin] acc=0.18055555555555555, latency=0.005
+  4%|▍         | 6/139 [00:00<00:26,  5.06it/s]  5%|▌         | 7/139 [00:00<00:04, 27.97it/s]  5%|▌         | 7/139 [00:00<00:04, 27.97it/s]  6%|▌         | 8/139 [00:00<00:04, 27.97it/s]  6%|▋         | 9/139 [00:00<00:04, 27.97it/s]  7%|▋         | 10/139 [00:00<00:04, 27.97it/s]  8%|▊         | 11/139 [00:00<00:04, 27.97it/s]  9%|▊         | 12/139 [00:00<00:04, 27.97it/s]  9%|▉         | 13/139 [00:00<00:04, 27.97it/s] 10%|█         | 14/139 [00:00<00:02, 42.88it/s] 10%|█         | 14/139 [00:00<00:02, 42.88it/s] 11%|█         | 15/139 [00:00<00:02, 42.88it/s][2026-09-22 00:32:37][INFO] [Train][MiniBatch][Plugin] acc=0.16666666666666666, latency=0.005
+ 12%|█▏        | 16/139 [00:00<00:02, 42.88it/s] 12%|█▏        | 17/139 [00:00<00:02, 42.88it/s] 13%|█▎        | 18/139 [00:00<00:02, 42.88it/s] 14%|█▎        | 19/139 [00:00<00:02, 42.88it/s] 14%|█▍        | 20/139 [00:00<00:02, 42.88it/s] 15%|█▌        | 21/139 [00:00<00:02, 51.19it/s] 15%|█▌        | 21/139 [00:00<00:02, 51.19it/s] 16%|█▌        | 22/139 [00:00<00:02, 51.19it/s] 17%|█▋        | 23/139 [00:00<00:02, 51.19it/s] 17%|█▋        | 24/139 [00:00<00:02, 51.19it/s] 18%|█▊        | 25/139 [00:00<00:02, 51.19it/s][2026-09-22 00:32:37][INFO] [Train][MiniBatch][Plugin] acc=0.25, latency=0.004
+ 19%|█▊        | 26/139 [00:00<00:02, 51.19it/s] 19%|█▉        | 27/139 [00:00<00:02, 51.19it/s] 20%|██        | 28/139 [00:00<00:01, 56.32it/s] 20%|██        | 28/139 [00:00<00:01, 56.32it/s] 21%|██        | 29/139 [00:00<00:01, 56.32it/s] 22%|██▏       | 30/139 [00:00<00:01, 56.32it/s] 22%|██▏       | 31/139 [00:00<00:01, 56.32it/s] 23%|██▎       | 32/139 [00:00<00:01, 56.32it/s] 24%|██▎       | 33/139 [00:00<00:01, 56.32it/s] 24%|██▍       | 34/139 [00:00<00:01, 56.32it/s] 25%|██▌       | 35/139 [00:00<00:01, 59.88it/s] 25%|██▌       | 35/139 [00:00<00:01, 59.88it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.005
+ 26%|██▌       | 36/139 [00:00<00:01, 59.88it/s] 27%|██▋       | 37/139 [00:00<00:01, 59.88it/s] 27%|██▋       | 38/139 [00:00<00:01, 59.88it/s] 28%|██▊       | 39/139 [00:00<00:01, 59.88it/s] 29%|██▉       | 40/139 [00:00<00:01, 59.88it/s] 29%|██▉       | 41/139 [00:00<00:01, 59.88it/s] 30%|███       | 42/139 [00:00<00:01, 61.55it/s] 30%|███       | 42/139 [00:00<00:01, 61.55it/s] 31%|███       | 43/139 [00:00<00:01, 61.55it/s] 32%|███▏      | 44/139 [00:00<00:01, 61.55it/s] 32%|███▏      | 45/139 [00:00<00:01, 61.55it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.5138888888888888, latency=0.005
+ 33%|███▎      | 46/139 [00:00<00:01, 61.55it/s] 34%|███▍      | 47/139 [00:00<00:01, 61.55it/s] 35%|███▍      | 48/139 [00:00<00:01, 61.55it/s] 35%|███▌      | 49/139 [00:00<00:01, 63.28it/s] 35%|███▌      | 49/139 [00:00<00:01, 63.28it/s] 36%|███▌      | 50/139 [00:00<00:01, 63.28it/s] 37%|███▋      | 51/139 [00:00<00:01, 63.28it/s] 37%|███▋      | 52/139 [00:00<00:01, 63.28it/s] 38%|███▊      | 53/139 [00:00<00:01, 63.28it/s] 39%|███▉      | 54/139 [00:01<00:01, 63.28it/s] 40%|███▉      | 55/139 [00:01<00:01, 63.28it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.5833333333333334, latency=0.005
+ 40%|████      | 56/139 [00:01<00:01, 64.63it/s] 40%|████      | 56/139 [00:01<00:01, 64.63it/s] 41%|████      | 57/139 [00:01<00:01, 64.63it/s] 42%|████▏     | 58/139 [00:01<00:01, 64.63it/s] 42%|████▏     | 59/139 [00:01<00:01, 64.63it/s] 43%|████▎     | 60/139 [00:01<00:01, 64.63it/s] 44%|████▍     | 61/139 [00:01<00:01, 64.63it/s] 45%|████▍     | 62/139 [00:01<00:01, 64.63it/s] 45%|████▌     | 63/139 [00:01<00:01, 65.49it/s] 45%|████▌     | 63/139 [00:01<00:01, 65.49it/s] 46%|████▌     | 64/139 [00:01<00:01, 65.49it/s] 47%|████▋     | 65/139 [00:01<00:01, 65.49it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.5972222222222222, latency=0.005
+ 47%|████▋     | 66/139 [00:01<00:01, 65.49it/s] 48%|████▊     | 67/139 [00:01<00:01, 65.49it/s] 49%|████▉     | 68/139 [00:01<00:01, 65.49it/s] 50%|████▉     | 69/139 [00:01<00:01, 65.49it/s] 50%|█████     | 70/139 [00:01<00:01, 65.00it/s] 50%|█████     | 70/139 [00:01<00:01, 65.00it/s] 51%|█████     | 71/139 [00:01<00:01, 65.00it/s] 52%|█████▏    | 72/139 [00:01<00:01, 65.00it/s] 53%|█████▎    | 73/139 [00:01<00:01, 65.00it/s] 53%|█████▎    | 74/139 [00:01<00:00, 65.00it/s] 54%|█████▍    | 75/139 [00:01<00:00, 65.00it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.5555555555555556, latency=0.005
+ 55%|█████▍    | 76/139 [00:01<00:00, 65.00it/s] 55%|█████▌    | 77/139 [00:01<00:00, 65.17it/s] 55%|█████▌    | 77/139 [00:01<00:00, 65.17it/s] 56%|█████▌    | 78/139 [00:01<00:00, 65.17it/s] 57%|█████▋    | 79/139 [00:01<00:00, 65.17it/s] 58%|█████▊    | 80/139 [00:01<00:00, 65.17it/s] 58%|█████▊    | 81/139 [00:01<00:00, 65.17it/s] 59%|█████▉    | 82/139 [00:01<00:00, 65.17it/s] 60%|█████▉    | 83/139 [00:01<00:00, 65.17it/s] 60%|██████    | 84/139 [00:01<00:00, 65.25it/s] 60%|██████    | 84/139 [00:01<00:00, 65.25it/s] 61%|██████    | 85/139 [00:01<00:00, 65.25it/s][2026-09-22 00:32:38][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.005
+ 62%|██████▏   | 86/139 [00:01<00:00, 65.25it/s] 63%|██████▎   | 87/139 [00:01<00:00, 65.25it/s] 63%|██████▎   | 88/139 [00:01<00:00, 65.25it/s] 64%|██████▍   | 89/139 [00:01<00:00, 65.25it/s] 65%|██████▍   | 90/139 [00:01<00:00, 65.25it/s] 65%|██████▌   | 91/139 [00:01<00:00, 65.89it/s] 65%|██████▌   | 91/139 [00:01<00:00, 65.89it/s] 66%|██████▌   | 92/139 [00:01<00:00, 65.89it/s] 67%|██████▋   | 93/139 [00:01<00:00, 65.89it/s] 68%|██████▊   | 94/139 [00:01<00:00, 65.89it/s] 68%|██████▊   | 95/139 [00:01<00:00, 65.89it/s][2026-09-22 00:32:39][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.005
+ 69%|██████▉   | 96/139 [00:01<00:00, 65.89it/s] 70%|██████▉   | 97/139 [00:01<00:00, 65.89it/s] 71%|███████   | 98/139 [00:01<00:00, 66.45it/s] 71%|███████   | 98/139 [00:01<00:00, 66.45it/s] 71%|███████   | 99/139 [00:01<00:00, 66.45it/s] 72%|███████▏  | 100/139 [00:01<00:00, 66.45it/s] 73%|███████▎  | 101/139 [00:01<00:00, 66.45it/s] 73%|███████▎  | 102/139 [00:01<00:00, 66.45it/s] 74%|███████▍  | 103/139 [00:01<00:00, 66.45it/s] 75%|███████▍  | 104/139 [00:01<00:00, 66.45it/s] 76%|███████▌  | 105/139 [00:01<00:00, 66.62it/s] 76%|███████▌  | 105/139 [00:01<00:00, 66.62it/s][2026-09-22 00:32:39][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.005
+ 76%|███████▋  | 106/139 [00:01<00:00, 66.62it/s] 77%|███████▋  | 107/139 [00:01<00:00, 66.62it/s] 78%|███████▊  | 108/139 [00:01<00:00, 66.62it/s] 78%|███████▊  | 109/139 [00:01<00:00, 66.62it/s] 79%|███████▉  | 110/139 [00:01<00:00, 66.62it/s] 80%|███████▉  | 111/139 [00:01<00:00, 66.62it/s] 81%|████████  | 112/139 [00:01<00:00, 66.63it/s] 81%|████████  | 112/139 [00:01<00:00, 66.63it/s] 81%|████████▏ | 113/139 [00:01<00:00, 66.63it/s] 82%|████████▏ | 114/139 [00:01<00:00, 66.63it/s] 83%|████████▎ | 115/139 [00:01<00:00, 66.63it/s][2026-09-22 00:32:39][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.005
+ 83%|████████▎ | 116/139 [00:01<00:00, 66.63it/s] 84%|████████▍ | 117/139 [00:01<00:00, 66.63it/s] 85%|████████▍ | 118/139 [00:01<00:00, 66.63it/s] 86%|████████▌ | 119/139 [00:01<00:00, 66.20it/s] 86%|████████▌ | 119/139 [00:01<00:00, 66.20it/s] 86%|████████▋ | 120/139 [00:02<00:00, 66.20it/s] 87%|████████▋ | 121/139 [00:02<00:00, 66.20it/s] 88%|████████▊ | 122/139 [00:02<00:00, 66.20it/s] 88%|████████▊ | 123/139 [00:02<00:00, 66.20it/s] 89%|████████▉ | 124/139 [00:02<00:00, 66.20it/s] 90%|████████▉ | 125/139 [00:02<00:00, 66.20it/s][2026-09-22 00:32:39][INFO] [Train][MiniBatch][Plugin] acc=0.5694444444444444, latency=0.005
+ 91%|█████████ | 126/139 [00:02<00:00, 65.17it/s] 91%|█████████ | 126/139 [00:02<00:00, 65.17it/s] 91%|█████████▏| 127/139 [00:02<00:00, 65.17it/s] 92%|█████████▏| 128/139 [00:02<00:00, 65.17it/s] 93%|█████████▎| 129/139 [00:02<00:00, 65.17it/s] 94%|█████████▎| 130/139 [00:02<00:00, 65.17it/s] 94%|█████████▍| 131/139 [00:02<00:00, 65.17it/s] 95%|█████████▍| 132/139 [00:02<00:00, 65.17it/s] 96%|█████████▌| 133/139 [00:02<00:00, 64.95it/s] 96%|█████████▌| 133/139 [00:02<00:00, 64.95it/s] 96%|█████████▋| 134/139 [00:02<00:00, 64.95it/s] 97%|█████████▋| 135/139 [00:02<00:00, 64.95it/s][2026-09-22 00:32:39][INFO] [Train][MiniBatch][Plugin] acc=0.625, latency=0.005
+ 98%|█████████▊| 136/139 [00:02<00:00, 64.95it/s] 99%|█████████▊| 137/139 [00:02<00:00, 64.95it/s] 99%|█████████▉| 138/139 [00:02<00:00, 64.95it/s]100%|██████████| 139/139 [00:02<00:00, 64.95it/s]100%|██████████| 139/139 [00:02<00:00, 60.34it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.5812
+	Loss_MB/train_phase/train_stream/Task000 = 1.2049
+	Time_Epoch/train_phase/train_stream/Task000 = 2.3033
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.5008
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.5441
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:39][INFO] Training Experience 6 completed
+[2026-09-22 00:32:39][INFO] [Train] shared_data update: acc=None, latency=2.323
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:39][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:40][INFO] -->> Starting training for Experience 7 <<--
+[2026-09-22 00:32:40][INFO] [Train] Dynamic batch size applied: 54
+[2026-09-22 00:32:40][INFO] [Train] AdaptOCL timeslice applied: 1.5
+[2026-09-22 00:32:40][INFO] [Train] DataLoader recreated for Exp 7 (batch size 54)
+[2026-09-22 00:32:40][INFO] Training Experience 7 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s]  1%|          | 1/93 [00:00<00:08, 10.28it/s]  2%|▏         | 2/93 [00:00<00:05, 17.65it/s]  2%|▏         | 2/93 [00:00<00:05, 17.65it/s]  3%|▎         | 3/93 [00:00<00:05, 17.65it/s]  4%|▍         | 4/93 [00:00<00:05, 17.65it/s]  5%|▌         | 5/93 [00:00<00:04, 17.65it/s]  6%|▋         | 6/93 [00:00<00:04, 17.65it/s][2026-09-22 00:32:40][INFO] [Train][MiniBatch][Plugin] acc=0.1388888888888889, latency=0.004
+  8%|▊         | 7/93 [00:00<00:04, 17.65it/s]  9%|▊         | 8/93 [00:00<00:04, 17.65it/s] 10%|▉         | 9/93 [00:00<00:01, 44.38it/s] 10%|▉         | 9/93 [00:00<00:01, 44.38it/s] 11%|█         | 10/93 [00:00<00:01, 44.38it/s] 12%|█▏        | 11/93 [00:00<00:01, 44.38it/s] 13%|█▎        | 12/93 [00:00<00:01, 44.38it/s] 14%|█▍        | 13/93 [00:00<00:01, 44.38it/s] 15%|█▌        | 14/93 [00:00<00:01, 44.38it/s] 16%|█▌        | 15/93 [00:00<00:01, 44.38it/s] 17%|█▋        | 16/93 [00:00<00:01, 53.09it/s] 17%|█▋        | 16/93 [00:00<00:01, 53.09it/s][2026-09-22 00:32:40][INFO] [Train][MiniBatch][Plugin] acc=0.10185185185185185, latency=0.004
+ 18%|█▊        | 17/93 [00:00<00:01, 53.09it/s] 19%|█▉        | 18/93 [00:00<00:01, 53.09it/s] 20%|██        | 19/93 [00:00<00:01, 53.09it/s] 22%|██▏       | 20/93 [00:00<00:01, 53.09it/s] 23%|██▎       | 21/93 [00:00<00:01, 53.09it/s] 24%|██▎       | 22/93 [00:00<00:01, 53.09it/s] 25%|██▍       | 23/93 [00:00<00:01, 57.31it/s] 25%|██▍       | 23/93 [00:00<00:01, 57.31it/s] 26%|██▌       | 24/93 [00:00<00:01, 57.31it/s] 27%|██▋       | 25/93 [00:00<00:01, 57.31it/s][2026-09-22 00:32:40][INFO] [AdaptOCL] New experience detected: 7
+[2026-09-22 00:32:40][INFO] [AdaptOCL] Applied pending batch: 27 at exp 7
+[2026-09-22 00:32:40][INFO] [AdaptOCL] Applied pending tslice: 1.0 at exp 7
+[2026-09-22 00:32:40][INFO] [AdaptOCL] Pending batch size: 27->16
+ 28%|██▊       | 26/93 [00:00<00:01, 57.31it/s][2026-09-22 00:32:40][INFO] [Train][MiniBatch][Plugin] acc=0.12037037037037036, latency=0.004
+ 29%|██▉       | 27/93 [00:00<00:01, 57.31it/s] 30%|███       | 28/93 [00:00<00:01, 57.31it/s] 31%|███       | 29/93 [00:00<00:01, 57.31it/s] 32%|███▏      | 30/93 [00:00<00:01, 59.55it/s] 32%|███▏      | 30/93 [00:00<00:01, 59.55it/s] 33%|███▎      | 31/93 [00:00<00:01, 59.55it/s] 34%|███▍      | 32/93 [00:00<00:01, 59.55it/s] 35%|███▌      | 33/93 [00:00<00:01, 59.55it/s] 37%|███▋      | 34/93 [00:00<00:00, 59.55it/s] 38%|███▊      | 35/93 [00:00<00:00, 59.55it/s] 39%|███▊      | 36/93 [00:00<00:00, 59.55it/s][2026-09-22 00:32:40][INFO] [Train][MiniBatch][Plugin] acc=0.21296296296296297, latency=0.004
+ 40%|███▉      | 37/93 [00:00<00:00, 60.87it/s] 40%|███▉      | 37/93 [00:00<00:00, 60.87it/s] 41%|████      | 38/93 [00:00<00:00, 60.87it/s] 42%|████▏     | 39/93 [00:00<00:00, 60.87it/s] 43%|████▎     | 40/93 [00:00<00:00, 60.87it/s] 44%|████▍     | 41/93 [00:00<00:00, 60.87it/s] 45%|████▌     | 42/93 [00:00<00:00, 60.87it/s] 46%|████▌     | 43/93 [00:00<00:00, 60.87it/s] 47%|████▋     | 44/93 [00:00<00:00, 57.98it/s] 47%|████▋     | 44/93 [00:00<00:00, 57.98it/s] 48%|████▊     | 45/93 [00:00<00:00, 57.98it/s] 49%|████▉     | 46/93 [00:00<00:00, 57.98it/s][2026-09-22 00:32:40][INFO] [Train][MiniBatch][Plugin] acc=0.3425925925925926, latency=0.005
+ 51%|█████     | 47/93 [00:00<00:00, 57.98it/s] 52%|█████▏    | 48/93 [00:00<00:00, 57.98it/s] 53%|█████▎    | 49/93 [00:00<00:00, 57.98it/s] 54%|█████▍    | 50/93 [00:00<00:00, 55.21it/s] 54%|█████▍    | 50/93 [00:00<00:00, 55.21it/s] 55%|█████▍    | 51/93 [00:00<00:00, 55.21it/s] 56%|█████▌    | 52/93 [00:00<00:00, 55.21it/s] 57%|█████▋    | 53/93 [00:00<00:00, 55.21it/s] 58%|█████▊    | 54/93 [00:00<00:00, 55.21it/s] 59%|█████▉    | 55/93 [00:01<00:00, 55.21it/s] 60%|██████    | 56/93 [00:01<00:00, 53.29it/s] 60%|██████    | 56/93 [00:01<00:00, 53.29it/s][2026-09-22 00:32:41][INFO] [Train][MiniBatch][Plugin] acc=0.5555555555555556, latency=0.005
+ 61%|██████▏   | 57/93 [00:01<00:00, 53.29it/s] 62%|██████▏   | 58/93 [00:01<00:00, 53.29it/s] 63%|██████▎   | 59/93 [00:01<00:00, 53.29it/s] 65%|██████▍   | 60/93 [00:01<00:00, 53.29it/s] 66%|██████▌   | 61/93 [00:01<00:00, 53.29it/s] 67%|██████▋   | 62/93 [00:01<00:00, 51.84it/s] 67%|██████▋   | 62/93 [00:01<00:00, 51.84it/s] 68%|██████▊   | 63/93 [00:01<00:00, 51.84it/s] 69%|██████▉   | 64/93 [00:01<00:00, 51.84it/s] 70%|██████▉   | 65/93 [00:01<00:00, 51.84it/s] 71%|███████   | 66/93 [00:01<00:00, 51.84it/s][2026-09-22 00:32:41][INFO] [Train][MiniBatch][Plugin] acc=0.5277777777777778, latency=0.005
+ 72%|███████▏  | 67/93 [00:01<00:00, 51.84it/s] 73%|███████▎  | 68/93 [00:01<00:00, 50.95it/s] 73%|███████▎  | 68/93 [00:01<00:00, 50.95it/s] 74%|███████▍  | 69/93 [00:01<00:00, 50.95it/s] 75%|███████▌  | 70/93 [00:01<00:00, 50.95it/s] 76%|███████▋  | 71/93 [00:01<00:00, 50.95it/s] 77%|███████▋  | 72/93 [00:01<00:00, 50.95it/s] 78%|███████▊  | 73/93 [00:01<00:00, 50.95it/s] 80%|███████▉  | 74/93 [00:01<00:00, 50.39it/s] 80%|███████▉  | 74/93 [00:01<00:00, 50.39it/s] 81%|████████  | 75/93 [00:01<00:00, 50.39it/s] 82%|████████▏ | 76/93 [00:01<00:00, 50.39it/s][2026-09-22 00:32:41][INFO] [Train][MiniBatch][Plugin] acc=0.5370370370370371, latency=0.005
+ 83%|████████▎ | 77/93 [00:01<00:00, 50.39it/s][2026-09-22 00:32:41][INFO] [AdaptOCL] Pending batch size: 27->40
+[2026-09-22 00:32:41][INFO] [AdaptOCL] Pending time slice: 1.000->1.500
+[2026-09-22 00:32:41][INFO] [AdaptOCL] Switched internal mode from adaptive_accuracy to latency_aware (eff_ΔUAM=0.199)
+[2026-09-22 00:32:41][INFO] [AdaptOCL] LA: Priority phase ended (Prog 0.70 or all exp completed). Switching to parallel.
+[2026-09-22 00:32:41][INFO] [Eval][Exp 0][MiniBatch 30] acc_so_far=0.5867, batch_lat=4.008s
+ 84%|████████▍ | 78/93 [00:01<00:00, 50.39it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 0][MiniBatch 40] acc_so_far=0.5762, batch_lat=0.001s
+ 85%|████████▍ | 79/93 [00:01<00:00, 50.39it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 0][MiniBatch 50] acc_so_far=0.5833, batch_lat=0.003s
+ 86%|████████▌ | 80/93 [00:01<00:00, 49.56it/s] 86%|████████▌ | 80/93 [00:01<00:00, 49.56it/s] 87%|████████▋ | 81/93 [00:01<00:00, 49.56it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 0][MiniBatch 60] acc_so_far=0.5984, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.6040 (604/1000)
+[2026-09-22 00:32:41][INFO] [Eval] Processing Exp 1 from start (batch size 16)
+[2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.8750, batch_lat=0.001s
+ 88%|████████▊ | 82/93 [00:01<00:00, 49.56it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 10] acc_so_far=0.8182, batch_lat=0.001s
+ 89%|████████▉ | 83/93 [00:01<00:00, 49.56it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 20] acc_so_far=0.8363, batch_lat=0.002s
+ 90%|█████████ | 84/93 [00:01<00:00, 49.56it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 30] acc_so_far=0.8407, batch_lat=0.001s
+ 91%|█████████▏| 85/93 [00:01<00:00, 48.94it/s] 91%|█████████▏| 85/93 [00:01<00:00, 48.94it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 40] acc_so_far=0.8384, batch_lat=0.003s
+ 92%|█████████▏| 86/93 [00:01<00:00, 48.94it/s][2026-09-22 00:32:41][INFO] [Train][MiniBatch][Plugin] acc=0.6296296296296297, latency=0.005
+[2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 50] acc_so_far=0.8382, batch_lat=0.002s
+ 94%|█████████▎| 87/93 [00:01<00:00, 48.94it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 1][MiniBatch 60] acc_so_far=0.8340, batch_lat=0.001s
+ 95%|█████████▍| 88/93 [00:01<00:00, 48.94it/s][2026-09-22 00:32:41][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.8320 (832/1000)
+[2026-09-22 00:32:41][INFO] [Eval] Processing Exp 2 from start (batch size 16)
+[2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+ 96%|█████████▌| 89/93 [00:01<00:00, 48.94it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 10] acc_so_far=0.0057, batch_lat=0.001s
+ 97%|█████████▋| 90/93 [00:01<00:00, 48.26it/s] 97%|█████████▋| 90/93 [00:01<00:00, 48.26it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 20] acc_so_far=0.0089, batch_lat=0.001s
+ 98%|█████████▊| 91/93 [00:01<00:00, 48.26it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 30] acc_so_far=0.0081, batch_lat=0.001s
+ 99%|█████████▉| 92/93 [00:01<00:00, 48.26it/s][2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 40] acc_so_far=0.0076, batch_lat=0.001s
+100%|██████████| 93/93 [00:01<00:00, 48.26it/s]100%|██████████| 93/93 [00:01<00:00, 51.17it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 2.0584
+	Loss_MB/train_phase/train_stream/Task000 = 1.5324
+	Time_Epoch/train_phase/train_stream/Task000 = 1.8171
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.3465
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.4419
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 50] acc_so_far=0.0061, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 2][MiniBatch 60] acc_so_far=0.0051, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval] Experience 2 evaluation complete: Accuracy: 0.0060 (6/1000)
+[2026-09-22 00:32:41][INFO] [Eval] Processing Exp 3 from start (batch size 16)
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:41][INFO] [Eval][Exp 3][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:41][INFO] Training Experience 7 completed
+[2026-09-22 00:32:41][INFO] [Train] shared_data update: acc=None, latency=1.962
+[2026-09-22 00:32:42][INFO] [Eval][Exp 3][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval] Experience 3 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:42][INFO] [Eval] Processing Exp 4 from start (batch size 16)
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 0] acc_so_far=0.6875, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 10] acc_so_far=0.8807, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 20] acc_so_far=0.8929, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 30] acc_so_far=0.8972, batch_lat=0.004s
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:42][INFO] [Train] Model state updated in double-buffer
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 40] acc_so_far=0.8918, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 50] acc_so_far=0.8971, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 4][MiniBatch 60] acc_so_far=0.9006, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval] Experience 4 evaluation complete: Accuracy: 0.9000 (900/1000)
+[2026-09-22 00:32:42][INFO] [Eval] Processing Exp 5 from start (batch size 16)
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:42][INFO] -->> Starting training for Experience 8 <<--
+[2026-09-22 00:32:42][INFO] [Train] Dynamic batch size applied: 27
+[2026-09-22 00:32:42][INFO] [Train] AdaptOCL timeslice applied: 1.0
+[2026-09-22 00:32:42][INFO] [Train] DataLoader recreated for Exp 8 (batch size 27)
+[2026-09-22 00:32:42][INFO] Training Experience 8 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 5][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval] Experience 5 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:42][INFO] [Eval] Processing Exp 6 from start (batch size 16)
+[2026-09-22 00:32:42][INFO] [Eval][Exp 6][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 6][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:42][INFO] [Eval][Exp 6][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+  1%|          | 1/186 [00:00<00:40,  4.55it/s]  1%|          | 1/186 [00:00<00:40,  4.55it/s][2026-09-22 00:32:42][INFO] [AdaptOCL] New experience detected: 8
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Applied pending batch: 40 at exp 8
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Applied pending tslice: 1.5 at exp 8
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Metrics: acc=0.000, lat=0.001, norm_lat=0.000, B=40, T_slice=1.50
+[2026-09-22 00:32:42][INFO] [AdaptOCL] UAM=-0.000, ΔUAM=-0.268 (eff_ΔUAM=-0.268), exp=8/10, internal_mode=latency_aware, pend_cfg={'batch': None, 'tslice': None}, ack_batch=40
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Pending batch size: 40->20
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Pending time slice: 1.500->1.000
+[2026-09-22 00:32:42][INFO] [AdaptOCL] Switched internal mode from latency_aware to adaptive_accuracy (eff_ΔUAM=-0.268)
+[2026-09-22 00:32:42][INFO] [AdaptOCL] AA Priority: Training. Eval stopped. Next check in 10.0s
+  1%|          | 2/186 [00:00<00:40,  4.55it/s]  2%|▏         | 3/186 [00:00<00:40,  4.55it/s][2026-09-22 00:32:42][INFO] [Train][MiniBatch][Plugin] acc=0.09259259259259259, latency=0.004
+  2%|▏         | 4/186 [00:00<00:40,  4.55it/s]  3%|▎         | 5/186 [00:00<00:39,  4.55it/s]  3%|▎         | 6/186 [00:00<00:39,  4.55it/s]  4%|▍         | 7/186 [00:00<00:39,  4.55it/s]  4%|▍         | 8/186 [00:00<00:39,  4.55it/s]  5%|▍         | 9/186 [00:00<00:38,  4.55it/s]  5%|▌         | 10/186 [00:00<00:38,  4.55it/s]  6%|▌         | 11/186 [00:00<00:38,  4.55it/s]  6%|▋         | 12/186 [00:00<00:03, 44.49it/s]  6%|▋         | 12/186 [00:00<00:03, 44.49it/s]  7%|▋         | 13/186 [00:00<00:03, 44.49it/s][2026-09-22 00:32:42][INFO] [Train][MiniBatch][Plugin] acc=0.09259259259259259, latency=0.003
+  8%|▊         | 14/186 [00:00<00:03, 44.49it/s]  8%|▊         | 15/186 [00:00<00:03, 44.49it/s]  9%|▊         | 16/186 [00:00<00:03, 44.49it/s]  9%|▉         | 17/186 [00:00<00:03, 44.49it/s] 10%|▉         | 18/186 [00:00<00:03, 44.49it/s] 10%|█         | 19/186 [00:00<00:03, 44.49it/s] 11%|█         | 20/186 [00:00<00:03, 44.49it/s] 11%|█▏        | 21/186 [00:00<00:03, 44.49it/s] 12%|█▏        | 22/186 [00:00<00:03, 44.49it/s] 12%|█▏        | 23/186 [00:00<00:02, 65.85it/s] 12%|█▏        | 23/186 [00:00<00:02, 65.85it/s][2026-09-22 00:32:42][INFO] [Train][MiniBatch][Plugin] acc=0.48148148148148145, latency=0.003
+ 13%|█▎        | 24/186 [00:00<00:02, 65.85it/s] 13%|█▎        | 25/186 [00:00<00:02, 65.85it/s] 14%|█▍        | 26/186 [00:00<00:02, 65.85it/s] 15%|█▍        | 27/186 [00:00<00:02, 65.85it/s] 15%|█▌        | 28/186 [00:00<00:02, 65.85it/s] 16%|█▌        | 29/186 [00:00<00:02, 65.85it/s] 16%|█▌        | 30/186 [00:00<00:02, 65.85it/s] 17%|█▋        | 31/186 [00:00<00:02, 65.85it/s] 17%|█▋        | 32/186 [00:00<00:02, 65.85it/s] 18%|█▊        | 33/186 [00:00<00:01, 77.05it/s] 18%|█▊        | 33/186 [00:00<00:01, 77.05it/s][2026-09-22 00:32:42][INFO] [Train][MiniBatch][Plugin] acc=0.5740740740740741, latency=0.003
+ 18%|█▊        | 34/186 [00:00<00:01, 77.05it/s] 19%|█▉        | 35/186 [00:00<00:01, 77.05it/s] 19%|█▉        | 36/186 [00:00<00:01, 77.05it/s] 20%|█▉        | 37/186 [00:00<00:01, 77.05it/s] 20%|██        | 38/186 [00:00<00:01, 77.05it/s] 21%|██        | 39/186 [00:00<00:01, 77.05it/s] 22%|██▏       | 40/186 [00:00<00:01, 77.05it/s] 22%|██▏       | 41/186 [00:00<00:01, 77.05it/s] 23%|██▎       | 42/186 [00:00<00:01, 77.05it/s] 23%|██▎       | 43/186 [00:00<00:01, 77.05it/s][2026-09-22 00:32:42][INFO] [Train][MiniBatch][Plugin] acc=0.5740740740740741, latency=0.004
+ 24%|██▎       | 44/186 [00:00<00:01, 85.64it/s] 24%|██▎       | 44/186 [00:00<00:01, 85.64it/s] 24%|██▍       | 45/186 [00:00<00:01, 85.64it/s] 25%|██▍       | 46/186 [00:00<00:01, 85.64it/s] 25%|██▌       | 47/186 [00:00<00:01, 85.64it/s] 26%|██▌       | 48/186 [00:00<00:01, 85.64it/s] 26%|██▋       | 49/186 [00:00<00:01, 85.64it/s] 27%|██▋       | 50/186 [00:00<00:01, 85.64it/s] 27%|██▋       | 51/186 [00:00<00:01, 85.64it/s] 28%|██▊       | 52/186 [00:00<00:01, 85.64it/s] 28%|██▊       | 53/186 [00:00<00:01, 85.64it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5370370370370371, latency=0.003
+ 29%|██▉       | 54/186 [00:00<00:01, 85.64it/s] 30%|██▉       | 55/186 [00:00<00:01, 90.77it/s] 30%|██▉       | 55/186 [00:00<00:01, 90.77it/s] 30%|███       | 56/186 [00:00<00:01, 90.77it/s] 31%|███       | 57/186 [00:00<00:01, 90.77it/s] 31%|███       | 58/186 [00:00<00:01, 90.77it/s] 32%|███▏      | 59/186 [00:00<00:01, 90.77it/s] 32%|███▏      | 60/186 [00:00<00:01, 90.77it/s] 33%|███▎      | 61/186 [00:00<00:01, 90.77it/s] 33%|███▎      | 62/186 [00:00<00:01, 90.77it/s] 34%|███▍      | 63/186 [00:00<00:01, 90.77it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5555555555555556, latency=0.004
+ 34%|███▍      | 64/186 [00:00<00:01, 90.77it/s] 35%|███▍      | 65/186 [00:00<00:01, 92.94it/s] 35%|███▍      | 65/186 [00:00<00:01, 92.94it/s] 35%|███▌      | 66/186 [00:00<00:01, 92.94it/s] 36%|███▌      | 67/186 [00:00<00:01, 92.94it/s] 37%|███▋      | 68/186 [00:00<00:01, 92.94it/s] 37%|███▋      | 69/186 [00:00<00:01, 92.94it/s] 38%|███▊      | 70/186 [00:00<00:01, 92.94it/s] 38%|███▊      | 71/186 [00:00<00:01, 92.94it/s] 39%|███▊      | 72/186 [00:00<00:01, 92.94it/s] 39%|███▉      | 73/186 [00:00<00:01, 92.94it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5740740740740741, latency=0.004
+ 40%|███▉      | 74/186 [00:00<00:01, 92.94it/s] 40%|████      | 75/186 [00:00<00:01, 92.94it/s] 41%|████      | 76/186 [00:00<00:01, 95.81it/s] 41%|████      | 76/186 [00:00<00:01, 95.81it/s] 41%|████▏     | 77/186 [00:00<00:01, 95.81it/s] 42%|████▏     | 78/186 [00:00<00:01, 95.81it/s] 42%|████▏     | 79/186 [00:00<00:01, 95.81it/s] 43%|████▎     | 80/186 [00:01<00:01, 95.81it/s] 44%|████▎     | 81/186 [00:01<00:01, 95.81it/s] 44%|████▍     | 82/186 [00:01<00:01, 95.81it/s] 45%|████▍     | 83/186 [00:01<00:01, 95.81it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5370370370370371, latency=0.003
+ 45%|████▌     | 84/186 [00:01<00:01, 95.81it/s] 46%|████▌     | 85/186 [00:01<00:01, 95.81it/s] 46%|████▌     | 86/186 [00:01<00:01, 95.81it/s] 47%|████▋     | 87/186 [00:01<00:01, 98.17it/s] 47%|████▋     | 87/186 [00:01<00:01, 98.17it/s] 47%|████▋     | 88/186 [00:01<00:00, 98.17it/s] 48%|████▊     | 89/186 [00:01<00:00, 98.17it/s] 48%|████▊     | 90/186 [00:01<00:00, 98.17it/s] 49%|████▉     | 91/186 [00:01<00:00, 98.17it/s] 49%|████▉     | 92/186 [00:01<00:00, 98.17it/s] 50%|█████     | 93/186 [00:01<00:00, 98.17it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.004
+ 51%|█████     | 94/186 [00:01<00:00, 98.17it/s] 51%|█████     | 95/186 [00:01<00:00, 98.17it/s] 52%|█████▏    | 96/186 [00:01<00:00, 98.17it/s] 52%|█████▏    | 97/186 [00:01<00:00, 98.17it/s] 53%|█████▎    | 98/186 [00:01<00:00, 100.13it/s] 53%|█████▎    | 98/186 [00:01<00:00, 100.13it/s] 53%|█████▎    | 99/186 [00:01<00:00, 100.13it/s] 54%|█████▍    | 100/186 [00:01<00:00, 100.13it/s] 54%|█████▍    | 101/186 [00:01<00:00, 100.13it/s] 55%|█████▍    | 102/186 [00:01<00:00, 100.13it/s] 55%|█████▌    | 103/186 [00:01<00:00, 100.13it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5370370370370371, latency=0.004
+ 56%|█████▌    | 104/186 [00:01<00:00, 100.13it/s] 56%|█████▋    | 105/186 [00:01<00:00, 100.13it/s] 57%|█████▋    | 106/186 [00:01<00:00, 100.13it/s] 58%|█████▊    | 107/186 [00:01<00:00, 100.13it/s] 58%|█████▊    | 108/186 [00:01<00:00, 100.13it/s] 59%|█████▊    | 109/186 [00:01<00:00, 100.41it/s] 59%|█████▊    | 109/186 [00:01<00:00, 100.41it/s] 59%|█████▉    | 110/186 [00:01<00:00, 100.41it/s] 60%|█████▉    | 111/186 [00:01<00:00, 100.41it/s] 60%|██████    | 112/186 [00:01<00:00, 100.41it/s] 61%|██████    | 113/186 [00:01<00:00, 100.41it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.004
+ 61%|██████▏   | 114/186 [00:01<00:00, 100.41it/s] 62%|██████▏   | 115/186 [00:01<00:00, 100.41it/s] 62%|██████▏   | 116/186 [00:01<00:00, 100.41it/s] 63%|██████▎   | 117/186 [00:01<00:00, 100.41it/s] 63%|██████▎   | 118/186 [00:01<00:00, 100.41it/s] 64%|██████▍   | 119/186 [00:01<00:00, 100.41it/s] 65%|██████▍   | 120/186 [00:01<00:00, 100.25it/s] 65%|██████▍   | 120/186 [00:01<00:00, 100.25it/s] 65%|██████▌   | 121/186 [00:01<00:00, 100.25it/s] 66%|██████▌   | 122/186 [00:01<00:00, 100.25it/s] 66%|██████▌   | 123/186 [00:01<00:00, 100.25it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5, latency=0.004
+ 67%|██████▋   | 124/186 [00:01<00:00, 100.25it/s] 67%|██████▋   | 125/186 [00:01<00:00, 100.25it/s] 68%|██████▊   | 126/186 [00:01<00:00, 100.25it/s] 68%|██████▊   | 127/186 [00:01<00:00, 100.25it/s] 69%|██████▉   | 128/186 [00:01<00:00, 100.25it/s] 69%|██████▉   | 129/186 [00:01<00:00, 100.25it/s] 70%|██████▉   | 130/186 [00:01<00:00, 100.25it/s] 70%|███████   | 131/186 [00:01<00:00, 100.58it/s] 70%|███████   | 131/186 [00:01<00:00, 100.58it/s] 71%|███████   | 132/186 [00:01<00:00, 100.58it/s] 72%|███████▏  | 133/186 [00:01<00:00, 100.58it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.5555555555555556, latency=0.003
+ 72%|███████▏  | 134/186 [00:01<00:00, 100.58it/s] 73%|███████▎  | 135/186 [00:01<00:00, 100.58it/s] 73%|███████▎  | 136/186 [00:01<00:00, 100.58it/s] 74%|███████▎  | 137/186 [00:01<00:00, 100.58it/s] 74%|███████▍  | 138/186 [00:01<00:00, 100.58it/s] 75%|███████▍  | 139/186 [00:01<00:00, 100.58it/s] 75%|███████▌  | 140/186 [00:01<00:00, 100.58it/s] 76%|███████▌  | 141/186 [00:01<00:00, 100.58it/s] 76%|███████▋  | 142/186 [00:01<00:00, 100.43it/s] 76%|███████▋  | 142/186 [00:01<00:00, 100.43it/s] 77%|███████▋  | 143/186 [00:01<00:00, 100.43it/s][2026-09-22 00:32:43][INFO] [Train][MiniBatch][Plugin] acc=0.6111111111111112, latency=0.003
+ 77%|███████▋  | 144/186 [00:01<00:00, 100.43it/s] 78%|███████▊  | 145/186 [00:01<00:00, 100.43it/s] 78%|███████▊  | 146/186 [00:01<00:00, 100.43it/s] 79%|███████▉  | 147/186 [00:01<00:00, 100.43it/s] 80%|███████▉  | 148/186 [00:01<00:00, 100.43it/s] 80%|████████  | 149/186 [00:01<00:00, 100.43it/s] 81%|████████  | 150/186 [00:01<00:00, 100.43it/s] 81%|████████  | 151/186 [00:01<00:00, 100.43it/s] 82%|████████▏ | 152/186 [00:01<00:00, 100.43it/s] 82%|████████▏ | 153/186 [00:01<00:00, 101.60it/s] 82%|████████▏ | 153/186 [00:01<00:00, 101.60it/s][2026-09-22 00:32:44][INFO] [Train][MiniBatch][Plugin] acc=0.5925925925925926, latency=0.003
+ 83%|████████▎ | 154/186 [00:01<00:00, 101.60it/s][2026-09-22 00:32:44][INFO] [AdaptOCL] Pending batch size: 40->60
+[2026-09-22 00:32:44][INFO] [AdaptOCL] Pending time slice: 1.500->2.250
+[2026-09-22 00:32:44][INFO] [AdaptOCL] Switched internal mode from adaptive_accuracy to latency_aware (eff_ΔUAM=0.296)
+[2026-09-22 00:32:44][INFO] [AdaptOCL] LA: Priority phase ended (Prog 0.80 or all exp completed). Switching to parallel.
+ 83%|████████▎ | 155/186 [00:01<00:00, 101.60it/s] 84%|████████▍ | 156/186 [00:01<00:00, 101.60it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 6][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.002s
+ 84%|████████▍ | 157/186 [00:01<00:00, 101.60it/s] 85%|████████▍ | 158/186 [00:01<00:00, 101.60it/s] 85%|████████▌ | 159/186 [00:01<00:00, 101.60it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 6][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.002s
+ 86%|████████▌ | 160/186 [00:01<00:00, 101.60it/s] 87%|████████▋ | 161/186 [00:01<00:00, 101.60it/s] 87%|████████▋ | 162/186 [00:01<00:00, 101.60it/s] 88%|████████▊ | 163/186 [00:01<00:00, 101.60it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 6][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Train][MiniBatch][Plugin] acc=0.5370370370370371, latency=0.004
+ 88%|████████▊ | 164/186 [00:01<00:00, 98.92it/s]  88%|████████▊ | 164/186 [00:01<00:00, 98.92it/s] 89%|████████▊ | 165/186 [00:01<00:00, 98.92it/s] 89%|████████▉ | 166/186 [00:01<00:00, 98.92it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 6][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.002s
+ 90%|████████▉ | 167/186 [00:01<00:00, 98.92it/s][2026-09-22 00:32:44][INFO] [Eval] Experience 6 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:44][INFO] [Eval] Processing Exp 7 from start (batch size 16)
+[2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.002s
+ 90%|█████████ | 168/186 [00:01<00:00, 98.92it/s] 91%|█████████ | 169/186 [00:01<00:00, 98.92it/s] 91%|█████████▏| 170/186 [00:01<00:00, 98.92it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.003s
+ 92%|█████████▏| 171/186 [00:01<00:00, 98.92it/s] 92%|█████████▏| 172/186 [00:01<00:00, 98.92it/s] 93%|█████████▎| 173/186 [00:01<00:00, 98.92it/s][2026-09-22 00:32:44][INFO] [Train][MiniBatch][Plugin] acc=0.5185185185185185, latency=0.003
+ 94%|█████████▎| 174/186 [00:01<00:00, 97.22it/s] 94%|█████████▎| 174/186 [00:01<00:00, 97.22it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+ 94%|█████████▍| 175/186 [00:01<00:00, 97.22it/s] 95%|█████████▍| 176/186 [00:01<00:00, 97.22it/s] 95%|█████████▌| 177/186 [00:01<00:00, 97.22it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+ 96%|█████████▌| 178/186 [00:01<00:00, 97.22it/s] 96%|█████████▌| 179/186 [00:01<00:00, 97.22it/s] 97%|█████████▋| 180/186 [00:02<00:00, 97.22it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.003s
+ 97%|█████████▋| 181/186 [00:02<00:00, 97.22it/s] 98%|█████████▊| 182/186 [00:02<00:00, 97.22it/s] 98%|█████████▊| 183/186 [00:02<00:00, 97.22it/s][2026-09-22 00:32:44][INFO] [Train][MiniBatch][Plugin] acc=0.6851851851851852, latency=0.003
+ 99%|█████████▉| 184/186 [00:02<00:00, 96.34it/s] 99%|█████████▉| 184/186 [00:02<00:00, 96.34it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+ 99%|█████████▉| 185/186 [00:02<00:00, 96.34it/s]100%|██████████| 186/186 [00:02<00:00, 96.34it/s]100%|██████████| 186/186 [00:02<00:00, 89.68it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.4771
+	Loss_MB/train_phase/train_stream/Task000 = 2.0037
+	Time_Epoch/train_phase/train_stream/Task000 = 2.0737
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.5095
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.2812
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-09-22 00:32:44][INFO] [Eval][Exp 7][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+-- >> End of training phase << --
+[2026-09-22 00:32:44][INFO] Training Experience 8 completed
+[2026-09-22 00:32:44][INFO] [Train] shared_data update: acc=None, latency=2.095
+[2026-09-22 00:32:44][INFO] [Eval] Experience 7 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:44][INFO] [Eval] Processing Exp 8 from start (batch size 16)
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:44][INFO] [Train] Model state updated in double-buffer
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 8][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval] Experience 8 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:44][INFO] [Eval] Processing Exp 9 from start (batch size 16)
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 10] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 20] acc_so_far=0.0000, batch_lat=0.001s
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 30] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] -->> Starting training for Experience 9 <<--
+[2026-09-22 00:32:44][INFO] [Train] Dynamic batch size applied: 40
+[2026-09-22 00:32:44][INFO] [Train] AdaptOCL timeslice applied: 1.5
+[2026-09-22 00:32:44][INFO] [Train] DataLoader recreated for Exp 9 (batch size 40)
+[2026-09-22 00:32:44][INFO] Training Experience 9 started
+-- >> Start of training phase << --
+0it [00:00, ?it/s][2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 40] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 50] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval][Exp 9][MiniBatch 60] acc_so_far=0.0000, batch_lat=0.001s
+[2026-09-22 00:32:44][INFO] [Eval] Experience 9 evaluation complete: Accuracy: 0.0000 (0/1000)
+[2026-09-22 00:32:44][INFO] [Eval] Overall shared_data update: acc=0.2342, latency=7.568s
+[2026-09-22 00:32:44][INFO] 
+==================================================
+[2026-09-22 00:32:44][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-09-22 00:32:44][INFO] ==================================================
+[2026-09-22 00:32:44][INFO] Overall Streaming Accuracy: 0.2342 (2342/10000)
+[2026-09-22 00:32:44][INFO] Overall Evaluation Latency: 7.57s
+[2026-09-22 00:32:44][INFO] Total Samples in this cycle: 10000
+[2026-09-22 00:32:44][INFO] --------------------------------------------------
+[2026-09-22 00:32:44][INFO] Experience Accuracies for this cycle:
+[2026-09-22 00:32:44][INFO]   - Experience 0: 0.6040
+[2026-09-22 00:32:44][INFO]   - Experience 1: 0.8320
+[2026-09-22 00:32:44][INFO]   - Experience 2: 0.0060
+[2026-09-22 00:32:44][INFO]   - Experience 3: 0.0000
+[2026-09-22 00:32:44][INFO]   - Experience 4: 0.9000
+[2026-09-22 00:32:44][INFO]   - Experience 5: 0.0000
+[2026-09-22 00:32:44][INFO]   - Experience 6: 0.0000
+[2026-09-22 00:32:44][INFO]   - Experience 7: 0.0000
+[2026-09-22 00:32:44][INFO]   - Experience 8: 0.0000
+[2026-09-22 00:32:44][INFO]   - Experience 9: 0.0000
+[2026-09-22 00:32:44][INFO] ==================================================
+
+  1%|          | 1/125 [00:00<00:27,  4.43it/s]  1%|          | 1/125 [00:00<00:27,  4.43it/s]  2%|▏         | 2/125 [00:00<00:27,  4.43it/s]  2%|▏         | 3/125 [00:00<00:27,  4.43it/s]  3%|▎         | 4/125 [00:00<00:27,  4.43it/s]  4%|▍         | 5/125 [00:00<00:27,  4.43it/s]  5%|▍         | 6/125 [00:00<00:26,  4.43it/s]  6%|▌         | 7/125 [00:00<00:26,  4.43it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.125, latency=0.004
+  6%|▋         | 8/125 [00:00<00:26,  4.43it/s]  7%|▋         | 9/125 [00:00<00:03, 33.03it/s]  7%|▋         | 9/125 [00:00<00:03, 33.03it/s]  8%|▊         | 10/125 [00:00<00:03, 33.03it/s]  9%|▉         | 11/125 [00:00<00:03, 33.03it/s] 10%|▉         | 12/125 [00:00<00:03, 33.03it/s] 10%|█         | 13/125 [00:00<00:03, 33.03it/s] 11%|█         | 14/125 [00:00<00:03, 33.03it/s] 12%|█▏        | 15/125 [00:00<00:03, 33.03it/s] 13%|█▎        | 16/125 [00:00<00:03, 33.03it/s] 14%|█▎        | 17/125 [00:00<00:02, 48.77it/s] 14%|█▎        | 17/125 [00:00<00:02, 48.77it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.1625, latency=0.004
+ 14%|█▍        | 18/125 [00:00<00:02, 48.77it/s] 15%|█▌        | 19/125 [00:00<00:02, 48.77it/s] 16%|█▌        | 20/125 [00:00<00:02, 48.77it/s] 17%|█▋        | 21/125 [00:00<00:02, 48.77it/s] 18%|█▊        | 22/125 [00:00<00:02, 48.77it/s] 18%|█▊        | 23/125 [00:00<00:02, 48.77it/s] 19%|█▉        | 24/125 [00:00<00:02, 48.77it/s] 20%|██        | 25/125 [00:00<00:01, 58.75it/s] 20%|██        | 25/125 [00:00<00:01, 58.75it/s] 21%|██        | 26/125 [00:00<00:01, 58.75it/s] 22%|██▏       | 27/125 [00:00<00:01, 58.75it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.2375, latency=0.004
+ 22%|██▏       | 28/125 [00:00<00:01, 58.75it/s] 23%|██▎       | 29/125 [00:00<00:01, 58.75it/s] 24%|██▍       | 30/125 [00:00<00:01, 58.75it/s] 25%|██▍       | 31/125 [00:00<00:01, 58.75it/s] 26%|██▌       | 32/125 [00:00<00:01, 58.75it/s] 26%|██▋       | 33/125 [00:00<00:01, 64.74it/s] 26%|██▋       | 33/125 [00:00<00:01, 64.74it/s] 27%|██▋       | 34/125 [00:00<00:01, 64.74it/s] 28%|██▊       | 35/125 [00:00<00:01, 64.74it/s] 29%|██▉       | 36/125 [00:00<00:01, 64.74it/s] 30%|██▉       | 37/125 [00:00<00:01, 64.74it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.5375, latency=0.004
+ 30%|███       | 38/125 [00:00<00:01, 64.74it/s] 31%|███       | 39/125 [00:00<00:01, 64.74it/s] 32%|███▏      | 40/125 [00:00<00:01, 64.74it/s] 33%|███▎      | 41/125 [00:00<00:01, 69.25it/s] 33%|███▎      | 41/125 [00:00<00:01, 69.25it/s] 34%|███▎      | 42/125 [00:00<00:01, 69.25it/s] 34%|███▍      | 43/125 [00:00<00:01, 69.25it/s] 35%|███▌      | 44/125 [00:00<00:01, 69.25it/s] 36%|███▌      | 45/125 [00:00<00:01, 69.25it/s] 37%|███▋      | 46/125 [00:00<00:01, 69.25it/s] 38%|███▊      | 47/125 [00:00<00:01, 69.25it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.5375, latency=0.004
+ 38%|███▊      | 48/125 [00:00<00:01, 69.25it/s][2026-09-22 00:32:45][INFO] [AdaptOCL] New experience detected: 9
+[2026-09-22 00:32:45][INFO] [AdaptOCL] Applied pending batch: 60 at exp 9
+[2026-09-22 00:32:45][INFO] [AdaptOCL] Applied pending tslice: 2.25 at exp 9
+[2026-09-22 00:32:45][INFO] [AdaptOCL] Pending batch size: 60->30
+[2026-09-22 00:32:45][INFO] [AdaptOCL] Pending time slice: 2.250->1.125
+[2026-09-22 00:32:45][INFO] [AdaptOCL] Switched internal mode from latency_aware to adaptive_accuracy (eff_ΔUAM=-0.028)
+ 39%|███▉      | 49/125 [00:00<00:01, 71.83it/s] 39%|███▉      | 49/125 [00:00<00:01, 71.83it/s] 40%|████      | 50/125 [00:00<00:01, 71.83it/s] 41%|████      | 51/125 [00:00<00:01, 71.83it/s] 42%|████▏     | 52/125 [00:00<00:01, 71.83it/s] 42%|████▏     | 53/125 [00:00<00:01, 71.83it/s] 43%|████▎     | 54/125 [00:00<00:00, 71.83it/s] 44%|████▍     | 55/125 [00:00<00:00, 71.83it/s] 45%|████▍     | 56/125 [00:00<00:00, 71.83it/s] 46%|████▌     | 57/125 [00:00<00:00, 73.08it/s] 46%|████▌     | 57/125 [00:00<00:00, 73.08it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.5375, latency=0.004
+ 46%|████▋     | 58/125 [00:00<00:00, 73.08it/s] 47%|████▋     | 59/125 [00:00<00:00, 73.08it/s] 48%|████▊     | 60/125 [00:00<00:00, 73.08it/s] 49%|████▉     | 61/125 [00:01<00:00, 73.08it/s] 50%|████▉     | 62/125 [00:01<00:00, 73.08it/s] 50%|█████     | 63/125 [00:01<00:00, 73.08it/s] 51%|█████     | 64/125 [00:01<00:00, 73.08it/s] 52%|█████▏    | 65/125 [00:01<00:00, 74.97it/s] 52%|█████▏    | 65/125 [00:01<00:00, 74.97it/s] 53%|█████▎    | 66/125 [00:01<00:00, 74.97it/s] 54%|█████▎    | 67/125 [00:01<00:00, 74.97it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.5125, latency=0.004
+ 54%|█████▍    | 68/125 [00:01<00:00, 74.97it/s] 55%|█████▌    | 69/125 [00:01<00:00, 74.97it/s] 56%|█████▌    | 70/125 [00:01<00:00, 74.97it/s] 57%|█████▋    | 71/125 [00:01<00:00, 74.97it/s] 58%|█████▊    | 72/125 [00:01<00:00, 74.97it/s] 58%|█████▊    | 73/125 [00:01<00:00, 75.00it/s] 58%|█████▊    | 73/125 [00:01<00:00, 75.00it/s] 59%|█████▉    | 74/125 [00:01<00:00, 75.00it/s] 60%|██████    | 75/125 [00:01<00:00, 75.00it/s] 61%|██████    | 76/125 [00:01<00:00, 75.00it/s] 62%|██████▏   | 77/125 [00:01<00:00, 75.00it/s][2026-09-22 00:32:45][INFO] [Train][MiniBatch][Plugin] acc=0.6, latency=0.004
+ 62%|██████▏   | 78/125 [00:01<00:00, 75.00it/s] 63%|██████▎   | 79/125 [00:01<00:00, 75.00it/s] 64%|██████▍   | 80/125 [00:01<00:00, 75.00it/s] 65%|██████▍   | 81/125 [00:01<00:00, 74.72it/s] 65%|██████▍   | 81/125 [00:01<00:00, 74.72it/s] 66%|██████▌   | 82/125 [00:01<00:00, 74.72it/s] 66%|██████▋   | 83/125 [00:01<00:00, 74.72it/s] 67%|██████▋   | 84/125 [00:01<00:00, 74.72it/s] 68%|██████▊   | 85/125 [00:01<00:00, 74.72it/s] 69%|██████▉   | 86/125 [00:01<00:00, 74.72it/s] 70%|██████▉   | 87/125 [00:01<00:00, 74.72it/s][2026-09-22 00:32:46][INFO] [Train][MiniBatch][Plugin] acc=0.5625, latency=0.004
+ 70%|███████   | 88/125 [00:01<00:00, 74.72it/s] 71%|███████   | 89/125 [00:01<00:00, 76.18it/s] 71%|███████   | 89/125 [00:01<00:00, 76.18it/s] 72%|███████▏  | 90/125 [00:01<00:00, 76.18it/s] 73%|███████▎  | 91/125 [00:01<00:00, 76.18it/s] 74%|███████▎  | 92/125 [00:01<00:00, 76.18it/s] 74%|███████▍  | 93/125 [00:01<00:00, 76.18it/s] 75%|███████▌  | 94/125 [00:01<00:00, 76.18it/s] 76%|███████▌  | 95/125 [00:01<00:00, 76.18it/s] 77%|███████▋  | 96/125 [00:01<00:00, 76.18it/s] 78%|███████▊  | 97/125 [00:01<00:00, 76.73it/s] 78%|███████▊  | 97/125 [00:01<00:00, 76.73it/s][2026-09-22 00:32:46][INFO] [Train][MiniBatch][Plugin] acc=0.5375, latency=0.004
+ 78%|███████▊  | 98/125 [00:01<00:00, 76.73it/s] 79%|███████▉  | 99/125 [00:01<00:00, 76.73it/s] 80%|████████  | 100/125 [00:01<00:00, 76.73it/s] 81%|████████  | 101/125 [00:01<00:00, 76.73it/s] 82%|████████▏ | 102/125 [00:01<00:00, 76.73it/s] 82%|████████▏ | 103/125 [00:01<00:00, 76.73it/s] 83%|████████▎ | 104/125 [00:01<00:00, 76.73it/s] 84%|████████▍ | 105/125 [00:01<00:00, 76.73it/s] 85%|████████▍ | 106/125 [00:01<00:00, 77.83it/s] 85%|████████▍ | 106/125 [00:01<00:00, 77.83it/s] 86%|████████▌ | 107/125 [00:01<00:00, 77.83it/s][2026-09-22 00:32:46][INFO] [Train][MiniBatch][Plugin] acc=0.525, latency=0.004
+ 86%|████████▋ | 108/125 [00:01<00:00, 77.83it/s] 87%|████████▋ | 109/125 [00:01<00:00, 77.83it/s] 88%|████████▊ | 110/125 [00:01<00:00, 77.83it/s] 89%|████████▉ | 111/125 [00:01<00:00, 77.83it/s] 90%|████████▉ | 112/125 [00:01<00:00, 77.83it/s] 90%|█████████ | 113/125 [00:01<00:00, 77.83it/s] 91%|█████████ | 114/125 [00:01<00:00, 77.95it/s] 91%|█████████ | 114/125 [00:01<00:00, 77.95it/s] 92%|█████████▏| 115/125 [00:01<00:00, 77.95it/s] 93%|█████████▎| 116/125 [00:01<00:00, 77.95it/s] 94%|█████████▎| 117/125 [00:01<00:00, 77.95it/s][2026-09-22 00:32:46][INFO] [Train][MiniBatch][Plugin] acc=0.575, latency=0.004
+ 94%|█████████▍| 118/125 [00:01<00:00, 77.95it/s] 95%|█████████▌| 119/125 [00:01<00:00, 77.95it/s] 96%|█████████▌| 120/125 [00:01<00:00, 77.95it/s] 97%|█████████▋| 121/125 [00:01<00:00, 77.95it/s] 98%|█████████▊| 122/125 [00:01<00:00, 77.22it/s] 98%|█████████▊| 122/125 [00:01<00:00, 77.22it/s] 98%|█████████▊| 123/125 [00:01<00:00, 77.22it/s] 99%|█████████▉| 124/125 [00:01<00:00, 77.22it/s]100%|██████████| 125/125 [00:01<00:00, 77.22it/s]100%|██████████| 125/125 [00:01<00:00, 68.30it/s]
+Epoch 0 ended.
+	Loss_Epoch/train_phase/train_stream/Task000 = 1.7713
+	Loss_MB/train_phase/train_stream/Task000 = 1.1882
+	Time_Epoch/train_phase/train_stream/Task000 = 1.8296
+	Top1_Acc_Epoch/train_phase/train_stream/Task000 = 0.4560
+	Top1_Acc_MB/train_phase/train_stream/Task000 = 0.5625
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+-- >> End of training phase << --
+[2026-09-22 00:32:46][INFO] Training Experience 9 completed
+[2026-09-22 00:32:46][INFO] [Train] shared_data update: acc=None, latency=1.848
+[ModelScheduler] Model state updated to memory buffer B
+[2026-09-22 00:32:46][INFO] [Train] Model state updated in double-buffer
+[ModelScheduler] Model state updated to memory buffer A
+[2026-09-22 00:32:46][INFO] [Train] Training process completed or terminated.
+[2026-09-22 00:32:47][INFO] [AdaptOCL] Main scheduler loop finished.
+[2026-09-22 00:32:47][INFO] [AdaptOCL] Training has likely ended. Attempting to ensure eval_worker (PID: 2803826) is woken and can terminate.
+[2026-09-22 00:32:47][INFO] [AdaptOCL] Sent SIGCONT to eval_worker (PID: 2803826) to ensure it is not stopped.
+[2026-09-22 00:32:47][INFO] [AdaptOCL] Scheduler worker stopping.
+[2026-09-22 00:32:48][INFO] [Eval] Evaluation process completed.
+[2026-09-22 00:32:49][INFO] All processes have completed. Program exiting.
+WALL_SEC 38.20
