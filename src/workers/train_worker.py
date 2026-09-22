@@ -58,6 +58,11 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
     signal.signal(signal.SIGUSR1, handler)
     log_info(f"[TrainWorker] Registered SIGUSR1 handler.")
 
+    boundary_mode = args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached")
+    worker_started = time.perf_counter()
+    train_seconds = 0.0
+    eval_seconds = 0.0
+
     # Set train worker status as active
     shared_data["train_process_active"] = True
     
@@ -88,11 +93,19 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
         # Set up training plugins
         training_plugins = create_training_plugins(args)
         # SharedDataLoggerPlugin 추가
-        if args.global_scheduler_mode != "freshness_adaptive":
+        if args.global_scheduler_mode not in ("freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached"):
             training_plugins.append(SharedDataLoggerPlugin(shared_data))
         # Create continual learning strategy
         cl_strategy = create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, training_plugins, config_controller, shared_data)
         
+        if boundary_mode:
+            from src.schedulers.freshness_scheduler import InferenceBatchPolicy
+            from src.schedulers.boundary_scheduler import evaluation_state
+            from src.workers.eval_worker import interruptible_eval
+            from src.schedulers.evaluation_cache import EvaluationCache
+            eval_cache = EvaluationCache(args.eval_cache_mb * 1024**2) if args.global_scheduler_mode == "boundary_cached" else None
+            inference_batch = InferenceBatchPolicy(args.eval_bs, maximum=max(256, args.eval_bs))
+
         # Training loop
         log_info("Training process started.")
         exp_counter = 0
@@ -146,6 +159,7 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
             start_time = time.time()
             success = interruptible_train(cl_strategy, experience, config_controller, shared_data, args)
             elapsed = time.time() - start_time
+            train_seconds += elapsed
             # accuracy 기록 (마지막 에폭/배치 accuracy 사용 시도)
             last_acc = None
             if hasattr(cl_strategy, 'last_accuracy'):
@@ -159,7 +173,27 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                 log_error(f"Training failed for experience {exp_id}. Stopping training process.")
                 break
             # Save model state
-            if args.enable_double_buffer:
+            if boundary_mode:
+                with evaluation_state(cl_strategy.model):
+                    result = interruptible_eval(cl_strategy, benchmark.test_stream, None,
+                                                shared_data, exp_id + 1, args, eval_cache=eval_cache)
+                if not result or result['total_samples'] == 0:
+                    raise RuntimeError(f'Boundary evaluation failed at experience {exp_id}')
+                eval_seconds += result['eval_latency']
+                import json
+                log_info("[CycleMetrics] " + json.dumps({
+                    "cycle": exp_id + 1, "version_lower_bound": exp_id + 1,
+                    "final_at_load": exp_id + 1 == len(train_stream),
+                    "final_snapshot": exp_id + 1 == len(train_stream),
+                    "accuracy": result['streaming_accuracy'],
+                    "samples": result['total_samples'], "eval_batch": cl_strategy.eval_mb_size,
+                    "cache_bytes": eval_cache.used_bytes if eval_cache is not None else 0,
+                    "duration": result['eval_latency'],
+                    "batch_p95_ms": result['batch_p95_ms'], "batch_p99_ms": result['batch_p99_ms'],
+                }))
+                if args.global_scheduler_mode in ("boundary", "boundary_cached"):
+                    cl_strategy.eval_mb_size = inference_batch.observe(result['batch_p95_ms'])
+            elif args.enable_double_buffer:
                 try:
                     scheduler.write_state_dict(cl_strategy.model.state_dict())
                     log_info("[Train] Model state updated in double-buffer")
@@ -180,9 +214,21 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
             if shared_data.get("TERMINATE_SIGNAL", False):
                 log_info("[TrainWorker] Termination signal received. Stopping training.")
                 break
-        shared_data["all_experiences_completed"] = True
+        shared_data["all_experiences_completed"] = exp_counter == len(train_stream)
+        if getattr(args, "record_model_hash", False):
+            import hashlib
+            digest = hashlib.sha256()
+            for name, tensor in sorted(cl_strategy.model.state_dict().items()):
+                digest.update(name.encode())
+                digest.update(tensor.detach().cpu().contiguous().numpy().tobytes())
+            log_info(f"[ModelHash] {digest.hexdigest()}")
+        import json
+        log_info("[TrainTiming] " + json.dumps({"train_seconds": train_seconds,
+                 "boundary_eval_seconds": eval_seconds,
+                 "worker_seconds": time.perf_counter() - worker_started}))
         
     except Exception as e:
+        shared_data["worker_failed"] = True
         log_error(f"[Train] Error in training process: {e}")
         import traceback
         traceback.print_exc()

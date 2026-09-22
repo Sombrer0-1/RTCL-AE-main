@@ -24,6 +24,8 @@ def main():
     args = parser.parse_args()
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=True)
+    if (out / "results.csv").exists():
+        parser.error("results.csv already exists; choose a new --output directory to preserve archived runs")
     rows = []
     for index, seed in enumerate(args.seeds):
         # Rotate order to reduce systematic warmup/order bias.
@@ -36,7 +38,7 @@ def main():
             cmd = [sys.executable, str(ROOT / 'main.py'), '--benchmark', 'split_cifar10',
                    '--algorithm', 'replay', '--model', 'resnet20', '--training_bs', str(args.training_bs),
                    '--eval_bs', '16', '--global_scheduler_mode', mode, '--seed', str(seed),
-                   '--max_runtime', '240']
+                   '--max_runtime', '240', '--record_model_hash']
             env = dict(os.environ, OMP_NUM_THREADS='1', MKL_NUM_THREADS='1',
                        OPENBLAS_NUM_THREADS='1', CUDA_VISIBLE_DEVICES='1',
                        PYTHONHASHSEED=str(seed))
@@ -57,7 +59,11 @@ def main():
             complete = len(re.findall(r'Training Experience \d+ completed', contents)) == 10
             errors = bool(re.search(r'Traceback|\[ERROR\]|Maximum runtime|Training failed', contents))
             valid = rc == 0 and complete and not errors and cycles and (cycles[-1]['final_at_load'] or cycles[-1].get('final_snapshot', False)) and cycles[-1]['samples'] == 10000
-            row = dict(mode=mode, seed=seed, wall_sec=wall, qps=50000/wall if valid else '',
+            hashes = re.findall(r'\[ModelHash\] ([0-9a-f]+)', contents)
+            timing = [json.loads(x) for x in re.findall(r'\[TrainTiming\] (\{[^\n]+\})', contents)]
+            row = dict(model_hash=hashes[-1] if hashes else '',
+                       train_seconds=timing[-1]['train_seconds'] if timing else '',
+                       mode=mode, seed=seed, wall_sec=wall, qps=50000/wall if valid else '',
                        final_accuracy=cycles[-1]['accuracy'] if cycles else '',
                        eval_cycles=len(cycles), eval_samples=sum(c['samples'] for c in cycles),
                        final_p99_ms=cycles[-1]['batch_p99_ms'] if cycles else '',

@@ -112,6 +112,8 @@ def main():
     
     # Parse command line arguments
     args = parse_arguments()
+    if args.global_scheduler_mode == "freshness_cached" and (args.benchmark != "split_cifar10" or args.semseg):
+        raise ValueError("Resident evaluation cache requires deterministic SplitCIFAR10 evaluation")
 
     if args.semseg:
         import avalanche.evaluation.metrics.accuracy as _acc_mod
@@ -126,6 +128,12 @@ def main():
     device = torch.device(f"cuda:{args.cuda}" if args.cuda != -1 else "cpu")
     logger.info(f"Using device: {device}")
     
+    if args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached") and not args.download_only:
+        from src.schedulers.boundary_scheduler import run_boundary
+        run_boundary(args, device)
+        logger.info("All processes have completed. Program exiting.")
+        return
+
     # Create benchmark
     benchmark = create_benchmark(args)
     
@@ -226,7 +234,7 @@ def main():
     else:
         global_scheduler = GlobalTimelineScheduler(
             time_slice=args.timeslice, 
-            mode=("fully_parallel" if args.global_scheduler_mode in ("freshness", "freshness_adaptive") else args.global_scheduler_mode),
+            mode=("fully_parallel" if args.global_scheduler_mode in ("freshness", "freshness_adaptive", "freshness_cached") else args.global_scheduler_mode),
             adaptive_params=adaptive_params
         )
     

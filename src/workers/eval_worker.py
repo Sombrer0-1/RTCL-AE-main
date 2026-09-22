@@ -193,8 +193,11 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
         waiting_for_final_eval = False
         final_eval_done = False
         from src.schedulers.freshness_scheduler import FreshnessPolicy, InferenceBatchPolicy
-        freshness = FreshnessPolicy(time.monotonic()) if args.global_scheduler_mode in ("freshness", "freshness_adaptive") else None
-        inference_batch = InferenceBatchPolicy(args.eval_bs, maximum=max(256, args.eval_bs)) if args.global_scheduler_mode == "freshness_adaptive" else None
+        freshness = FreshnessPolicy(time.monotonic()) if args.global_scheduler_mode in ("freshness", "freshness_adaptive", "freshness_cached") else None
+        inference_batch = InferenceBatchPolicy(args.eval_bs, maximum=max(256, args.eval_bs)) if args.global_scheduler_mode in ("freshness_adaptive", "freshness_cached") else None
+
+        from src.schedulers.evaluation_cache import EvaluationCache
+        eval_cache = EvaluationCache(args.eval_cache_mb * 1024**2) if args.global_scheduler_mode == "freshness_cached" else None
 
         # Main evaluation loop. Do not test train_process_active in the
         # while-header: on a fast GPU training can flip that flag while this
@@ -266,7 +269,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
             # Run evaluation for all active experiences together
             eval_start_time = time.time()
             # Pass the full test_stream to interruptible_eval
-            eval_result_dict = interruptible_eval(cl_strategy, test_stream, config_controller, shared_data, current_eval_num, args)
+            eval_result_dict = interruptible_eval(cl_strategy, test_stream, config_controller, shared_data, current_eval_num, args, eval_cache=eval_cache)
             eval_latency = time.time() - eval_start_time # This is the latency for the whole batch of experiences
             
             if eval_result_dict:
@@ -302,6 +305,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                     "accuracy": eval_result_dict['streaming_accuracy'],
                     "samples": eval_result_dict['total_samples'],
                     "eval_batch": cl_strategy.eval_mb_size,
+                    "cache_bytes": eval_cache.used_bytes if eval_cache is not None else 0,
                     "duration": eval_latency,
                     "batch_p95_ms": eval_result_dict.get('batch_p95_ms'),
                     "batch_p99_ms": eval_result_dict.get('batch_p99_ms'),
@@ -327,7 +331,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
     finally:
         log_info("[Eval] Evaluation process completed.")
 
-def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, shared_data, current_eval_num, args):
+def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, shared_data, current_eval_num, args, eval_cache=None):
     """
     Interruptible evaluation loop.
     Now modified to evaluate all passed experiences from their beginning.
@@ -374,6 +378,8 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
                 drop_last=False # Do not drop the last batch
             )
             
+            if eval_cache is not None:
+                dynamic_loader = eval_cache.batches(exp_id, dynamic_loader, cl_strategy.eval_mb_size, device)
             cl_strategy.model.eval() # Ensure model is in eval mode for each experience
             exp_correct = 0
             exp_total = 0
@@ -412,7 +418,7 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
                     
                     # Update shared_data with latest batch-level accuracy and latency for this experience
                     # This provides fine-grained updates to the scheduler if needed
-                    if args.global_scheduler_mode != "freshness_adaptive":
+                    if args.global_scheduler_mode not in ("freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached"):
                         if exp_total > 0:
                             shared_data["latest_accuracy"] = exp_correct / exp_total
                         else:
