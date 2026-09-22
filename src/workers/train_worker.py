@@ -58,6 +58,7 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
     signal.signal(signal.SIGUSR1, handler)
     log_info(f"[TrainWorker] Registered SIGUSR1 handler.")
 
+    streaming_mode = args.global_scheduler_mode.startswith("stream_")
     boundary_mode = args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached")
     worker_started = time.perf_counter()
     train_seconds = 0.0
@@ -93,12 +94,16 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
         # Set up training plugins
         training_plugins = create_training_plugins(args)
         # SharedDataLoggerPlugin 추가
-        if args.global_scheduler_mode not in ("freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached"):
+        if not streaming_mode and args.global_scheduler_mode not in ("freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached"):
             training_plugins.append(SharedDataLoggerPlugin(shared_data))
+        if streaming_mode:
+            from src.schedulers.stream_scheduler import StreamSchedulerPlugin
+            stream_plugin = StreamSchedulerPlugin(args, benchmark.test_stream)
+            training_plugins.append(stream_plugin)
         # Create continual learning strategy
         cl_strategy = create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, training_plugins, config_controller, shared_data)
         
-        if boundary_mode:
+        if boundary_mode or streaming_mode:
             from src.schedulers.freshness_scheduler import InferenceBatchPolicy
             from src.schedulers.boundary_scheduler import evaluation_state
             from src.workers.eval_worker import interruptible_eval
@@ -173,7 +178,17 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                 log_error(f"Training failed for experience {exp_id}. Stopping training process.")
                 break
             # Save model state
-            if boundary_mode:
+            if streaming_mode:
+                if exp_id + 1 == len(train_stream):
+                    stream_plugin.finish(cl_strategy)
+                    with evaluation_state(cl_strategy.model):
+                        result = interruptible_eval(cl_strategy, benchmark.test_stream, None,
+                                                    shared_data, 1, args)
+                    if not result or result['total_samples'] == 0:
+                        raise RuntimeError('Final stream evaluation failed')
+                    import json
+                    log_info('[FinalSnapshot] ' + json.dumps(result))
+            elif boundary_mode:
                 with evaluation_state(cl_strategy.model):
                     result = interruptible_eval(cl_strategy, benchmark.test_stream, None,
                                                 shared_data, exp_id + 1, args, eval_cache=eval_cache)

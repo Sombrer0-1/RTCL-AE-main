@@ -128,7 +128,7 @@ def main():
     device = torch.device(f"cuda:{args.cuda}" if args.cuda != -1 else "cpu")
     logger.info(f"Using device: {device}")
     
-    if args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached") and not args.download_only:
+    if (args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached") or args.global_scheduler_mode.startswith("stream_")) and not args.download_only:
         from src.schedulers.boundary_scheduler import run_boundary
         run_boundary(args, device)
         logger.info("All processes have completed. Program exiting.")

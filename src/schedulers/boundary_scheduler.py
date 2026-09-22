@@ -42,6 +42,8 @@ def run_boundary(args, device):
     """One compute worker; parent enforces timeout without a Manager/scheduler."""
     if args.enable_dynamic_reconfiguration or args.enable_double_buffer:
         raise ValueError('Boundary scheduling owns configuration and does not use double buffers')
+    if args.global_scheduler_mode.startswith('stream_') and (args.benchmark != 'split_cifar10' or args.semseg):
+        raise ValueError('Stream scheduling is validated only for SplitCIFAR10 classification')
     if args.global_scheduler_mode == "boundary_cached" and (args.benchmark != "split_cifar10" or args.semseg):
         raise ValueError('Resident evaluation cache is validated only for deterministic SplitCIFAR10 evaluation')
     import time
