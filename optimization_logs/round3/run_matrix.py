@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--phase', choices=['pilot', 'main'], required=True)
+    p.add_argument('--phase', choices=['pilot', 'main', 'diagnostic', 'holdout'], required=True)
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     out = a.output.resolve()
@@ -29,6 +29,14 @@ def main():
         cases = [('pilot', 'resnet20', 1, 'steady', 100, 300, 3)]
         seeds = [7]
         modes = ['fifo', 'debt', 'neural', 'boundary']
+    elif a.phase == 'diagnostic':
+        cases = [('longer', 'resnet20', 2, 'steady', 100, 6000, 30)]
+        seeds = [101]
+        modes = ['fifo']
+    elif a.phase == 'holdout':
+        cases = [('deeper_bursty', 'resnet56', 1, 'bursty', 33, 6000, 30)]
+        seeds = [303]
+        modes = ['slack', 'fifo', 'neural', 'debt']
     else:
         cases = [('longer', 'resnet20', 2, 'steady', 100, 6000, 30),
                  ('deeper_bursty', 'resnet56', 1, 'bursty', 33, 6000, 30)]
@@ -43,7 +51,8 @@ def main():
                 name = f'{case}_{mode}_seed{seed}'
                 work = out/'work'/name
                 work.mkdir(parents=True, exist_ok=False)
-                cmd = [sys.executable, str(ROOT/'main.py'), '--benchmark', 'split_cifar10',
+                entry = Path(__file__).with_name('diagnose_epoch_stalls.py') if a.phase == 'diagnostic' else ROOT/'main.py'
+                cmd = [sys.executable, str(entry), '--benchmark', 'split_cifar10',
                        '--algorithm', 'replay', '--model', model, '--epoch', str(epochs),
                        '--training_bs', '64', '--eval_bs', '32', '--global_scheduler_mode',
                        'stream_'+mode, '--seed', str(seed), '--max_runtime', '480',

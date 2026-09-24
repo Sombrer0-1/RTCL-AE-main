@@ -1,0 +1,18 @@
+{
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.10.21",
+  "implementation_commit": "34468283a3dfdaf97ecf67c882f4cac3fb865163",
+  "avalanche_source_commit": "eb075be393e1f458b2c352514ff6c17b5a2c0f4e",
+  "gpu": "0, NVIDIA GeForce RTX 5090, 570.133.20, 32607 MiB\n1, NVIDIA GeForce RTX 5090, 570.133.20, 32607 MiB",
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "numpy": "2.2.6",
+    "pytorchcv": "0.0.74"
+  },
+  "model_parameters": {
+    "resnet20": 272474,
+    "resnet56": 855770
+  },
+  "execution": "serial physical GPU 1; OMP/MKL/OPENBLAS threads=1; no exclusive host reservation; load averages in each row"
+}

@@ -493,3 +493,7 @@ One row per (config, benchmark) on ER / ResNet-20. `config` is `AOCL_basic` (ful
 [Torchvision for Jetson](https://zexinli.prof/post/5c1d.html)
 
 [Deepspeed end2end FLOPs profiler](https://www.deepspeed.ai/tutorials/flops-profiler/)
+
+## 本地小规模算法验证与扩展
+
+原始复现留档见 [repro_logs](repro_logs/README.md)，边界调度与缓存实验见 [第二轮报告](optimization_logs/round2/README.md)。[第三轮报告](optimization_logs/round3/README.md) 扩大训练量和模型规模，增加无输入缓存的在线请求评测、服务欠账控制与 65 参数神经辅助消融；完整记录正向、负向结果和共享主机干扰。
