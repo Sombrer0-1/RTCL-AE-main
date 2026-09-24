@@ -1,4 +1,7 @@
 import unittest
+import io
+from contextlib import redirect_stderr
+from unittest.mock import patch
 import numpy as np
 import torch
 from torch.utils.data import ConcatDataset, Subset, TensorDataset
@@ -21,6 +24,15 @@ def dataset():
 
 
 class PreparationTests(unittest.TestCase):
+    def test_slack_accepts_certificate_but_not_fifo_service_points(self):
+        from src.config import parse_arguments
+        argv=['test','--global_scheduler_mode','stream_slack','--host_preparation','certified']
+        with patch('sys.argv',argv):
+            self.assertEqual(parse_arguments().host_preparation,'certified')
+        with patch('sys.argv',argv[:-1]+['cooperative']), redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                parse_arguments()
+
     def test_certificate_uses_structure_and_rejects_ffcv_and_unknown(self):
         d=dataset()
         wrapped=ConcatDataset([Subset(d,[1,2]),d])

@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--phase', choices=['profile', 'pilot', 'main'], required=True)
+    p.add_argument('--phase', choices=['profile', 'pilot', 'main', 'followup'], required=True)
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     out = a.output.resolve()
@@ -33,6 +33,11 @@ def main():
         cases = [('pilot', 'resnet20', 2, 'steady', 100, 6000, 30)]
         seeds = [17]
         modes = ['baseline', 'certified', 'cooperative']
+    elif a.phase == 'followup':
+        cases = [('longer', 'resnet20', 2, 'steady', 100, 6000, 30),
+                 ('deeper_bursty', 'resnet56', 1, 'bursty', 33, 6000, 30)]
+        seeds = [149]
+        modes = ['baseline', 'certified', 'certified_slack']
     else:
         cases = [('longer', 'resnet20', 2, 'steady', 100, 6000, 30),
                  ('deeper_bursty', 'resnet56', 1, 'bursty', 33, 6000, 30)]
@@ -51,7 +56,9 @@ def main():
                 cmd = [sys.executable, str(entry), '--benchmark', 'split_cifar10',
                        '--algorithm', 'replay', '--model', model, '--epoch', str(epochs),
                        '--training_bs', '64', '--eval_bs', '32', '--global_scheduler_mode',
-                       'stream_fifo', '--host_preparation', mode if mode != 'fifo' else 'baseline', '--seed', str(seed), '--max_runtime', '480',
+                       'stream_slack' if mode == 'certified_slack' else 'stream_fifo',
+                       '--host_preparation', 'certified' if mode == 'certified_slack' else mode if mode != 'fifo' else 'baseline',
+                       '--seed', str(seed), '--max_runtime', '480',
                        '--record_model_hash', '--stream_requests', str(count),
                        '--stream_duration', str(duration), '--stream_slo_ms', str(slo),
                        '--stream_pattern', pattern]
@@ -113,7 +120,7 @@ def main():
                 row.update({k: metric.get(k, '') for k in fields})
                 prep_file = work/'stream_preparation.json'
                 prep = json.loads(prep_file.read_text()) if prep_file.exists() else {}
-                if mode in ('certified', 'cooperative'):
+                if mode in ('certified', 'cooperative', 'certified_slack'):
                     valid = valid and prep.get('certified_epochs') == 10*epochs and prep.get('fallback_epochs') == 0
                 if mode == 'cooperative':
                     valid = valid and 0 < prep.get('service_requests', 0) <= count

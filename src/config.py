@@ -294,6 +294,8 @@ def parse_arguments():
 
     # Parse arguments
     args = parser.parse_args()
-    if args.host_preparation != 'baseline' and args.global_scheduler_mode != 'stream_fifo':
-        parser.error('--host_preparation requires --global_scheduler_mode stream_fifo')
+    if args.host_preparation != 'baseline':
+        allowed = {'stream_fifo', 'stream_slack'} if args.host_preparation == 'certified' else {'stream_fifo'}
+        if args.global_scheduler_mode not in allowed:
+            parser.error('--host_preparation requires stream_fifo (certified also supports stream_slack)')
     return args
