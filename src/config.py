@@ -284,6 +284,7 @@ def parse_arguments():
     )
 
     parser.add_argument("--stream_requests", type=int, default=6000)
+    parser.add_argument("--host_preparation", choices=["baseline", "certified", "cooperative"], default="baseline")
     parser.add_argument("--stream_duration", type=float, default=30.0)
     parser.add_argument("--stream_slo_ms", type=float, default=100.0)
     parser.add_argument("--stream_pattern", choices=["steady", "bursty"], default="steady")
@@ -293,4 +294,6 @@ def parse_arguments():
 
     # Parse arguments
     args = parser.parse_args()
+    if args.host_preparation != 'baseline' and args.global_scheduler_mode != 'stream_fifo':
+        parser.error('--host_preparation requires --global_scheduler_mode stream_fifo')
     return args

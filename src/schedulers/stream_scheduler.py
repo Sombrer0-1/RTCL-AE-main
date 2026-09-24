@@ -59,6 +59,39 @@ class StreamSchedulerPlugin:
         self.max_train_pause = 0.0
         self.last_train_end = None
         self.first = time.perf_counter()
+        self.preparation = getattr(args, 'host_preparation', 'baseline')
+        self.prep_last_check = self.first
+        self.prep_stats = dict(certified_epochs=0, fallback_epochs=0, service_batches=0,
+                               service_requests=0, service_seconds=0.0, check_seconds=0.0)
+
+    def before_training_epoch(self, strategy, **kwargs):
+        if self.preparation != 'baseline':
+            from src.schedulers.host_preparation import install_preparation
+            service = (lambda: self._preparation_service(strategy)) if self.preparation == 'cooperative' else None
+            install_preparation(strategy.dataloader, service, self.prep_stats)
+
+    def _preparation_service(self, strategy):
+        started = time.perf_counter()
+        if self.origin is None or started-self.prep_last_check < min(.008, self.controller.slo/4):
+            self.prep_stats['check_seconds'] += time.perf_counter()-started
+            return
+        self.prep_last_check = started
+        self._admit(started)
+        self.prep_stats['check_seconds'] += time.perf_counter()-started
+        if not self.pending:
+            return
+        tick = time.perf_counter()
+        b = min(len(self.pending), self.controller.max_batch)
+        self._infer(strategy, b)
+        elapsed = time.perf_counter()-tick
+        # Inference is already observed separately; don't charge it to train again.
+        if self.previous_train is not None:
+            t, features, base = self.previous_train
+            self.previous_train = (t+elapsed, features, base)
+        self.prep_stats['service_batches'] += 1
+        self.prep_stats['service_requests'] += b
+        self.prep_stats['service_seconds'] += elapsed
+        self.prep_last_check = time.perf_counter()
 
     def _observe_train(self, now):
         if self.previous_train is not None:
@@ -170,5 +203,6 @@ class StreamSchedulerPlugin:
         Path('stream_metrics.json').write_text(json.dumps(summary,indent=2))
         Path('stream_requests.json').write_text(json.dumps(self.records))
         Path('stream_arrivals.json').write_text(json.dumps(self.trace))
+        Path('stream_preparation.json').write_text(json.dumps(self.prep_stats, indent=2))
         log_info('[StreamMetrics] '+json.dumps(summary))
         return summary

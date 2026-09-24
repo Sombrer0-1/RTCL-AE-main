@@ -1,0 +1,8 @@
+{
+  "certified_epochs": 20,
+  "fallback_epochs": 0,
+  "service_batches": 0,
+  "service_requests": 0,
+  "service_seconds": 0.0,
+  "check_seconds": 0.0
+}

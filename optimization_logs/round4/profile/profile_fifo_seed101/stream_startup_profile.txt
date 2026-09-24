@@ -1,0 +1,53 @@
+         17537794 function calls (17515680 primitive calls) in 3.670 seconds
+
+   Ordered by: cumulative time
+   List reduced from 573 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       20    0.000    0.000    3.665    0.183 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/training/templates/update_type/sgd_update.py:13(training_epoch)
+       20    0.000    0.000    3.662    0.183 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/data_loader.py:185(__iter__)
+       20    0.001    0.000    3.202    0.160 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/data_loader.py:201(_get_loader)
+       20    0.008    0.000    3.198    0.160 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/ffcv_support/ffcv_components.py:327(has_ffcv_support)
+       20    0.006    0.000    3.185    0.159 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:333(single_flat_dataset)
+       20    0.912    0.046    3.153    0.158 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:268(leaf_datasets)
+   120/20    0.728    0.006    2.227    0.111 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:106(_traverse_supported_dataset_with_intermediate)
+  2200000    0.560    0.000    0.686    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_utils.py:275(find_list_from_index)
+      120    0.000    0.000    0.476    0.004 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:283(leaf_selector)
+       20    0.475    0.024    0.476    0.024 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:297(<listcomp>)
+       20    0.000    0.000    0.457    0.023 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/utils/data/dataloader.py:736(__next__)
+       20    0.001    0.000    0.456    0.023 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/utils/data/dataloader.py:799(_next_data)
+       20    0.000    0.000    0.447    0.022 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:49(fetch)
+       20    0.001    0.000    0.442    0.022 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py:54(<listcomp>)
+     2432    0.002    0.000    0.441    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/utils/data/dataset.py:333(__getitem__)
+     2432    0.003    0.000    0.439    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/data.py:352(__getitem__)
+     2432    0.001    0.000    0.431    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/data.py:554(__getitem__)
+9728/2432    0.011    0.000    0.430    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/data.py:534(_getitem_recursive_call)
+     4864    0.003    0.000    0.339    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/transform_groups.py:118(__call__)
+     4864    0.004    0.000    0.333    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/transforms.py:275(__call__)
+     2432    0.004    0.000    0.329    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:93(__call__)
+  9357713    0.236    0.000    0.236    0.000 {method 'append' of 'list' objects}
+     7296    0.004    0.000    0.225    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/nn/modules/module.py:1775(_wrapped_call_impl)
+     7296    0.006    0.000    0.220    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torch/nn/modules/module.py:1783(_call_impl)
+     2432    0.004    0.000    0.124    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:668(forward)
+       20    0.051    0.003    0.118    0.006 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/dataset_traversal_utils.py:176(<listcomp>)
+     2432    0.001    0.000    0.100    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:129(__call__)
+     2432    0.014    0.000    0.099    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/functional.py:127(to_tensor)
+  2202432    0.071    0.000    0.071    0.000 {built-in method _bisect.bisect_right}
+   541024    0.064    0.000    0.067    0.000 /home/zhuzetong/research/CL/RTCL-AE-main/.deps/avalanche/avalanche/benchmarks/utils/flat_data.py:139(__getitem__)
+     2432    0.003    0.000    0.063    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/datasets/cifar.py:104(__getitem__)
+     2432    0.001    0.000    0.061    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:277(forward)
+     2432    0.004    0.000    0.060    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/functional.py:327(normalize)
+     2432    0.009    0.000    0.060    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/PIL/Image.py:3378(fromarray)
+     2432    0.003    0.000    0.058    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/functional.py:482(pad)
+     2432    0.016    0.000    0.052    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/_functional_tensor.py:905(normalize)
+  2200000    0.051    0.000    0.051    0.000 {method 'popleft' of 'collections.deque' objects}
+     2432    0.005    0.000    0.049    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/_functional_pil.py:146(pad)
+     2490    0.007    0.000    0.038    0.000 {built-in method numpy.array}
+     2432    0.002    0.000    0.035    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/PIL/Image.py:3288(frombuffer)
+     2432    0.004    0.000    0.031    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/PIL/Image.py:3242(frombytes)
+     2432    0.002    0.000    0.031    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/PIL/Image.py:804(__array_interface__)
+     2432    0.004    0.000    0.030    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/PIL/ImageOps.py:487(expand)
+     2432    0.012    0.000    0.026    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:712(forward)
+     2432    0.004    0.000    0.026    0.000 /home/zhuzetong/.conda/envs/aocl/lib/python3.10/site-packages/torchvision/transforms/transforms.py:633(get_params)
+
+
