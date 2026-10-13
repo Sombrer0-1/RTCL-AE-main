@@ -46,8 +46,12 @@ class StreamSchedulerPlugin:
         self.dataset = ConcatDataset([exp.dataset for exp in test_stream])
         self.trace = make_trace(args.seed or 0,args.stream_requests,args.stream_duration,
                                 args.stream_pattern,len(self.dataset))
-        self.controller = QueueController(args.global_scheduler_mode.removeprefix('stream_'),
-                                          args.stream_slo_ms/1000)
+        policy = args.global_scheduler_mode.removeprefix('stream_')
+        if policy in ('predictive', 'predictive_neural'):
+            from src.schedulers.predictive_batching import PredictiveBatchController
+            self.controller = PredictiveBatchController(policy, args.stream_slo_ms/1000)
+        else:
+            self.controller = QueueController(policy, args.stream_slo_ms/1000)
         self.origin = None
         self.next_arrival = 0
         self.pending = []
@@ -82,6 +86,15 @@ class StreamSchedulerPlugin:
             return
         tick = time.perf_counter()
         b = min(len(self.pending), self.controller.max_batch)
+        if hasattr(self.controller, 'admit'):
+            started_decision = time.perf_counter()
+            b = self.controller.choose(tick-self.origin,
+                [self.trace[i]['arrival'] for i in self.pending], stage='preparation',
+                check_interval=min(.008, self.controller.slo/4))
+            self.control_seconds += time.perf_counter()-started_decision
+            self.decisions += 1
+            if b == 0:
+                return
         self._infer(strategy, b)
         elapsed = time.perf_counter()-tick
         # Inference is already observed separately; don't charge it to train again.
@@ -106,9 +119,14 @@ class StreamSchedulerPlugin:
         if self.origin is None:
             return
         elapsed=now-self.origin
+        first_new = self.next_arrival
         while self.next_arrival<len(self.trace) and self.trace[self.next_arrival]['arrival']<=elapsed:
             self.pending.append(self.next_arrival)
             self.next_arrival+=1
+        if hasattr(self.controller, 'admit'):
+            tick = time.perf_counter()
+            self.controller.admit([self.trace[i]['arrival'] for i in range(first_new, self.next_arrival)], elapsed)
+            self.control_seconds += time.perf_counter()-tick
 
     def before_training_iteration(self, strategy, **kwargs):
         now=time.perf_counter()
@@ -198,8 +216,10 @@ class StreamSchedulerPlugin:
                  'max_train_pause_seconds':self.max_train_pause,'train_updates':self.steps,
                  'controller_seconds':self.control_seconds,'decisions':self.decisions,
                  'guard_overrides':self.controller.guard_overrides,
-                 'neural_parameters':65 if self.controller.net is not None else 0,
+                 'neural_parameters':getattr(self.controller.net, 'parameters', 65) if self.controller.net is not None else 0,
                  'neural_updates':self.controller.net.updates if self.controller.net is not None else 0}
+        if hasattr(self.controller, 'diagnostics'):
+            summary.update(self.controller.diagnostics())
         Path('stream_metrics.json').write_text(json.dumps(summary,indent=2))
         Path('stream_requests.json').write_text(json.dumps(self.records))
         Path('stream_arrivals.json').write_text(json.dumps(self.trace))

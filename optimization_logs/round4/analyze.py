@@ -15,6 +15,7 @@ def audit(phase, expected):
     rows=list(csv.DictReader((HERE/phase/'results.csv').open()))
     assert len(rows)==expected
     paired={}
+    diagnostics=[]
     for row in rows:
         assert row['valid']=='True'
         folder=HERE/phase/row['log'].removesuffix('.log')
@@ -35,10 +36,15 @@ def audit(phase, expected):
         pair=(row['case'],row['seed'])
         identity=(row['model_hash'],row['trace_hash'],row['final_accuracy'])
         assert identity==paired.setdefault(pair,identity)
-        if row['mode'] in ('certified','cooperative'):
+        if row['mode'] in ('certified','cooperative','certified_slack'):
             assert int(row['certified_epochs'])==10*int(row['epochs']) and int(row['fallback_epochs'])==0
         if row['mode']=='cooperative':
             assert 0<int(row['service_requests'])<=6000
+        batches=len({r['completed'] for r in rec})
+        diagnostics.append(dict(case=row['case'],mode=row['mode'],seed=int(row['seed']),
+                                inference_batches=batches,mean_batch=6000/batches,
+                                requests_after_training=sum(r['train_updates']==int(row['train_updates']) for r in rec)))
+    (HERE/(phase+'_diagnostics.json')).write_text(json.dumps(diagnostics,indent=2))
     return rows
 
 def main():

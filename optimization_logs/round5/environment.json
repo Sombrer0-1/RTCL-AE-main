@@ -1,0 +1,26 @@
+{
+  "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "executable": "/home/zhuzetong/.conda/envs/aocl/bin/python",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "numpy": "2.2.6",
+  "gpu": "0, NVIDIA GeForce RTX 5090, 570.133.20\n1, NVIDIA GeForce RTX 5090, 570.133.20\n",
+  "git_head": "1039ab84f277c862aa9efb8a405788abaa91fe89",
+  "source_sha256": {
+    "src/schedulers/predictive_batching.py": "f90e28c21d6a33e76a2079de53dd66cb81baab8fec55ef3cec131735f8cd4553",
+    "src/schedulers/stream_scheduler.py": "e8a42543b65e36440049468701975d7a3ce3ebb99ddc5441f7dc244c7d6fb9da",
+    "src/schedulers/queue_control.py": "059bd0b28857979f860279344db9b4f82eeba3c3369aedb473d0ff968694886d",
+    "src/schedulers/host_preparation.py": "0f3a4d65badb2d00b91e562e195e0e7a89ce1233ba72bc2da1697340803bc3dd",
+    "src/schedulers/boundary_scheduler.py": "b6a370d179fcfc1b9c9e7711647bfe2faf55084ec283f6d0d78d3ea9b8b41842",
+    "src/config.py": "71936c66e05664f0129faac4d5d39e2669eb6000d00e32222b83e90f93ef14f8",
+    "tests/test_predictive_batching.py": "97ee5159ce5a02097d9eed28ed2bd7d5598d45866fc511f81830edb081bfa34e",
+    "optimization_logs/round5/run_matrix.py": "94aaa9714a1c7909c1ce24eec2ffbb4104f9651902f636cd676a13f701172d11",
+    "optimization_logs/round5/analyze.py": "4509b9b8593c88c3966c3ef0fef48f579065f4883a32bfddf385065c7b86b337"
+  },
+  "execution": "Same aocl environment; serial physical GPU 1; OMP/MKL/OpenBLAS threads=1; shared host; no dependency changes",
+  "load_start": [
+    14.98,
+    16.12,
+    15.2
+  ]
+}

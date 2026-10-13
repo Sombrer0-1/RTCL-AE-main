@@ -84,7 +84,7 @@ def parse_arguments():
         "--global_scheduler_mode", 
         type=str, 
         default="default",
-        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached", "recl_sched", "stream_fifo", "stream_slack", "stream_debt", "stream_neural", "stream_boundary"],
+        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached", "recl_sched", "stream_fifo", "stream_slack", "stream_debt", "stream_neural", "stream_boundary", "stream_predictive", "stream_predictive_neural"],
         help="Choose how train/eval processes are scheduled."
     )
     parser.add_argument(
@@ -295,7 +295,9 @@ def parse_arguments():
     # Parse arguments
     args = parser.parse_args()
     if args.host_preparation != 'baseline':
-        allowed = {'stream_fifo', 'stream_slack'} if args.host_preparation == 'certified' else {'stream_fifo'}
+        allowed = {'stream_fifo', 'stream_predictive', 'stream_predictive_neural'}
+        if args.host_preparation == 'certified':
+            allowed.add('stream_slack')
         if args.global_scheduler_mode not in allowed:
-            parser.error('--host_preparation requires stream_fifo (certified also supports stream_slack)')
+            parser.error('--host_preparation requires FIFO or predictive batching (certified also supports stream_slack)')
     return args
