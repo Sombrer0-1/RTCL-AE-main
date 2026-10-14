@@ -84,7 +84,7 @@ def parse_arguments():
         "--global_scheduler_mode", 
         type=str, 
         default="default",
-        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "recl_sched"],
+        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached", "recl_sched", "stream_fifo", "stream_slack", "stream_debt", "stream_neural", "stream_boundary", "stream_predictive", "stream_predictive_neural"],
         help="Choose how train/eval processes are scheduled."
     )
     parser.add_argument(
@@ -283,6 +283,21 @@ def parse_arguments():
         help="RECL Scheduler: Minimum evaluation weight when in 'inference_focus' mode (0.0 to 1.0)."
     )
 
+    parser.add_argument("--stream_requests", type=int, default=6000)
+    parser.add_argument("--host_preparation", choices=["baseline", "certified", "cooperative"], default="baseline")
+    parser.add_argument("--stream_duration", type=float, default=30.0)
+    parser.add_argument("--stream_slo_ms", type=float, default=100.0)
+    parser.add_argument("--stream_pattern", choices=["steady", "bursty"], default="steady")
+    parser.add_argument("--eval_cache_mb", type=int, default=128)
+    parser.add_argument("--record_model_hash", action="store_true")
+    parser.add_argument("--seed", type=int, default=None)
+
     # Parse arguments
     args = parser.parse_args()
+    if args.host_preparation != 'baseline':
+        allowed = {'stream_fifo', 'stream_predictive', 'stream_predictive_neural'}
+        if args.host_preparation == 'certified':
+            allowed.add('stream_slack')
+        if args.global_scheduler_mode not in allowed:
+            parser.error('--host_preparation requires FIFO or predictive batching (certified also supports stream_slack)')
     return args

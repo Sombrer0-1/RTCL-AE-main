@@ -1,0 +1,8 @@
+{
+  "certified_epochs": 20,
+  "fallback_epochs": 0,
+  "service_batches": 1939,
+  "service_requests": 4097,
+  "service_seconds": 3.2929884027689695,
+  "check_seconds": 0.021416740026324987
+}

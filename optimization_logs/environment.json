@@ -1,0 +1,12 @@
+{
+  "python": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "executable": "/home/zhuzetong/.conda/envs/aocl/bin/python",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "baseline_commit": "2149f51",
+  "avalanche_commit": "eb075be393e1f458b2c352514ff6c17b5a2c0f4e",
+  "deterministic_cudnn": true,
+  "note": "Seeded runs; CUDA operations are not guaranteed bitwise deterministic."
+}

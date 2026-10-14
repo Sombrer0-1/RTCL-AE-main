@@ -1,0 +1,162 @@
+[
+  {
+    "case": "longer",
+    "mode": "fifo",
+    "seed": 101,
+    "missed": 125,
+    "missed_at_epoch_boundary": 125,
+    "requests_after_training": 0,
+    "mean_request_batch": 6.341666666666667,
+    "control_wall_percent": 0.7617786472688899
+  },
+  {
+    "case": "longer",
+    "mode": "slack",
+    "seed": 101,
+    "missed": 244,
+    "missed_at_epoch_boundary": 244,
+    "requests_after_training": 0,
+    "mean_request_batch": 15.254,
+    "control_wall_percent": 0.5961189347341288
+  },
+  {
+    "case": "longer",
+    "mode": "debt",
+    "seed": 101,
+    "missed": 119,
+    "missed_at_epoch_boundary": 119,
+    "requests_after_training": 0,
+    "mean_request_batch": 5.788666666666667,
+    "control_wall_percent": 0.8734106171776376
+  },
+  {
+    "case": "longer",
+    "mode": "neural",
+    "seed": 101,
+    "missed": 143,
+    "missed_at_epoch_boundary": 143,
+    "requests_after_training": 0,
+    "mean_request_batch": 5.923333333333333,
+    "control_wall_percent": 0.9566593728252366
+  },
+  {
+    "case": "longer",
+    "mode": "slack",
+    "seed": 202,
+    "missed": 244,
+    "missed_at_epoch_boundary": 244,
+    "requests_after_training": 0,
+    "mean_request_batch": 15.866333333333333,
+    "control_wall_percent": 0.6170532981458458
+  },
+  {
+    "case": "longer",
+    "mode": "debt",
+    "seed": 202,
+    "missed": 128,
+    "missed_at_epoch_boundary": 128,
+    "requests_after_training": 0,
+    "mean_request_batch": 5.785,
+    "control_wall_percent": 0.8928619972341857
+  },
+  {
+    "case": "longer",
+    "mode": "neural",
+    "seed": 202,
+    "missed": 164,
+    "missed_at_epoch_boundary": 164,
+    "requests_after_training": 0,
+    "mean_request_batch": 5.939333333333333,
+    "control_wall_percent": 0.9783541414286551
+  },
+  {
+    "case": "longer",
+    "mode": "fifo",
+    "seed": 202,
+    "missed": 137,
+    "missed_at_epoch_boundary": 137,
+    "requests_after_training": 0,
+    "mean_request_batch": 6.258666666666667,
+    "control_wall_percent": 0.8079052731437006
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "debt",
+    "seed": 101,
+    "missed": 774,
+    "missed_at_epoch_boundary": 317,
+    "requests_after_training": 0,
+    "mean_request_batch": 8.931666666666667,
+    "control_wall_percent": 0.733832407733929
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "neural",
+    "seed": 101,
+    "missed": 635,
+    "missed_at_epoch_boundary": 127,
+    "requests_after_training": 0,
+    "mean_request_batch": 8.678666666666667,
+    "control_wall_percent": 0.8249288727160411
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "fifo",
+    "seed": 101,
+    "missed": 481,
+    "missed_at_epoch_boundary": 172,
+    "requests_after_training": 0,
+    "mean_request_batch": 8.436666666666667,
+    "control_wall_percent": 0.8320112714709635
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "slack",
+    "seed": 101,
+    "missed": 977,
+    "missed_at_epoch_boundary": 97,
+    "requests_after_training": 0,
+    "mean_request_batch": 10.671666666666667,
+    "control_wall_percent": 0.8246289326458512
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "neural",
+    "seed": 202,
+    "missed": 2824,
+    "missed_at_epoch_boundary": 465,
+    "requests_after_training": 0,
+    "mean_request_batch": 17.375333333333334,
+    "control_wall_percent": 1.1552606588267027
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "fifo",
+    "seed": 202,
+    "missed": 3400,
+    "missed_at_epoch_boundary": 24,
+    "requests_after_training": 0,
+    "mean_request_batch": 18.296666666666667,
+    "control_wall_percent": 0.8720166379024891
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "slack",
+    "seed": 202,
+    "missed": 2570,
+    "missed_at_epoch_boundary": 243,
+    "requests_after_training": 0,
+    "mean_request_batch": 16.682333333333332,
+    "control_wall_percent": 1.1279530382635934
+  },
+  {
+    "case": "deeper_bursty",
+    "mode": "debt",
+    "seed": 202,
+    "missed": 2518,
+    "missed_at_epoch_boundary": 170,
+    "requests_after_training": 0,
+    "mean_request_batch": 15.8,
+    "control_wall_percent": 0.9846575537502288
+  }
+]

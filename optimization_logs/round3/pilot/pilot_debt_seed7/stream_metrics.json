@@ -1,0 +1,20 @@
+{
+  "requests": 300,
+  "unique_samples": 300,
+  "dropped": 0,
+  "miss_rate": 0.020000000000000018,
+  "p50_ms": 11.097077804586853,
+  "p95_ms": 25.883581525970925,
+  "p99_ms": 126.46050420945869,
+  "goodput": 15.384714745274573,
+  "stream_seconds": 19.10987657995429,
+  "train_completion_seconds": 19.988245757995173,
+  "online_accuracy": 0.13,
+  "max_train_pause_seconds": 0.362134653958492,
+  "train_updates": 790,
+  "controller_seconds": 0.1511529547860846,
+  "decisions": 142,
+  "guard_overrides": 1,
+  "neural_parameters": 0,
+  "neural_updates": 0
+}

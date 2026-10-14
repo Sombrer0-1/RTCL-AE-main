@@ -1,0 +1,9 @@
+[2026-09-22 19:39:25][INFO] Using device: cuda:0
+Traceback (most recent call last):
+  File "/home/zhuzetong/research/CL/RTCL-AE-main/main.py", line 405, in <module>
+    main()
+  File "/home/zhuzetong/research/CL/RTCL-AE-main/main.py", line 133, in main
+    run_boundary(args, device)
+  File "/home/zhuzetong/research/CL/RTCL-AE-main/src/schedulers/boundary_scheduler.py", line 59, in run_boundary
+    raise TimeoutError(f'Boundary worker exceeded {args.max_runtime}s')
+TimeoutError: Boundary worker exceeded 0s
