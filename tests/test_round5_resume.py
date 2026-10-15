@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from optimization_logs.round5.run_matrix import load_completed, preserve_unrecorded
+from experiments.optimization.round5.run_matrix import load_completed, preserve_unrecorded
 
 
 class ResumeTests(unittest.TestCase):

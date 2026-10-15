@@ -1,1 +1,0 @@
-Completed raw GPU run without committed parent wall time. All 6000 responses, model/trace hashes, final 10000-sample evaluation audited. Not counted in main results.csv or aggregate performance. Original artifacts preserved for inspection; resume reruns the cell.

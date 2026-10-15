@@ -163,8 +163,8 @@ def SoftRobot(
 if __name__ == "__main__":
     import sys
 
-    benchmark_instance = SoftRobot(12, dataset_root="/experiment/.avalanche/data/soft_robot_data_raw/", scenario='ic')
-    # benchmark_instance = SoftRobot(5, dataset_root="/experiment/.avalanche/data/soft_robot_data_raw/", scenario='il')
+    root = os.environ.get("RTCL_SOFT_ROBOT_ROOT", str(Path.home() / ".avalanche/data/soft_robot_data_raw"))
+    benchmark_instance = SoftRobot(12, dataset_root=root, scenario='ic')
     check_vision_benchmark(benchmark_instance)
     sys.exit(0)
 

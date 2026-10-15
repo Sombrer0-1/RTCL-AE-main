@@ -14,4 +14,4 @@ from .clear import *
 from .stream51 import *
 from .ex_model import *
 from .concon import *
-from .csrobot import *
+from .csoftrobot import SoftRobot

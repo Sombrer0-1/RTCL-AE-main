@@ -18,7 +18,7 @@ import torch.multiprocessing as mp
 from avalanche.benchmarks.classic import EndlessCLSim, PermutedMNIST, SplitCIFAR10, SplitCIFAR100, CORe50, SoftRobot
 
 from src.config import parse_arguments
-from src.globals import TERMINATE_SIGNAL, reset_globals, train_process_active, all_experiences_completed, hardware
+from src.globals import TERMINATE_SIGNAL, reset_globals, train_process_active, all_experiences_completed
 from src.schedulers.model_scheduler import ModelScheduler
 from src.schedulers.timeline_scheduler import GlobalTimelineScheduler, global_scheduler_worker
 from src.schedulers.adaptocl_scheduler import AdaptOCLScheduler, adaptocl_scheduler_worker
@@ -53,7 +53,7 @@ def create_benchmark(args):
             target_transform=target_transform,
         )
     elif args.benchmark == "split_cifar10":
-        # large_model_resnet50 branch: ImageNet-style backbones need 224x224 inputs
+        # ImageNet-style backbones need 224x224 inputs.
         from src.models.model_init import _IMAGENET_BACKBONES
         if args.model in _IMAGENET_BACKBONES:
             from torchvision import transforms
@@ -118,11 +118,6 @@ def main():
     if args.semseg:
         import avalanche.evaluation.metrics.accuracy as _acc_mod
         _acc_mod.is_semseg_acc = True  # enable per-pixel accuracy in the custom Avalanche fork
-
-    # hardcode setting for avoiding OOM in GSS_greedy
-    # if args.algorithm == "gss_greedy" and hardware == "Nano":
-    #     args.mem_size = 100
-    #     print("[INFO] Hardcode mem_size to 100 for GSS_greedy on Nano")
 
     # Set device (CPU or GPU)
     device = torch.device(f"cuda:{args.cuda}" if args.cuda != -1 else "cpu")

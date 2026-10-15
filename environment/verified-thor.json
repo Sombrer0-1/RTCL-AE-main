@@ -1,0 +1,51 @@
+{
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "architecture": "aarch64",
+  "python": "3.11.16",
+  "executable": "/home/zhuzetong/miniconda3/envs/rtcl/bin/python",
+  "torch": "2.14.0+cu132",
+  "torchvision": "0.29.0+cu132",
+  "cuda": "13.2",
+  "gpu": "NVIDIA Thor",
+  "compute_capability": [
+    11,
+    0
+  ],
+  "avalanche": "0.6.0a",
+  "avalanche_source": "/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/__init__.py",
+  "avalanche_commit": "eb075be393e1f458b2c352514ff6c17b5a2c0f4e",
+  "packages": {
+    "numpy": "2.4.6",
+    "timm": "1.0.30",
+    "pytorchcv": "0.0.74",
+    "quadprog": "0.1.13",
+    "nvidia-cusparselt-cu13": "0.8.1"
+  },
+  "gpu_smoke": [
+    {
+      "mode": "baseline",
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 0
+    },
+    {
+      "mode": "stream_fifo",
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64
+    },
+    {
+      "mode": "stream_predictive",
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64
+    },
+    {
+      "mode": "stream_predictive_neural",
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64
+    }
+  ],
+  "validation_data": "synthetic CIFAR10; no benchmark downloads"
+}

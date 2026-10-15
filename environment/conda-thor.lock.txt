@@ -1,0 +1,37 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: linux-aarch64
+# created-by: conda 26.7.1
+@EXPLICIT
+https://repo.anaconda.com/pkgs/main/linux-aarch64/_libgcc_mutex-0.1-main.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/_openmp_mutex-5.1-52_gnu.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/ca-certificates-2026.8.13-hd43f75c_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/ld_impl_linux-aarch64-2.44-h97084ae_3.conda
+https://repo.anaconda.com/pkgs/main/noarch/tzdata-2026c-he532380_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libgcc-15.2.0-hc18542e_8.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libgcc-ng-15.2.0-h51576c1_8.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libstdcxx-15.2.0-h9538471_8.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libzlib-1.3.2-h27118de_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/openssl-3.5.8-h39c9139_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/pthread-stubs-0.3-h27118de_2.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/xorg-xorgproto-2025.1-h27118de_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/xz-5.8.2-hed4fdd2_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/bzip2-1.0.8-h998d150_6.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libexpat-2.8.4-h5b11e9f_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libffi-3.4.8-ha74a3d0_3.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libnsl-2.0.0-h998d150_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libuuid-1.41.5-h998d150_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/ncurses-6.6-h47fb78d_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/xorg-libxau-1.0.12-hf66535e_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/xorg-libxdmcp-1.1.5-hf66535e_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/zlib-1.3.2-h27118de_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/libxcb-1.17.0-hf66535e_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/readline-8.3-h886d1d0_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/sqlite-3.53.4-h2b0225e_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/xorg-libx11-1.8.13-hf8334eb_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/tk-8.6.15-h987d8db_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/python-3.11.16-hdc5b1c3_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/packaging-26.3-py311hd43f75c_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/setuptools-83.0.0-py311hd43f75c_0.conda
+https://repo.anaconda.com/pkgs/main/linux-aarch64/wheel-0.47.0-py311hd43f75c_0.conda
+https://repo.anaconda.com/pkgs/main/noarch/pip-26.2.1-pyhc872135_0.conda

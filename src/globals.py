@@ -6,9 +6,6 @@ This file contains all global variables used throughout the application.
 import queue
 import threading
 
-# hardware
-hardware = "Nano"  # "Nano" or "Orin"
-
 # Process control variables
 TERMINATE_SIGNAL = False
 CONFIG_UPDATE_REQUESTED = False

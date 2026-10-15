@@ -682,7 +682,7 @@ if __name__ == "__main__":
         scenario='Classes',
         download=True,
         # root="/data/avalanche/IncrementalClasses_Video",
-        root="/experiment/.avalanche/data/endless-cl-sim/test/IncrementalClasses_Video",
+        root=default_dataset_location("endless-cl-sim") / "test/IncrementalClasses_Video",
         semseg=True,
         transform=_default_transform,
     )

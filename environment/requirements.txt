@@ -1,0 +1,20 @@
+# Project and Avalanche runtime dependencies; GPU packages are installed separately.
+typing-extensions>=4.6
+psutil
+GPUtil
+scikit-learn
+matplotlib
+numpy
+pytorchcv
+wandb
+tensorboard>=1.15
+tqdm
+torchmetrics
+gdown
+qpsolvers
+quadprog
+dill
+packaging
+PyYAML
+timm>=1.0,<2
+tinyimagenet

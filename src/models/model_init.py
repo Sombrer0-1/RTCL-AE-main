@@ -1,15 +1,8 @@
 """
-Model initialization utilities.
+Model initialization utilities for CIFAR and ImageNet-style backbones.
 
-Note: the large-model branch `large_model_resnet50` adds support for
-ImageNet-style backbones (ResNet-50/101/152, EfficientNet-B0) for the
-deferred scaling study (R2/R-Cong reviewer requests).
-
-These ImageNet backbones expect 224x224 inputs; for SplitCIFAR-10/100 and
-CORe50 (32x32 native) we rely on the dataset transform pipeline to upsample
-inputs to 224x224 before they enter the model. The transform-side change is
-not made on this branch by design -- it is the trigger Timmy will pull when
-the scaling experiment is run.
+ImageNet-style backbones expect 224x224 inputs supplied by the benchmark
+transform pipeline.
 """
 
 import torch
@@ -37,7 +30,7 @@ _NUM_CLASSES_BY_BENCHMARK = {
     "soft_robot_il": 5,
 }
 
-# ImageNet-style backbones we expose on this branch. The string here is the
+# ImageNet-style backbones. The string here is the
 # pytorchcv model name; `args.model` is matched against this list.
 _IMAGENET_BACKBONES = {
     "resnet50": ("resnet50", "output"),       # pytorchcv key, head attribute name
@@ -45,7 +38,7 @@ _IMAGENET_BACKBONES = {
     "resnet152": ("resnet152", "output"),
     "resnet200": ("resnet200", "output"),     # if you want even larger
     "efficientnet_b0": ("efficientnet_b0b", "output"),
-    # Paper Fig. 5 backbones added on this branch (not from pytorchcv):
+    # Paper Fig. 5 backbones provided by Avalanche and timm:
     "mobilenetv1": ("mobilenetv1", "output"),      # avalanche.models.MobilenetV1
     "vit_tiny": ("vit_tiny_patch16_224", "head"),  # timm; .output aliased below
 }
@@ -61,15 +54,9 @@ def _resolve_num_classes(benchmark_name, args):
 
 def _initialize_imagenet_backbone(args, benchmark_name):
     """
-    Initialize an ImageNet-style backbone (ResNet-50/101/152, EfficientNet-B0)
-    for the deferred large-model scaling study. Re-binds the classification
-    head to match the benchmark's num_classes.
+    Initialize an ImageNet-style backbone with the benchmark's class count.
 
-    NOTE: these backbones expect 224x224 inputs. The dataset transform
-    pipeline is responsible for upsampling 32x32 inputs (SplitCIFAR/CORe50)
-    before the model sees them. This branch does not modify the transform
-    pipeline -- that is the trigger to pull when running the scaling
-    experiment.
+    The benchmark transform pipeline supplies 224x224 inputs.
     """
     num_classes = _resolve_num_classes(benchmark_name, args)
 
@@ -90,8 +77,8 @@ def _initialize_imagenet_backbone(args, benchmark_name):
 
     if not _PTCV_AVAILABLE:
         raise ImportError(
-            "pytorchcv is required for ImageNet-style backbones on the "
-            "large_model_resnet50 branch. Install via: pip install pytorchcv"
+            "pytorchcv is required for these ImageNet-style backbones. "
+            "Install the project environment with environment/setup.sh"
         )
 
     ptcv_name, head_attr = _IMAGENET_BACKBONES[args.model]
@@ -135,7 +122,7 @@ def initialize_model(args, benchmark_name):
     Returns:
         Initialized model
     """
-    # ImageNet-style backbones (large-model branch addition).
+    # ImageNet-style backbones.
     if args.model in _IMAGENET_BACKBONES:
         model = _initialize_imagenet_backbone(args, benchmark_name)
 

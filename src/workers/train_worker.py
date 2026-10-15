@@ -353,7 +353,7 @@ def create_benchmark(args):
             target_transform=target_transform,
         )
     elif args.benchmark == "split_cifar10":
-        # large_model_resnet50 branch: ImageNet backbones need 224x224
+        # ImageNet backbones need 224x224 inputs.
         from src.models.model_init import _IMAGENET_BACKBONES
         if args.model in _IMAGENET_BACKBONES:
             from torchvision import transforms

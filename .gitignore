@@ -176,4 +176,10 @@ cython_debug/
 /train/
 /eval/
 /log-*/
-!repro_logs/*.log
+!experiments/reproduction/**/*.log
+!experiments/reproduction/*.log
+
+# New machine experiments and downloaded benchmarks
+/output/
+/data/
+/test_logs/

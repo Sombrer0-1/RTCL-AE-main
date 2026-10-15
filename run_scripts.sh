@@ -1,4 +1,7 @@
 #!/bin/bash
+rtcl_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+cd "$rtcl_root" || exit 1
+source "$rtcl_root/environment/shell_env.sh" || exit 1
 
 # configure color codes
 GREEN='\033[0;32m'
@@ -51,9 +54,15 @@ for script in "${scripts[@]}"; do
         echo -e "${RED}Script execution failed: $script${NC}"
     fi
 
-    # move the generated .pth files
-    mv ./*.pth "$script_output_dir/" 2>/dev/null
-    echo "Moved generated .pth files to $script_output_dir"
+    # Collect the runtime outputs written in the working directory.
+    shopt -s nullglob
+    artifacts=(./*.pth ./timeslice_events.csv ./batch_size_intervals.png ./stream_*.json ./train ./eval ./log-*/)
+    for artifact in "${artifacts[@]}"; do
+        if [[ -e "$artifact" ]]; then
+            mv "$artifact" "$script_output_dir/"
+        fi
+    done
+    shopt -u nullglob
     
     echo "---------------------------------------"
 done

@@ -1,0 +1,5 @@
+# Verified local GPU stack. Never resolve this project against the old cu128 stack.
+torch==2.14.0+cu132
+torchvision==0.29.0+cu132
+numpy==2.4.6
+nvidia-cusparselt-cu13==0.8.1
