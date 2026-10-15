@@ -1,0 +1,29 @@
+{
+  "started": "2026-10-15T10:57:52+0800",
+  "git_commit": "57b715c04ab7e393d0d5a99a761ec7ec446f458a",
+  "git_status": "?? AGENTS.md.save\n?? AGENTS.md.save.1\n",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "power_mode": "NV Power Mode: 120W\n1",
+  "load_start": [
+    3.13232421875,
+    3.0341796875,
+    3.115234375
+  ],
+  "phases": {
+    "pilot": 3,
+    "main": 16,
+    "holdout": 4
+  },
+  "protocol": "experiments/optimization/round5/DESIGN.md; original settings and order",
+  "resumed_at": "2026-10-15T11:18:05+0800",
+  "status": "complete",
+  "completed_at": "2026-10-15T11:54:04+0800",
+  "completed_runs": {
+    "pilot": 3,
+    "main": 16,
+    "holdout": 4
+  },
+  "requests": 138000,
+  "training_updates": 28440,
+  "report": "experiments/optimization/round5/THOR_RESULTS.md"
+}
