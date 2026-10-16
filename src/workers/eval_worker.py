@@ -209,6 +209,10 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                 break
 
             train_active = shared_data.get("train_process_active", True)
+            cycle_limit = getattr(args, 'eval_cycles', 0)
+            if cycle_limit and train_active and len(results) >= cycle_limit - 1:
+                time.sleep(POLL_INTERVAL_SECONDS)
+                continue
             if not train_active and not waiting_for_final_eval:
                 waiting_for_final_eval = True
                 log_info("[Eval] Training complete. Performing final evaluation...")
@@ -314,6 +318,9 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                     freshness.observe(time.monotonic(), snapshot_version, eval_latency)
             if inference_batch is not None and eval_result_dict:
                 cl_strategy.eval_mb_size = inference_batch.observe(eval_result_dict['batch_p95_ms'])
+            if cycle_limit:
+                final_eval_done = len(results) >= cycle_limit
+                continue
             if freshness is not None:
                 continue
             
@@ -332,6 +339,16 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
         log_info("[Eval] Evaluation process completed.")
 
 def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, shared_data, current_eval_num, args, eval_cache=None):
+    iterator = iter_interruptible_eval(cl_strategy, experiences_to_evaluate,
+        config_controller, shared_data, current_eval_num, args, eval_cache)
+    while True:
+        try:
+            next(iterator)
+        except StopIteration as completed:
+            return completed.value
+
+
+def iter_interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, shared_data, current_eval_num, args, eval_cache=None):
     """
     Interruptible evaluation loop.
     Now modified to evaluate all passed experiences from their beginning.
@@ -356,6 +373,7 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
         semseg_overall_correct = 0
         semseg_overall_total = 0
         batch_latencies = []
+        batch_records = []
         experience_accuracies = {} # Stores accuracy for each experience in this eval cycle
         experience_details = {}    # Stores more details if needed
 
@@ -386,8 +404,8 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
             current_exp_preds = [] # Predictions for the current experience
             current_exp_targets = [] # Targets for the current experience
             
-            with torch.no_grad():
-                for batch_idx, batch in enumerate(dynamic_loader):
+            for batch_idx, batch in enumerate(dynamic_loader):
+                with torch.no_grad():
                     batch_start_time = time.time()
                     x, y, task_id = batch # Assuming task_id is part of the batch, may not be used
                     x = x.to(device, non_blocking=True)
@@ -427,6 +445,13 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
                     
                     if batch_idx % 10 == 0: # Log progress every 10 batches for this experience
                         log_info(f"[Eval][Exp {exp_id}][MiniBatch {batch_idx}] acc_so_far={(exp_correct/exp_total if exp_total > 0 else 0.0):.4f}, batch_lat={batch_elapsed_time:.3f}s")
+                record = dict(cycle=current_eval_num, experience=exp_id, batch=batch_idx,
+                              samples=int(x.shape[0]), latency_ms=batch_elapsed_time * 1000,
+                              completed=time.perf_counter())
+                if getattr(args, 'record_eval_batches', False):
+                    batch_records.append(record)
+                # The no_grad context must end before yielding back to training.
+                yield record
             
             # After processing all batches for the current experience
             if exp_total > 0:
@@ -518,6 +543,12 @@ def interruptible_eval(cl_strategy, experiences_to_evaluate, config_controller, 
         for exp_id_rep, acc_rep in sorted(experience_accuracies.items()):
             log_info(f"  - Experience {exp_id_rep}: {acc_rep:.4f}")
         log_info("="*50 + "\n")
+
+        if getattr(args, 'record_eval_batches', False):
+            import json
+            from pathlib import Path
+            Path(f'eval_batches_cycle{current_eval_num}.json').write_text(
+                json.dumps(batch_records) + '\n')
         
         return {
             'batch_p95_ms': float(np.percentile(batch_latencies, 95)),

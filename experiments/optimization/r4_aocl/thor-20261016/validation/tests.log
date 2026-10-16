@@ -1,0 +1,155 @@
+test_child_failure_reaches_parent (test_boundary_scheduler.BoundaryTests.test_child_failure_reaches_parent) ... ok
+test_rng_and_mixed_module_modes_restored_even_on_failure (test_boundary_scheduler.BoundaryTests.test_rng_and_mixed_module_modes_restored_even_on_failure) ... ok
+test_timeout_cleans_up_worker (test_boundary_scheduler.BoundaryTests.test_timeout_cleans_up_worker) ... ok
+test_adaptive_preparation_requires_matching_execution_path (test_calibrated_batching.CalibratedBatchingTests.test_adaptive_preparation_requires_matching_execution_path) ... ok
+test_calibration_reacts_to_completed_cost_increase (test_calibrated_batching.CalibratedBatchingTests.test_calibration_reacts_to_completed_cost_increase) ... ok
+test_causal_arrivals_and_draining_without_training (test_calibrated_batching.CalibratedBatchingTests.test_causal_arrivals_and_draining_without_training) ... ok
+test_check_attribution_requires_an_actual_gate_disagreement (test_calibrated_batching.CalibratedBatchingTests.test_check_attribution_requires_an_actual_gate_disagreement) ... ok
+test_learned_cost_controls_preparation_cadence (test_calibrated_batching.CalibratedBatchingTests.test_learned_cost_controls_preparation_cadence) ... ok
+test_modes_accept_cooperative_preparation (test_calibrated_batching.CalibratedBatchingTests.test_modes_accept_cooperative_preparation) ... ok
+test_no_splitting_when_all_deadlines_are_already_lost (test_calibrated_batching.CalibratedBatchingTests.test_no_splitting_when_all_deadlines_are_already_lost) ... ok
+test_prefix_rescue_and_neural_action_attribution (test_calibrated_batching.CalibratedBatchingTests.test_prefix_rescue_and_neural_action_attribution) ... ok
+test_training_cost_is_learned_and_prediction_is_frozen (test_calibrated_batching.CalibratedBatchingTests.test_training_cost_is_learned_and_prediction_is_frozen) ... ok
+test_budget_fallback_and_interrupted_fill (test_evaluation_cache.CacheTests.test_budget_fallback_and_interrupted_fill) ... ok
+test_rebatch_without_reading_source (test_evaluation_cache.CacheTests.test_rebatch_without_reading_source) ... ok
+test_legacy_results_and_unavailable_gpu_are_rejected (test_experiment_environment.ExperimentEnvironmentTests.test_legacy_results_and_unavailable_gpu_are_rejected) ... ok
+test_physical_gpu_selection_and_cpu_rejection (test_experiment_environment.ExperimentEnvironmentTests.test_physical_gpu_selection_and_cpu_rejection) ... ok
+test_resume_accepts_same_environment_and_rejects_changed_environment (test_experiment_environment.ExperimentEnvironmentTests.test_resume_accepts_same_environment_and_rejects_changed_environment) ... ok
+test_bad_observation (test_freshness_scheduler.FreshnessTests.test_bad_observation) ... ok
+test_cost_smoothing_and_lag_override (test_freshness_scheduler.FreshnessTests.test_cost_smoothing_and_lag_override) ... ok
+test_no_duplicate_and_final_drain (test_freshness_scheduler.FreshnessTests.test_no_duplicate_and_final_drain) ... ok
+test_final_update_arriving_during_eval_is_drained (test_freshness_scheduler.FreshnessTraceTests.test_final_update_arriving_during_eval_is_drained) ... ok
+test_slow_updates_wait_at_most_max_interval_after_completion (test_freshness_scheduler.FreshnessTraceTests.test_slow_updates_wait_at_most_max_interval_after_completion) ... ok
+test_probe_deadband_backoff_and_bounds (test_freshness_scheduler.InferenceBatchTests.test_probe_deadband_backoff_and_bounds) ... ok
+test_fixed_pass_budget_reserves_final_pass_and_drains_all_samples (test_full_eval_scheduler.FullEvaluationTests.test_fixed_pass_budget_reserves_final_pass_and_drains_all_samples) ... [2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.002s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 0.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+[2026-10-16 16:37:42][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.00229644775390625, "batch_p95_ms": 0.9845733642578125, "batch_p99_ms": 1.0199356079101562}
+[2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #2)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 0.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+[2026-10-16 16:37:42][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.0011336803436279297, "batch_p95_ms": 0.14429092407226562, "batch_p99_ms": 0.14558792114257812}
+[2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #3)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 0.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+[2026-10-16 16:37:42][INFO] [CycleMetrics] {"cycle": 3, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.0010666847229003906, "batch_p95_ms": 0.13791322708129883, "batch_p99_ms": 0.13916254043579102}
+ok
+test_incremental_evaluation_matches_full_pass_and_restores_grad (test_full_eval_scheduler.FullEvaluationTests.test_incremental_evaluation_matches_full_pass_and_restores_grad) ... [2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 0.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+[2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.026s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.03s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 0.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+ok
+test_snapshot_stays_fixed_while_training_and_publication_continue (test_full_eval_scheduler.FullEvaluationTests.test_snapshot_stays_fixed_while_training_and_publication_continue) ... [2026-10-16 16:37:42][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-16 16:37:42][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.000s
+[2026-10-16 16:37:42][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (4/4)
+[2026-10-16 16:37:42][INFO] [Eval] Overall shared_data update: acc=1.0000, latency=0.001s
+[2026-10-16 16:37:42][INFO] 
+==================================================
+[2026-10-16 16:37:42][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-16 16:37:42][INFO] ==================================================
+[2026-10-16 16:37:42][INFO] Overall Streaming Accuracy: 1.0000 (4/4)
+[2026-10-16 16:37:42][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-16 16:37:42][INFO] Total Samples in this cycle: 4
+[2026-10-16 16:37:42][INFO] --------------------------------------------------
+[2026-10-16 16:37:42][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:37:42][INFO]   - Experience 0: 1.0000
+[2026-10-16 16:37:42][INFO] ==================================================
+
+[2026-10-16 16:37:42][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 1.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.0013031959533691406, "batch_p95_ms": 0.15622377395629883, "batch_p99_ms": 0.15770196914672852}
+ok
+test_batches_and_rng_match_original_across_epochs (test_host_preparation.PreparationTests.test_batches_and_rng_match_original_across_epochs) ... ok
+test_certificate_uses_structure_and_rejects_ffcv_and_unknown (test_host_preparation.PreparationTests.test_certificate_uses_structure_and_rejects_ffcv_and_unknown) ... ok
+test_slack_accepts_certificate_but_not_fifo_service_points (test_host_preparation.PreparationTests.test_slack_accepts_certificate_but_not_fifo_service_points) ... ok
+test_unknown_backend_falls_back (test_host_preparation.PreparationTests.test_unknown_backend_falls_back) ... ok
+test_amortizes_preparation_without_waiting_until_deadline (test_predictive_batching.PredictiveTests.test_amortizes_preparation_without_waiting_until_deadline) ... ok
+test_learned_diagnostics_are_serializable_after_decisions (test_predictive_batching.PredictiveTests.test_learned_diagnostics_are_serializable_after_decisions) ... ok
+test_learning_cannot_override_guard_or_leave_late_requests (test_predictive_batching.PredictiveTests.test_learning_cannot_override_guard_or_leave_late_requests) ... ok
+test_network_learns_observed_cost_without_changing_global_rng (test_predictive_batching.PredictiveTests.test_network_learns_observed_cost_without_changing_global_rng) ... ok
+test_released_arrivals_only_and_empty_window_decay (test_predictive_batching.PredictiveTests.test_released_arrivals_only_and_empty_window_decay) ... ok
+test_supported_preparation_paths (test_predictive_batching.PredictiveTests.test_supported_preparation_paths) ... ok
+test_all_overdue_requests_drain_in_fifo_batches (test_queue_control.QueueTests.test_all_overdue_requests_drain_in_fifo_batches) ... ok
+test_cost_bounds_track_variability_and_reject_invalid_costs (test_queue_control.QueueTests.test_cost_bounds_track_variability_and_reject_invalid_costs) ... ok
+test_goodput_uses_last_response_and_includes_late_requests (test_queue_control.QueueTests.test_goodput_uses_last_response_and_includes_late_requests) ... ok
+test_no_future_information (test_queue_control.QueueTests.test_no_future_information) ... ok
+test_residual_is_bounded_and_does_not_touch_global_rng (test_queue_control.QueueTests.test_residual_is_bounded_and_does_not_touch_global_rng) ... ok
+test_service_debt_accumulates_and_repays (test_queue_control.QueueTests.test_service_debt_accumulates_and_repays) ... ok
+test_trace_is_unique_causal_input_and_reproducible (test_queue_control.QueueTests.test_trace_is_unique_causal_input_and_reproducible) ... ok
+test_urgent_request_blocks_training_even_with_neural_bias (test_queue_control.QueueTests.test_urgent_request_blocks_training_even_with_neural_bias) ... ok
+test_fast_fitting_and_separate_operation_heads (test_recursive_residual.RecursiveResidualTests.test_fast_fitting_and_separate_operation_heads) ... ok
+test_private_rng_and_changing_cost (test_recursive_residual.RecursiveResidualTests.test_private_rng_and_changing_cost) ... ok
+test_orphaned_outputs_are_preserved_before_rerun (test_round5_resume.ResumeTests.test_orphaned_outputs_are_preserved_before_rerun) ... ok
+test_resume_requires_matching_valid_prefix_and_trace (test_round5_resume.ResumeTests.test_resume_requires_matching_valid_prefix_and_trace) ... ok
+test_cooperative_controller_observes_completed_compute_before_loader_work (test_stream_training_observation.TrainingObservationTests.test_cooperative_controller_observes_completed_compute_before_loader_work) ... ok
+test_existing_controller_keeps_its_original_measurement_boundary (test_stream_training_observation.TrainingObservationTests.test_existing_controller_keeps_its_original_measurement_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.145s
+
+OK

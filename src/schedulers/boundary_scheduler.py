@@ -44,11 +44,11 @@ def run_boundary(args, device):
         raise ValueError('Boundary scheduling owns configuration and does not use double buffers')
     preparation = getattr(args, 'host_preparation', 'baseline')
     if preparation != 'baseline':
-        allowed = {'stream_fifo', 'stream_predictive', 'stream_predictive_neural'}
+        allowed = {'stream_fifo', 'r4_full_eval'}
         if preparation == 'certified':
             allowed.add('stream_slack')
         if args.global_scheduler_mode not in allowed:
-            raise ValueError('Host preparation requires FIFO or predictive batching (certified also supports stream_slack)')
+            raise ValueError('Host preparation requires stream_fifo or r4_full_eval (certified also supports stream_slack)')
     if args.global_scheduler_mode.startswith('stream_') and (args.benchmark != 'split_cifar10' or args.semseg):
         raise ValueError('Stream scheduling is validated only for SplitCIFAR10 classification')
     if args.global_scheduler_mode == "boundary_cached" and (args.benchmark != "split_cifar10" or args.semseg):

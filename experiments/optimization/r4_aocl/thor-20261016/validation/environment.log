@@ -1,0 +1,239 @@
+No broken requirements found.
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:15][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 13.06869842261043, "p95_ms": 19.97008870530046, "p99_ms": 23.015469779680437, "goodput": 209.9964229881724, "stream_seconds": 0.30476709597860463, "train_completion_seconds": 0.7621855100151151, "online_accuracy": 0.5, "max_train_pause_seconds": 0.04416367699741386, "train_updates": 32, "controller_seconds": 0.006453549809521064, "decisions": 5, "guard_overrides": 0, "neural_parameters": 0, "neural_updates": 0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:16][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 9.87702671728824, "p95_ms": 25.38393901773276, "p99_ms": 28.036703935640638, "goodput": 196.15462939329683, "stream_seconds": 0.32627320699975826, "train_completion_seconds": 0.7475855379889254, "online_accuracy": 0.5, "max_train_pause_seconds": 0.03321846202015877, "train_updates": 32, "controller_seconds": 0.007181343738920987, "decisions": 37, "guard_overrides": 20, "neural_parameters": 0, "neural_updates": 0, "predictive_deferrals": 16, "neural_changed_decisions": 0, "released_observations": 64}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:17][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 9.9367154760988, "p95_ms": 24.684123126082408, "p99_ms": 27.743058308251445, "goodput": 196.10273933453888, "stream_seconds": 0.32635954100987874, "train_completion_seconds": 0.9550578740017954, "online_accuracy": 0.5, "max_train_pause_seconds": 0.22734819899778813, "train_updates": 32, "controller_seconds": 0.00830824111471884, "decisions": 38, "guard_overrides": 21, "neural_parameters": 133, "neural_updates": 2, "predictive_deferrals": 16, "neural_changed_decisions": 0, "released_observations": 64, "neural_scored": 0, "neural_log_mae": 0.0, "base_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:17][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 21.132013771747747, "p95_ms": 31.88831145449469, "p99_ms": 33.270682734902685, "goodput": 206.94225964929203, "stream_seconds": 0.3092650100006722, "train_completion_seconds": 0.7160534310096409, "online_accuracy": 0.5, "max_train_pause_seconds": 0.023543416988104582, "train_updates": 32, "controller_seconds": 0.00836285192053765, "decisions": 28, "guard_overrides": 10, "neural_parameters": 0, "neural_updates": 0, "predictive_deferrals": 18, "neural_changed_decisions": 0, "released_observations": 64, "lookahead_split_batches": 0, "adaptive_preparation": false, "preparation_checks": 0, "neural_changed_checks": 0, "neural_changed_checks_with_requests": 0, "neural_changed_intervals": 0, "preparation_interval_min_ms": 8.0, "preparation_interval_max_ms": 8.0, "train_cost_scored": 0, "train_bound_exceeded": 0, "train_base_log_mae": 0.0, "train_neural_log_mae": 0.0, "infer_cost_scored": 0, "infer_bound_exceeded": 0, "infer_base_log_mae": 0.0, "infer_neural_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:18][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 20.346705712361967, "p95_ms": 30.789309454615818, "p99_ms": 32.85644295812243, "goodput": 206.40816665461224, "stream_seconds": 0.3100652509892825, "train_completion_seconds": 0.7205651570111513, "online_accuracy": 0.5, "max_train_pause_seconds": 0.023249462014064193, "train_updates": 32, "controller_seconds": 0.010486010025488213, "decisions": 28, "guard_overrides": 9, "neural_parameters": 133, "neural_updates": 4, "predictive_deferrals": 18, "neural_changed_decisions": 0, "released_observations": 64, "neural_scored": 5, "neural_log_mae": 0.07110804439493164, "base_log_mae": 0.10352675027254765, "lookahead_split_batches": 0, "adaptive_preparation": false, "preparation_checks": 0, "neural_changed_checks": 0, "neural_changed_checks_with_requests": 0, "neural_changed_intervals": 0, "preparation_interval_min_ms": 8.0, "preparation_interval_max_ms": 8.0, "train_cost_scored": 0, "train_bound_exceeded": 0, "train_base_log_mae": 0.0, "train_neural_log_mae": 0.0, "infer_cost_scored": 0, "infer_bound_exceeded": 0, "infer_base_log_mae": 0.0, "infer_neural_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:19][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 21.82256935039478, "p95_ms": 32.77120481558495, "p99_ms": 34.202258096769896, "goodput": 199.24082520548404, "stream_seconds": 0.32121930801076815, "train_completion_seconds": 0.7191694730136078, "online_accuracy": 0.5, "max_train_pause_seconds": 0.02326313900994137, "train_updates": 32, "controller_seconds": 0.011885602958500385, "decisions": 29, "guard_overrides": 10, "neural_parameters": 146, "neural_updates": 37, "predictive_deferrals": 19, "neural_changed_decisions": 0, "released_observations": 64, "neural_scored": 5, "neural_log_mae": 0.12236950008563614, "base_log_mae": 0.11647169077277711, "lookahead_split_batches": 0, "adaptive_preparation": false, "preparation_checks": 0, "neural_changed_checks": 0, "neural_changed_checks_with_requests": 0, "neural_changed_intervals": 0, "preparation_interval_min_ms": 8.0, "preparation_interval_max_ms": 8.0, "train_cost_scored": 0, "train_bound_exceeded": 0, "train_base_log_mae": 0.0, "train_neural_log_mae": 0.0, "infer_cost_scored": 0, "infer_bound_exceeded": 0, "infer_base_log_mae": 0.0, "infer_neural_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:20][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 20.907198645392615, "p95_ms": 32.32820076137582, "p99_ms": 32.58349192359503, "goodput": 199.3930208543148, "stream_seconds": 0.3209741229948122, "train_completion_seconds": 0.7201215370150749, "online_accuracy": 0.5, "max_train_pause_seconds": 0.023231711995322257, "train_updates": 32, "controller_seconds": 0.008531796804163605, "decisions": 30, "guard_overrides": 9, "neural_parameters": 0, "neural_updates": 0, "predictive_deferrals": 19, "neural_changed_decisions": 0, "released_observations": 64, "lookahead_split_batches": 0, "adaptive_preparation": true, "preparation_checks": 22, "neural_changed_checks": 0, "neural_changed_checks_with_requests": 0, "neural_changed_intervals": 0, "preparation_interval_min_ms": 8.0, "preparation_interval_max_ms": 8.0, "train_cost_scored": 0, "train_bound_exceeded": 0, "train_base_log_mae": 0.0, "train_neural_log_mae": 0.0, "infer_cost_scored": 0, "infer_bound_exceeded": 0, "infer_base_log_mae": 0.0, "infer_neural_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:20][INFO] [StreamMetrics] {"requests": 64, "unique_samples": 64, "dropped": 0, "miss_rate": 0.0, "p50_ms": 20.431092261743277, "p95_ms": 31.139977910714943, "p99_ms": 33.27109299369413, "goodput": 194.7721623862422, "stream_seconds": 0.3285890510014724, "train_completion_seconds": 0.7358710189873818, "online_accuracy": 0.5, "max_train_pause_seconds": 0.02342671199585311, "train_updates": 32, "controller_seconds": 0.012723303836537525, "decisions": 30, "guard_overrides": 11, "neural_parameters": 146, "neural_updates": 38, "predictive_deferrals": 19, "neural_changed_decisions": 0, "released_observations": 64, "neural_scored": 6, "neural_log_mae": 0.09815957449225575, "base_log_mae": 0.10781204473280113, "lookahead_split_batches": 0, "adaptive_preparation": true, "preparation_checks": 22, "neural_changed_checks": 0, "neural_changed_checks_with_requests": 0, "neural_changed_intervals": 0, "preparation_interval_min_ms": 8.0, "preparation_interval_max_ms": 8.0, "train_cost_scored": 0, "train_bound_exceeded": 0, "train_base_log_mae": 0.0, "train_neural_log_mae": 0.0, "infer_cost_scored": 0, "infer_bound_exceeded": 0, "infer_base_log_mae": 0.0, "infer_neural_log_mae": 0.0}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 0 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (32/32)
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 1 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.0000 (0/32)
+[2026-10-16 16:15:21][INFO] [Eval] Overall shared_data update: acc=0.5000, latency=0.102s
+[2026-10-16 16:15:21][INFO] 
+==================================================
+[2026-10-16 16:15:21][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-16 16:15:21][INFO] ==================================================
+[2026-10-16 16:15:21][INFO] Overall Streaming Accuracy: 0.5000 (32/64)
+[2026-10-16 16:15:21][INFO] Overall Evaluation Latency: 0.10s
+[2026-10-16 16:15:21][INFO] Total Samples in this cycle: 64
+[2026-10-16 16:15:21][INFO] --------------------------------------------------
+[2026-10-16 16:15:21][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:15:21][INFO]   - Experience 0: 1.0000
+[2026-10-16 16:15:21][INFO]   - Experience 1: 0.0000
+[2026-10-16 16:15:21][INFO] ==================================================
+
+[2026-10-16 16:15:21][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": false, "accuracy": 0.5, "samples": 64, "eval_batch": 8, "cache_bytes": 0, "duration": 0.10248231887817383, "batch_p95_ms": 2.0526885986328125, "batch_p99_ms": 2.0623016357421875}
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 0 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (32/32)
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 1 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.0000 (0/32)
+[2026-10-16 16:15:21][INFO] [Eval] Overall shared_data update: acc=0.5000, latency=0.105s
+[2026-10-16 16:15:21][INFO] 
+==================================================
+[2026-10-16 16:15:21][INFO]            BENCHMARK PROGRESS REPORT (Cycle #2)           
+[2026-10-16 16:15:21][INFO] ==================================================
+[2026-10-16 16:15:21][INFO] Overall Streaming Accuracy: 0.5000 (32/64)
+[2026-10-16 16:15:21][INFO] Overall Evaluation Latency: 0.11s
+[2026-10-16 16:15:21][INFO] Total Samples in this cycle: 64
+[2026-10-16 16:15:21][INFO] --------------------------------------------------
+[2026-10-16 16:15:21][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:15:21][INFO]   - Experience 0: 1.0000
+[2026-10-16 16:15:21][INFO]   - Experience 1: 0.0000
+[2026-10-16 16:15:21][INFO] ==================================================
+
+[2026-10-16 16:15:21][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": false, "accuracy": 0.5, "samples": 64, "eval_batch": 8, "cache_bytes": 0, "duration": 0.10516643524169922, "batch_p95_ms": 2.073085308074951, "batch_p99_ms": 2.079160213470459}
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 0 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (32/32)
+[2026-10-16 16:15:21][INFO] [Eval] Processing Exp 1 from start (batch size 8)
+[2026-10-16 16:15:21][INFO] [Eval][Exp 1][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.002s
+[2026-10-16 16:15:21][INFO] [Eval] Experience 1 evaluation complete: Accuracy: 0.0000 (0/32)
+[2026-10-16 16:15:21][INFO] [Eval] Overall shared_data update: acc=0.5000, latency=0.030s
+[2026-10-16 16:15:21][INFO] 
+==================================================
+[2026-10-16 16:15:21][INFO]            BENCHMARK PROGRESS REPORT (Cycle #3)           
+[2026-10-16 16:15:21][INFO] ==================================================
+[2026-10-16 16:15:21][INFO] Overall Streaming Accuracy: 0.5000 (32/64)
+[2026-10-16 16:15:21][INFO] Overall Evaluation Latency: 0.03s
+[2026-10-16 16:15:21][INFO] Total Samples in this cycle: 64
+[2026-10-16 16:15:21][INFO] --------------------------------------------------
+[2026-10-16 16:15:21][INFO] Experience Accuracies for this cycle:
+[2026-10-16 16:15:21][INFO]   - Experience 0: 1.0000
+[2026-10-16 16:15:21][INFO]   - Experience 1: 0.0000
+[2026-10-16 16:15:21][INFO] ==================================================
+
+[2026-10-16 16:15:21][INFO] [CycleMetrics] {"cycle": 3, "version_lower_bound": 2, "final_at_load": true, "final_snapshot": true, "accuracy": 0.5, "samples": 64, "eval_batch": 8, "cache_bytes": 0, "duration": 0.03037738800048828, "batch_p95_ms": 2.0850181579589844, "batch_p99_ms": 2.144298553466797}
+{
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "architecture": "aarch64",
+  "python": "3.11.16",
+  "executable": "/home/zhuzetong/miniconda3/envs/rtcl/bin/python",
+  "torch": "2.14.0+cu132",
+  "torchvision": "0.29.0+cu132",
+  "cuda": "13.2",
+  "gpu": "NVIDIA Thor",
+  "compute_capability": [
+    11,
+    0
+  ],
+  "avalanche": "0.6.0a",
+  "avalanche_source": "/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/__init__.py",
+  "avalanche_commit": "eb075be393e1f458b2c352514ff6c17b5a2c0f4e",
+  "packages": {
+    "numpy": "2.4.6",
+    "timm": "1.0.30",
+    "pytorchcv": "0.0.74",
+    "quadprog": "0.1.13",
+    "nvidia-cusparselt-cu13": "0.8.1"
+  },
+  "gpu_smoke": [
+    {
+      "mode": "baseline",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 0,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_fifo",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_predictive",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_predictive_neural",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_lookahead",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_lookahead_neural",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_lookahead_rls",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_lookahead",
+      "adaptive_preparation": true,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "stream_lookahead_rls",
+      "adaptive_preparation": true,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 64,
+      "full_eval_cycles": 0
+    },
+    {
+      "mode": "r4_full_eval",
+      "adaptive_preparation": false,
+      "model_hash": "8fefc67b42e6a0df8f24ca630b25cea22762abfed8f3d718359206185646cd44",
+      "train_updates": 32,
+      "requests": 0,
+      "full_eval_cycles": 3
+    }
+  ],
+  "validation_data": "synthetic CIFAR10; no benchmark downloads"
+}

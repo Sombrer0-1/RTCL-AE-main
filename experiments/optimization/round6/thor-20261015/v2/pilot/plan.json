@@ -1,0 +1,25 @@
+{
+  "phase": "pilot",
+  "cells": [
+    [
+      "longer",
+      "lookahead",
+      19
+    ],
+    [
+      "longer",
+      "lookahead_rls",
+      19
+    ],
+    [
+      "deeper_bursty",
+      "lookahead_rls",
+      19
+    ],
+    [
+      "deeper_bursty",
+      "lookahead",
+      19
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "git_commit": "03daeb2a0c479b4c6caaac616324617030fdd7a5",
+  "started": "2026-10-16T16:15:31+0800",
+  "arguments": {
+    "output": "/home/zhuzetong/research/cl/RTCL-AE-main/output/thor-r4-aocl-20261016/main",
+    "phase": "both",
+    "seeds": [
+      211,
+      307,
+      419
+    ],
+    "modes": null,
+    "gpu": 0
+  },
+  "power": "name, utilization.gpu [%], power.draw [W]\nNVIDIA Thor, 0 %, 5.54 W\n"
+}

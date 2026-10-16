@@ -59,6 +59,7 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
     log_info(f"[TrainWorker] Registered SIGUSR1 handler.")
 
     streaming_mode = args.global_scheduler_mode.startswith("stream_")
+    full_eval_mode = args.global_scheduler_mode == 'r4_full_eval'
     boundary_mode = args.global_scheduler_mode in ("boundary", "boundary_fixed", "boundary_cached")
     worker_started = time.perf_counter()
     train_seconds = 0.0
@@ -100,6 +101,13 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
             from src.schedulers.stream_scheduler import StreamSchedulerPlugin
             stream_plugin = StreamSchedulerPlugin(args, benchmark.test_stream)
             training_plugins.append(stream_plugin)
+        if full_eval_mode:
+            from src.schedulers.full_eval_scheduler import FullEvaluationPlugin
+            full_eval_plugin = FullEvaluationPlugin(args, benchmark.test_stream, shared_data)
+            training_plugins.append(full_eval_plugin)
+        elif not streaming_mode and getattr(args, 'host_preparation', 'baseline') == 'certified':
+            from src.schedulers.full_eval_scheduler import CertifiedPreparationPlugin
+            training_plugins.append(CertifiedPreparationPlugin())
         # Create continual learning strategy
         cl_strategy = create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, training_plugins, config_controller, shared_data)
         
@@ -178,7 +186,11 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                 log_error(f"Training failed for experience {exp_id}. Stopping training process.")
                 break
             # Save model state
-            if streaming_mode:
+            if full_eval_mode:
+                full_eval_plugin.publish(cl_strategy, exp_id + 1)
+                if exp_id + 1 == len(train_stream):
+                    full_eval_plugin.finish(cl_strategy)
+            elif streaming_mode:
                 if exp_id + 1 == len(train_stream):
                     stream_plugin.finish(cl_strategy)
                     with evaluation_state(cl_strategy.model):
@@ -240,6 +252,7 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
         import json
         log_info("[TrainTiming] " + json.dumps({"train_seconds": train_seconds,
                  "boundary_eval_seconds": eval_seconds,
+                 "train_updates": cl_strategy.clock.train_iterations,
                  "worker_seconds": time.perf_counter() - worker_started}))
         
     except Exception as e:

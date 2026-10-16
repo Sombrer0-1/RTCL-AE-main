@@ -1,3 +1,5 @@
+> 本轮运行代码已移除，方法与结果作为失败探索保留。当前实现见 [R4](../round4/METHOD.md)。
+
 > 本页结果、环境记录与设计属于历史 RTX 5090 实验。当前环境已迁移至 NVIDIA Thor，安装及新实验方式见 [本机环境](../../../environment/README.md)；新计时结果使用独立输出目录，不能接续旧机器结果。
 
 2026-10-15 本机 Thor 已完成 pilot 3/3、正式矩阵 16/16 和独立验证 4/4。完整收益、代价与学习消融见 [Thor 实验报告](THOR_RESULTS.md)；下文保留 RTX 5090 的历史阶段记录。
@@ -14,7 +16,7 @@
 
 历史计算环境为 Conda `aocl`，PyTorch 2.11.0+cu128、torchvision 0.26.0+cu128、物理 GPU 1 / RTX 5090，OMP/MKL/OpenBLAS 线程数 1。没有安装/升级依赖、换数据集、切换计算设备或调整机器设置。主机共享负载约 14–18，不能据此把数秒波动完全归因于算法。
 
-详见 [结果前设计](DESIGN.md)和[历史环境与实现哈希](environment.json)。该环境清单用于解释旧结果；本机运行器使用当前 `main` 源码和独立的环境记录。
+详见 [结果前设计](DESIGN.md)和[历史环境与实现哈希](environment.json)。该环境清单用于解释旧结果；Thor 的完整结论见 [Thor 实验报告](THOR_RESULTS.md)。
 
 ## 执行进度与中断
 
@@ -70,18 +72,15 @@ seed 211 学习版本总耗时 **增加 4.08%**，P95 增加 1.05%，超时率�
 
 现有方案属于未证明稳定收益的候选；若完成剩余矩阵后仍如此，应作为负结果归档。下一类学习目标应优先考虑训练/主机阻塞风险或服务窗口的直接选择，而不是单纯扩大推理成本残差网络。本轮不调整已冻结参数来挑选胜率，也不把工程结构收益记在学习模块名下。
 
-## 本机执行与分析
+## 历史结果复核
 
-本机使用 `rtcl` 环境与 GPU 0。新 Thor 实验从独立目录开始；下列分析命令显式指定新输出位置：
+训练运行器和算法入口已移除。历史 R5 实现保存在 Git 提交 `03daeb2` 中；复现实验需使用独立历史 checkout，不能把当前 R4 实现当作原 R5 方法。
+
+原始逐请求记录保留在本机 `output/thor-round5-20261015/`。以下命令只分析已完成实验：
 
 ```bash
-python experiments/optimization/round5/run_matrix.py --phase main --output output/thor-round5-main --dry-run
-python experiments/optimization/round5/run_matrix.py --phase main --output output/thor-round5-main
-python experiments/optimization/round5/run_matrix.py --phase holdout --output output/thor-round5-holdout
-python experiments/optimization/round5/analyze.py --phase main --directory output/thor-round5-main
-python experiments/optimization/round5/analyze.py --phase holdout --directory output/thor-round5-holdout
+bash environment/run.sh experiments/optimization/round5/analyze.py --phase main --directory output/thor-round5-20261015/main
+bash environment/run.sh experiments/optimization/round5/analyze.py --phase holdout --directory output/thor-round5-20261015/holdout
 ```
-
-续跑校验已保存结果是否符合冻结执行顺序及请求哈希，拒绝跳过失败行和改变后的算法。未入表工作目录/日志会归档到 `main/interrupted/`，再重跑相应单元；新 CSV 使用临时文件原子替换，避免再次中断损坏已保存行。当前无 GPU 时，运行器会在开始实验前退出，拒绝 CPU 替代。
 
 只分析现有部分结果可使用 `analyze.py --phase main --partial`；它明确输出 `complete=false`，不伪装成完整 16 次矩阵。

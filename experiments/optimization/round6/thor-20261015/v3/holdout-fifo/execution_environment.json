@@ -1,0 +1,19 @@
+{
+  "python": "3.11.16",
+  "executable": "/home/zhuzetong/miniconda3/envs/rtcl/bin/python",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "torch": "2.14.0+cu132",
+  "cuda": "13.2",
+  "gpu": "NVIDIA Thor",
+  "capability": [
+    11,
+    0
+  ],
+  "packages": {
+    "torchvision": "0.29.0+cu132",
+    "avalanche-lib": "0.6.0a0",
+    "numpy": "2.4.6",
+    "pytorchcv": "0.0.74"
+  },
+  "physical_gpu": 0
+}

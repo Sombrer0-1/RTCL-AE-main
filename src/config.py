@@ -84,7 +84,7 @@ def parse_arguments():
         "--global_scheduler_mode", 
         type=str, 
         default="default",
-        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached", "recl_sched", "stream_fifo", "stream_slack", "stream_debt", "stream_neural", "stream_boundary", "stream_predictive", "stream_predictive_neural"],
+        choices=["default", "fully_parallel", "continuous_eval", "adaptive_time", "adaptive_accuracy", "ekya", "adaptocl", "freshness", "freshness_adaptive", "freshness_cached", "boundary", "boundary_fixed", "boundary_cached", "r4_full_eval", "recl_sched", "stream_fifo", "stream_slack", "stream_debt", "stream_neural", "stream_boundary"],
         help="Choose how train/eval processes are scheduled."
     )
     parser.add_argument(
@@ -290,14 +290,22 @@ def parse_arguments():
     parser.add_argument("--stream_pattern", choices=["steady", "bursty"], default="steady")
     parser.add_argument("--eval_cache_mb", type=int, default=128)
     parser.add_argument("--record_model_hash", action="store_true")
+    parser.add_argument("--record_eval_batches", action="store_true")
+    parser.add_argument("--eval_cycles", type=int, default=0,
+                        help="Exact full-test pass budget including final evaluation; 0 keeps native cadence.")
     parser.add_argument("--seed", type=int, default=None)
 
     # Parse arguments
     args = parser.parse_args()
+    if args.eval_cycles < 0 or (args.eval_cycles and args.global_scheduler_mode not in
+            {'fully_parallel', 'adaptocl', 'r4_full_eval'}):
+        parser.error('--eval_cycles requires fully_parallel, adaptocl or r4_full_eval and a nonnegative count')
+    if args.global_scheduler_mode == 'r4_full_eval' and (args.benchmark != 'split_cifar10' or args.semseg):
+        parser.error('r4_full_eval currently requires SplitCIFAR10 classification')
     if args.host_preparation != 'baseline':
-        allowed = {'stream_fifo', 'stream_predictive', 'stream_predictive_neural'}
+        allowed = {'stream_fifo', 'r4_full_eval'}
         if args.host_preparation == 'certified':
-            allowed.add('stream_slack')
+            allowed.update({'stream_slack', 'fully_parallel', 'adaptocl'})
         if args.global_scheduler_mode not in allowed:
-            parser.error('--host_preparation requires FIFO or predictive batching (certified also supports stream_slack)')
+            parser.error('--host_preparation requires stream_fifo or r4_full_eval; certified also supports stream_slack, fully_parallel and adaptocl')
     return args

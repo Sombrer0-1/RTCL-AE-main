@@ -52,17 +52,24 @@ def smoke():
     # Deliberate synthetic host work ensures preparation service points execute.
     train, test = dataset(256, preparation_delay=.001), dataset(64)
     results = []
-    for mode, preparation in [("baseline", "baseline"), ("stream_fifo", "cooperative"),
-                              ("stream_predictive", "cooperative"),
-                              ("stream_predictive_neural", "cooperative")]:
+    for mode, preparation in [
+            ("baseline", "baseline"), ("stream_fifo", "certified"),
+            ("stream_fifo", "cooperative"), ("r4_full_eval", "cooperative")]:
         seed_worker(7)
         args = SimpleNamespace(model="resnet20", global_scheduler_mode=mode,
                                host_preparation=preparation, seed=7, stream_requests=64,
-                               stream_duration=.3, stream_slo_ms=100, stream_pattern="steady")
+                               stream_duration=.3, stream_slo_ms=100, stream_pattern="steady",
+                               eval_bs=8,
+                               semseg=False, debug=False, eval_cycles=3, record_eval_batches=True)
         benchmark = nc_benchmark(train, test, n_experiences=2, task_labels=False,
                                  shuffle=False, fixed_class_order=[0, 1])
         model = initialize_model(args, "split_cifar10")
-        plugin = StreamSchedulerPlugin(args, benchmark.test_stream) if mode != "baseline" else None
+        if mode == 'r4_full_eval':
+            from src.schedulers.full_eval_scheduler import FullEvaluationPlugin
+            plugin = FullEvaluationPlugin(args, benchmark.test_stream, {})
+            plugin.interval = 0
+        else:
+            plugin = StreamSchedulerPlugin(args, benchmark.test_stream) if mode != "baseline" else None
         strategy = Replay(model=model, optimizer=torch.optim.Adam(model.parameters(), lr=.001),
                           criterion=torch.nn.CrossEntropyLoss(), mem_size=16, train_mb_size=8,
                           train_epochs=1, eval_mb_size=8, device=device,
@@ -75,12 +82,23 @@ def smoke():
                 os.chdir(temporary)
                 for experience in benchmark.train_stream:
                     strategy.train(experience)
+                    if mode == 'r4_full_eval':
+                        plugin.publish(strategy, experience.current_experience + 1)
                 if plugin:
                     plugin.finish(strategy)
-                    assert len(plugin.records) == 64
-                    assert plugin.prep_stats["certified_epochs"] == 2
-                    assert plugin.prep_stats["fallback_epochs"] == 0
-                    assert plugin.prep_stats["service_requests"] > 0
+                    if mode == 'r4_full_eval':
+                        assert len(plugin.cycles) == 3
+                        assert all(cycle['samples'] == 64 for cycle in plugin.cycles)
+                        assert plugin.cycles[-1]['final_snapshot']
+                        assert plugin.stats['service_samples'] > 0
+                        stats = plugin.stats
+                    else:
+                        assert len(plugin.records) == 64
+                        stats = plugin.prep_stats
+                        if preparation == 'cooperative':
+                            assert stats['service_requests'] > 0
+                    assert stats["certified_epochs"] == 2
+                    assert stats["fallback_epochs"] == 0
                 with evaluation_state(strategy.model):
                     strategy.eval(benchmark.test_stream)
             finally:
@@ -90,9 +108,11 @@ def smoke():
         for name, tensor in sorted(strategy.model.state_dict().items()):
             digest.update(name.encode())
             digest.update(tensor.detach().cpu().contiguous().numpy().tobytes())
-        results.append({"mode": mode, "model_hash": digest.hexdigest(),
+        results.append({"mode": mode, "host_preparation": preparation,
+                        "model_hash": digest.hexdigest(),
                         "train_updates": strategy.clock.train_iterations,
-                        "requests": len(plugin.records) if plugin else 0})
+                        "requests": len(plugin.records) if plugin and mode != 'r4_full_eval' else 0,
+                        "full_eval_cycles": len(plugin.cycles) if mode == 'r4_full_eval' else 0})
     assert len({row["model_hash"] for row in results}) == 1, "Scheduling changed training weights"
     return results
 

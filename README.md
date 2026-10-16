@@ -19,8 +19,7 @@ python -m unittest discover -s tests -v
 新实验使用 `output/` 下的独立目录。矩阵运行器自动保存工作目录、日志和环境信息，例如：
 
 ```bash
-python experiments/optimization/round5/run_matrix.py --phase pilot --output output/thor-round5-pilot
-python experiments/optimization/round5/run_matrix.py --phase main --output output/thor-round5-main --dry-run
+python experiments/optimization/round4/run_matrix.py --phase pilot --gpu 0 --output output/thor-round4-pilot
 ```
 
 直接运行入口时，输出写入当前工作目录：
@@ -49,3 +48,5 @@ AE 驱动为 `scripts/ae/run_ae.sh`、`scripts/ae/run_fig123.sh` 和 `scripts/ae
 - `output/`、`data/`、`.deps/`：本机产物、数据与依赖，均不纳入 Git。
 
 Orin 和 RTX 5090 记录保留原始实验环境；Thor 结果单独保存。开发与目录约定见 [AGENTS.md](AGENTS.md)。
+
+当前优化实现以 R4 的结构证书与合作式 FIFO 为基础，保留 R4／AOCL 完整测试对照入口。R5 的预测攒批、耗时网络及 R6 的校准前瞻、RLS 已退出运行代码；[R5 实验](experiments/optimization/round5/THOR_RESULTS.md)和 [R6 实验](experiments/optimization/round6/README.md)保留方法、结果与失败教训。

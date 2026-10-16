@@ -1,0 +1,26 @@
+{
+  "phase": "holdout",
+  "cells": [
+    [
+      "longer",
+      "cooperative",
+      419
+    ],
+    [
+      "longer",
+      "lookahead",
+      419
+    ],
+    [
+      "deeper_bursty",
+      "lookahead",
+      419
+    ],
+    [
+      "deeper_bursty",
+      "cooperative",
+      419
+    ]
+  ],
+  "adaptive_preparation": true
+}

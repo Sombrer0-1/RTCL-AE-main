@@ -20,7 +20,7 @@ bash environment/run.sh main.py --help
 bash environment/run.sh -m unittest discover -s tests -v
 ```
 
-`check.py` 检查依赖、三个历史入口导入、真实 GPU Replay 训练，以及 FIFO、predictive 和 predictive_neural 的合作式准备路径。使用小规模合成 CIFAR10 数据，并核对最终模型哈希一致，不下载基准数据集、不执行论文性能矩阵。
+`check.py` 检查依赖、三个历史入口导入、真实 GPU Replay 训练，以及 R4 FIFO 的结构证书、合作式准备和 `r4_full_eval` 完整快照评估路径。使用小规模合成 CIFAR10 数据，核对最终模型哈希一致，并检查完整评估轮次与样本量；不下载基准数据集、不执行论文性能矩阵。
 
 ## 重建
 
@@ -47,8 +47,7 @@ cuSPARSELt 0.8.1 官方 aarch64 wheel 的内部 `WHEEL` 文件标记为 `manylin
 新实验写入独立目录，例如：
 
 ```bash
-python experiments/optimization/round5/run_matrix.py --phase pilot --gpu 0 --output output/thor-round5-pilot
-python experiments/optimization/round5/run_matrix.py --phase main --gpu 0 --output output/thor-round5-main --dry-run
+python experiments/optimization/round4/run_matrix.py --phase pilot --gpu 0 --output output/thor-round4-pilot
 ```
 
 `scripts/ae/` 驱动默认写到 `output/thor-ae/`，可通过 `RTCL_OUTPUT_ROOT` 改变；软机器人数据路径通过 `RTCL_SOFT_ROBOT_ROOT` 指定。直接运行 `scripts/` 内的配置脚本前应激活 `rtcl`，`scripts/ae/` 驱动和 `run_scripts.sh` 会自动选择项目环境。`RTCL_PYTHON` 可显式覆盖 Shell 驱动的解释器。

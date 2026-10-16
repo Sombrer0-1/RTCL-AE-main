@@ -1,0 +1,19 @@
+{
+  "recorded": "2026-10-15T15:09:25+0800",
+  "source_base_revision": "03daeb2a0c479b4c6caaac616324617030fdd7a5",
+  "power_mode_observed_at_finish": "NV Power Mode: 120W\n1",
+  "phases": {
+    "v1/pilot": 4,
+    "v2/pilot": 4,
+    "v3/pilot": 4,
+    "v3/main": 16,
+    "v3/holdout-fifo": 4
+  },
+  "runs": 32,
+  "requests": 192000,
+  "train_updates": 37920,
+  "unit_tests": 47,
+  "validation_manifest": "validation-final.json",
+  "raw_root": "output/thor-round6-20261015",
+  "source_snapshots": "Each raw phase directory contains source/; v1/v2 snapshots also archived here."
+}
