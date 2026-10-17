@@ -6,7 +6,7 @@ import time
 import psutil
 import os
 import platform
-from src.globals import TERMINATE_SIGNAL
+from src import globals as runtime_state
 from src.utils.logging_utils import log_event
 
 # Constants for timing and monitoring configuration
@@ -76,7 +76,7 @@ def memory_monitor_worker(shared_data=None, max_duration=DEFAULT_MAX_DURATION, i
         # main monitoring loop
         while cycle_count < max_cycles:
             # check for termination signal (both global variable and shared_data)
-            if TERMINATE_SIGNAL or (shared_data and shared_data.get("TERMINATE_SIGNAL", False)):
+            if runtime_state.TERMINATE_SIGNAL or (shared_data and shared_data.get("TERMINATE_SIGNAL", False)):
                 print("[MemoryMonitor] Termination signal received. Exiting monitor.")
                 break
             

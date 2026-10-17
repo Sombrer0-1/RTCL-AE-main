@@ -4,35 +4,30 @@ Signal handlers for process communication and termination.
 
 import signal
 import os
-from src.globals import TERMINATE_SIGNAL
+from src import globals as runtime_state
 
 def signal_handler(signum, frame):
     """
     Handler for termination signals (SIGINT, SIGTERM).
     Sets the global termination flag to True.
     """
-    global TERMINATE_SIGNAL
     if signum in [signal.SIGINT, signal.SIGTERM]:
         print("\n[Main] Termination signal received. Gracefully shutting down...")
-        TERMINATE_SIGNAL = True
+        runtime_state.TERMINATE_SIGNAL = True
 
 def request_config_update_handler(signum, frame, shared_data=None):
     """
     Handler for configuration update signals (SIGUSR1).
-    Sets the configuration update flag in shared_data.
+    Records receipt locally. The shared flag belongs to the coordinator and
+    must not be set again by workers receiving its notification.
     
     Args:
         signum: Signal number
         frame: Current stack frame
-        shared_data: Shared data dictionary between processes
+        shared_data: Accepted for worker callback compatibility
     """
-    if shared_data is not None:
-        shared_data["CONFIG_UPDATE_REQUESTED"] = True
-        print("[Signal] Configuration update requested")
-    else:
-        from src.globals import CONFIG_UPDATE_REQUESTED
-        CONFIG_UPDATE_REQUESTED = True
-        print("[Signal] Configuration update requested")
+    runtime_state.CONFIG_UPDATE_REQUESTED = True
+    print("[Signal] Configuration update requested")
 
 def safe_kill(pid, sig):
     """

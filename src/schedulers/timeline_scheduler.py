@@ -88,13 +88,15 @@ def global_scheduler_worker(global_scheduler, train_pid, eval_pid, shared_data):
 
     def check_and_update_config():
         """Check and signal processes for configuration updates"""
+        nonlocal time_slice
+        time_slice = shared_data.get("timeslice", time_slice)
         if shared_data.get("CONFIG_UPDATE_REQUESTED", False):
+            shared_data["CONFIG_UPDATE_REQUESTED"] = False
             log_info("[Scheduler] Configuration update requested, signaling processes")
             if train_alive:
                 safe_kill(train_pid, signal.SIGUSR1)
             if eval_alive:
                 safe_kill(eval_pid, signal.SIGUSR1)
-            shared_data["CONFIG_UPDATE_REQUESTED"] = False
 
     log_info(f"[Scheduler] Starting with mode: {mode}, time_slice: {time_slice}s")
     
@@ -218,6 +220,7 @@ def global_scheduler_worker(global_scheduler, train_pid, eval_pid, shared_data):
         last_eval_check_time = time.time()
         
         while check_processes_alive():
+            check_and_update_config()
             current_time = time.time()
             
             # Check and log shared_data status
@@ -298,6 +301,7 @@ def global_scheduler_worker(global_scheduler, train_pid, eval_pid, shared_data):
         accuracy_check_count = 0
         
         while check_processes_alive():
+            check_and_update_config()
             current_time = time.time()
             
             # Periodically log accuracy information

@@ -16,6 +16,8 @@ python -m unittest discover -s tests -v
 
 `main.py` 通过 `--global_scheduler_mode` 选择并发调度方法；`test_avalanche_lib.py` 为顺序 Avalanche 基线。详细方法、论文实验矩阵和表格字段见 [Artifact evaluation](docs/artifact-evaluation.md)。
 
+AOCL 从训练 batch64 起步。`--uam_alpha` 为训练优先阶段的 experience 占比（默认 0.3），`--uam_delta_acc` 为 AA 阶段的准确率阈值（默认 0.4），`--latency_budget` 为延迟归一化预算（默认 5 秒）。动态配置的训练批量在 experience 边界应用，评估批量在评估周期边界应用。`--switch_penalty` 和 `--ekya_profiling_interval` 尚无对应实现，显式设置会报错。
+
 新实验使用 `output/` 下的独立目录。矩阵运行器自动保存工作目录、日志和环境信息，例如：
 
 ```bash

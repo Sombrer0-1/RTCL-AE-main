@@ -28,7 +28,7 @@ from avalanche.evaluation.metrics import (
 )
 from avalanche.logging import InteractiveLogger, CSVLogger, TensorboardLogger, WandBLogger
 
-from src.globals import TERMINATE_SIGNAL, CONFIG_UPDATE_REQUESTED
+from src import globals as runtime_state
 from src.utils.signal_handlers import request_config_update_handler, signal_handler
 from src.models.model_init import initialize_model
 from src.utils.logging_utils import log_event, debug_print, log_info, log_error, log_warning, setup_logger, timestamp_logger_worker, log_accuracy
@@ -93,7 +93,7 @@ class SharedDataLoggerPlugin(object):
 
 def request_config_update_handler_eval(signum, frame, shared_data):
     """Signal handler for configuration update requests in eval worker."""
-    shared_data["CONFIG_UPDATE_REQUESTED"] = True
+    runtime_state.CONFIG_UPDATE_REQUESTED = True
     log_info("[Eval] Configuration update requested")
 
 def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_controller=None):
@@ -204,9 +204,12 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
         # process is stopped or sleeping, and the header check then exits
         # before the final post-training cycle (the branch below) can run.
         while not final_eval_done:
-            if TERMINATE_SIGNAL or shared_data.get("TERMINATE_SIGNAL", False):
+            if runtime_state.TERMINATE_SIGNAL or shared_data.get("TERMINATE_SIGNAL", False):
                 log_info("[Eval] Termination requested. Stopping evaluation...")
                 break
+
+            if config_controller is not None and config_controller.check_for_updates():
+                cl_strategy.eval_mb_size = shared_data["eval_batch_size"]
 
             train_active = shared_data.get("train_process_active", True)
             cycle_limit = getattr(args, 'eval_cycles', 0)
@@ -236,6 +239,8 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
             try:
                 if args.enable_double_buffer:
                     raw_loaded_dict = scheduler.read_state_dict()
+                    if raw_loaded_dict is not None:
+                        snapshot_version = raw_loaded_dict.get('model_version', snapshot_version)
                     if raw_loaded_dict and 'model_state_dict' in raw_loaded_dict:
                         state_dict = raw_loaded_dict['model_state_dict']
                     elif raw_loaded_dict:
@@ -249,6 +254,11 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                         checkpoint = torch.load(model_path)
                         state_dict = checkpoint['model_state_dict']
                         snapshot_version = checkpoint.get('model_version', snapshot_version)
+                # The admission hint may be newer than the snapshot we loaded.
+                if freshness is not None and not freshness.ready(
+                        time.monotonic(), snapshot_version, train_active):
+                    time.sleep(POLL_INTERVAL_SECONDS)
+                    continue
                 model.load_state_dict(state_dict)
                 model.to(device)
             except Exception as e:
@@ -303,8 +313,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                 log_info("[CycleMetrics] " + json.dumps({
                     "cycle": current_eval_num, "version_lower_bound": snapshot_version,
                     "final_at_load": not train_active,
-                    "final_snapshot": (not args.enable_double_buffer and
-                        snapshot_version == shared_data.get("total_experiences", -1) and
+                    "final_snapshot": (snapshot_version == shared_data.get("total_experiences", -1) and
                         shared_data.get("all_experiences_completed", False)),
                     "accuracy": eval_result_dict['streaming_accuracy'],
                     "samples": eval_result_dict['total_samples'],
@@ -333,6 +342,7 @@ def eval_worker(args, device, scheduler, lock, model_path, shared_data, config_c
                     break
                     
     except Exception as e:
+        shared_data["worker_failed"] = True
         log_error(f"[Eval] Error in evaluation process: {e}")
         traceback.print_exc()
     finally:
@@ -521,11 +531,12 @@ def iter_interruptible_eval(cl_strategy, experiences_to_evaluate, config_control
         shared_data["latest_latency"] = overall_eval_latency # Latency for the whole eval cycle
 
         # For RECL-SCHED: Report latency in ms, keyed by PID
-        if "eval_latency" in shared_data and isinstance(shared_data["eval_latency"], dict):
+        eval_latencies = shared_data.get("eval_latency")
+        if eval_latencies is not None:
             try:
                 current_pid_str = str(os.getpid())
                 latency_ms = overall_eval_latency * 1000.0
-                shared_data["eval_latency"][current_pid_str] = latency_ms
+                eval_latencies[current_pid_str] = latency_ms
                 log_info(f"[Eval][RECL_SCHED] Reported latency for PID {current_pid_str}: {latency_ms:.2f} ms")
             except Exception as e:
                 log_warning(f"[Eval][RECL_SCHED] Failed to report latency to shared_data['eval_latency']: {e}")

@@ -55,13 +55,13 @@ def run_boundary(args, device):
         raise ValueError('Resident evaluation cache is validated only for deterministic SplitCIFAR10 evaluation')
     import time
     import torch.multiprocessing as mp
-    from src.utils import signal_handlers
+    from src import globals as runtime_state
     worker = mp.Process(target=boundary_worker, args=(args, device), name='BoundaryWorker')
     worker.start()
     try:
         deadline = time.monotonic() + args.max_runtime
         while worker.is_alive():
-            if signal_handlers.TERMINATE_SIGNAL:
+            if runtime_state.TERMINATE_SIGNAL:
                 raise KeyboardInterrupt('Boundary scheduling interrupted')
             remaining = deadline - time.monotonic()
             if remaining <= 0:

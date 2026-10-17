@@ -22,6 +22,10 @@ class DynamicConfigController:
             
         if "config_version" not in self.shared_data:
             self.shared_data["config_version"] = 0
+
+        for key, value in self.shared_data["config"].items():
+            if key not in self.shared_data:
+                self.shared_data[key] = value
             
         self.local_config_version = 0
         
@@ -101,6 +105,7 @@ class DynamicConfigController:
         for key, value in new_config.items():
             if key in current_config and current_config[key] != value:
                 current_config[key] = value
+                self.shared_data[key] = value
                 changed = True
                 
         if changed:
@@ -118,7 +123,8 @@ class DynamicConfigController:
         Returns:
             Dictionary containing current configuration values
         """
-        return self.shared_data["config"].copy()
+        return {key: self.shared_data.get(key, value)
+                for key, value in self.shared_data["config"].items()}
         
     def check_for_updates(self):
         """

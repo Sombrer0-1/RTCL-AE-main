@@ -18,90 +18,47 @@ import torch.multiprocessing as mp
 from avalanche.benchmarks.classic import EndlessCLSim, PermutedMNIST, SplitCIFAR10, SplitCIFAR100, CORe50, SoftRobot
 
 from src.config import parse_arguments
-from src.globals import TERMINATE_SIGNAL, reset_globals, train_process_active, all_experiences_completed
+from src import globals as runtime_state
 from src.schedulers.model_scheduler import ModelScheduler
 from src.schedulers.timeline_scheduler import GlobalTimelineScheduler, global_scheduler_worker
 from src.schedulers.adaptocl_scheduler import AdaptOCLScheduler, adaptocl_scheduler_worker
 from src.schedulers.recl_scheduler import RECLScheduler, recl_scheduler_worker
-from src.workers.train_worker import train_worker
+from src.workers.train_worker import train_worker, create_benchmark as create_worker_benchmark
 from src.workers.eval_worker import eval_worker
 from src.workers.config_worker import dynamic_config_worker
 from src.workers.monitor_worker import memory_monitor_worker
-from src.utils.signal_handlers import signal_handler
+from src.utils.signal_handlers import signal_handler, safe_kill
 from src.utils.analytics import analyze_batch_size_changes
 from src.utils.logging_utils import setup_logger, timestamp_logger_worker
 
 # Set up logger
 logger = setup_logger("main")
 
-def transform_target(x):
-    """Transform target for semseg task"""
-    return torch.from_numpy(x).long()
+def terminate_process(process, timeout=1):
+    """Reap workers even if a scheduler stops them again during shutdown."""
+    if not process.is_alive():
+        return
+    safe_kill(process.pid, signal.SIGCONT)
+    process.terminate()
+    process.join(timeout=timeout)
+    if process.is_alive():
+        process.kill()
+        process.join()
+
 
 def create_benchmark(args):
-    """Create benchmark based on arguments"""
-    if args.benchmark == "endless":
-        target_transform = None
-        if args.semseg:
-            target_transform = transform_target
-        return EndlessCLSim(
-            scenario=args.scenario,
-            sequence_order=None,
-            task_order=None,
-            semseg=args.semseg,
-            dataset_root=args.dataset_root,
-            target_transform=target_transform,
-        )
-    elif args.benchmark == "split_cifar10":
-        # ImageNet-style backbones need 224x224 inputs.
-        from src.models.model_init import _IMAGENET_BACKBONES
-        if args.model in _IMAGENET_BACKBONES:
-            from torchvision import transforms
-            train_tf = transforms.Compose([
-                transforms.Resize((224, 224)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.201)),
-            ])
-            eval_tf = transforms.Compose([
-                transforms.Resize((224, 224)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.201)),
-            ])
-            return SplitCIFAR10(n_experiences=10, fixed_class_order=list(range(10)), shuffle=False, return_task_id=False,
-                                train_transform=train_tf, eval_transform=eval_tf)
-        return SplitCIFAR10(n_experiences=10, fixed_class_order=list(range(10)), shuffle=False, return_task_id=False)
-    elif args.benchmark == "split_cifar100":
-        return SplitCIFAR100(n_experiences=10, fixed_class_order=list(range(100)), shuffle=False, return_task_id=False)
-    elif args.benchmark == "core50":
-        benchmark = CORe50(scenario=args.scenario_core50, mini=True, object_lvl=False) # due to memory limitations, we use mini
-        # Force benchmark to load data immediately instead of lazy loading
+    """Use the same benchmark definition as both compute workers."""
+    benchmark = create_worker_benchmark(args)
+    if args.benchmark == "core50":
+        # Preserve eager dataset setup in the parent process.
         _ = benchmark.train_stream
         _ = benchmark.test_stream
-        return benchmark
-    elif args.benchmark == "perm_mnist":
-        return PermutedMNIST(n_experiences=3)
-    elif args.benchmark == "soft_robot":
-        if args.scenario_soft_robot == "ic":
-            return SoftRobot(
-                n_experiences=12,
-                scenario="ic",
-                dataset_root=args.dataset_root,
-            )
-        elif args.scenario_soft_robot == "il":
-            return SoftRobot(
-                n_experiences=5,
-                scenario="il",
-                dataset_root=args.dataset_root,
-            )
-        else:
-            raise ValueError("Invalid scenario for soft robot benchmark")
-    else:
-        raise ValueError("Invalid benchmark name")
+    return benchmark
+
 
 def main():
-    global TERMINATE_SIGNAL
     # Initialize global variables
-    reset_globals()
+    runtime_state.reset_globals()
     
     # Register signal handlers in main process
     signal.signal(signal.SIGINT, signal_handler)
@@ -147,9 +104,9 @@ def main():
     shared_data = manager.dict()
     
     # Initialize essential shared data fields
-    shared_data["train_process_active"] = train_process_active
-    shared_data["all_experiences_completed"] = all_experiences_completed
-    shared_data["TERMINATE_SIGNAL"] = TERMINATE_SIGNAL
+    shared_data["train_process_active"] = runtime_state.train_process_active
+    shared_data["all_experiences_completed"] = runtime_state.all_experiences_completed
+    shared_data["TERMINATE_SIGNAL"] = runtime_state.TERMINATE_SIGNAL
     shared_data["CONFIG_UPDATE_REQUESTED"] = False
     
     # RECL_SCHED specific shared_data initialization
@@ -202,7 +159,12 @@ def main():
     # Configure adaptive scheduling parameters
     adaptive_params = {
         "priority_percent": args.adaptive_priority_percent,
-        "accuracy_threshold": args.adaptive_accuracy_threshold
+        "accuracy_threshold": args.adaptive_accuracy_threshold,
+        "ekya": {
+            "min_resource": args.ekya_min_resource,
+            "max_resource": args.ekya_max_resource,
+            "utility_threshold": args.ekya_utility_threshold,
+        }
     }
 
     # Prepare AdaptOCL parameters
@@ -210,8 +172,10 @@ def main():
         "omega": args.uam_omega,
         "gamma": args.uam_gamma,
         "eta": args.uam_eta,
-        "alpha": args.uam_alpha,
-        "delta_acc": args.uam_delta_acc
+        "la_priority_percent": args.uam_alpha,
+        "aa_accuracy_threshold": args.uam_delta_acc,
+        "operation_focus": args.adaptocl_focus,
+        "latency_budget": args.latency_budget
     }
 
     # Create the global timeline scheduler
@@ -285,6 +249,7 @@ def main():
             dynamic_config_proc = mp.Process(
                 target=dynamic_config_worker, 
                 args=(config_controller, train_pid, eval_pid, args.reconfiguration_interval),
+                kwargs={"config_file": args.config_file},
                 name="DynamicConfigWorker"
             )
             dynamic_config_proc.start()
@@ -320,11 +285,13 @@ def main():
         
         # Main monitoring loop
         while any(p.is_alive() for p in processes):
+            if shared_data.get("worker_failed", False):
+                raise RuntimeError('A compute worker failed; see the worker traceback')
             # Check for timeout or termination signal
-            if TERMINATE_SIGNAL or (time.time() - start_time > max_runtime):
-                if not TERMINATE_SIGNAL:
+            if runtime_state.TERMINATE_SIGNAL or (time.time() - start_time > max_runtime):
+                if not runtime_state.TERMINATE_SIGNAL:
                     logger.info(f"Maximum runtime of {max_runtime}s reached. Initiating graceful shutdown...")
-                    TERMINATE_SIGNAL = True
+                    runtime_state.TERMINATE_SIGNAL = True
                 
                 # Update shared data to notify all processes
                 shared_data["TERMINATE_SIGNAL"] = True
@@ -333,7 +300,8 @@ def main():
                 for p in processes:
                     if p.is_alive():
                         logger.info(f"Sending termination signal to process {p.name} (PID: {p.pid})")
-                        os.kill(p.pid, signal.SIGTERM)
+                        safe_kill(p.pid, signal.SIGCONT)
+                        safe_kill(p.pid, signal.SIGTERM)
                 
                 # Give processes time to clean up
                 timeout = time.time() + 10  # 10 seconds timeout
@@ -344,8 +312,7 @@ def main():
                 for p in processes:
                     if p.is_alive():
                         logger.warning(f"Force terminating process {p.name}")
-                        p.terminate()
-                        p.join(1)
+                        terminate_process(p)
                 
                 break
             
@@ -354,6 +321,10 @@ def main():
         # Join processes with a timeout to prevent hanging
         for p in processes:
             p.join(timeout=5)
+
+        failed = [p.name for p in processes if p.exitcode not in (0, None)]
+        if failed or shared_data.get("worker_failed", False):
+            raise RuntimeError(f'Worker failure: {", ".join(failed) or "compute worker"}')
         
         # Run batch size change analysis if requested
         if args.enable_dynamic_reconfiguration:
@@ -362,13 +333,12 @@ def main():
             
     except KeyboardInterrupt:
         logger.info("Keyboard interrupt detected. Initiating graceful shutdown...")
-        TERMINATE_SIGNAL = True
+        runtime_state.TERMINATE_SIGNAL = True
         
         # Gracefully terminate all processes
         for p in processes:
             if p and p.is_alive():
-                os.kill(p.pid, signal.SIGTERM)
-                p.join(timeout=5)
+                terminate_process(p, timeout=5)
                 
         logger.info("Cleanup complete after keyboard interrupt.")
         
@@ -377,22 +347,14 @@ def main():
         import traceback
         traceback.print_exc()
         
-        # Terminate any remaining processes
-        for p in processes:
-            if p and p.is_alive():
-                p.terminate()
-                p.join(timeout=1)
+        raise
     
     finally:
         # Ensure all processes are properly terminated
         for p in processes:
             if p and p.is_alive():
                 logger.warning(f"Force terminating process {p.name}")
-                p.terminate()
-                try:
-                    p.join(timeout=1)
-                except:
-                    pass
+                terminate_process(p)
     
     logger.info("All processes have completed. Program exiting.")
 

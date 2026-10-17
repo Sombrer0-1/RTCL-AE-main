@@ -8,12 +8,12 @@ import os
 import threading
 from src.utils.signal_handlers import safe_kill
 from src.utils.logging_utils import log_event, log_info, log_warning, log_error
-from src.utils.config_loader import load_config, validate_batch_config, get_config_value
+from src.utils.config_loader import load_config, validate_batch_config
 
 # Constants for timing
 CONFIG_POLL_INTERVAL = 0.5  # Polling interval in seconds to check for termination
 
-def dynamic_config_worker(config_controller, train_pid, eval_pid, timeslice=10.0, config_file=None):
+def dynamic_config_worker(config_controller, train_pid, eval_pid, reconfiguration_interval=10.0, config_file=None):
     """
     Worker for dynamic configuration of batch size.
     
@@ -21,14 +21,15 @@ def dynamic_config_worker(config_controller, train_pid, eval_pid, timeslice=10.0
         config_controller: Dynamic configuration controller
         train_pid: PID of the training process
         eval_pid: PID of the evaluation process
-        timeslice: Default time interval between configuration updates
+        reconfiguration_interval: Default time between configuration updates
         config_file: Path to the configuration file
     """
     try:
         # set default batch size sequence
         train_batch_sizes = [32, 64, 128, 256, 512]
         eval_batch_sizes = [16, 32, 64, 128, 256]
-        durations = [timeslice] * len(train_batch_sizes)  # duration of each configuration
+        durations = [reconfiguration_interval] * len(train_batch_sizes)
+        config_timeslice = None
         
         # if config file is provided, load settings from the file
         if config_file and os.path.exists(config_file):
@@ -43,10 +44,10 @@ def dynamic_config_worker(config_controller, train_pid, eval_pid, timeslice=10.0
                 batches = config.get('batches', [])
                 train_batch_sizes = [batch['train_batch_size'] for batch in batches]
                 eval_batch_sizes = [batch['eval_batch_size'] for batch in batches]
-                durations = [batch.get('duration', timeslice) for batch in batches]
+                durations = [batch.get('duration', reconfiguration_interval) for batch in batches]
                 
                 # get global timeslice value (if provided)
-                config_timeslice = get_config_value(config, 'timeslice', timeslice)
+                config_timeslice = config.get('timeslice')
                 
                 log_event("config", f"Successfully loaded configuration with {len(batches)} batch configurations")
                 log_info(f"[DynamicConfig] Loaded configuration with {len(batches)} batch settings")
@@ -102,9 +103,10 @@ def dynamic_config_worker(config_controller, train_pid, eval_pid, timeslice=10.0
             # create new configuration
             new_config = {
                 "train_batch_size": train_batch_sizes[i],
-                "eval_batch_size": eval_batch_sizes[i],
-                "timeslice": timeslice
+                "eval_batch_size": eval_batch_sizes[i]
             }
+            if config_timeslice is not None:
+                new_config["timeslice"] = config_timeslice
             
             # update configuration
             config_controller.update_config(new_config)

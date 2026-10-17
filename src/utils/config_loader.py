@@ -5,6 +5,7 @@ Configuration file loader utilities.
 import os
 import yaml
 import json
+import math
 from typing import Dict, List, Any, Optional
 
 def load_yaml_config(config_path: str) -> Dict[str, Any]:
@@ -76,6 +77,12 @@ def validate_batch_config(config: Dict[str, Any]) -> bool:
     Returns:
         True if configuration is valid, raises ValueError otherwise
     """
+    if 'timeslice' in config:
+        timeslice = config['timeslice']
+        if (isinstance(timeslice, bool) or not isinstance(timeslice, (int, float))
+                or not math.isfinite(timeslice) or timeslice <= 0):
+            raise ValueError("'timeslice' must be a finite positive number")
+
     # Check if batches key exists
     if 'batches' not in config:
         raise ValueError("Configuration missing 'batches' key")
@@ -112,4 +119,4 @@ def get_config_value(config: Dict[str, Any], key: str, default: Any) -> Any:
     Returns:
         Value from configuration or default
     """
-    return config.get(key, default) 
+    return config.get(key, default)

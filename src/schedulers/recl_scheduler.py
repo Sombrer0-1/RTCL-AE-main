@@ -53,7 +53,7 @@ class RECLScheduler:
 
     def _update_miss_ratio_and_weight(self):
         """Updates the SLO miss ratio and adjusts the evaluation weight accordingly."""
-        eval_pid_latency_ms = self.shared_data.get('eval_latency', {}).get(str(self.eval_pid)) # Keyed by PID as string
+        eval_pid_latency_ms = self.shared_data.get('eval_latency', {}).pop(str(self.eval_pid), None)
         slo_ms = self.shared_data.get('eval_slo_ms', self.args.slo_ms) # Default to args.slo_ms if not in shared
 
         if eval_pid_latency_ms is None:
@@ -66,18 +66,6 @@ class RECLScheduler:
         if len(self.slo_miss_history) > self.max_history_len:
             self.slo_miss_history.pop(0)
         
-        # Clear the reported latency for this PID so we only process it once
-        # This assumes eval_worker writes and then this scheduler consumes.
-        # A more robust way might involve timestamps or sequence numbers if multiple consumers.
-        if str(self.eval_pid) in self.shared_data.get('eval_latency', {}):
-             # This requires shared_data['eval_latency'] to be a mutable proxy (like Manager.dict)
-             # For simplicity, we'll assume it's handled by the caller or main.py structure.
-             # A direct del self.shared_data['eval_latency'][str(self.eval_pid)] might fail if not a proxy.
-             # Or, eval_worker could set it to None after we read.
-             # For now, we just use the value and it will be overwritten by eval_worker.
-             pass
-
-
         if not self.slo_miss_history:
             return
 
@@ -220,4 +208,4 @@ def recl_scheduler_worker(global_scheduler, train_pid, eval_pid, shared_data, lo
     # It will need 'args' passed to it.
     
     scheduler = RECLScheduler(train_pid, eval_pid, args_obj, shared_data, lock)
-    return scheduler.run() 
+    return scheduler.run()

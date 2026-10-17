@@ -110,8 +110,8 @@ def parse_arguments():
     parser.add_argument(
         "--ekya_profiling_interval",
         type=float,
-        default=5.0,
-        help="Interval (in seconds) for Ekya's micro-profiling"
+        default=None,
+        help="Reserved option; periodic Ekya micro-profiling is not implemented."
     )
     parser.add_argument(
         "--ekya_min_resource",
@@ -200,25 +200,25 @@ def parse_arguments():
         "--uam_gamma",
         type=float,
         default=0.5,
-        help="UAM: Weight for latency term (γ)."
+        help="UAM: Multiplicative training batch adjustment rate (γ)."
     )
     parser.add_argument(
         "--uam_eta",
         type=float,
         default=0.5,
-        help="UAM: Weight for alternation penalty (η)."
+        help="UAM: Multiplicative time-slice adjustment rate (η)."
     )
     parser.add_argument(
         "--uam_alpha",
         type=float,
-        default=0.5,
-        help="UAM: Weight for batch/time-slice reconfiguration penalty (α)."
+        default=0.3,
+        help="AdaptOCL: Initial training-priority experience fraction (α)."
     )
     parser.add_argument(
         "--uam_delta_acc",
         type=float,
-        default=0.01,
-        help="UAM: Accuracy improvement threshold for alternation (δ_acc)."
+        default=0.4,
+        help="AdaptOCL: Accuracy threshold for leaving the AA priority phase (δ_acc)."
     )
     
     # New AdaptOCL operational focus parameter
@@ -234,14 +234,14 @@ def parse_arguments():
     parser.add_argument(
         "--latency_budget",
         type=float,
-        default=2.0,
+        default=5.0,
         help="Maximum latency budget for normalization (seconds)."
     )
     parser.add_argument(
         "--switch_penalty",
         type=float,
-        default=0.1,
-        help="Penalty coefficient (λ) for mode/config switches."
+        default=None,
+        help="Reserved option; mode/config switch penalties are not implemented."
     )
 
     # RECL Scheduler options
@@ -297,6 +297,10 @@ def parse_arguments():
 
     # Parse arguments
     args = parser.parse_args()
+    if args.switch_penalty is not None:
+        parser.error('--switch_penalty is not implemented by the current scheduler')
+    if args.ekya_profiling_interval is not None:
+        parser.error('--ekya_profiling_interval is not implemented by the current scheduler')
     if args.eval_cycles < 0 or (args.eval_cycles and args.global_scheduler_mode not in
             {'fully_parallel', 'adaptocl', 'r4_full_eval'}):
         parser.error('--eval_cycles requires fully_parallel, adaptocl or r4_full_eval and a nonnegative count')

@@ -13,7 +13,7 @@ import random
 import math
 
 from avalanche.training import Naive, Replay, EWC, GEM, AGEM, GSS_greedy
-from avalanche.training.plugins import ReplayPlugin, EvaluationPlugin, GEMPlugin, EWCPlugin
+from avalanche.training.plugins import EvaluationPlugin, GEMPlugin, EWCPlugin
 from avalanche.training.storage_policy import ExperienceBalancedBuffer
 from avalanche.evaluation.metrics import (
     forgetting_metrics,
@@ -27,19 +27,10 @@ from avalanche.logging import InteractiveLogger, CSVLogger
 from torch.utils.data import DataLoader, TensorDataset
 from avalanche.benchmarks.utils.data_loader import ReplayDataLoader
 
-from src.globals import TERMINATE_SIGNAL, CONFIG_UPDATE_REQUESTED
 from src.utils.signal_handlers import request_config_update_handler, signal_handler
 from src.models.model_init import initialize_model
 from src.utils.logging_utils import log_event, debug_print, log_info, log_warning, log_error
 from src.data.data_loader import DynamicBatchSizeDataLoader
-
-def request_config_update_handler(signum, frame, shared_data):
-    """Signal handler to request a configuration update."""
-    log_info("[Signal] Configuration update requested via signal.")
-    if shared_data:
-        shared_data['CONFIG_UPDATE_REQUESTED'] = True
-    else:
-        log_warning("[Signal] shared_data not available in handler.")
 
 def train_worker(args, device, scheduler, lock, model_path, shared_data, config_controller=None):
     """
@@ -186,6 +177,7 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                 log_error(f"Training failed for experience {exp_id}. Stopping training process.")
                 break
             # Save model state
+            snapshot_published = True
             if full_eval_mode:
                 full_eval_plugin.publish(cl_strategy, exp_id + 1)
                 if exp_id + 1 == len(train_stream):
@@ -222,12 +214,13 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                     cl_strategy.eval_mb_size = inference_batch.observe(result['batch_p95_ms'])
             elif args.enable_double_buffer:
                 try:
-                    scheduler.write_state_dict(cl_strategy.model.state_dict())
+                    scheduler.write_state_dict(cl_strategy.model.state_dict(), model_version=exp_id + 1)
                     log_info("[Train] Model state updated in double-buffer")
-                    scheduler.write_state_dict(cl_strategy.model.cpu().state_dict())
-                    cl_strategy.model = cl_strategy.model.to(device)
                 except Exception as e:
                     log_error(f"[Train] Error updating double-buffer: {e}")
+                    snapshot_published = False
+                    if exp_id + 1 == len(train_stream):
+                        raise RuntimeError('Failed to publish final model snapshot') from e
             else:
                 with lock:
                     torch.save({
@@ -235,7 +228,8 @@ def train_worker(args, device, scheduler, lock, model_path, shared_data, config_
                         'model_version': exp_id + 1,
                     }, model_path)
                     log_info(f"[Train] Model state_dict saved to {model_path}")
-            shared_data["published_version"] = exp_id + 1
+            if snapshot_published:
+                shared_data["published_version"] = exp_id + 1
             shared_data[f"experience_{exp_id}_completed"] = True
             exp_counter += 1
             if shared_data.get("TERMINATE_SIGNAL", False):
@@ -439,12 +433,6 @@ def create_training_plugins(args):
     """
     training_plugins = []
 
-    # Add replay plugin - Needed by Replay strategy family (including CustomReplay)
-    # to manage the experience buffer (storage_policy).
-    if args.algorithm == "replay": # Or check if strategy requires replay memory
-        log_info("[Plugin] Adding ReplayPlugin for memory management.")
-        training_plugins.append(ReplayPlugin(mem_size=args.mem_size))
-
     # Add optimization plugins
     if args.optimization == "gem":
         training_plugins.append(GEMPlugin(patterns_per_experience=1, memory_strength=0.5))
@@ -497,6 +485,7 @@ def create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, t
             eval_mb_size=args.eval_bs,
             device=device,
             evaluator=eval_plugin,
+            plugins=training_plugins,
         )
     elif args.algorithm == "replay":
         debug_print("Creating standard Replay strategy:", args)
@@ -513,7 +502,7 @@ def create_cl_strategy(args, model, optimizer, criterion, device, eval_plugin, t
             eval_mb_size=args.eval_bs,
             device=device,
             evaluator=eval_plugin,
-            plugins=training_plugins # Pass the plugins list which includes ReplayPlugin
+            plugins=training_plugins
         )
     elif args.algorithm == "gem":
         return GEM(
