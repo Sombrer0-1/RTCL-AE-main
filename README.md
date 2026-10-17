@@ -52,3 +52,7 @@ AE 驱动为 `scripts/ae/run_ae.sh`、`scripts/ae/run_fig123.sh` 和 `scripts/ae
 Orin 和 RTX 5090 记录保留原始实验环境；Thor 结果单独保存。开发与目录约定见 [AGENTS.md](AGENTS.md)。
 
 当前优化实现以 R4 的结构证书与合作式 FIFO 为基础，保留 R4／AOCL 完整测试对照入口。R5 的预测攒批、耗时网络及 R6 的校准前瞻、RLS 已退出运行代码；[R5 实验](experiments/optimization/round5/THOR_RESULTS.md)和 [R6 实验](experiments/optimization/round6/README.md)保留方法、结果与失败教训。
+
+[未来到达信息实验](experiments/optimization/arrival_oracle/QUOTA_RESULTS.md)在 R4 空队列分支加入可选训练启动控制。控制训练进度后的36次正式Thor对照中，8步/秒的整窗规划相对无未来信息的均匀节奏，将超时率从7.57%降至4.38%，按时正确率从17.48%升至18.19%，30秒时平均训练步数相同；9步/秒时收益缩小。另有独立成本估计诊断。[首轮纯避险实验](experiments/optimization/arrival_oracle/README.md)保留其推迟训练、降低相对R4按时正确率的结果；默认仍为空队列立即训练。
+
+[持续学习质量实验](experiments/optimization/arrival_cl/README.md)用独立时钟执行器对齐训练与推理的类别变化，明确标签延迟，完成21次固定时间预算对照及6次整窗共同工作对照。同为456步时，未来整窗规划将超时率9.89%降至7.53%、按时正确率41.94%升至43.10%，最终模型完全一致，适应时间未改善；固定时间下的单步质量策略也未稳定改善学习质量。

@@ -1,0 +1,52 @@
+{
+  "phase": "work",
+  "cells": [
+    [
+      "bursty",
+      "uniform_work",
+      211
+    ],
+    [
+      "bursty",
+      "oracle_work",
+      211
+    ],
+    [
+      "bursty",
+      "oracle_work",
+      307
+    ],
+    [
+      "bursty",
+      "uniform_work",
+      307
+    ],
+    [
+      "bursty",
+      "uniform_work",
+      419
+    ],
+    [
+      "bursty",
+      "oracle_work",
+      419
+    ]
+  ],
+  "phase_seconds": 12,
+  "label_delay": 0.5,
+  "requests": 9600,
+  "slo_ms": 33,
+  "pretrain_epochs": 5,
+  "train_per_task": 2048,
+  "validation_per_task": 256,
+  "replay_memory": 2000,
+  "quality_probe_interval": 4,
+  "horizon_seconds": 48,
+  "predictor_horizon_seconds": 1,
+  "cost_history": 16,
+  "warmup_rounds": 5,
+  "queue_service": "FIFO for all policies",
+  "rate": 10,
+  "stage_updates": 114,
+  "objective": "expected timely correct count; same cumulative work release"
+}

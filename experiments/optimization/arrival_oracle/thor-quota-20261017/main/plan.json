@@ -1,0 +1,261 @@
+{
+  "phase": "quota",
+  "cells": [
+    [
+      "bursty_r56",
+      "warm_r4",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_uniform",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_reactive",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_phase",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_oracle",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_planned",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q9_uniform",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q9_reactive",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q9_phase",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q9_oracle",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q9_planned",
+      211
+    ],
+    [
+      "bursty_r56",
+      "warm_phase",
+      211
+    ],
+    [
+      "bursty_r56",
+      "q8_phase",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q8_oracle",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q8_planned",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_uniform",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_reactive",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_phase",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_oracle",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_planned",
+      307
+    ],
+    [
+      "bursty_r56",
+      "warm_phase",
+      307
+    ],
+    [
+      "bursty_r56",
+      "warm_r4",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q8_uniform",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q8_reactive",
+      307
+    ],
+    [
+      "bursty_r56",
+      "q9_uniform",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q9_reactive",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q9_phase",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q9_oracle",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q9_planned",
+      419
+    ],
+    [
+      "bursty_r56",
+      "warm_phase",
+      419
+    ],
+    [
+      "bursty_r56",
+      "warm_r4",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q8_uniform",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q8_reactive",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q8_phase",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q8_oracle",
+      419
+    ],
+    [
+      "bursty_r56",
+      "q8_planned",
+      419
+    ]
+  ],
+  "cases": {
+    "bursty_r56": {
+      "model": "resnet56",
+      "epochs": 1,
+      "pattern": "bursty",
+      "slo": 33
+    }
+  },
+  "modes": {
+    "warm_r4": [
+      "immediate",
+      0,
+      0
+    ],
+    "q8_uniform": [
+      "uniform",
+      0,
+      8
+    ],
+    "q8_reactive": [
+      "reactive",
+      0,
+      8
+    ],
+    "q8_phase": [
+      "phase",
+      0,
+      8
+    ],
+    "q8_oracle": [
+      "oracle",
+      0,
+      8
+    ],
+    "q8_planned": [
+      "planned",
+      0,
+      8
+    ],
+    "q9_uniform": [
+      "uniform",
+      0,
+      9
+    ],
+    "q9_reactive": [
+      "reactive",
+      0,
+      9
+    ],
+    "q9_phase": [
+      "phase",
+      0,
+      9
+    ],
+    "q9_oracle": [
+      "oracle",
+      0,
+      9
+    ],
+    "q9_planned": [
+      "planned",
+      0,
+      9
+    ],
+    "warm_phase": [
+      "phase",
+      0,
+      0
+    ]
+  },
+  "requests": 6000,
+  "duration": 30,
+  "warmup_updates": 100,
+  "quota_window_seconds": 1,
+  "train_bound": "1.1 * rolling p90 of last 64 completed compute segments",
+  "infer_bound": "unchanged R4 online cost bound"
+}

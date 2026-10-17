@@ -20,7 +20,7 @@ bash environment/run.sh main.py --help
 bash environment/run.sh -m unittest discover -s tests -v
 ```
 
-`check.py` 检查依赖、三个历史入口导入、真实 GPU Replay 训练，以及 R4 FIFO 的结构证书、合作式准备和 `r4_full_eval` 完整快照评估路径。使用小规模合成 CIFAR10 数据，核对最终模型哈希一致，并检查完整评估轮次与样本量；不下载基准数据集、不执行论文性能矩阵。
+`check.py` 检查依赖、三个历史入口导入、真实 GPU Replay 训练，以及 R4 FIFO 的结构证书、合作式准备、训练配额下的均匀／反应式／周期／未来到达／整窗规划控制和 `r4_full_eval` 完整快照评估路径。共12种GPU执行配置，使用小规模合成 CIFAR10 数据，核对最终模型哈希一致，并检查完整评估轮次与样本量；不下载基准数据集、不执行论文性能矩阵。
 
 ## 重建
 

@@ -1,0 +1,2 @@
+case,seed,mode,baseline,wall_change_pct,miss_delta_pp,p95_change_pct,p99_change_pct,correct_delta_pp,online_delta_pp,deadline_rescued,new_deadline_misses,timing_component_pp,prediction_component_pp,updates_by_stream_end_delta,idle_delta_sec
+bursty_r56,19,oracle100,r4,11.417869669758351,-7.55,-57.15731753130828,-36.94008412160399,-0.4500000000000004,-2.183333333333332,494,41,1.7333333333333312,-2.183333333333332,-125.0,5.7697076659533195

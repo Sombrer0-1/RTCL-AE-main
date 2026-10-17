@@ -1,0 +1,25 @@
+{
+  "seeds": [
+    211,
+    307,
+    419
+  ],
+  "rates": [
+    0,
+    8,
+    9,
+    10
+  ],
+  "policies": [
+    "immediate",
+    "uniform",
+    "reactive",
+    "phase",
+    "oracle"
+  ],
+  "warmup_updates": 100,
+  "input": "/home/zhuzetong/research/cl/RTCL-AE-main/output/thor-arrival-oracle-20261017/main",
+  "python": "3.11.16",
+  "numpy": "2.4.6",
+  "semantics": "deterministic timing replay; no accuracy estimates or new GPU timings"
+}

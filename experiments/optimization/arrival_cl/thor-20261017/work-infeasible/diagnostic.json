@@ -1,0 +1,4 @@
+{
+  "status": "diagnostic; excluded from repaired-stage means",
+  "reason": "Nominal per-update deadlines were already expired when the FIFO burst drained: seed211 44/48 windows fell back. Reference deadlines must start from the current state. Uniform phase-end guard also leaves 114 of 115 nominal steps; common fixed stage work set to 114."
+}

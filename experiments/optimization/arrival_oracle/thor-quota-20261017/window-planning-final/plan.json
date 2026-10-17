@@ -1,0 +1,16 @@
+{
+  "seeds": [
+    211,
+    307,
+    419
+  ],
+  "quotas": [
+    8,
+    9
+  ],
+  "resolution_ms": 2,
+  "input": "/home/zhuzetong/research/cl/RTCL-AE-main/output/thor-arrival-quota-20261017/simulation-final",
+  "cost_information": "identical known constants for every controller",
+  "objective": "min misses, then earlier training completion, then response latency",
+  "semantics": "timing-only model; no predicted accuracy"
+}

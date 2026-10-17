@@ -52,15 +52,23 @@ def smoke():
     # Deliberate synthetic host work ensures preparation service points execute.
     train, test = dataset(256, preparation_delay=.001), dataset(64)
     results = []
-    for mode, preparation in [
-            ("baseline", "baseline"), ("stream_fifo", "certified"),
-            ("stream_fifo", "cooperative"), ("r4_full_eval", "cooperative")]:
+    for mode, preparation, start_policy, quota in [
+            ("baseline", "baseline", "immediate", 0), ("stream_fifo", "certified", "immediate", 0),
+            ("stream_fifo", "cooperative", "immediate", 0), ("r4_full_eval", "cooperative", "immediate", 0),
+            ("stream_fifo", "cooperative", "reactive", 0), ("stream_fifo", "cooperative", "oracle", 0),
+            ("stream_fifo", "cooperative", "immediate", 10), ("stream_fifo", "cooperative", "reactive", 10),
+            ("stream_fifo", "cooperative", "phase", 10), ("stream_fifo", "cooperative", "oracle", 10),
+            ("stream_fifo", "cooperative", "planned", 10), ("stream_fifo", "cooperative", "uniform", 10)]:
         seed_worker(7)
         args = SimpleNamespace(model="resnet20", global_scheduler_mode=mode,
                                host_preparation=preparation, seed=7, stream_requests=64,
                                stream_duration=.3, stream_slo_ms=100, stream_pattern="steady",
                                eval_bs=8,
+                               stream_start_policy=start_policy, stream_start_max_wait_ms=100,
+                               stream_train_quota=quota,
                                semseg=False, debug=False, eval_cycles=3, record_eval_batches=True)
+        if start_policy == 'phase':
+            args.stream_pattern = 'bursty'
         benchmark = nc_benchmark(train, test, n_experiences=2, task_labels=False,
                                  shuffle=False, fixed_class_order=[0, 1])
         model = initialize_model(args, "split_cifar10")
@@ -109,6 +117,8 @@ def smoke():
             digest.update(name.encode())
             digest.update(tensor.detach().cpu().contiguous().numpy().tobytes())
         results.append({"mode": mode, "host_preparation": preparation,
+                        "stream_start_policy": start_policy,
+                        "stream_train_quota": quota,
                         "model_hash": digest.hexdigest(),
                         "train_updates": strategy.clock.train_iterations,
                         "requests": len(plugin.records) if plugin and mode != 'r4_full_eval' else 0,

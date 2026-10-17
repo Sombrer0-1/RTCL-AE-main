@@ -1,0 +1,131 @@
+{
+  "phase": "main",
+  "cells": [
+    [
+      "steady_r20",
+      "r4",
+      211
+    ],
+    [
+      "steady_r20",
+      "oracle100",
+      211
+    ],
+    [
+      "steady_r20",
+      "oracle100",
+      307
+    ],
+    [
+      "steady_r20",
+      "r4",
+      307
+    ],
+    [
+      "steady_r20",
+      "r4",
+      419
+    ],
+    [
+      "steady_r20",
+      "oracle100",
+      419
+    ],
+    [
+      "bursty_r56",
+      "reactive100",
+      211
+    ],
+    [
+      "bursty_r56",
+      "oracle100",
+      211
+    ],
+    [
+      "bursty_r56",
+      "oracle_unlimited",
+      211
+    ],
+    [
+      "bursty_r56",
+      "r4",
+      211
+    ],
+    [
+      "bursty_r56",
+      "oracle100",
+      307
+    ],
+    [
+      "bursty_r56",
+      "oracle_unlimited",
+      307
+    ],
+    [
+      "bursty_r56",
+      "r4",
+      307
+    ],
+    [
+      "bursty_r56",
+      "reactive100",
+      307
+    ],
+    [
+      "bursty_r56",
+      "oracle_unlimited",
+      419
+    ],
+    [
+      "bursty_r56",
+      "r4",
+      419
+    ],
+    [
+      "bursty_r56",
+      "reactive100",
+      419
+    ],
+    [
+      "bursty_r56",
+      "oracle100",
+      419
+    ]
+  ],
+  "cases": {
+    "steady_r20": {
+      "model": "resnet20",
+      "epochs": 2,
+      "pattern": "steady",
+      "slo": 100
+    },
+    "bursty_r56": {
+      "model": "resnet56",
+      "epochs": 1,
+      "pattern": "bursty",
+      "slo": 33
+    }
+  },
+  "modes": {
+    "r4": [
+      "immediate",
+      100
+    ],
+    "reactive100": [
+      "reactive",
+      100
+    ],
+    "oracle100": [
+      "oracle",
+      100
+    ],
+    "oracle_unlimited": [
+      "oracle",
+      0
+    ]
+  },
+  "requests": 6000,
+  "duration": 30,
+  "train_bound": "1.1 * rolling p90 of last 64 completed compute segments",
+  "infer_bound": "unchanged R4 online cost bound"
+}

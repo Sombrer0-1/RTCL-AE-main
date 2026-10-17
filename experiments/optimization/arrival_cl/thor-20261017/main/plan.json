@@ -1,0 +1,124 @@
+{
+  "phase": "main",
+  "cells": [
+    [
+      "bursty",
+      "r4",
+      211
+    ],
+    [
+      "bursty",
+      "phase",
+      211
+    ],
+    [
+      "bursty",
+      "oracle_latency",
+      211
+    ],
+    [
+      "bursty",
+      "causal_quality",
+      211
+    ],
+    [
+      "bursty",
+      "oracle_quality",
+      211
+    ],
+    [
+      "steady",
+      "r4",
+      211
+    ],
+    [
+      "steady",
+      "oracle_quality",
+      211
+    ],
+    [
+      "bursty",
+      "phase",
+      307
+    ],
+    [
+      "bursty",
+      "oracle_latency",
+      307
+    ],
+    [
+      "bursty",
+      "causal_quality",
+      307
+    ],
+    [
+      "bursty",
+      "oracle_quality",
+      307
+    ],
+    [
+      "bursty",
+      "r4",
+      307
+    ],
+    [
+      "steady",
+      "r4",
+      307
+    ],
+    [
+      "steady",
+      "oracle_quality",
+      307
+    ],
+    [
+      "bursty",
+      "oracle_latency",
+      419
+    ],
+    [
+      "bursty",
+      "causal_quality",
+      419
+    ],
+    [
+      "bursty",
+      "oracle_quality",
+      419
+    ],
+    [
+      "bursty",
+      "r4",
+      419
+    ],
+    [
+      "bursty",
+      "phase",
+      419
+    ],
+    [
+      "steady",
+      "r4",
+      419
+    ],
+    [
+      "steady",
+      "oracle_quality",
+      419
+    ]
+  ],
+  "phase_seconds": 12,
+  "label_delay": 0.5,
+  "requests": 9600,
+  "slo_ms": 33,
+  "pretrain_epochs": 5,
+  "train_per_task": 2048,
+  "validation_per_task": 256,
+  "replay_memory": 2000,
+  "quality_probe_interval": 4,
+  "horizon_seconds": 48,
+  "predictor_horizon_seconds": 1,
+  "cost_history": 16,
+  "warmup_rounds": 5,
+  "queue_service": "FIFO for all policies"
+}

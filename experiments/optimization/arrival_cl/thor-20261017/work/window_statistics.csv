@@ -1,0 +1,7 @@
+pattern,policy,seed,windows,infeasible_windows,planning_seconds,expanded_states
+bursty,uniform_work,211,0,0,0,0
+bursty,oracle_work,211,48,0,0.05031687699374743,4566
+bursty,oracle_work,307,48,0,0.05265371315181255,4777
+bursty,uniform_work,307,0,0,0,0
+bursty,uniform_work,419,0,0,0,0
+bursty,oracle_work,419,48,0,0.054703221045201644,4900

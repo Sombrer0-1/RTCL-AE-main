@@ -1,0 +1,441 @@
+test_child_failure_reaches_parent (test_boundary_scheduler.BoundaryTests.test_child_failure_reaches_parent) ... ok
+test_rng_and_mixed_module_modes_restored_even_on_failure (test_boundary_scheduler.BoundaryTests.test_rng_and_mixed_module_modes_restored_even_on_failure) ... ok
+test_timeout_cleans_up_worker (test_boundary_scheduler.BoundaryTests.test_timeout_cleans_up_worker) ... ok
+test_budget_fallback_and_interrupted_fill (test_evaluation_cache.CacheTests.test_budget_fallback_and_interrupted_fill) ... ok
+test_rebatch_without_reading_source (test_evaluation_cache.CacheTests.test_rebatch_without_reading_source) ... ok
+test_legacy_results_and_unavailable_gpu_are_rejected (test_experiment_environment.ExperimentEnvironmentTests.test_legacy_results_and_unavailable_gpu_are_rejected) ... ok
+test_physical_gpu_selection_and_cpu_rejection (test_experiment_environment.ExperimentEnvironmentTests.test_physical_gpu_selection_and_cpu_rejection) ... ok
+test_resume_accepts_same_environment_and_rejects_changed_environment (test_experiment_environment.ExperimentEnvironmentTests.test_resume_accepts_same_environment_and_rejects_changed_environment) ... ok
+test_bad_observation (test_freshness_scheduler.FreshnessTests.test_bad_observation) ... ok
+test_cost_smoothing_and_lag_override (test_freshness_scheduler.FreshnessTests.test_cost_smoothing_and_lag_override) ... ok
+test_no_duplicate_and_final_drain (test_freshness_scheduler.FreshnessTests.test_no_duplicate_and_final_drain) ... ok
+test_final_update_arriving_during_eval_is_drained (test_freshness_scheduler.FreshnessTraceTests.test_final_update_arriving_during_eval_is_drained) ... ok
+test_slow_updates_wait_at_most_max_interval_after_completion (test_freshness_scheduler.FreshnessTraceTests.test_slow_updates_wait_at_most_max_interval_after_completion) ... ok
+test_probe_deadband_backoff_and_bounds (test_freshness_scheduler.InferenceBatchTests.test_probe_deadband_backoff_and_bounds) ... ok
+test_fixed_pass_budget_reserves_final_pass_and_drains_all_samples (test_full_eval_scheduler.FullEvaluationTests.test_fixed_pass_budget_reserves_final_pass_and_drains_all_samples) ... [2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.001s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.002s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+[2026-10-17 16:05:01][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.002398967742919922, "batch_p95_ms": 0.9910106658935547, "batch_p99_ms": 1.0263729095458984}
+[2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #2)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+[2026-10-17 16:05:01][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.0011601448059082031, "batch_p95_ms": 0.14603137969970703, "batch_p99_ms": 0.14688968658447266}
+[2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #3)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+[2026-10-17 16:05:01][INFO] [CycleMetrics] {"cycle": 3, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": true, "accuracy": 0.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.0011527538299560547, "batch_p95_ms": 0.15096664428710938, "batch_p99_ms": 0.15245437622070312}
+ok
+test_incremental_evaluation_matches_full_pass_and_restores_grad (test_full_eval_scheduler.FullEvaluationTests.test_incremental_evaluation_matches_full_pass_and_restores_grad) ... [2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.001s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+[2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.002s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+ok
+test_snapshot_stays_fixed_while_training_and_publication_continue (test_full_eval_scheduler.FullEvaluationTests.test_snapshot_stays_fixed_while_training_and_publication_continue) ... [2026-10-17 16:05:01][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:01][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=1.0000, batch_lat=0.000s
+[2026-10-17 16:05:01][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 1.0000 (4/4)
+[2026-10-17 16:05:01][INFO] [Eval] Overall shared_data update: acc=1.0000, latency=0.001s
+[2026-10-17 16:05:01][INFO] 
+==================================================
+[2026-10-17 16:05:01][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-17 16:05:01][INFO] ==================================================
+[2026-10-17 16:05:01][INFO] Overall Streaming Accuracy: 1.0000 (4/4)
+[2026-10-17 16:05:01][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:01][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:01][INFO] --------------------------------------------------
+[2026-10-17 16:05:01][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:01][INFO]   - Experience 0: 1.0000
+[2026-10-17 16:05:01][INFO] ==================================================
+
+[2026-10-17 16:05:01][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": false, "final_snapshot": true, "accuracy": 1.0, "samples": 4, "eval_batch": 2, "cache_bytes": 0, "duration": 0.001255035400390625, "batch_p95_ms": 0.14382600784301758, "batch_p99_ms": 0.14492273330688477}
+ok
+test_batches_and_rng_match_original_across_epochs (test_host_preparation.PreparationTests.test_batches_and_rng_match_original_across_epochs) ... ok
+test_certificate_uses_structure_and_rejects_ffcv_and_unknown (test_host_preparation.PreparationTests.test_certificate_uses_structure_and_rejects_ffcv_and_unknown) ... ok
+test_slack_accepts_certificate_but_not_fifo_service_points (test_host_preparation.PreparationTests.test_slack_accepts_certificate_but_not_fifo_service_points) ... ok
+test_unknown_backend_falls_back (test_host_preparation.PreparationTests.test_unknown_backend_falls_back) ... ok
+test_cuda_publication_keeps_model_on_device_and_snapshot_unchanged (test_model_scheduler.ModelSchedulerTests.test_cuda_publication_keeps_model_on_device_and_snapshot_unchanged) ... ok
+test_reused_buffer_retries_instead_of_returning_mixed_state (test_model_scheduler.ModelSchedulerTests.test_reused_buffer_retries_instead_of_returning_mixed_state) ... ok
+test_snapshot_owns_cpu_storage_and_preserves_compression (test_model_scheduler.ModelSchedulerTests.test_snapshot_owns_cpu_storage_and_preserves_compression) ... ok
+test_stopped_reader_does_not_block_publication (test_model_scheduler.ModelSchedulerTests.test_stopped_reader_does_not_block_publication) ... [ModelScheduler] Model state updated to memory buffer B
+[ModelScheduler] Model state updated to memory buffer B
+[ModelScheduler] Model state updated to memory buffer A
+[ModelScheduler] Model state updated to memory buffer B
+[ModelScheduler] Model state updated to memory buffer B
+[ModelScheduler] Model state updated to memory buffer B
+ok
+test_all_overdue_requests_drain_in_fifo_batches (test_queue_control.QueueTests.test_all_overdue_requests_drain_in_fifo_batches) ... ok
+test_cost_bounds_track_variability_and_reject_invalid_costs (test_queue_control.QueueTests.test_cost_bounds_track_variability_and_reject_invalid_costs) ... ok
+test_goodput_uses_last_response_and_includes_late_requests (test_queue_control.QueueTests.test_goodput_uses_last_response_and_includes_late_requests) ... ok
+test_no_future_information (test_queue_control.QueueTests.test_no_future_information) ... ok
+test_residual_is_bounded_and_does_not_touch_global_rng (test_queue_control.QueueTests.test_residual_is_bounded_and_does_not_touch_global_rng) ... ok
+test_service_debt_accumulates_and_repays (test_queue_control.QueueTests.test_service_debt_accumulates_and_repays) ... ok
+test_trace_is_unique_causal_input_and_reproducible (test_queue_control.QueueTests.test_trace_is_unique_causal_input_and_reproducible) ... ok
+test_urgent_request_blocks_training_even_with_neural_bias (test_queue_control.QueueTests.test_urgent_request_blocks_training_even_with_neural_bias) ... ok
+test_cleanup_reaps_worker_that_stops_again_on_sigterm (test_runtime_failures.RuntimeFailureTests.test_cleanup_reaps_worker_that_stops_again_on_sigterm) ... [ModelScheduler] Model state updated to memory buffer A
+[ModelScheduler] Model state updated to memory buffer B
+ok
+test_config_notifications_do_not_relay_themselves (test_runtime_failures.RuntimeFailureTests.test_config_notifications_do_not_relay_themselves) ... [2026-10-17 16:05:09][INFO] [Scheduler] Starting with mode: fully_parallel, time_slice: 0.1s
+[2026-10-17 16:05:09][INFO] [Scheduler] Running both train & eval continuously
+[2026-10-17 16:05:09][INFO] [Scheduler] Configuration update requested, signaling processes
+[2026-10-17 16:05:09][INFO] [Eval] Configuration update requested
+[Signal] Configuration update requested
+[2026-10-17 16:05:09][INFO] [Scheduler] Training process has terminated
+[2026-10-17 16:05:09][INFO] [Scheduler] Evaluation process has terminated
+[2026-10-17 16:05:09][INFO] [Scheduler] All processes completed
+ok
+test_failed_publication_does_not_advance_version_and_later_publish_recovers (test_runtime_failures.RuntimeFailureTests.test_failed_publication_does_not_advance_version_and_later_publish_recovers) ... /home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/evaluation.py:94: UserWarning: No loggers specified, metrics will not be logged
+  warnings.warn("No loggers specified, metrics will not be logged")
+[2026-10-17 16:05:09][INFO] [TrainWorker] Registered SIGUSR1 handler.
+[2026-10-17 16:05:09][INFO] Training process started.
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 0 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 0 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 0 started
+[2026-10-17 16:05:09][INFO] [Train][MiniBatch][Plugin] acc=0.0, latency=0.002
+[2026-10-17 16:05:09][INFO] Training Experience 0 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.006
+[2026-10-17 16:05:09][INFO] [Train] Model state updated in double-buffer
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 1 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 1 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 1 started
+[2026-10-17 16:05:09][INFO] Training Experience 1 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.004
+[2026-10-17 16:05:09][ERROR] [Train] Error updating double-buffer: injected publication failure
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 2 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 2 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 2 started
+[2026-10-17 16:05:09][INFO] Training Experience 2 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.004
+[2026-10-17 16:05:09][INFO] [Train] Model state updated in double-buffer
+[2026-10-17 16:05:09][INFO] [TrainTiming] {"train_seconds": 0.013635396957397461, "boundary_eval_seconds": 0.0, "train_updates": 6, "worker_seconds": 0.019367036991752684}
+[2026-10-17 16:05:09][INFO] [Train] Training process completed or terminated.
+ok
+test_final_publication_failure_is_reported (test_runtime_failures.RuntimeFailureTests.test_final_publication_failure_is_reported) ... [2026-10-17 16:05:09][INFO] [TrainWorker] Registered SIGUSR1 handler.
+[2026-10-17 16:05:09][INFO] Training process started.
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 0 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 0 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 0 started
+[2026-10-17 16:05:09][INFO] [Train][MiniBatch][Plugin] acc=0.0, latency=0.001
+[2026-10-17 16:05:09][INFO] Training Experience 0 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.004
+[2026-10-17 16:05:09][INFO] [Train] Model state updated in double-buffer
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 1 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 1 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 1 started
+[2026-10-17 16:05:09][INFO] Training Experience 1 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.004
+[2026-10-17 16:05:09][INFO] [Train] Model state updated in double-buffer
+[2026-10-17 16:05:09][INFO] -->> Starting training for Experience 2 <<--
+[2026-10-17 16:05:09][INFO] [Train] DataLoader recreated for Exp 2 (batch size 2)
+[2026-10-17 16:05:09][INFO] Training Experience 2 started
+[2026-10-17 16:05:09][INFO] Training Experience 2 completed
+[2026-10-17 16:05:09][INFO] [Train] shared_data update: acc=None, latency=0.004
+[2026-10-17 16:05:09][ERROR] [Train] Error updating double-buffer: injected publication failure
+[2026-10-17 16:05:09][ERROR] [Train] Error in training process: Failed to publish final model snapshot
+Traceback (most recent call last):
+  File "/home/zhuzetong/research/cl/RTCL-AE-main/src/workers/train_worker.py", line 217, in train_worker
+    scheduler.write_state_dict(cl_strategy.model.state_dict(), model_version=exp_id + 1)
+  File "/home/zhuzetong/miniconda3/envs/rtcl/lib/python3.11/unittest/mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhuzetong/miniconda3/envs/rtcl/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhuzetong/miniconda3/envs/rtcl/lib/python3.11/unittest/mock.py", line 1189, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhuzetong/research/cl/RTCL-AE-main/tests/test_runtime_failures.py", line 101, in publish
+    raise RuntimeError('injected publication failure')
+RuntimeError: injected publication failure
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/zhuzetong/research/cl/RTCL-AE-main/src/workers/train_worker.py", line 223, in train_worker
+    raise RuntimeError('Failed to publish final model snapshot') from e
+RuntimeError: Failed to publish final model snapshot
+[2026-10-17 16:05:09][INFO] [Train] Training process completed or terminated.
+ok
+test_freshness_rechecks_loaded_snapshot_and_reaches_final_version (test_runtime_failures.RuntimeFailureTests.test_freshness_rechecks_loaded_snapshot_and_reaches_final_version) ... [2026-10-17 16:05:09][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-10-17 16:05:09][INFO] [Eval] Model output layer: Linear(in_features=2, out_features=10, bias=True)
+[2026-10-17 16:05:09][INFO] [Eval] Output features: 10
+[2026-10-17 16:05:09][INFO] [Eval] Benchmark: split_cifar10
+[2026-10-17 16:05:09][INFO] [Eval] Test stream length: 1
+[2026-10-17 16:05:09][INFO] Starting evaluation process...
+[2026-10-17 16:05:09][INFO] [Eval] Training complete. Performing final evaluation...
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": false, "accuracy": 0.5, "samples": 4, "eval_batch": 16, "cache_bytes": 0, "duration": 4.839897155761719e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #2. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 3, "final_at_load": true, "final_snapshot": true, "accuracy": 0.5, "samples": 4, "eval_batch": 16, "cache_bytes": 0, "duration": 2.6941299438476562e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Evaluation process completed.
+[2026-10-17 16:05:09][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-10-17 16:05:09][INFO] [Eval] Model output layer: Linear(in_features=2, out_features=10, bias=True)
+[2026-10-17 16:05:09][INFO] [Eval] Output features: 10
+[2026-10-17 16:05:09][INFO] [Eval] Benchmark: split_cifar10
+[2026-10-17 16:05:09][INFO] [Eval] Test stream length: 1
+[2026-10-17 16:05:09][INFO] Starting evaluation process...
+[2026-10-17 16:05:09][INFO] [Eval] Training complete. Performing final evaluation...
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": false, "accuracy": 0.5, "samples": 4, "eval_batch": 16, "cache_bytes": 0, "duration": 4.172325134277344e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #2. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 3, "final_at_load": true, "final_snapshot": true, "accuracy": 0.5, "samples": 4, "eval_batch": 32, "cache_bytes": 0, "duration": 2.5272369384765625e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Evaluation process completed.
+[2026-10-17 16:05:09][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-10-17 16:05:09][INFO] [Eval] Model output layer: Linear(in_features=2, out_features=10, bias=True)
+[2026-10-17 16:05:09][INFO] [Eval] Output features: 10
+[2026-10-17 16:05:09][INFO] [Eval] Benchmark: split_cifar10
+[2026-10-17 16:05:09][INFO] [Eval] Test stream length: 1
+[2026-10-17 16:05:09][INFO] Starting evaluation process...
+[2026-10-17 16:05:09][INFO] [Eval] Training complete. Performing final evaluation...
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": false, "accuracy": 0.5, "samples": 4, "eval_batch": 16, "cache_bytes": 0, "duration": 4.482269287109375e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #2. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 2, "version_lower_bound": 3, "final_at_load": true, "final_snapshot": true, "accuracy": 0.5, "samples": 4, "eval_batch": 32, "cache_bytes": 0, "duration": 2.384185791015625e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Evaluation process completed.
+ok
+test_invalid_file_timeslice_is_rejected (test_runtime_failures.RuntimeFailureTests.test_invalid_file_timeslice_is_rejected) ... ok
+test_main_propagates_reported_or_exited_worker_failure (test_runtime_failures.RuntimeFailureTests.test_main_propagates_reported_or_exited_worker_failure) ... [2026-10-17 16:05:09][INFO] Using device: cpu
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 16 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-10-17 16:05:09][ERROR] Unexpected error: Worker failure: FailedWorker, FailedWorker, FailedWorker
+Traceback (most recent call last):
+  File "/home/zhuzetong/research/cl/RTCL-AE-main/main.py", line 327, in main
+    raise RuntimeError(f'Worker failure: {", ".join(failed) or "compute worker"}')
+RuntimeError: Worker failure: FailedWorker, FailedWorker, FailedWorker
+[2026-10-17 16:05:09][INFO] Using device: cpu
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 16 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-10-17 16:05:09][ERROR] Unexpected error: Worker failure: compute worker
+Traceback (most recent call last):
+  File "/home/zhuzetong/research/cl/RTCL-AE-main/main.py", line 327, in main
+    raise RuntimeError(f'Worker failure: {", ".join(failed) or "compute worker"}')
+RuntimeError: Worker failure: compute worker
+ok
+test_reconfiguration_interval_does_not_replace_timeslice (test_runtime_failures.RuntimeFailureTests.test_reconfiguration_interval_does_not_replace_timeslice) ... [2026-10-17 16:05:09][INFO] [DynamicConfig] Using default batch size sequence
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Dynamic configuration worker started
+[ConfigController] Configuration updated: {'train_batch_size': 32, 'eval_batch_size': 16, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=32, eval_batch=16
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800239632'>, eval=<MagicMock name='safe_kill()' id='281467800239632'>
+[ConfigController] Configuration updated: {'train_batch_size': 64, 'eval_batch_size': 32, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=64, eval_batch=32
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800239632'>, eval=<MagicMock name='safe_kill()' id='281467800239632'>
+[ConfigController] Configuration updated: {'train_batch_size': 128, 'eval_batch_size': 64, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=128, eval_batch=64
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800239632'>, eval=<MagicMock name='safe_kill()' id='281467800239632'>
+[ConfigController] Configuration updated: {'train_batch_size': 256, 'eval_batch_size': 128, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=256, eval_batch=128
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800239632'>, eval=<MagicMock name='safe_kill()' id='281467800239632'>
+[ConfigController] Configuration updated: {'train_batch_size': 512, 'eval_batch_size': 256, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=512, eval_batch=256
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800239632'>, eval=<MagicMock name='safe_kill()' id='281467800239632'>
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration change test completed
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration worker shutting down
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Loaded configuration with 1 batch settings
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Config 1: train_batch=32, eval_batch=8, duration=0s
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Dynamic configuration worker started
+[ConfigController] Configuration updated: {'train_batch_size': 32, 'eval_batch_size': 8, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=32, eval_batch=8
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467803128656'>, eval=<MagicMock name='safe_kill()' id='281467803128656'>
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration change test completed
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration worker shutting down
+[2026-10-17 16:05:09][ERROR] [DynamicConfig] Error loading configuration file: 'timeslice' must be a finite positive number
+[2026-10-17 16:05:09][WARNING] [DynamicConfig] Falling back to default configuration.
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Dynamic configuration worker started
+[ConfigController] Configuration updated: {'train_batch_size': 32, 'eval_batch_size': 16, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=32, eval_batch=16
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800314064'>, eval=<MagicMock name='safe_kill()' id='281467800314064'>
+[ConfigController] Configuration updated: {'train_batch_size': 64, 'eval_batch_size': 32, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=64, eval_batch=32
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800314064'>, eval=<MagicMock name='safe_kill()' id='281467800314064'>
+[ConfigController] Configuration updated: {'train_batch_size': 128, 'eval_batch_size': 64, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=128, eval_batch=64
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800314064'>, eval=<MagicMock name='safe_kill()' id='281467800314064'>
+[ConfigController] Configuration updated: {'train_batch_size': 256, 'eval_batch_size': 128, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=256, eval_batch=128
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800314064'>, eval=<MagicMock name='safe_kill()' id='281467800314064'>
+[ConfigController] Configuration updated: {'train_batch_size': 512, 'eval_batch_size': 256, 'timeslice': 0.125}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=512, eval_batch=256
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467800314064'>, eval=<MagicMock name='safe_kill()' id='281467800314064'>
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration change test completed
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration worker shutting down
+ok
+test_aocl_cli_reaches_existing_controls_and_preserves_batch64 (test_runtime_wiring.RuntimeWiringTests.test_aocl_cli_reaches_existing_controls_and_preserves_batch64) ... [2026-10-17 16:05:09][INFO] Using device: cuda:0
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 64 for AdaptOCL scheduler.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-10-17 16:05:09][INFO] All processes have completed. Program exiting.
+[2026-10-17 16:05:09][INFO] Using device: cuda:0
+[2026-10-17 16:05:09][INFO] [INFO] Setting initial training batch size to 64 for AdaptOCL scheduler.
+[ConfigController] Configuration updated: {'train_batch_size': 64, 'eval_batch_size': 16, 'timeslice': 1.0}
+[2026-10-17 16:05:09][INFO] Dynamic configuration worker started.
+[2026-10-17 16:05:09][INFO] Batch size change analysis running...
+[2026-10-17 16:05:09][INFO] All processes have completed. Program exiting.
+[2026-10-17 16:05:09][INFO] Using device: cuda:0
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.train_batch_size to 64 for AdaptOCL scheduler.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.timeslice to 1.0 from args.
+[2026-10-17 16:05:09][INFO] [INFO] Dynamic Reconfiguration is OFF. Setting initial shared_data.eval_batch_size to 16 from args.
+[2026-10-17 16:05:09][INFO] All processes have completed. Program exiting.
+ok
+test_config_file_timeslice_is_applied (test_runtime_wiring.RuntimeWiringTests.test_config_file_timeslice_is_applied) ... [2026-10-17 16:05:09][INFO] [DynamicConfig] Loaded configuration with 1 batch settings
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Config 1: train_batch=32, eval_batch=8, duration=0s
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Dynamic configuration worker started
+[ConfigController] Configuration updated: {'train_batch_size': 32, 'eval_batch_size': 8, 'timeslice': 0.07}
+[2026-10-17 16:05:09][INFO] [DynamicConfig] New configuration ready: train_batch=32, eval_batch=8
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Sending signal to: train_pid=1, eval_pid=2
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Signal sending result: train=<MagicMock name='safe_kill()' id='281467805742800'>, eval=<MagicMock name='safe_kill()' id='281467805742800'>
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration change test completed
+[2026-10-17 16:05:09][INFO] [DynamicConfig] Configuration worker shutting down
+ok
+test_dynamic_updates_reach_workers_without_reverting_scheduler_changes (test_runtime_wiring.RuntimeWiringTests.test_dynamic_updates_reach_workers_without_reverting_scheduler_changes) ... ok
+test_ekya_options_and_dynamic_config_file_are_forwarded (test_runtime_wiring.RuntimeWiringTests.test_ekya_options_and_dynamic_config_file_are_forwarded) ... [ConfigController] Configuration updated: {'train_batch_size': 64, 'eval_batch_size': 32, 'timeslice': 1.0}
+[ConfigController] Configuration updated: {'train_batch_size': 48, 'eval_batch_size': 32, 'timeslice': 0.2}
+[2026-10-17 16:05:09][INFO] Using device: cuda:0
+[2026-10-17 16:05:09][INFO] Dynamic configuration worker started.
+[2026-10-17 16:05:09][INFO] Batch size change analysis running...
+[2026-10-17 16:05:09][INFO] All processes have completed. Program exiting.
+ok
+test_eval_worker_applies_dynamic_batch_at_cycle_boundary (test_runtime_wiring.RuntimeWiringTests.test_eval_worker_applies_dynamic_batch_at_cycle_boundary) ... [ConfigController] Configuration updated: {'train_batch_size': 16, 'eval_batch_size': 4, 'timeslice': 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Setting up model for CIFAR10 with 10 classes
+[2026-10-17 16:05:09][INFO] [Eval] Model output layer: Linear(in_features=2, out_features=10, bias=True)
+[2026-10-17 16:05:09][INFO] [Eval] Output features: 10
+[2026-10-17 16:05:09][INFO] [Eval] Benchmark: split_cifar10
+[2026-10-17 16:05:09][INFO] [Eval] Test stream length: 1
+[2026-10-17 16:05:09][INFO] Starting evaluation process...
+[2026-10-17 16:05:09][INFO] [Eval] Training complete. Performing final evaluation...
+[2026-10-17 16:05:09][INFO] [Eval] Starting evaluation cycle #1. Evaluating ALL experiences in the test stream.
+[2026-10-17 16:05:09][INFO] [CycleMetrics] {"cycle": 1, "version_lower_bound": 1, "final_at_load": true, "final_snapshot": true, "accuracy": 1.0, "samples": 4, "eval_batch": 4, "cache_bytes": 0, "duration": 1.5974044799804688e-05, "batch_p95_ms": 1.0, "batch_p99_ms": 1.0}
+[2026-10-17 16:05:09][INFO] [Eval] Evaluation process completed.
+ok
+test_parent_and_worker_share_cifar100_subset_and_resize (test_runtime_wiring.RuntimeWiringTests.test_parent_and_worker_share_cifar100_subset_and_resize) ... ok
+test_recl_receives_manager_feedback_and_consumes_it_once (test_runtime_wiring.RuntimeWiringTests.test_recl_receives_manager_feedback_and_consumes_it_once) ... [2026-10-17 16:05:09][INFO] [Eval] Processing Exp 0 from start (batch size 2)
+[2026-10-17 16:05:09][INFO] [Eval][Exp 0][MiniBatch 0] acc_so_far=0.0000, batch_lat=0.000s
+[2026-10-17 16:05:09][INFO] [Eval] Experience 0 evaluation complete: Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:09][INFO] [Eval][RECL_SCHED] Reported latency for PID 1104474: 1.82 ms
+[2026-10-17 16:05:09][INFO] [Eval] Overall shared_data update: acc=0.0000, latency=0.002s
+[2026-10-17 16:05:09][INFO] 
+==================================================
+[2026-10-17 16:05:09][INFO]            BENCHMARK PROGRESS REPORT (Cycle #1)           
+[2026-10-17 16:05:09][INFO] ==================================================
+[2026-10-17 16:05:09][INFO] Overall Streaming Accuracy: 0.0000 (0/4)
+[2026-10-17 16:05:09][INFO] Overall Evaluation Latency: 0.00s
+[2026-10-17 16:05:09][INFO] Total Samples in this cycle: 4
+[2026-10-17 16:05:09][INFO] --------------------------------------------------
+[2026-10-17 16:05:09][INFO] Experience Accuracies for this cycle:
+[2026-10-17 16:05:09][INFO]   - Experience 0: 0.0000
+[2026-10-17 16:05:09][INFO] ==================================================
+
+[2026-10-17 16:05:09][INFO] [RECL_SCHED] Initialized: µ-window=1.000s, eval_weight=0.40, alpha=0.10, SLO=0ms
+[2026-10-17 16:05:09][INFO] [RECL_SCHED] SLO Miss Ratio: 1.00. Eval weight adapted from 0.40 to 0.50
+ok
+test_replay_has_one_buffer_and_naive_executes_supplied_callbacks (test_runtime_wiring.RuntimeWiringTests.test_replay_has_one_buffer_and_naive_executes_supplied_callbacks) ... /home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+/home/zhuzetong/research/cl/RTCL-AE-main/.deps/avalanche/avalanche/training/plugins/replay.py:123: DeprecationWarning: Call to deprecated function update (removal in version 0.7: switch to pre_adapt and post_adapt)
+  self.storage_policy.update(strategy, **kwargs)
+ok
+test_signal_handlers_update_the_state_read_by_main (test_runtime_wiring.RuntimeWiringTests.test_signal_handlers_update_the_state_read_by_main) ... ok
+test_timeline_uses_updated_timeslice (test_runtime_wiring.RuntimeWiringTests.test_timeline_uses_updated_timeslice) ... 
+[Main] Termination signal received. Gracefully shutting down...
+[Signal] Configuration update requested
+[2026-10-17 16:05:10][INFO] [Scheduler] Starting with mode: fully_parallel, time_slice: 1.0s
+[2026-10-17 16:05:10][INFO] [Scheduler] Running both train & eval continuously
+[2026-10-17 16:05:10][INFO] [Scheduler] Training process has terminated
+[2026-10-17 16:05:10][INFO] [Scheduler] Evaluation process has terminated
+[2026-10-17 16:05:10][INFO] [Scheduler] All processes completed
+ok
+test_unimplemented_controls_fail_explicitly (test_runtime_wiring.RuntimeWiringTests.test_unimplemented_controls_fail_explicitly) ... ok
+test_arrivals_during_inference_are_admitted (test_train_start.TrainStartTests.test_arrivals_during_inference_are_admitted) ... ok
+test_burst_queue_includes_subsequent_batches (test_train_start.TrainStartTests.test_burst_queue_includes_subsequent_batches) ... ok
+test_oracle_waits_only_when_training_adds_misses (test_train_start.TrainStartTests.test_oracle_waits_only_when_training_adds_misses) ... ok
+test_parser_requires_explicit_supported_experiment_path (test_train_start.TrainStartTests.test_parser_requires_explicit_supported_experiment_path) ... ok
+test_phase_control_anticipates_burst_without_exact_arrivals (test_train_start.TrainStartTests.test_phase_control_anticipates_burst_without_exact_arrivals) ... ok
+test_quota_releases_same_work_and_carries_late_updates (test_train_start.TrainStartTests.test_quota_releases_same_work_and_carries_late_updates) ... ok
+test_reactive_and_immediate_do_not_read_future (test_train_start.TrainStartTests.test_reactive_and_immediate_do_not_read_future) ... ok
+test_recent_planner_changes_only_its_point_estimate_history (test_train_start.TrainStartTests.test_recent_planner_changes_only_its_point_estimate_history) ... ok
+test_timing_simulation_preserves_quotas_and_never_invents_accuracy (test_train_start.TrainStartTests.test_timing_simulation_preserves_quotas_and_never_invents_accuracy) ... ok
+test_uniform_pacing_needs_only_work_progress_and_clock (test_train_start.TrainStartTests.test_uniform_pacing_needs_only_work_progress_and_clock) ... ok
+test_vulnerable_window_is_shorter_than_compute (test_train_start.TrainStartTests.test_vulnerable_window_is_shorter_than_compute) ... ok
+test_wait_budget_preserves_progress_and_unlimited_drains_finite_trace (test_train_start.TrainStartTests.test_wait_budget_preserves_progress_and_unlimited_drains_finite_trace) ... ok
+test_window_planner_moves_equal_training_work_and_replay_matches (test_train_start.TrainStartTests.test_window_planner_moves_equal_training_work_and_replay_matches) ... ok
+
+----------------------------------------------------------------------
+Ran 65 tests in 8.637s
+
+OK

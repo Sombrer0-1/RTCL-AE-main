@@ -288,6 +288,13 @@ def parse_arguments():
     parser.add_argument("--stream_duration", type=float, default=30.0)
     parser.add_argument("--stream_slo_ms", type=float, default=100.0)
     parser.add_argument("--stream_pattern", choices=["steady", "bursty"], default="steady")
+    parser.add_argument("--stream_start_policy", choices=["immediate", "uniform", "reactive", "phase", "oracle", "planned"],
+                        default="immediate", help="Training-start experiment; oracle and planned read future arrival times.")
+    parser.add_argument("--stream_start_max_wait_ms", type=float, default=100.0,
+                        help="Intentional idle budget per update; 0 means unlimited.")
+    parser.add_argument("--stream_train_quota", type=int, default=0,
+                        help="Common update quota per 1 s request window; 0 disables pacing.")
+    parser.add_argument("--stream_warmup_updates", type=int, default=20)
     parser.add_argument("--eval_cache_mb", type=int, default=128)
     parser.add_argument("--record_model_hash", action="store_true")
     parser.add_argument("--record_eval_batches", action="store_true")
@@ -297,6 +304,17 @@ def parse_arguments():
 
     # Parse arguments
     args = parser.parse_args()
+    if args.stream_start_max_wait_ms < 0:
+        parser.error('--stream_start_max_wait_ms must be nonnegative')
+    if args.stream_train_quota < 0 or args.stream_warmup_updates < 0:
+        parser.error('stream quota and warmup updates must be nonnegative')
+    if (args.stream_start_policy != 'immediate' or args.stream_train_quota) and (args.global_scheduler_mode != 'stream_fifo'
+            or args.host_preparation != 'cooperative'):
+        parser.error('--stream_start_policy requires stream_fifo with cooperative host preparation')
+    if args.stream_start_policy == 'phase' and args.stream_pattern != 'bursty':
+        parser.error('phase information control requires the periodic bursty trace')
+    if args.stream_start_policy in ('planned', 'uniform') and not args.stream_train_quota:
+        parser.error('window planning and uniform pacing require a positive stream training quota')
     if args.switch_penalty is not None:
         parser.error('--switch_penalty is not implemented by the current scheduler')
     if args.ekya_profiling_interval is not None:
